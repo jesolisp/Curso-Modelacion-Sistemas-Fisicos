@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -465,8 +465,8 @@ document.write(`
 <section id="concepto-de-observabilidad">
 <h2>Concepto de observabilidad<a class="headerlink" href="#concepto-de-observabilidad" title="Link to this heading">#</a></h2>
 <p>Considere un sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e574ae3-0d35-49dc-b66d-cf3a3ea291d9">
-<span class="eqno">(153)<a class="headerlink" href="#equation-0e574ae3-0d35-49dc-b66d-cf3a3ea291d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fcb16c8a-153d-4d64-9a3b-5447b24a5249">
+<span class="eqno">(76)<a class="headerlink" href="#equation-fcb16c8a-153d-4d64-9a3b-5447b24a5249" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:ree}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
@@ -477,8 +477,8 @@ document.write(`
 <p>Supongamos que queremos estimar el estado de un sistema dinámico a partir de sus entradas y salidas. Para ello, considere que tenemos sólo una señal medida <span class="math notranslate nohighlight">\(y\)</span> que pueda ser afectada por ruido <span class="math notranslate nohighlight">\(n\)</span>. Aquí, denotamos <span class="math notranslate nohighlight">\(\hat{x}\)</span> como el estado estimado dado por el observador.</p>
 <p><strong>Definición 1.</strong> <em>Un sistema LTI es <strong>observable</strong> si es posible determinar el estado de un sistema <span class="math notranslate nohighlight">\(x(t)\)</span> a través de las mediciones de <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(u(t)\)</span> sobre el intervalo <span class="math notranslate nohighlight">\([0,t]\)</span>, para cualquier <span class="math notranslate nohighlight">\(t&gt;0\)</span>.</em></p>
 <p>Definimos la matriz <span class="math notranslate nohighlight">\(n\times n\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-43764ba7-e96f-4d8a-b044-b9e9ac1e6e89">
-<span class="eqno">(154)<a class="headerlink" href="#equation-43764ba7-e96f-4d8a-b044-b9e9ac1e6e89" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1fac89f2-04fa-42ff-ad0e-a0ce5002e95f">
+<span class="eqno">(77)<a class="headerlink" href="#equation-1fac89f2-04fa-42ff-ad0e-a0ce5002e95f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  V = \begin{bmatrix}
   C \\
   CA \\
@@ -491,16 +491,16 @@ document.write(`
 <section id="ejemplo-1">
 <h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
 <p>Considere la siguiente función de transferencia</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95fa93d6-49d8-4fde-aa50-c6ab395a7f06">
-<span class="eqno">(155)<a class="headerlink" href="#equation-95fa93d6-49d8-4fde-aa50-c6ab395a7f06" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9708c0db-1eb7-472e-96d4-f0aab7a816c0">
+<span class="eqno">(78)<a class="headerlink" href="#equation-9708c0db-1eb7-472e-96d4-f0aab7a816c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  G(s) = \frac{N(s)}{D(s)} = \frac{2s-1}{s^{2}-1.5s-1} = \frac{2s-1}{(s-2)\left(s+\frac{1}{2}\right)}
 \end{equation}\]</div>
 </section>
 <section id="ejemplo-2">
 <h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
 <p>Considere la siguiente función de transferencia</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e270f2cc-00b7-42f1-92e3-812a33fc89b3">
-<span class="eqno">(156)<a class="headerlink" href="#equation-e270f2cc-00b7-42f1-92e3-812a33fc89b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e8ce7862-72f4-4b04-82cf-b7338fdaf547">
+<span class="eqno">(79)<a class="headerlink" href="#equation-e8ce7862-72f4-4b04-82cf-b7338fdaf547" title="Permalink to this equation">#</a></span>\[\begin{equation}
  G(s) = \frac{N(s)}{D(s)} = \frac{2s+1}{s^{2}-1.5s-1} = \frac{2s+1}{(s-2)\left(s+\frac{1}{2}\right)}
 \end{equation}\]</div>
 </section>
@@ -509,8 +509,8 @@ document.write(`
 <p>Considere un modelo de dos compartimientos como se muestra en la siguiente Figura.</p>
 <p><img alt="Modelo compartimental" src="figures/compartment_model.png" /></p>
 <p>Asuma que la concentración del primer compartimiento puede ser medido y que el sistema está descrito por el siguiente sistema lineal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff6b63e2-590f-4372-af0e-569f0a471176">
-<span class="eqno">(157)<a class="headerlink" href="#equation-ff6b63e2-590f-4372-af0e-569f0a471176" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dcebb1a4-9965-4a8f-add4-b0f0a7541ba6">
+<span class="eqno">(80)<a class="headerlink" href="#equation-dcebb1a4-9965-4a8f-add4-b0f0a7541ba6" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{c} &amp;= \begin{bmatrix}
    -k_{0}-k_{1} &amp; k_{1} \\
@@ -533,8 +533,8 @@ document.write(`
 <section id="formas-canonicas-de-observabilidad">
 <h2>Formas canónicas de observabilidad<a class="headerlink" href="#formas-canonicas-de-observabilidad" title="Link to this heading">#</a></h2>
 <p>Un sistema SISO, está en la forma canónica observable si sus dinámicas están dadas como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d253e8b9-b0f1-4b93-bbab-9b8bcac325c8">
-<span class="eqno">(158)<a class="headerlink" href="#equation-d253e8b9-b0f1-4b93-bbab-9b8bcac325c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb22cee2-9349-41a2-83d8-4bf856a6650f">
+<span class="eqno">(81)<a class="headerlink" href="#equation-fb22cee2-9349-41a2-83d8-4bf856a6650f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z} &amp;= 
   \begin{bmatrix}
@@ -563,8 +563,8 @@ document.write(`
 <section id="estimacion-de-estados">
 <h2>Estimación de estados<a class="headerlink" href="#estimacion-de-estados" title="Link to this heading">#</a></h2>
 <p>Considere el siguiente sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e27f8923-8bf9-4abf-837e-311cef5a9e06">
-<span class="eqno">(159)<a class="headerlink" href="#equation-e27f8923-8bf9-4abf-837e-311cef5a9e06" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-463496c6-6122-495a-9507-10a279263942">
+<span class="eqno">(82)<a class="headerlink" href="#equation-463496c6-6122-495a-9507-10a279263942" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:ree_2}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
@@ -572,25 +572,25 @@ document.write(`
  \end{aligned}
 \end{equation}\]</div>
 <p>Una estimación de los estados del sistema se puede obtener simulando las ecuaciones \eqref{eqn:ree_2} dada una entrada adecuada. Por lo tanto, el estimador de estados está dado por la siguiente expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2dffe112-dd09-4c1d-ac96-98afc4a8808e">
-<span class="eqno">(160)<a class="headerlink" href="#equation-2dffe112-dd09-4c1d-ac96-98afc4a8808e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8990ad59-a2f8-42ec-8fe3-ffed922cfbdb">
+<span class="eqno">(83)<a class="headerlink" href="#equation-8990ad59-a2f8-42ec-8fe3-ffed922cfbdb" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\hat{x}} = A\hat{x} + Bu.
 \end{equation}\]</div>
 <p>Para determinar las propiedades de esta estimación, es necesario definir el error de estimación <span class="math notranslate nohighlight">\(\tilde{x} := x - \hat{x}\)</span>, de modo que el sistema se reescribe como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eac0facb-ab9b-4f0e-8ba6-9d825fb66baa">
-<span class="eqno">(161)<a class="headerlink" href="#equation-eac0facb-ab9b-4f0e-8ba6-9d825fb66baa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8ff60069-4257-47d0-b437-a01f5373330b">
+<span class="eqno">(84)<a class="headerlink" href="#equation-8ff60069-4257-47d0-b437-a01f5373330b" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\tilde{x}} = A \tilde{x}.
 \end{equation}\]</div>
 <p><strong>Observación.</strong> Si todos los eigenvalores de la matriz <span class="math notranslate nohighlight">\(A\)</span> se encuentran en el semi plano izquierdo, entonces el error <span class="math notranslate nohighlight">\(\tilde{x}\rightarrow 0\)</span>.</p>
 <p>Considere el siguiente observador</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eca714be-0cbc-45d6-abeb-29c45419dfe2">
-<span class="eqno">(162)<a class="headerlink" href="#equation-eca714be-0cbc-45d6-abeb-29c45419dfe2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a687aca2-6134-4f7e-9eb0-412b584e70ea">
+<span class="eqno">(85)<a class="headerlink" href="#equation-a687aca2-6134-4f7e-9eb0-412b584e70ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:observer}
  \dot{\hat{x}} = A\hat{x} + Bu + L(y-C\hat{x}).
 \end{equation}\]</div>
 <p>Podemos observar que la retroalimentación de la salida se logra agregando el término <span class="math notranslate nohighlight">\(L(y-C\hat{x})\)</span> la cual es proporcional a la diferencia entre la salida observada y la salida estimada por el sistema \eqref{eqn:observer}. Por lo tanto</p>
-<div class="amsmath math notranslate nohighlight" id="equation-34f1ba2f-f3db-478c-be9c-37163ae8dd8e">
-<span class="eqno">(163)<a class="headerlink" href="#equation-34f1ba2f-f3db-478c-be9c-37163ae8dd8e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5b3a53d-aeaa-4bff-967e-feec1ee5a235">
+<span class="eqno">(86)<a class="headerlink" href="#equation-f5b3a53d-aeaa-4bff-967e-feec1ee5a235" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\hat{x}} = (A - LC)\hat{x}.
 \end{equation}\]</div>
 <p>Si la matriz <span class="math notranslate nohighlight">\(L\)</span> se escoge de manera que la matriz <span class="math notranslate nohighlight">\(A-LC\)</span> tiene eigenvalores con parte real negativa, entonces el error <span class="math notranslate nohighlight">\(\tilde{x}\rightarrow 0\)</span>.</p>
@@ -598,21 +598,21 @@ document.write(`
 <section id="diseno-de-observador-via-asignacion-de-eigenvalores">
 <h3>Diseño de observador via asignación de eigenvalores<a class="headerlink" href="#diseno-de-observador-via-asignacion-de-eigenvalores" title="Link to this heading">#</a></h3>
 <p><strong>Teorema 1.</strong> <em>Considere el siguiente sistema SISO</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d17b0a75-5a24-4e08-8a0d-bc70eebdc1f2">
-<span class="eqno">(164)<a class="headerlink" href="#equation-d17b0a75-5a24-4e08-8a0d-bc70eebdc1f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-756f1c52-a341-4af0-a135-91185dff6126">
+<span class="eqno">(87)<a class="headerlink" href="#equation-756f1c52-a341-4af0-a135-91185dff6126" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
   y &amp;= Cx.
  \end{aligned}
 \end{equation}\]</div>
 <p><em>Sea <span class="math notranslate nohighlight">\(\lambda(s) = s^{n} + a_{1}s^{n-1} + \cdots + a_{n-1}s + a_{n}\)</span> el polinomio característico para <span class="math notranslate nohighlight">\(A\)</span>. Si el sistema es observable, entonces el sistema dinámico</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d73e9e8-05ed-4385-9da2-d930786bbd25">
-<span class="eqno">(165)<a class="headerlink" href="#equation-7d73e9e8-05ed-4385-9da2-d930786bbd25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-718bce4c-ac6f-464e-94fa-9694968f7dab">
+<span class="eqno">(88)<a class="headerlink" href="#equation-718bce4c-ac6f-464e-94fa-9694968f7dab" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x}),
 \end{equation}\]</div>
 <p><em>es un observador para el sistema, con <span class="math notranslate nohighlight">\(L\)</span> elegida como sigue</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-11ce7c99-9d99-4215-a3ba-1301426b224d">
-<span class="eqno">(166)<a class="headerlink" href="#equation-11ce7c99-9d99-4215-a3ba-1301426b224d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-85cea7db-e81b-49fd-965e-0201b42d986a">
+<span class="eqno">(89)<a class="headerlink" href="#equation-85cea7db-e81b-49fd-965e-0201b42d986a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  L = V^{-1}\tilde{V} \begin{bmatrix}
   p_{1} - a_{1} \\
   p_{2} - a_{2} \\
@@ -621,8 +621,8 @@ document.write(`
  \end{bmatrix},
 \end{equation}\]</div>
 <p><em>donde las matrices <span class="math notranslate nohighlight">\(V\)</span> y <span class="math notranslate nohighlight">\(\tilde{V}\)</span> están dadas por</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-992286c5-2c86-4324-8c62-a0463a7776a7">
-<span class="eqno">(167)<a class="headerlink" href="#equation-992286c5-2c86-4324-8c62-a0463a7776a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb5a2614-a108-4a81-be8a-6ae1e022c32a">
+<span class="eqno">(90)<a class="headerlink" href="#equation-eb5a2614-a108-4a81-be8a-6ae1e022c32a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  V = 
  \begin{bmatrix}
   C \\
@@ -641,16 +641,16 @@ document.write(`
  \end{bmatrix}.
 \end{equation}\]</div>
 <p>*El error del observador <span class="math notranslate nohighlight">\(\tilde{x} = x - \hat{x}\)</span> está dado por una ecuación diferencial que tiene como polinomio característico</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e5fc007-4a00-4959-85f6-adaddaa20d97">
-<span class="eqno">(168)<a class="headerlink" href="#equation-1e5fc007-4a00-4959-85f6-adaddaa20d97" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5ef2e0a-7f3b-4bfc-9739-a08a1d502d1c">
+<span class="eqno">(91)<a class="headerlink" href="#equation-f5ef2e0a-7f3b-4bfc-9739-a08a1d502d1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
  p(s) = s^{n} + p_{1}s^{n-1} + \cdots + p_{n}.
 \end{equation}\]</div>
 <section id="id1">
 <h4>Ejemplo 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <p>Considere un modelo de dos compartimientos como se muestra en la siguiente Figura.</p>
 <p><img alt="Modelo compartimental" src="figures/compartment_model.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-81d2148d-64a2-41a4-a6e5-c395b717ea65">
-<span class="eqno">(169)<a class="headerlink" href="#equation-81d2148d-64a2-41a4-a6e5-c395b717ea65" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04cf8463-93db-4017-bed2-e3a8990390c9">
+<span class="eqno">(92)<a class="headerlink" href="#equation-04cf8463-93db-4017-bed2-e3a8990390c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{c} &amp;= \begin{bmatrix}
    -k_{0}-k_{1} &amp; k_{1} \\
@@ -670,8 +670,8 @@ document.write(`
 <section id="calculo-de-la-ganancia-del-observador">
 <h3>Cálculo de la ganancia del observador<a class="headerlink" href="#calculo-de-la-ganancia-del-observador" title="Link to this heading">#</a></h3>
 <p>Considere el siguiente modelo lineal que representa la dirección de un vehículo, considerando la desviación de trayectoria lateral <span class="math notranslate nohighlight">\(y\)</span> con el ángulo de dirección <span class="math notranslate nohighlight">\(u\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a48fc8f-dd5c-438a-b9d8-70f0b00674d5">
-<span class="eqno">(170)<a class="headerlink" href="#equation-3a48fc8f-dd5c-438a-b9d8-70f0b00674d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0d8f14cf-df69-4ae4-890a-fca6479ce80a">
+<span class="eqno">(93)<a class="headerlink" href="#equation-0d8f14cf-df69-4ae4-890a-fca6479ce80a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x} &amp;= \begin{bmatrix}
    0 &amp; 1 \\
@@ -693,8 +693,8 @@ document.write(`
 <section id="teorema-de-dualidad">
 <h2>Teorema de Dualidad<a class="headerlink" href="#teorema-de-dualidad" title="Link to this heading">#</a></h2>
 <p>Sea el sistema <span class="math notranslate nohighlight">\(\Sigma_{1}\)</span> representado por las siguientes ecuaciones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a37035f3-175c-4c3c-b050-34a030f26f71">
-<span class="eqno">(171)<a class="headerlink" href="#equation-a37035f3-175c-4c3c-b050-34a030f26f71" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e35916ca-daf0-4ffd-8cf3-a764e8a5516c">
+<span class="eqno">(94)<a class="headerlink" href="#equation-e35916ca-daf0-4ffd-8cf3-a764e8a5516c" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \Sigma_{1} := \left\{
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
@@ -703,8 +703,8 @@ document.write(`
  \right.
 \end{equation}\]</div>
 <p>y el sistema dual <span class="math notranslate nohighlight">\(\Sigma_{2}\)</span> definido como</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1eeadf15-1332-4c3c-a279-2ce0cf653d3b">
-<span class="eqno">(172)<a class="headerlink" href="#equation-1eeadf15-1332-4c3c-a279-2ce0cf653d3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9047dd32-2268-4a5d-a9f2-5bcd9a85385a">
+<span class="eqno">(95)<a class="headerlink" href="#equation-9047dd32-2268-4a5d-a9f2-5bcd9a85385a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \Sigma_{2} := \left\{
  \begin{aligned}
   \dot{z} &amp;= A^{*}z + C^{*}v, \\
@@ -720,8 +720,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Condición de controlabilidad</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-0f862432-1403-4a74-bbf7-0b5dcb107138">
-<span class="eqno">(173)<a class="headerlink" href="#equation-0f862432-1403-4a74-bbf7-0b5dcb107138" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6cd5ac0d-2a77-40f4-bc04-dcb7de5f4d0a">
+<span class="eqno">(96)<a class="headerlink" href="#equation-6cd5ac0d-2a77-40f4-bc04-dcb7de5f4d0a" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \text{rank}\left\{
    \begin{bmatrix}
     B &amp; AB &amp; \cdots &amp; A^{n-1}B
@@ -731,8 +731,8 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>Condición de observabilidad</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-6aaaaee9-a3b1-4dd2-9c3c-86455d036303">
-<span class="eqno">(174)<a class="headerlink" href="#equation-6aaaaee9-a3b1-4dd2-9c3c-86455d036303" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f9377c4-6eec-4f39-a5ab-1dff4a46febf">
+<span class="eqno">(97)<a class="headerlink" href="#equation-4f9377c4-6eec-4f39-a5ab-1dff4a46febf" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \text{rank}\left\{
    \begin{bmatrix}
     C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
@@ -743,8 +743,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Condición de controlabilidad</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-c79afb8b-4c51-45d0-9c71-2c2ace953588">
-<span class="eqno">(175)<a class="headerlink" href="#equation-c79afb8b-4c51-45d0-9c71-2c2ace953588" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b17f0d7a-c465-467f-a76d-7ef350deef6a">
+<span class="eqno">(98)<a class="headerlink" href="#equation-b17f0d7a-c465-467f-a76d-7ef350deef6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \text{rank}\left\{
    \begin{bmatrix}
     C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
@@ -754,8 +754,8 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>Condición de observabilidad</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-c7611731-577c-42f2-9fd5-26bca57e9987">
-<span class="eqno">(176)<a class="headerlink" href="#equation-c7611731-577c-42f2-9fd5-26bca57e9987" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eff6db1c-02b7-44fc-a4b9-e59022c6b576">
+<span class="eqno">(99)<a class="headerlink" href="#equation-eff6db1c-02b7-44fc-a4b9-e59022c6b576" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \text{rank}\left\{
    \begin{bmatrix}
     B &amp; AB &amp; \cdots &amp; A^{n-1}B
@@ -768,13 +768,13 @@ document.write(`
 <section id="procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov">
 <h2>Procedimiento para obtener la ganancia del observador via Lyapunov<a class="headerlink" href="#procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov" title="Link to this heading">#</a></h2>
 <p>La ganancia <span class="math notranslate nohighlight">\(L\)</span> del observador de estados \eqref{eqn:observer}, se pude obtener a partir de la siguiente expresión (Coronel-Escamilla et al., 2017)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7eb73d9-2371-44d3-ab6d-3aa107c8d01d">
-<span class="eqno">(177)<a class="headerlink" href="#equation-a7eb73d9-2371-44d3-ab6d-3aa107c8d01d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c82edc7a-e625-4443-97a6-ccef35874ccb">
+<span class="eqno">(100)<a class="headerlink" href="#equation-c82edc7a-e625-4443-97a6-ccef35874ccb" title="Permalink to this equation">#</a></span>\[\begin{equation}
  K = S^{-1}C^{T},
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(S\)</span> es la solución única de la ecuación algebráica de Lyapunov</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a227c2f-c98d-4064-9b2f-2ded2ea7335c">
-<span class="eqno">(178)<a class="headerlink" href="#equation-0a227c2f-c98d-4064-9b2f-2ded2ea7335c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-26f79b2c-4afa-49ed-808d-f0c7e2ea25ab">
+<span class="eqno">(101)<a class="headerlink" href="#equation-26f79b2c-4afa-49ed-808d-f0c7e2ea25ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
  -\lambda S - A^{T}S - SA + C^{T}C = 0,
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\lambda\)</span> denota el parámetro para sintonizar la convergencia del observador \eqref{eqn:observer}.</p>
@@ -783,8 +783,8 @@ document.write(`
 <section id="control-utilizando-estimadores-de-estado">
 <h2>Control utilizando estimadores de estado<a class="headerlink" href="#control-utilizando-estimadores-de-estado" title="Link to this heading">#</a></h2>
 <p>Considere un sistema en representación de espacio de estados de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79d2cc06-31c4-43df-9d5e-0b7bd28b2d0f">
-<span class="eqno">(179)<a class="headerlink" href="#equation-79d2cc06-31c4-43df-9d5e-0b7bd28b2d0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c13a03cb-580f-496e-96f2-a3c64dce04d9">
+<span class="eqno">(102)<a class="headerlink" href="#equation-c13a03cb-580f-496e-96f2-a3c64dce04d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
   y &amp;= Cx.
@@ -792,34 +792,34 @@ document.write(`
 \end{equation}\]</div>
 <p>Este sistema sólo tiene una salida disponible y es necesario diseñar un control por retroalimentación. Para ello, asumimos que el sistema es controlable así como observable y que además, <span class="math notranslate nohighlight">\(u\)</span> e <span class="math notranslate nohighlight">\(y\)</span> son escalares.</p>
 <p>Considerando la siguiente ley de control (retroalimentación), tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-749dff03-3a40-47ad-841e-2995a0b2242c">
-<span class="eqno">(180)<a class="headerlink" href="#equation-749dff03-3a40-47ad-841e-2995a0b2242c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-711df355-4be0-45b2-9afe-7d5511c2090a">
+<span class="eqno">(103)<a class="headerlink" href="#equation-711df355-4be0-45b2-9afe-7d5511c2090a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  u = -Kx + k_{r}r.
 \end{equation}\]</div>
 <p>Bajo la suposición de que todos los estados son medibles, proponemos el diseño de un observador para estimar el estado <span class="math notranslate nohighlight">\(\hat{x}\)</span> a partir de las entradas y las salidas.</p>
 <p>Si todos los estados no están disponibles o bien, no son medibles, entonces proponemos la siguiente ley de control</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f569b78-f377-4a91-a5cc-fde1b71aa927">
-<span class="eqno">(181)<a class="headerlink" href="#equation-6f569b78-f377-4a91-a5cc-fde1b71aa927" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a09ae195-4aac-4be5-9c1c-af3d1567eb1e">
+<span class="eqno">(104)<a class="headerlink" href="#equation-a09ae195-4aac-4be5-9c1c-af3d1567eb1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  u = -K\hat{x}+k_{r}r,
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\hat{x}\)</span> es la salida del observador de estados</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e60174f9-00f0-4cc0-8e5f-b058e91b156a">
-<span class="eqno">(182)<a class="headerlink" href="#equation-e60174f9-00f0-4cc0-8e5f-b058e91b156a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7462fdbd-c70c-477f-b1a7-aae44ede6783">
+<span class="eqno">(105)<a class="headerlink" href="#equation-7462fdbd-c70c-477f-b1a7-aae44ede6783" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x}).
 \end{equation}\]</div>
 <p>Para analizar el sistema en lazo cerrado, definimos la siguiente variable</p>
-<div class="amsmath math notranslate nohighlight" id="equation-382cf16a-54c8-4beb-8aaa-cd2881bcfb79">
-<span class="eqno">(183)<a class="headerlink" href="#equation-382cf16a-54c8-4beb-8aaa-cd2881bcfb79" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98830e41-7c7e-47b2-b6d4-5c8e890840a8">
+<span class="eqno">(106)<a class="headerlink" href="#equation-98830e41-7c7e-47b2-b6d4-5c8e890840a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \tilde{x}:=x-\hat{x},
 \end{equation}\]</div>
 <p>y la reemplazamos en la variable de estado <span class="math notranslate nohighlight">\(\hat{x}\)</span>. Con esto obtenemos la siguiente expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d02cfa7a-886d-4af3-a7ac-b5f3c24bf52a">
-<span class="eqno">(184)<a class="headerlink" href="#equation-d02cfa7a-886d-4af3-a7ac-b5f3c24bf52a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0acbd807-0999-49db-bdb9-70f70bc23bdc">
+<span class="eqno">(107)<a class="headerlink" href="#equation-0acbd807-0999-49db-bdb9-70f70bc23bdc" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{x} = (A-BK)x + BK\tilde{x}+Bk_{r}r,
 \end{equation}\]</div>
 <p>o en representación de espacio de estados como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c624310d-6b7f-4b2b-a058-2c99d0436806">
-<span class="eqno">(185)<a class="headerlink" href="#equation-c624310d-6b7f-4b2b-a058-2c99d0436806" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4265b86b-4833-4fc6-b87e-0c47acf14438">
+<span class="eqno">(108)<a class="headerlink" href="#equation-4265b86b-4833-4fc6-b87e-0c47acf14438" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{bmatrix}
   \dot{x} \\
   \dot{\tilde{x}}
@@ -838,8 +838,8 @@ document.write(`
  \end{bmatrix}r.
 \end{equation}\]</div>
 <p>Por consiguiente, el polinomio característico del sistema está dado por la siguiente ecuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50b04715-399f-457d-92dd-6658662263a3">
-<span class="eqno">(186)<a class="headerlink" href="#equation-50b04715-399f-457d-92dd-6658662263a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54795be5-4d75-4ba4-8c82-f0280865cbef">
+<span class="eqno">(109)<a class="headerlink" href="#equation-54795be5-4d75-4ba4-8c82-f0280865cbef" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \lambda(s) = \text{det}(sI - A + BK)\text{det}(sI - A + LC)
 \end{equation}\]</div>
 </section>

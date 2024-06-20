@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -436,23 +436,20 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-extra">Contenido extra</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-numericos">Métodos numéricos</a><ul class="nav section-nav flex-column">
@@ -524,7 +521,7 @@ document.write(`
 <span class="eqno">(5)<a class="headerlink" href="#equation-eqn-componentes-simp" title="Link to this equation">#</a></span>\[
  -mg\sin(\theta) - m\ddot{x}\cos(\theta) = m \ddot{y}\sin(\theta).
 \]</div>
-<p>Observando el diagrama de la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, tenemos que la posición de la masa está dada por sus componentes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dentro de un plano cartesiano. Así mismo, tenemos que <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(\theta\)</span> están en un sistema de coordenadas polares. Por lo tanto, podemos utilizar la relación que hay entre estos sistemas para establecer las siguientes relaciones</p>
+<p>Observando el diagrama de la <a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html#fig-single-pendulum"><span class="std std-numref">Fig. 8</span></a>, tenemos que la posición de la masa está dada por sus componentes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dentro de un plano cartesiano. Así mismo, tenemos que <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(\theta\)</span> están en un sistema de coordenadas polares. Por lo tanto, podemos utilizar la relación que hay entre estos sistemas para establecer las siguientes relaciones</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ecs-polares">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eqn-ecs-polares" title="Link to this equation">#</a></span>\[
  x = l\sin(\theta), \quad y = -l\cos(\theta).
@@ -562,7 +559,7 @@ document.write(`
 <span class="eqno">(11)<a class="headerlink" href="#equation-eqn-pendulum-wf" title="Link to this equation">#</a></span>\[
  ml\ddot{\theta} = -mg\sin(\theta) - k_{f}l\dot{\theta}.
 \]</div>
-<p>Por lo tanto, la dinámica del péndulo simple con y sin fricción están dadas por ecuaciones diferenciales de segundo orden. Para resolver las Ecs. <a class="reference internal" href="#equation-eqn-pendulum-wof">(10)</a> <a class="reference internal" href="#equation-eqn-pendulum-wf">(11)</a> realizamos un cambio de variable y definimos como variables de estado <span class="math notranslate nohighlight">\(x_{1} = \theta\)</span> y <span class="math notranslate nohighlight">\(x_{1} = \dot{\theta}\)</span>. Por consiguiente, el sistema queda representado como sigue</p>
+<p>Por lo tanto, la dinámica del péndulo simple con y sin fricción están dadas por ecuaciones diferenciales de segundo orden. Para resolver las Ecs. <a class="reference internal" href="#equation-eqn-pendulum-wof">(10)</a> y <a class="reference internal" href="#equation-eqn-pendulum-wf">(11)</a> realizamos un cambio de variable y definimos como variables de estado <span class="math notranslate nohighlight">\(x_{1} = \theta\)</span> y <span class="math notranslate nohighlight">\(x_{1} = \dot{\theta}\)</span>. Por consiguiente, el sistema queda representado como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-single-pendulum-wf">
 <span class="eqno">(12)<a class="headerlink" href="#equation-eqn-single-pendulum-wf" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
@@ -608,17 +605,17 @@ document.write(`
 <p class="admonition-title">Hint</p>
 <p>En este contexto conservativo significa libre de disipación y entradas de fuerzas externas.</p>
 </div>
-<p>El sistema mostrado en la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, sólo posee un grado de libertad denotado como <span class="math notranslate nohighlight">\(\theta\)</span>. Entonces, definimos las siguientes coordenadas generalizadas</p>
+<p>El sistema mostrado en la <a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html#fig-single-pendulum"><span class="std std-numref">Fig. 8</span></a>, sólo posee un grado de libertad denotado como <span class="math notranslate nohighlight">\(\theta\)</span>. Entonces, definimos las siguientes coordenadas generalizadas</p>
 <div class="math notranslate nohighlight">
 \[
  q := \theta, \quad \dot{q} := \dot{\theta}.
 \]</div>
-<p>Además, definimos como fuerza generalizada la variable <span class="math notranslate nohighlight">\(u\)</span>, \emph{i.e.}</p>
+<p>Además, definimos como fuerza generalizada la variable <span class="math notranslate nohighlight">\(u\)</span>, <em>i.e.</em></p>
 <div class="math notranslate nohighlight">
 \[
  \tau_{i} = 0.
 \]</div>
-<p>Ahora bien, podemos representar la Ec. <span class="xref std std-ref">eqn:ecs_polares</span> en forma vectorial como sigue</p>
+<p>Ahora bien, podemos representar la Ec. <a class="reference internal" href="#equation-eqn-ecs-polares">(6)</a> en forma vectorial como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-vector-pm">
 <span class="eqno">(15)<a class="headerlink" href="#equation-eqn-vector-pm" title="Link to this equation">#</a></span>\[\begin{split}
  p_{m} = \begin{bmatrix}
@@ -746,7 +743,7 @@ document.write(`
  v_{C} - E + Ri_{L} + v_{L} = 0.
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(v_{L} = -x_{1} - Rx_{2} + u\)</span>.</p>
-<p>Reescribiendo las ecuaciones del sistema <span class="xref std std-ref">eqn:diode_tunel</span>, tenemos</p>
+<p>Reescribiendo las ecuaciones del sistema <a class="reference internal" href="#equation-eqn-diode-tunel">(22)</a>, tenemos</p>
 <div class="math notranslate nohighlight" id="equation-eqn-diode-tunel-ee">
 <span class="eqno">(23)<a class="headerlink" href="#equation-eqn-diode-tunel-ee" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
@@ -820,7 +817,7 @@ document.write(`
 \[
  \frac{u}{R} + C \dot{u} = i.
 \]</div>
-<p>Considerando el modelo dado en la Ec. <span class="xref std std-ref">eqn:modelo_malla</span> y tomando <span class="math notranslate nohighlight">\(V\)</span> como la carga en el capacitor dividida por la capacitancia <span class="math notranslate nohighlight">\(V := \frac{Q}{C}\)</span> y <span class="math notranslate nohighlight">\(\dot{V}:= \frac{\dot{Q}}{C}\)</span>, sustituyendo tenemos</p>
+<p>Considerando el modelo dado en la Ec. <a class="reference internal" href="#equation-eqn-modelo-malla">(27)</a> y tomando <span class="math notranslate nohighlight">\(V\)</span> como la carga en el capacitor dividida por la capacitancia <span class="math notranslate nohighlight">\(V := \frac{Q}{C}\)</span> y <span class="math notranslate nohighlight">\(\dot{V}:= \frac{\dot{Q}}{C}\)</span>, sustituyendo tenemos</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
  \begin{aligned}
@@ -947,24 +944,21 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 </section>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="contenido-extra">
-<h1>Contenido extra<a class="headerlink" href="#contenido-extra" title="Link to this heading">#</a></h1>
-<section id="indices-de-error">
-<h2>Índices de error<a class="headerlink" href="#indices-de-error" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="indices-de-error">
+<h1>Índices de error<a class="headerlink" href="#indices-de-error" title="Link to this heading">#</a></h1>
 <section id="criterios-integrales">
-<h3>Criterios integrales<a class="headerlink" href="#criterios-integrales" title="Link to this heading">#</a></h3>
+<h2>Criterios integrales<a class="headerlink" href="#criterios-integrales" title="Link to this heading">#</a></h2>
 <section id="integral-del-error-absoluto-iae">
-<h4>Integral del error absoluto (IAE)<a class="headerlink" href="#integral-del-error-absoluto-iae" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-f02b1224-c8b5-4c4f-a5ab-50a22b8c83fa">
-<span class="eqno">(33)<a class="headerlink" href="#equation-f02b1224-c8b5-4c4f-a5ab-50a22b8c83fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Integral del error absoluto (IAE)<a class="headerlink" href="#integral-del-error-absoluto-iae" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{IAE} = \int_{0}^{\infty} | e(t) |\mathrm{d} t,
-\end{equation}\]</div>
+\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1780b5e-15df-47fd-ba4c-2adf26da0014">
-<span class="eqno">(34)<a class="headerlink" href="#equation-a1780b5e-15df-47fd-ba4c-2adf26da0014" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  e(t) = y(t) - \hat{y}(t).
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Fácil aplicación</p></li>
 <li><p>No se pueden optimizar sistemas altamente sub ni altamente sobre amortiguados</p></li>
@@ -976,7 +970,7 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </div>
 </section>
 <section id="integral-del-tiempo-por-el-error-absoluto-itae">
-<h4>Integral del tiempo por el error absoluto (ITAE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-absoluto-itae" title="Link to this heading">#</a></h4>
+<h3>Integral del tiempo por el error absoluto (ITAE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-absoluto-itae" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Los errores tardíos son más castigados</p></li>
 <li><p>Buena selectividad</p></li>
@@ -988,37 +982,45 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </div>
 </section>
 <section id="integral-del-error-cuadratico-ise">
-<h4>Integral del error cuadrático (ISE)<a class="headerlink" href="#integral-del-error-cuadratico-ise" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-851fe9d2-e999-4f34-b9fe-f90ea96194dc">
-<span class="eqno">(35)<a class="headerlink" href="#equation-851fe9d2-e999-4f34-b9fe-f90ea96194dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Integral del error cuadrático (ISE)<a class="headerlink" href="#integral-del-error-cuadratico-ise" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{ISE} = \int_{0}^{\infty} e^{2}(t)\mathrm{d}t.
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Da mayor importancia a los errores grandes</p></li>
 <li><p>No es un criterio muy selectivo</p></li>
 <li><p>Respuesta rápida pero oscilatoria, estabilidad pobre</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ISE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yg</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+</pre></div>
+</div>
 </section>
 <section id="integral-del-tiempo-por-el-error-cuadratico-itse">
-<h4>Integral del tiempo por el error cuadrático (ITSE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-cuadratico-itse" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-c37da80a-fc01-4c72-84b5-2ff2e781b29e">
-<span class="eqno">(36)<a class="headerlink" href="#equation-c37da80a-fc01-4c72-84b5-2ff2e781b29e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Integral del tiempo por el error cuadrático (ITSE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-cuadratico-itse" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{ITSE} = \int_{0}^{\infty} te^{2}(t)\mathrm{d}t.
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Los grandes errores iniciales tienen poco peso pero los que se producen más tarde son fuertemente penados</p></li>
 <li><p>Mejor selectividad con respecto al ISE</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ITSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yg</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="criterios-estadisticos">
-<h3>Criterios estadísticos<a class="headerlink" href="#criterios-estadisticos" title="Link to this heading">#</a></h3>
+<h2>Criterios estadísticos<a class="headerlink" href="#criterios-estadisticos" title="Link to this heading">#</a></h2>
 <section id="mean-square-error">
-<h4>Mean Square Error<a class="headerlink" href="#mean-square-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-a935a6b8-7f31-489d-9cf1-a17423e81eda">
-<span class="eqno">(37)<a class="headerlink" href="#equation-a935a6b8-7f31-489d-9cf1-a17423e81eda" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Mean Square Error<a class="headerlink" href="#mean-square-error" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{MSE} = \frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}.
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>No recomendable para estudiar modelos de predicción</p></li>
 <li><p>No tiene escala original el error porque está elevado al cuadrado</p></li>
@@ -1031,11 +1033,11 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </div>
 </section>
 <section id="root-mean-square-error">
-<h4>Root Mean Square Error<a class="headerlink" href="#root-mean-square-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-f61ab02e-9047-40bc-a930-364fc99b325c">
-<span class="eqno">(38)<a class="headerlink" href="#equation-f61ab02e-9047-40bc-a930-364fc99b325c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Root Mean Square Error<a class="headerlink" href="#root-mean-square-error" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{RMSE} = \sqrt{\frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}}.
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Sensible a valores atípicos</p></li>
 <li><p>No se ajusta a la demanda (¿qué es demanda?)</p></li>
@@ -1047,11 +1049,11 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </div>
 </section>
 <section id="mean-absolute-error">
-<h4>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-3a876402-e759-4fae-bf7f-7c72b62921c2">
-<span class="eqno">(39)<a class="headerlink" href="#equation-3a876402-e759-4fae-bf7f-7c72b62921c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{MAE} = \frac{1}{N} \sum_{k=0}^{N} |e_{k}|.
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Mide la precisión de los datos simulados</p></li>
 <li><p>Se mide en unidades de los datos experimentales</p></li>
@@ -1064,11 +1066,11 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </div>
 </section>
 <section id="mean-absolute-percentage-error">
-<h4>Mean Absolute Percentage Error<a class="headerlink" href="#mean-absolute-percentage-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-777a07ea-4d41-4c5e-8c64-90c65a5093ff">
-<span class="eqno">(40)<a class="headerlink" href="#equation-777a07ea-4d41-4c5e-8c64-90c65a5093ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<h3>Mean Absolute Percentage Error<a class="headerlink" href="#mean-absolute-percentage-error" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
  \text{MAPE} = \frac{100\%}{N} \sum_{k=0}^{N} \frac{e_{k}}{y_{k}}
-\end{equation}\]</div>
+\]</div>
 <ul class="simple">
 <li><p>Mide el error en porcentajes</p></li>
 <li><p>Indicador de desempeño</p></li>
@@ -1084,13 +1086,12 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </ul>
 </section>
 <section id="fit">
-<h4>FIT<a class="headerlink" href="#fit" title="Link to this heading">#</a></h4>
+<h3>FIT<a class="headerlink" href="#fit" title="Link to this heading">#</a></h3>
 <p>Obtiene el porcentaje de variación de salida que es explicado por un modelo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4824669-7bc1-4e6a-80b1-93cba89dd442">
-<span class="eqno">(41)<a class="headerlink" href="#equation-c4824669-7bc1-4e6a-80b1-93cba89dd442" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \text{FIT} = 100\left(1 - \frac{\|y - \hat{y}\|}{\|y - \bar{y}\|}\right)
-\end{equation}\]</div>
-</section>
+\]</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -1099,160 +1100,160 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <section id="metodo-de-euler">
 <h3>Método de Euler<a class="headerlink" href="#metodo-de-euler" title="Link to this heading">#</a></h3>
 <p>Sea <span class="math notranslate nohighlight">\(\phi(x)\)</span> la solución exacta de la ecuación diferencial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-977c98db-1117-4cf3-bf75-f67bafe8875d">
-<span class="eqno">(42)<a class="headerlink" href="#equation-977c98db-1117-4cf3-bf75-f67bafe8875d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{y}(x) = f(x,y),
-\end{equation}\]</div>
+\]</div>
 <p>con condición iniciales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8034d5a7-5ed7-4570-bdce-3eb168f1c3f9">
-<span class="eqno">(43)<a class="headerlink" href="#equation-8034d5a7-5ed7-4570-bdce-3eb168f1c3f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y(x_{0}) = y_{0},
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\phi(x)\)</span> satisface la relación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-019a77ed-587a-416b-a2f6-b77455eae914">
-<span class="eqno">(44)<a class="headerlink" href="#equation-019a77ed-587a-416b-a2f6-b77455eae914" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{\phi}(x) = f(x,\phi(x)),\quad \phi(x_{0}) = y_{0}.
-\end{equation}\]</div>
+\]</div>
 <p>La solución de una ecuación diferencial vía numérica es una solución aproximada del valor de la solución <span class="math notranslate nohighlight">\(\phi(x)\)</span> en un conjunto finito de puntos. Es decir, <span class="math notranslate nohighlight">\(\phi(x_{n}):y_{n}\approx \phi(x_{n})\)</span>.</p>
 <p>Es común elegir los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span> de forma equiespaciada, esto es <span class="math notranslate nohighlight">\(h = x_{n+1} - x_{n}\)</span>. En este caso, <span class="math notranslate nohighlight">\(x_{n} = x_{0} + nh\)</span> donde <span class="math notranslate nohighlight">\(h\)</span> es el tamaño del paso.</p>
 <p>Integramos la relación dada en la ecuación anterior entre <span class="math notranslate nohighlight">\(x_{0}\)</span> y <span class="math notranslate nohighlight">\(x_{1}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c88b242-ae69-44c9-afc6-23def8f47924">
-<span class="eqno">(45)<a class="headerlink" href="#equation-3c88b242-ae69-44c9-afc6-23def8f47924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x = \int_{x_{0}}^{x_{1}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{1}) - \phi(x_{0}),
-\end{equation}\]</div>
+\]</div>
 <p>o bien</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb69f632-2503-4f93-83c7-712aa3cd02cb">
-<span class="eqno">(46)<a class="headerlink" href="#equation-fb69f632-2503-4f93-83c7-712aa3cd02cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{1}) = \phi(x_{0}) + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x.
-\end{equation}\]</div>
+\]</div>
 <p>Recordando que <span class="math notranslate nohighlight">\(\phi(x_{0}) = y_{0}\)</span>, entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f2e383c-7ab9-435b-bbee-d5117778724b">
-<span class="eqno">(47)<a class="headerlink" href="#equation-0f2e383c-7ab9-435b-bbee-d5117778724b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{1}) = y_{0} + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x,
-\end{equation}\]</div>
+\]</div>
 <p>podemos hallar el valor de <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> evaluando la integral anterior.</p>
 <p>El método de Euler estima esta integral mediante la regla del rectángulo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb28d8b6-255e-4047-b190-d12151c27135">
-<span class="eqno">(48)<a class="headerlink" href="#equation-cb28d8b6-255e-4047-b190-d12151c27135" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x \approx f(x_{0},y_{0})(x_{1}-x_{0}).
-\end{equation}\]</div>
+\]</div>
 <p>Es decir, aproxima el área que hay bajo la curva <span class="math notranslate nohighlight">\(f(x,\phi(x))\)</span> entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{0}\)</span> por el área del rectángulo de ancho <span class="math notranslate nohighlight">\((x_{1}-x_{0})\)</span> con altura igual a la ordenada de la curva en su extremo izquierdo <span class="math notranslate nohighlight">\(f(x_{0},y_{0})\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa0fc7d6-506a-4bbb-9d8f-79e60fc5f152">
-<span class="eqno">(49)<a class="headerlink" href="#equation-aa0fc7d6-506a-4bbb-9d8f-79e60fc5f152" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{1}) \approx \phi(x_{0}) + f(x_{0},\phi(x_{0}))h.
-\end{equation}\]</div>
+\]</div>
 <p>Para estimar el valor de <span class="math notranslate nohighlight">\(\phi(x)\)</span> en el siguiente punto <span class="math notranslate nohighlight">\(x_{2}\)</span>, integramos entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span>, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f127a51-5d95-4946-9dbd-01e739ce0f99">
-<span class="eqno">(50)<a class="headerlink" href="#equation-6f127a51-5d95-4946-9dbd-01e739ce0f99" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \int_{x_{1}}^{x_{2}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{2}) - \phi(x_{1}) = \int_{x_{1}}^{x_{2}} f(x, \phi(x))~\mathrm{d}x.
-\end{equation}\]</div>
+\]</div>
 <p>Aproximando la integral mediante la regla del rectángulo se tiene</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d881eae9-3fba-4003-b83c-36f03f98db21">
-<span class="eqno">(51)<a class="headerlink" href="#equation-d881eae9-3fba-4003-b83c-36f03f98db21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{2}) \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}).
-\end{equation}\]</div>
+\]</div>
 <p>Dado que <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> es desconocido, entonces lo aproximamos por <span class="math notranslate nohighlight">\(y_{1}\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d66cbb5a-87ae-45c5-ad60-b2896d338129">
-<span class="eqno">(52)<a class="headerlink" href="#equation-d66cbb5a-87ae-45c5-ad60-b2896d338129" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \phi(x_{2}) &amp; \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}), \\
   \phi(x_{2}) &amp;  \approx y_{1} + f(x_{1},y_{1})(x_{2}-x_{1}),
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>o bien</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37ef2384-fb8c-4671-8237-14628ef19eaa">
-<span class="eqno">(53)<a class="headerlink" href="#equation-37ef2384-fb8c-4671-8237-14628ef19eaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{2}) \approx y_{1} + f(x_{1},y_{1})h.
-\end{equation}\]</div>
+\]</div>
 <p>Estimando <span class="math notranslate nohighlight">\(\phi(x_{2})\)</span> por <span class="math notranslate nohighlight">\(y_{2}\)</span>, entonces cualquier estimación <span class="math notranslate nohighlight">\(y_{n+1}\)</span> de <span class="math notranslate nohighlight">\(\phi(x_{n+1})\)</span> puede hacerse por el método de Euler de acuerdo con la siguiente expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b4bb0df-53dc-4084-9e25-4dbd6a01f385">
-<span class="eqno">(54)<a class="headerlink" href="#equation-6b4bb0df-53dc-4084-9e25-4dbd6a01f385" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \phi(x_{n+1}) \approx y_{n+1} = y_{n} + f(x_{n},y_{n})h
-\end{equation}\]</div>
+\]</div>
 </section>
 <section id="metodo-de-runge-kutta">
 <h3>Método de Runge-Kutta<a class="headerlink" href="#metodo-de-runge-kutta" title="Link to this heading">#</a></h3>
 <p>Sirve para buscar aproximaciones a la solución en puntos intermedios del intervalo <span class="math notranslate nohighlight">\([x_{n},x_{n+1}]\)</span> con una combinación lineal de los valores de la derivada en varias aproximaciones para obtener un valor de <span class="math notranslate nohighlight">\(y_{n+1}\)</span>.</p>
 <p>Sea la ecuación diferencial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff880401-d1f4-4d28-b98e-4b86a7693774">
-<span class="eqno">(55)<a class="headerlink" href="#equation-ff880401-d1f4-4d28-b98e-4b86a7693774" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{y}(x) = f(x,y), \quad y(y_{0}) = y_{0},
-\end{equation}\]</div>
+\]</div>
 <p>y sea</p>
-<div class="amsmath math notranslate nohighlight" id="equation-916db5c8-c5d2-4656-a9b3-bc74927e4957">
-<span class="eqno">(56)<a class="headerlink" href="#equation-916db5c8-c5d2-4656-a9b3-bc74927e4957" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  x_{n} = x_{0} + nh, \quad h&gt;0.
-\end{equation}\]</div>
+\]</div>
 <p>Para evaluar <span class="math notranslate nohighlight">\(y(x_{n+1})\)</span> conociendo el valor <span class="math notranslate nohighlight">\(y_{n}\)</span> y además <span class="math notranslate nohighlight">\(0 \leq \alpha_{1} \leq \alpha_{2} \cdots \leq \alpha_{r} \leq 1\)</span>,  de modo que <span class="math notranslate nohighlight">\(\sum_{n=1}^{r}\gamma_{n} = 1\)</span>, el método de Runge-Kutta evalúa <span class="math notranslate nohighlight">\(y_{n+1}\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9987e535-b72e-449d-84ae-60a1eaae7d44">
-<span class="eqno">(57)<a class="headerlink" href="#equation-9987e535-b72e-449d-84ae-60a1eaae7d44" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y_{n+1} = y_{n} + \sum_{n=1}^{r} \gamma_{n}k_{n},
-\end{equation}\]</div>
+\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffc485bb-3f33-45cb-ba1d-e5eed4f24266">
-<span class="eqno">(58)<a class="headerlink" href="#equation-ffc485bb-3f33-45cb-ba1d-e5eed4f24266" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  k_{n} = h~f\left(x_{n} + \alpha_{n}h, y_{n} + \sum_{j=1}^{r}\beta_{n,j}k_{j}\right), \quad \sum_{j=1}^{r} \beta_{n,j} = \alpha_{n}.
-\end{equation}\]</div>
+\]</div>
 <p>Los métodos de Runge-Kutta se clasifican en:</p>
 <ul class="simple">
 <li><p><strong>Explícitos.</strong> Cuando los valores de <span class="math notranslate nohighlight">\(k_{n}\)</span> pueden ser evaluados en función de <span class="math notranslate nohighlight">\(k_{1},k_{2},\dots,k_{n-1}\)</span>.</p></li>
 <li><p><strong>Implícitos.</strong> Cuando lo anterior no es posible.</p></li>
 </ul>
 <p>Además, en los métodos explícitos se satisface la siguiente restricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67c2c96c-2fd4-484f-9a5e-b3045cb757d5">
-<span class="eqno">(59)<a class="headerlink" href="#equation-67c2c96c-2fd4-484f-9a5e-b3045cb757d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \beta_{n,j} = 0, ~ \forall n \leq j.
-\end{equation}\]</div>
+\]</div>
 <p>Mientras que para los implícitos se resuelve en cada paso un sistema de ecuaciones de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-782be33c-45f4-4acd-9a82-53f5081b9eb5">
-<span class="eqno">(60)<a class="headerlink" href="#equation-782be33c-45f4-4acd-9a82-53f5081b9eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   k_{1} &amp;= f\left( x_{n} + \alpha_{1}h, y_{n} + \beta_{1,1}k_{1} + \beta_{1,2}k_{2} + \cdots + \beta_{1,p}k_{p}  \right), \\
   k_{2} &amp;= f\left( x_{n} + \alpha_{2}h, y_{n} + \beta_{2,1}k_{1} + \beta_{2,2}k_{2} + \cdots + \beta_{2,p}k_{p}  \right), \\
   \vdots ~ &amp;= ~ \vdots \\
   k_{p} &amp;= f\left( x_{n} + \alpha_{p}h, y_{n} + \beta_{p,1}k_{1} + \beta_{p,2}k_{2} + \cdots + \beta_{p,p}k_{p}  \right).
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>El méto de Runge-Kutta de 4to orden es el más utilizado y evalúa la función <span class="math notranslate nohighlight">\(f(x,y)\)</span> en los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span>, <span class="math notranslate nohighlight">\(x_{n}+\frac{h}{2}\)</span> y <span class="math notranslate nohighlight">\(x_{n} + h\)</span> de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e157adff-3f3c-470f-adef-95cec3a45b2f">
-<span class="eqno">(61)<a class="headerlink" href="#equation-e157adff-3f3c-470f-adef-95cec3a45b2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y_{n+1} = y_{n} + \alpha_{1}k_{1} + \alpha_{2}k_{2} + \alpha_{3}k_{3} + \alpha_{4}k_4,
-\end{equation}\]</div>
+\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d0781e5-f6c8-43c9-922d-eb55f5e08400">
-<span class="eqno">(62)<a class="headerlink" href="#equation-8d0781e5-f6c8-43c9-922d-eb55f5e08400" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   k_{1} &amp;= f\left(x_{n},y_{n} \right)h, \\
   k_{2} &amp;= f\left(x_{n} + a_{2}h,y_{n} + b_{21}k_{1} \right)h, \\
   k_{3} &amp;= f\left(x_{n} + a_{3}h,y_{n} + b_{31}k_{1} + b_{32}k_{2} \right)h, \\
   k_{4} &amp;= f\left(x_{n} + a_{4}h,y_{n} + b_{41}k_{1} + b_{42}k_{2} + b_{43}k_{3} \right)h.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Eligiendo arbitrariamente <span class="math notranslate nohighlight">\(\alpha_{2}=\alpha_{3}=\frac{1}{3}\)</span> y hallando el resto de los coeficientes mediante un sistema algebráico de 11 ecuaciones, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0f8aa6c-8146-4977-821d-e85f9111a486">
-<span class="eqno">(63)<a class="headerlink" href="#equation-b0f8aa6c-8146-4977-821d-e85f9111a486" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \alpha_{1} &amp;= \frac{1}{6}, \\
   \alpha_{2} &amp;= \frac{1}{3},~ \alpha_{2} = \frac{1}{2},~  b_{21} = \frac{1}{2}, \\
   \alpha_{3} &amp;= \frac{1}{3}, ~ \alpha_{3} = \frac{1}{2}, ~ b_{31} = 0, ~ b_{32} = \frac{1}{2}, \\
   \alpha_{4} &amp;= \frac{1}{6}, ~ \alpha_{4} = 1, ~ b_{41} = 0, ~ b_{42} = 0, ~ b_{43} = 1.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Tendríamos entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b55f31f1-a642-41c9-a22a-a5859c750d85">
-<span class="eqno">(64)<a class="headerlink" href="#equation-b55f31f1-a642-41c9-a22a-a5859c750d85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y_{n+1} = y_{n} + \frac{1}{6}\left(k_{1} + 2k_{2} + 2k_{3} + k_{4} \right),
-\end{equation}\]</div>
+\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ae260c8-bcee-4763-ab11-470beded4dff">
-<span class="eqno">(65)<a class="headerlink" href="#equation-7ae260c8-bcee-4763-ab11-470beded4dff" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   k_{1} &amp;= f\left( x_{n},y_{n} \right)h, \\
   k_{2} &amp;= f\left( x_{n} + \frac{h}{2},y_{n} + \frac{k_{1}}{2} \right)h, \\
   k_{3} &amp;= f\left( x_{n} + \frac{h}{2},y_{n} + \frac{k_{2}}{2} \right)h, \\
   k_{4} &amp;= f\left( x_{n} + h,y_{n} + k_{3}\right)h.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 </section>
 </section>
 </section>
@@ -1339,23 +1340,20 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-extra">Contenido extra</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-numericos">Métodos numéricos</a><ul class="nav section-nav flex-column">

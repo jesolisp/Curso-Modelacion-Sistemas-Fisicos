@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=ca93fcec" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -442,12 +442,13 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 1.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-cuadraticas">Formas cuadráticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-sylvester">Criterio de Sylvester</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-candidata-de-lyapunov">Función candidata de Lyapunov</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -467,79 +468,73 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-del-analisis-de-estabilidad-en-el-sentido-de-lyapunov">
 <h1>Fundamentos del análisis de estabilidad en el sentido de Lyapunov<a class="headerlink" href="#fundamentos-del-analisis-de-estabilidad-en-el-sentido-de-lyapunov" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<ul>
-    <li><strong>Autor:</strong> Jesús Emmanuel Solís Pérez </li>
-    <li><strong>Contacto:</strong> <a href="mailto:jsolisp@unam.mx">jsolisp@unam.mx</a>
-</ul>
-<hr class="docutils" />
 <p>Considere un sistema autónomo representado por la siguiente ecuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2560f99-b219-4af6-b75f-2f7c6ab8b647">
-<span class="eqno">(68)<a class="headerlink" href="#equation-d2560f99-b219-4af6-b75f-2f7c6ab8b647" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \label{eqn:sys_aut}
+<div class="math notranslate nohighlight" id="equation-eqn-sys-aut">
+<span class="eqno">(35)<a class="headerlink" href="#equation-eqn-sys-aut" title="Link to this equation">#</a></span>\[
  \dot{x} = f(x),
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(f:D\leftarrow R^{n}\)</span> es un mapa local de Lipschitz de un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> en <span class="math notranslate nohighlight">\(R^{n}\)</span>.</p>
-<p>Para poder estudiar la estabilidad del sistema \eqref{eqn:sys_aut}, es necesario obtener <span class="math notranslate nohighlight">\(\bar{x}\in D\)</span> que denota el punto de equilibrio</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3c75d3f-8ce8-497f-b519-b81cbc621612">
-<span class="eqno">(69)<a class="headerlink" href="#equation-c3c75d3f-8ce8-497f-b519-b81cbc621612" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Para poder estudiar la estabilidad del sistema <a class="reference internal" href="#equation-eqn-sys-aut">(35)</a>, es necesario obtener <span class="math notranslate nohighlight">\(\bar{x}\in D\)</span> que denota el punto de equilibrio</p>
+<div class="math notranslate nohighlight">
+\[
  f(\bar{x}) = 0.
-\end{equation}\]</div>
+\]</div>
 <section id="localizacion-de-los-puntos-de-equilibrio">
 <h2>Localización de los puntos de equilibrio<a class="headerlink" href="#localizacion-de-los-puntos-de-equilibrio" title="Link to this heading">#</a></h2>
-<p><strong>Definición 1.</strong> <em>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> es</em></p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<section class="definition-content" id="proof-content">
+<p>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> es</p>
+<p>estable si, para cada <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta = \delta(\varepsilon)&gt;0\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[
+  \|x(0)\| &lt; \delta \Rightarrow \|x(t)\| &lt; \varepsilon, \quad \forall t\geq 0
+ \]</div>
 <ul class="simple">
-<li><p><em>estable si, para cada <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta = \delta(\varepsilon)&gt;0\)</span> tal que</em></p></li>
+<li><p>inestable si no es estable.</p></li>
+<li><p>asintóticamente estable si este es estable y <span class="math notranslate nohighlight">\(\delta\)</span> se escoge tal que.</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-91645910-2583-4670-b102-8cd2043734d6">
-<span class="eqno">(70)<a class="headerlink" href="#equation-91645910-2583-4670-b102-8cd2043734d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|x(0)\| &lt; \delta \Rightarrow \|x(t)\| &lt; \varepsilon, \quad \forall t\geq 0
-\end{equation}\]</div>
-<ul class="simple">
-<li><p><em>inestable si no es estable</em></p></li>
-<li><p><em>asintóticamente estable si este es estable y <span class="math notranslate nohighlight">\(\delta\)</span> se escoge tal que</em></p></li>
-</ul>
-<div class="amsmath math notranslate nohighlight" id="equation-8dce3a97-879c-48e4-8c1e-3d692ee09b06">
-<span class="eqno">(71)<a class="headerlink" href="#equation-8dce3a97-879c-48e4-8c1e-3d692ee09b06" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|x(0)\| &lt; \delta \Rightarrow \lim \limits_{t\rightarrow \infty} x(t) = 0.
-\end{equation}\]</div>
-<section id="ejemplo-1">
+<div class="math notranslate nohighlight">
+\[
+  \|x(0)\| &lt; \delta \Rightarrow \lim \limits_{t\rightarrow \infty} x(t) = 0.
+ \]</div>
+</section>
+</div><section id="ejemplo-1">
 <h3>Ejemplo 1.<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
 <p>Considere las ecuaciones del péndulo simple y obtenga sus puntos de equilibrio</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fd3acb6-c6f8-47e4-a5bf-9cb0e004e0f0">
-<span class="eqno">(72)<a class="headerlink" href="#equation-2fd3acb6-c6f8-47e4-a5bf-9cb0e004e0f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">
 <h2>Linealización de sistemas en torno a un punto de equilibrio<a class="headerlink" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio" title="Link to this heading">#</a></h2>
-<p>Un sistema lineal invariante en el tiempo (LTI) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a09508f-ba21-4383-b12a-a2d82007b971">
-<span class="eqno">(73)<a class="headerlink" href="#equation-4a09508f-ba21-4383-b12a-a2d82007b971" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \label{eqn:LTI}
+<p>Un sistema (LTI) de la forma</p>
+<div class="math notranslate nohighlight" id="equation-eqn-lti">
+<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-lti" title="Link to this equation">#</a></span>\[
  \dot{x} = Ax,
-\end{equation}\]</div>
+\]</div>
 <p>tiene un punto de equilibrio en el origen. Este punto de equilibrio está aislado si y sólo si <span class="math notranslate nohighlight">\(\text{det}(A)\neq0\)</span>. Si <span class="math notranslate nohighlight">\(\text{det}(A)=0\)</span>, la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene un espacio nulo no trivial.</p>
-<p>Las propiedades de estabilidad del origen pueden ser caracterizadas por las ubicaciones de los eigenvalores de la matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<p>Recordemos que la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> dada una condición inicial <span class="math notranslate nohighlight">\(x(0)\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-982a9509-6767-4b42-83dc-5e451ce84a66">
-<span class="eqno">(74)<a class="headerlink" href="#equation-982a9509-6767-4b42-83dc-5e451ce84a66" title="Permalink to this equation">#</a></span>\[\begin{equation}
- x(t) = \exp(At)x(0).
-\end{equation}\]</div>
-<p>Además, para cualquier matriz <span class="math notranslate nohighlight">\(A\)</span> existe una matriz <span class="math notranslate nohighlight">\(P\)</span> no singular que transforma <span class="math notranslate nohighlight">\(A\)</span> en su forma de Jordan, <em>i.e.</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ed33f08-c55d-4cae-a0ff-26e86de0370b">
-<span class="eqno">(75)<a class="headerlink" href="#equation-2ed33f08-c55d-4cae-a0ff-26e86de0370b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Las propiedades de estabilidad del origen pueden ser caracterizadas por las ubicaciones de los <em>eigenvalores</em> de la matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Recordemos que la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> dada una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> está dada como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = \exp(At)x_{0}.
+\]</div>
+<p>Además, para cualquier matriz <span class="math notranslate nohighlight">\(A\)</span> existe una matriz <span class="math notranslate nohighlight">\(P\)</span> no \myindex{singular} que transforma <span class="math notranslate nohighlight">\(A\)</span> en su forma de <strong>Jordan</strong>, <em>i.e.</em></p>
+<div class="math notranslate nohighlight">
+\[
  P^{-1}AP = J = \text{block} \text{diag}\left[J_{1}, J_{2},\dots, J_{r} \right],
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(J_{i}\)</span> es el bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de A.</p>
 <p>La forma generalizada del bloque de Jordan, considerando un orden <span class="math notranslate nohighlight">\(m\)</span>, tiene la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf5b7fcf-2f3c-4be8-8aee-8162e95b378b">
-<span class="eqno">(76)<a class="headerlink" href="#equation-cf5b7fcf-2f3c-4be8-8aee-8162e95b378b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  J_{i} = \begin{bmatrix}
   \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0 \\
   0 &amp; \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
@@ -548,77 +543,80 @@ document.write(`
   \vdots &amp; &amp; &amp; &amp; \ddots &amp; 1 \\
   0 &amp; \cdots &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda_{i}
  \end{bmatrix}_{m\times m},
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>por consiguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f9e70f0-5f96-4622-9825-f7a851eac8a9">
-<span class="eqno">(77)<a class="headerlink" href="#equation-5f9e70f0-5f96-4622-9825-f7a851eac8a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \exp(At) = P \exp(Jt)P^{-1} = \sum_{i=1}^{r} \sum_{k=1}^{m_{i}} t^{k-1} \exp(\lambda_{i}t) R_{ik},
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(m_{i}\)</span> es el orden del bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span>.</p>
-<p><strong>Teorema 1</strong>. <em>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span> es estable si y sólo si todos los eigenvalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})\leq 0\)</span> y cada eigenvalor con <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})= 0\)</span> tiene un bloque de Jordan asociado de uno. El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es (globalmente) asintóticamente estable sí y sólo sí todos los eigencalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})&lt; 0\)</span></em>.</p>
-<p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span> es estable si y sólo si todos los eigenvalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})\leq 0\)</span> y cada eigenvalor con <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})= 0\)</span> tiene un bloque de Jordan asociado de uno. El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es (globalmente) asintóticamente estable sí y sólo sí todos los eigencalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})&lt; 0\)</span>.</p>
+</section>
+</div><p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
 <section id="linealizacion">
 <h3>Linealización<a class="headerlink" href="#linealizacion" title="Link to this heading">#</a></h3>
 <p>Suponga que las funciones <span class="math notranslate nohighlight">\(f_{1}\)</span> y <span class="math notranslate nohighlight">\(f_{2}\)</span> del sistema autónomo de segundo orden</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bfb936d-1458-4a7f-aa18-ad7afe37b154">
-<span class="eqno">(78)<a class="headerlink" href="#equation-1bfb936d-1458-4a7f-aa18-ad7afe37b154" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \label{eqn:second_order_aut}
+<div class="math notranslate nohighlight" id="equation-eqn-second-order-aut">
+<span class="eqno">(37)<a class="headerlink" href="#equation-eqn-second-order-aut" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x}_{1} &amp;= f_{1}(x_{1},x_{2}), \\
   \dot{x}_{2} &amp;= f_{2}(x_{1},x_{2}), \\
  \end{aligned}
-\end{equation}\]</div>
-<p>son continuamente diferenciables y que además <span class="math notranslate nohighlight">\(p=(p_{1},p_{2})\)</span> es un punto de equilibrio, el sistema \eqref{eqn:second_order_aut} se puede expandir mediante serie de Taylor en torno a <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd5d2b02-179e-416d-803a-cf416f9c55b4">
-<span class="eqno">(79)<a class="headerlink" href="#equation-cd5d2b02-179e-416d-803a-cf416f9c55b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\end{split}\]</div>
+<p>son continuamente diferenciables y que además <span class="math notranslate nohighlight">\(p=(p_{1},p_{2})\)</span> es un punto de equilibrio, el sistema <a class="reference internal" href="#equation-eqn-second-order-aut">(37)</a> se puede expandir mediante serie de Taylor en torno a <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> como sigue</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{x}_{1} &amp;= f_{1}(p_{1},p_{2}) + a_{11}(x_{1}-p_{1}) + a_{12}(x_{2}-p_{2}) + \text{H.O.T}, \\
   \dot{x}_{2} &amp;= f_{2}(p_{1},p_{2}) + a_{21}(x_{1}-p_{1}) + a_{22}(x_{2}-p_{2}) + \text{H.O.T},
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3baddb32-de29-4985-b995-0b1da7063535">
-<span class="eqno">(80)<a class="headerlink" href="#equation-3baddb32-de29-4985-b995-0b1da7063535" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   a_{11} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{12} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \\
   a_{21} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{22} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, 
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>y H.O.T. denota los términos de orden superior de la expansión de Taylor, es decir <span class="math notranslate nohighlight">\((x_{1}-p_{1})^{2},(x_{2}-p_{2})^{2},(x_{1}-p_{1})\times (x_{2}-p_{2})\)</span>, y así sucesivamente.</p>
 <p>Dado que <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> denota el punto de equilibrio, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-267f6d53-c7b4-40c6-8a10-bf1d01e80a18">
-<span class="eqno">(81)<a class="headerlink" href="#equation-267f6d53-c7b4-40c6-8a10-bf1d01e80a18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  f_{1}(p_{1},p_{2}) = f_{2}(p_{1},p_{2}) = 0.
-\end{equation}\]</div>
+\]</div>
 <p>Puesto que consideramos trayectorias cercanas a este punto, definimos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fdea656b-1166-4696-b833-8b9bf3296f84">
-<span class="eqno">(82)<a class="headerlink" href="#equation-fdea656b-1166-4696-b833-8b9bf3296f84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y_{1} = x_{1} - p_{1}, \quad y_{2} = x_{2} - p_{2}.
-\end{equation}\]</div>
+\]</div>
 <p>Por consiguiente, las ecuaciones de estado quedan de la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8518fee8-1535-46b6-9f45-35f2fe723789">
-<span class="eqno">(83)<a class="headerlink" href="#equation-8518fee8-1535-46b6-9f45-35f2fe723789" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2} + \text{H.O.T}, \\
   \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2} + \text{H.O.T}.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Si consideramos una vecindad cercana al punto de equilibrio, entonces podemos decir que los términos H.O.T son despreciables y por consiguiente, realizamos una aproximación de la ecuación de estado no lineal por la ecuación de estado lineal como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-21917c31-ea26-4ae7-8aae-630489ad03a2">
-<span class="eqno">(84)<a class="headerlink" href="#equation-21917c31-ea26-4ae7-8aae-630489ad03a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2},\\
   \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2}. \\
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Reescribiendo lo anterior en una forma vectorial, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d18c59f3-693e-47be-b9e0-7a29836c4ea3">
-<span class="eqno">(85)<a class="headerlink" href="#equation-d18c59f3-693e-47be-b9e0-7a29836c4ea3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{y} = Ay,
-\end{equation}\]</div>
+\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4da74f03-45e5-4870-81be-10baef8fe7e8">
-<span class="eqno">(86)<a class="headerlink" href="#equation-4da74f03-45e5-4870-81be-10baef8fe7e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  A = \begin{bmatrix}
   a_{11} &amp; a_{12} \\
   a_{21} &amp; a_{22}  
@@ -631,28 +629,36 @@ document.write(`
   \left.
    \frac{\partial f}{\partial x}
   \right|_{x=p}
-\end{equation}\]</div>
-<p><strong>Observación.</strong> La matrix <span class="math notranslate nohighlight">\([\partial f/\partial x]\)</span> es llamada la matriz Jacobiana de <span class="math notranslate nohighlight">\(f(x)\)</span> mientras que <span class="math notranslate nohighlight">\(A\)</span> es la matriz Jacobiana evaluada en el punto de equilibrio <span class="math notranslate nohighlight">\(p\)</span>.</p>
+\end{split}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La matrix <span class="math notranslate nohighlight">\([\partial f/\partial x]\)</span> es llamada la matriz Jacobiana de <span class="math notranslate nohighlight">\(f(x)\)</span> mientras que <span class="math notranslate nohighlight">\(A\)</span> es la matriz Jacobiana evaluada en el punto de equilibrio <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div>
 <section id="ejemplo-1-circuito-de-diodo-tunel">
 <h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#ejemplo-1-circuito-de-diodo-tunel" title="Link to this heading">#</a></h4>
 <p>Considere el circuito de diodo tunel que se muestra a continuación</p>
-<p><img alt="Diodo tunel" src="figures/diodo_tunel.png" /></p>
+<figure class="align-default" id="fig-diodo-tunel">
+<a class="reference internal image-reference" href="../_images/diodo_tunel.png"><img alt="../_images/diodo_tunel.png" src="../_images/diodo_tunel.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Diodo túnel.</span><a class="headerlink" href="#fig-diodo-tunel" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>donde los elementos de almacenamiento de energía son el capacitor <span class="math notranslate nohighlight">\(C\)</span> y el inductor <span class="math notranslate nohighlight">\(L\)</span> mientras que el diodo tunel es representado por la relación <span class="math notranslate nohighlight">\(i_{R} = h(v_{R})\)</span>. Asumiendo que los elementos del circuito son lineales e invariantes en el tiempo, el circuito de diodo tunel se puede representar matemáticamente como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca2fe169-9a3b-42b9-b47e-6c2342c15472">
-<span class="eqno">(87)<a class="headerlink" href="#equation-ca2fe169-9a3b-42b9-b47e-6c2342c15472" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight" id="equation-eqn-diodo-tunel">
+<span class="eqno">(38)<a class="headerlink" href="#equation-eqn-diodo-tunel" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   i_{C} &amp;= C \frac{\mathrm{d}v_{C}}{\mathrm{d}t}, \\
   v_{L} &amp;= L \frac{\mathrm{d}i_{L}}{\mathrm{d}t}, \\
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(v\)</span> representan la corriente y el voltaje a través de los elementos, respectivamente.</p>
 <p>Considere que los parámetros del modelo son <span class="math notranslate nohighlight">\(u=1.2V\)</span>, <span class="math notranslate nohighlight">\(R=1.5k\Omega = 1.5\times 10^{3}\Omega\)</span>, <span class="math notranslate nohighlight">\(C=2pF = 2\times 10^{-12}F\)</span>, <span class="math notranslate nohighlight">\(L=5\mu H = 5\times 10^{-6}H\)</span>. Además, suponga que <span class="math notranslate nohighlight">\(h(\cdot)\)</span> está dada por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-747a014e-b59c-4367-9f4e-ebf37684a87b">
-<span class="eqno">(88)<a class="headerlink" href="#equation-747a014e-b59c-4367-9f4e-ebf37684a87b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  h(x_{1}) = 17.76x_{1} - 103.79x_{1}^{2} + 229.62x_{1}^{3} - 226.31x_{1}^{4} + 83.72x_{1}^{5}.
-\end{equation}\]</div>
+\]</div>
 <ol class="arabic simple">
-<li><p>Utilice la Ley de corriente y voltaje de Kirchhoff para reescribir las ecuaciones anteriores.</p></li>
+<li><p>Utilice las Leyes de Kirchhoff para reescribir las ecuaciones anteriores.</p></li>
 <li><p>Encuentre los puntos de equilibrio.</p></li>
 <li><p>Linealice el sistema.</p></li>
 <li><p>Evalúe la matriz Jacobiana en los puntos de equilibrio.</p></li>
@@ -661,16 +667,21 @@ document.write(`
 <section id="ejemplo-2-pendulo-simple">
 <h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#ejemplo-2-pendulo-simple" title="Link to this heading">#</a></h4>
 <p>Considere el péndulo simple mostrado en la siguiente</p>
-<p><img alt="Single pendulum" src="figures/single_pendulum.png" /></p>
+<figure class="align-default" id="fig-single-pendulum">
+<a class="reference internal image-reference" href="../_images/single_pendulum.png"><img alt="../_images/single_pendulum.png" src="../_images/single_pendulum.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Diagrama de péndulo simple sin fuerza externa.</span><a class="headerlink" href="#fig-single-pendulum" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>donde <span class="math notranslate nohighlight">\(l\)</span> denota la longitud de la varilla, y <span class="math notranslate nohighlight">\(m\)</span> la masa de la bola.</p>
 <p>Cuya representación en espacio de estados está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6900971b-216c-45ce-b5b4-f3e76537449a">
-<span class="eqno">(89)<a class="headerlink" href="#equation-6900971b-216c-45ce-b5b4-f3e76537449a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight" id="equation-eqn-single-pendulum">
+<span class="eqno">(39)<a class="headerlink" href="#equation-eqn-single-pendulum" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x_{1}} &amp;= x_{2}, \\
   \dot{x_{2}} &amp;= -\frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <ol class="arabic simple">
 <li><p>Encuentre los puntos de equilibrio.</p></li>
 <li><p>Linealice el sistema.</p></li>
@@ -682,14 +693,14 @@ document.write(`
 <hr class="docutils" />
 <section id="analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">
 <h2>Análisis de la estabilidad de sistemas dinámicos linealizados<a class="headerlink" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados" title="Link to this heading">#</a></h2>
-<p>Considere un sistema LTI como se muestra en la Ec. \eqref{eqn:LTI} donde <span class="math notranslate nohighlight">\(A\)</span> es una matriz real de dimensión <span class="math notranslate nohighlight">\(2\times 2\)</span>. La solución a este sistema con una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> está dada por la siguiente ecuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2fff938-faca-4da2-b3a4-63b88f18fd5e">
-<span class="eqno">(90)<a class="headerlink" href="#equation-d2fff938-faca-4da2-b3a4-63b88f18fd5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Considere un sistema LTI como se muestra en la Ec. <a class="reference internal" href="#equation-eqn-lti">(36)</a> donde <span class="math notranslate nohighlight">\(A\)</span> es una matriz real de dimensión <span class="math notranslate nohighlight">\(2\times 2\)</span>. La solución a este sistema con una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> está dada por la siguiente ecuación</p>
+<div class="math notranslate nohighlight">
+\[
  x(t) = M \exp(J_{r}t)M^{-1}x_{0},
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(J_{r}\)</span> es la forma real de Jordan de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(M\)</span> es una matriz real no singular tal que <span class="math notranslate nohighlight">\(M^{-1}AM = J_{r}\)</span>. Dependiendo de los eigenvalores <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de la matriz <span class="math notranslate nohighlight">\(A\)</span>, la forma de Jordan puede tomar los siguientes casos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29502254-8c74-4971-b041-1a929fb5589c">
-<span class="eqno">(91)<a class="headerlink" href="#equation-29502254-8c74-4971-b041-1a929fb5589c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{bmatrix}
   \lambda_{1} &amp; 0 \\
   0 &amp; \lambda_{2}
@@ -702,119 +713,122 @@ document.write(`
   \alpha &amp; -\beta \\
   \beta &amp; \alpha
  \end{bmatrix},
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(k\)</span> puede tomar el valor de <span class="math notranslate nohighlight">\(0\)</span> o <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <section id="caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">
 <h3>Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.<a class="headerlink" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0" title="Link to this heading">#</a></h3>
 <p>El sistema tiene dos eigenvectores reales <span class="math notranslate nohighlight">\(v_{1}\)</span> y <span class="math notranslate nohighlight">\(v_{2}\)</span> asociados con <span class="math notranslate nohighlight">\(\lambda_{1}\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\)</span>, respectivamente. Donde el sistema es transformado en dos ecuaciones diferenciales de primer orden después de un cambio de coordenadas <span class="math notranslate nohighlight">\(z=M^{-1}x\)</span>, <em>i.e.</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7197fc01-dcef-4c8b-9822-1e69e34d5ef7">
-<span class="eqno">(92)<a class="headerlink" href="#equation-7197fc01-dcef-4c8b-9822-1e69e34d5ef7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{z}_{1} &amp;= \lambda_{1}z_{1},\\
   \dot{z}_{2} &amp;= \lambda_{2}z_{2},
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>cuya solución está dada como sigue, para las condiciones iniciales <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2c6a077-f6a3-440e-b092-b185fd5b0311">
-<span class="eqno">(93)<a class="headerlink" href="#equation-f2c6a077-f6a3-440e-b092-b185fd5b0311" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  z_{1}(t) = z_{10}e^{\lambda_{1}t}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
-\end{equation}\]</div>
+\]</div>
 <p>Cuando <span class="math notranslate nohighlight">\(\lambda_{2}&lt;\lambda_{1}&lt;0\)</span>, el retrato fase tiene la forma de la Figura 1.15(a), donde <span class="math notranslate nohighlight">\(x=0\)</span> es llamado <em>nodo estable</em>. Por otro lado, si <span class="math notranslate nohighlight">\(\lambda_{2}&gt;\lambda_{1}&gt;0\)</span>, <span class="math notranslate nohighlight">\(x=0\)</span>, el retrato fase se muestra en la Figura 1.15(b) y se le conoce como <em>nodo inestable</em>.</p>
-<p><img alt="Nodo estable e inestable" src="figures/nodo_estable_inestable.png" /></p>
+<p><img alt="Nodo estable e inestable" src="../_images/nodo_estable_inestable.png" /></p>
 <p>Si el sistema tiene eigenvalores con signos opuestos, esto es <span class="math notranslate nohighlight">\(\lambda_{2} &lt; 0 \lambda_{1}\)</span>, decimos que <span class="math notranslate nohighlight">\(\lambda_{2}\)</span> es un eigenvalor estable y <span class="math notranslate nohighlight">\(\lambda_{1}\)</span> inestable. Por consiguiente, el retrato fase que corresponde a esta trayectoria se muestra en la Figura 1.16(a).</p>
-<p><img alt="Punto silla" src="figures/punto_silla.png" /></p>
+<p><img alt="Punto silla" src="../_images/punto_silla.png" /></p>
 </section>
 <section id="caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">
 <h3>Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span><a class="headerlink" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta" title="Link to this heading">#</a></h3>
 <p>El sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de la transformación de coordenadas <span class="math notranslate nohighlight">\(z = M^{-1}x\)</span> tiene la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c8ef53a-01ab-4dff-bf25-188f8929ed14">
-<span class="eqno">(94)<a class="headerlink" href="#equation-9c8ef53a-01ab-4dff-bf25-188f8929ed14" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{z}_{1} &amp;= \alpha z_{1} - \beta z_{2}, \\
   \dot{z}_{2} &amp;= \beta z_{1} + \alpha z_{2}.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Puesto que la solución a este sistema es oscilatoria, se puede expresar en coordenadas polares como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a26510ba-f245-4f69-b80c-ddb6b2266b68">
-<span class="eqno">(95)<a class="headerlink" href="#equation-a26510ba-f245-4f69-b80c-ddb6b2266b68" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  r = \sqrt{z_{1}^{2} + z_{2}^{2}}, \quad \theta = \tan^{-1}\left( \frac{z_{2}}{z_{1}} \right),
-\end{equation}\]</div>
+\]</div>
 <p>teniendo dos ecuaciones diferenciales de primer orden desacopladas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0adb3cd9-95d5-4fa3-8d86-89d44d102e6f">
-<span class="eqno">(96)<a class="headerlink" href="#equation-0adb3cd9-95d5-4fa3-8d86-89d44d102e6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{r} &amp;= \alpha r, \\
   \dot{\theta} = \beta.
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>La solución de este sistema, para una condición inicial <span class="math notranslate nohighlight">\((r_{0},\theta_{0})\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12f036e0-6163-4a8b-96ef-d40017d21c54">
-<span class="eqno">(97)<a class="headerlink" href="#equation-12f036e0-6163-4a8b-96ef-d40017d21c54" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  r(t) = r_{0}r^{\alpha t}, \quad \theta(t) = \theta_{0} + \beta_{t}.
-\end{equation}\]</div>
+\]</div>
 <p>Dependiendo del valor de <span class="math notranslate nohighlight">\(\alpha\)</span>, el retrato fase puede tomar alguna de las siguientes formas</p>
-<p><img alt="Focos" src="figures/focos.png" /></p>
-<p><strong>Observación.</strong> El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es un <em>foco estable</em> si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, <em>foco inestable</em> si <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span> y <em>centro</em> si <span class="math notranslate nohighlight">\(\alpha=0\)</span> como se muestra a continuación</p>
-<p><img alt="Focos" src="figures/focos_2.png" /></p>
+<p><img alt="Focos" src="../_images/focos.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es un <em>foco estable</em> si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, <em>foco inestable</em> si <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span> y <em>centro</em> si <span class="math notranslate nohighlight">\(\alpha=0\)</span> como se muestra a continuación</p>
+<p><img alt="Focos" src="../_images/focos_2.png" /></p>
+</div>
 </section>
 <section id="caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">
 <h3>Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span><a class="headerlink" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0" title="Link to this heading">#</a></h3>
 <p>Para este caso, el sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de un cambio de coordenadas toma la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32e2bd98-1575-4999-97ca-129196d013f8">
-<span class="eqno">(98)<a class="headerlink" href="#equation-32e2bd98-1575-4999-97ca-129196d013f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{z}_{1} &amp;= \lambda z_{1} + kz_{2}, \\
   \dot{z}_{2} &amp;= \lambda z_{2},
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>cuya solución, con c.i. <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14cc8111-329d-453c-aa4f-9a7dcf914c77">
-<span class="eqno">(99)<a class="headerlink" href="#equation-14cc8111-329d-453c-aa4f-9a7dcf914c77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  z_{1}(t) = e^{\lambda t} \left( z_{10} + kz_{20}t \right), \quad z_{2}(t) = e^{\lambda t}z_{20}.
-\end{equation}\]</div>
+\]</div>
 <p>Los retrato fase para este caso, considerando <span class="math notranslate nohighlight">\(k=0\)</span> y <span class="math notranslate nohighlight">\(k=1\)</span> se muestran en la siguiente figura</p>
-<p><img alt="Eigenvalores multiples" src="figures/case3_a.png" /></p>
+<p><img alt="Eigenvalores multiples" src="../_images/case3_a.png" /></p>
 <p>Aquí, el punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> se le conoce como <em>nodo estable</em> si <span class="math notranslate nohighlight">\(\lambda &lt; 0\)</span> y nodo inestable si <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span>. Las trayectorias se muestran en la siguiente representación</p>
-<p><img alt="Nodo estable e inestable" src="figures/case3_b.png" /></p>
+<p><img alt="Nodo estable e inestable" src="../_images/case3_b.png" /></p>
 </section>
 <section id="caso-4-uno-o-ambos-autovalores-son-cero">
 <h3>Caso 4. Uno o ambos autovalores son cero<a class="headerlink" href="#caso-4-uno-o-ambos-autovalores-son-cero" title="Link to this heading">#</a></h3>
 <p>Cuando <span class="math notranslate nohighlight">\(\lambda_{1}=0\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\neq 0\)</span>, el sistema después de una transformación de coordenadas tiene la siguiente representación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0dff522e-49f3-4c9b-b814-bcfdf93c76e0">
-<span class="eqno">(100)<a class="headerlink" href="#equation-0dff522e-49f3-4c9b-b814-bcfdf93c76e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{z}_{1} &amp;= 0, \\
   \dot{z}_{2} &amp;= \lambda_{2} z_{2},
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>cuya solución es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eceb329b-ed05-480b-a2e7-306a34065596">
-<span class="eqno">(101)<a class="headerlink" href="#equation-eceb329b-ed05-480b-a2e7-306a34065596" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  z_{1}(t) = z_{10}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
-\end{equation}\]</div>
+\]</div>
 <p>Cuano ambos eigenvalores se encuentran en el origen y se aplica una transformación del coordenadas al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span>, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb474292-39a9-48c1-a53a-cfcf105bf4f4">
-<span class="eqno">(102)<a class="headerlink" href="#equation-eb474292-39a9-48c1-a53a-cfcf105bf4f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{z}_{1} &amp;= z_{2}, \\
   \dot{z}_{2} &amp;= 0,
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>cuya solución está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a814371-feea-4acf-afaa-b886faab58f8">
-<span class="eqno">(103)<a class="headerlink" href="#equation-1a814371-feea-4acf-afaa-b886faab58f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  z_{1}(t) = z_{10} + z_{20}t, \quad z_{2}(t) = z_{20}.
-\end{equation}\]</div>
+\]</div>
 <p>Las trayectorias que forman el retrato fase para estos casos en particular se muestran en la siguientes figuras</p>
-<p><img alt="Eigenvalore cero" src="figures/case4_a.png" /></p>
-<p><img alt="Eigenvalores en el origen" src="figures/case4_b.png" /></p>
+<p><img alt="Eigenvalore cero" src="../_images/case4_a.png" /></p>
+<p><img alt="Eigenvalores en el origen" src="../_images/case4_b.png" /></p>
 <section id="id1">
 <h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<p>Clasifique los puntos de equilibrio y determine la estabilidad del sistema.</p>
+<p>Clasifique los puntos de equilibrio del circuito de diodo tunel <a class="reference internal" href="#equation-eqn-diodo-tunel">(38)</a> y determine su estabilidad.</p>
 </section>
 <section id="id2">
 <h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
-<p>Clasifique los puntos de equilibrio y determine la estabilidad del sistema.</p>
+<p>Clasifique los puntos de equilibrio del sistema de péndulo simple <a class="reference internal" href="#equation-eqn-single-pendulum">(39)</a> y determine su estabilidad.</p>
 </section>
 </section>
 </section>
@@ -824,8 +838,8 @@ document.write(`
 <p>Aleksandr Mikhailovich Lyapunov en 1892 presentó dos métodos para determinar la estabilidad de sistemas dinámicos representados en ecuaciones diferenciales ordinarias (ODEs).</p>
 <p>El primer método utiliza la forma explícita de la solución de las ODEs para realizar el análisis de estabilidad mientras que el segundo método determina la estabilidad del sistema sin resolver las ecuaciones de estado.</p>
 <p>Sea <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> una función continuamente diferenciable definida en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> que contiene el origen, entonces la derivada de <span class="math notranslate nohighlight">\(V\)</span> sobre la trayectoria del sistema autónomo <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span>, denotada por <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e66ca9de-b6ec-409a-aaff-440bcda6d1c9">
-<span class="eqno">(104)<a class="headerlink" href="#equation-e66ca9de-b6ec-409a-aaff-440bcda6d1c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{V}(x) &amp;= \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}} \dot{x}_{i} = \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}}f_{i}(x), \\
   &amp;= \begin{bmatrix}
@@ -839,117 +853,286 @@ document.write(`
   \end{bmatrix} = 
   \frac{\partial V}{\partial x}f(x).
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>Normalmente las funciones utilizadas son funciónes reales de variable vectorial. También es posible utilizar funciones integrales pero nos vamos a centrar en las primeras.</p>
-<p><strong>Definición 1.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida positiva</em> si <span class="math notranslate nohighlight">\(V(x)&gt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
-<p><strong>Ejemplos</strong></p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida positiva</em> si <span class="math notranslate nohighlight">\(V(x)&gt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
+</section>
+</div><p><strong>Ejemplos</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + 2x_{2}^{2}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + \frac{2x_{2}^{2}}{1+x_{2}^{2}}\)</span></p></li>
 </ul>
-<p>Si reemplazamos cualquier valor de <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span> entonces la función es positiva excepto en el origen.</p>
-<p><strong>Definición 2.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida negativa</em> si <span class="math notranslate nohighlight">\(V(x)&lt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
-<p><strong>Ejemplo</strong></p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida negativa</em> si <span class="math notranslate nohighlight">\(V(x)&lt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
+</section>
+</div><p><strong>Ejemplo</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = - x_{1}^{2} - \left(3x_{1}+2x_{2}\right)^{2}\)</span></p></li>
 </ul>
-<p><strong>Definición 3.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida positiva</em> si <span class="math notranslate nohighlight">\(V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
-<p><strong>Ejemplo</strong></p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 4 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida positiva</em> si <span class="math notranslate nohighlight">\(V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
+</section>
+</div><p><strong>Ejemplo</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = \left(x_{1} + x_{2} \right)^{2}\)</span>.</p></li>
 </ul>
-<p><strong>Definición 4.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida negativa</em> si <span class="math notranslate nohighlight">\(-V(x)\)</span> es semidefinida positiva, <em>i.e.</em> <span class="math notranslate nohighlight">\(-V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span></p>
-<p><strong>Ejemplo</strong></p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida negativa</em> si <span class="math notranslate nohighlight">\(-V(x)\)</span> es semidefinida positiva, <em>i.e.</em> <span class="math notranslate nohighlight">\(-V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
+</section>
+</div><p><strong>Ejemplo</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = -\left(x_{1} + x_{2}\right)^{2}\)</span></p></li>
 </ul>
-<p><strong>Observación.</strong> <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> es diferente para cada sistema y además, si <span class="math notranslate nohighlight">\(\Phi(t;x)\)</span> es la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> con valor inicial <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(t=0\)</span>, entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9903a301-5ba0-480d-81d8-16e981a70fc6">
-<span class="eqno">(105)<a class="headerlink" href="#equation-9903a301-5ba0-480d-81d8-16e981a70fc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{V}(x) = \frac{\mathrm{d}}{\mathrm{d}t}V\left.\left(\Phi(t;x)\right)\right|_{t=0}.
-\end{equation}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> es diferente para cada sistema y además, si <span class="math notranslate nohighlight">\(\Phi(t;x)\)</span> es la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> con valor inicial <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(t=0\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{V}(x) = \frac{\mathrm{d}}{\mathrm{d}t}V\left.\left(\Phi(t;x)\right)\right|_{t=0}.
+ \]</div>
+</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  V(x) = \left(x_{1} + x_{2} \right)^{2}.
+ \]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función y determine si es definida positiva o semidefinida positiva</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  V(x) = x_{1}^{2} + x_{2}^{2} + 1.
+ \]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función y determine si es definida negativa</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  V(x) = - x_{1}^{2} - \left(3x_{1}+2x_{2}\right)^{2}
+ \]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  V(x) = x_{1}x_{2} + x_{2}^{2}
+ \]</div>
+</section>
+<section id="formas-cuadraticas">
+<h2>Formas cuadráticas<a class="headerlink" href="#formas-cuadraticas" title="Link to this heading">#</a></h2>
+<p>Una forma general de tener funciones <span class="math notranslate nohighlight">\(V(x)\)</span> es utilizando la forma cuadrática. Por ejemplo</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+  V(x) &amp;= \begin{bmatrix}
+   x_{1} &amp; x_{2} &amp; \cdots &amp; x_{n}
+  \end{bmatrix}
+  \begin{bmatrix}
+   p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1n} \\
+   p_{12} &amp; p_{22} &amp; \cdots &amp; p_{2n} \\
+   \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+   p_{1n} &amp; p_{2n} &amp; \cdots &amp; p_{nn} \\
+  \end{bmatrix}
+  \begin{bmatrix}
+   x_{1} \\ x_{2} \\ \vdots \\ x_{n}
+  \end{bmatrix}
+  &amp;=
+ \end{aligned},
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(P\)</span> es una matriz simétrica. Es decir <span class="math notranslate nohighlight">\(P = P^{T}\)</span>.</p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función en forma cuadrática y determine si es definida positiva</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+  V(x) &amp;= x^{T}Px \\
+  &amp;= \begin{bmatrix}
+   x_{1} &amp; x_{2}
+  \end{bmatrix}
+  \begin{bmatrix}
+   1 &amp; 2 \\
+   2 &amp; 3
+  \end{bmatrix}
+  \begin{bmatrix}
+   x_{1} \\ x_{2}
+  \end{bmatrix} \\
+  &amp;= \begin{bmatrix}
+  x_{1} + 2x_{2} &amp; 2x_{1} + 3x_{2}
+ \end{bmatrix}
+ \begin{bmatrix}
+   x_{1} \\ x_{2}
+  \end{bmatrix} \\
+  &amp;= x_{1}^{2} + 2x_{1}x_{2} + 2x_{1}x_{2} + 3x_{2}^{2} \\
+  &amp;= x_{1}^{2} + 4x_{1}x_{2} + 3x_{2}^{2}
+ \end{aligned}.
+\end{split}\]</div>
+<section id="criterio-de-sylvester">
+<h3>Criterio de Sylvester<a class="headerlink" href="#criterio-de-sylvester" title="Link to this heading">#</a></h3>
+<p>Una función <span class="math notranslate nohighlight">\(V(x)\)</span> en forma cuadrática o hermitiana es definida positiva si todas las menores principales sucesivas de <span class="math notranslate nohighlight">\(P\)</span> son positivas.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ p_{11} &gt; 0, \quad
+ \left|
+  \begin{matrix}
+   p_{11} &amp; p_{12} \\
+   \bar{p}_{12} &amp; p_{22}
+  \end{matrix}
+ \right| &gt; 0, \quad
+ \left|
+  \begin{matrix}
+   p_{11} &amp; p_{12} &amp; \cdots &amp; p_{1n} \\
+   p_{12} &amp; p_{22} &amp; \cdots &amp; p_{2n} \\
+   \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+   p_{1n} &amp; p_{2n} &amp; \cdots &amp; p_{nn} \\
+  \end{matrix}
+ \right| &gt; 0
+\end{split}\]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente matriz <span class="math notranslate nohighlight">\(P\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P = \begin{bmatrix}
+  1 &amp; 6 &amp; -1 \\
+  2 &amp; 4 &amp; 0 \\
+  -2 &amp; 3 &amp; 7
+ \end{bmatrix}
+\end{split}\]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere la siguiente función y determine si es definida positiva</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  V(x) = 10x_{1}^{2} + 4x_{2}^{2} + x_{3}^{2} + 2x_{1}x_{2} - 2x_{2}x_{3} - 4x_{1}x_{3}
+ \]</div>
+</section>
 <section id="principio-del-teorema-de-estabilidad-de-lyapunov">
 <h3>Principio del Teorema de Estabilidad de Lyapunov<a class="headerlink" href="#principio-del-teorema-de-estabilidad-de-lyapunov" title="Link to this heading">#</a></h3>
-<p>Un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> -energía- total (una función definida positiva) es continuamente decreciente (la derivada en el tiempo de la <span class="math notranslate nohighlight">\(E\)</span> total es definida negativa) hasta que alcanza un estado de equilibrio.</p>
-<p>En otras palabras, un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> total se va perdiendo con el paso del tiempo.</p>
-<p><strong>Teorema 2.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> y <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> un dominio que contiene <span class="math notranslate nohighlight">\(x=0\)</span>, entonces <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> es una función continuamente diferenciable tal que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-59855a82-741d-426d-abf8-aae2e29fa6eb">
-<span class="eqno">(106)<a class="headerlink" href="#equation-59855a82-741d-426d-abf8-aae2e29fa6eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
- V(0) = 0,
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-7d1f67b4-688a-4e3b-acd1-77209ec60c71">
-<span class="eqno">(107)<a class="headerlink" href="#equation-7d1f67b4-688a-4e3b-acd1-77209ec60c71" title="Permalink to this equation">#</a></span>\[\begin{equation}
- V(x) &gt; 0 \text{ en } D-\{0\},
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-d3dbf3d8-d1f6-410a-9f05-f92164f2015d">
-<span class="eqno">(108)<a class="headerlink" href="#equation-d3dbf3d8-d1f6-410a-9f05-f92164f2015d" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{V}(x) \leq 0 \text{ en } D.
-\end{equation}\]</div>
-<p><em>Entonces, <span class="math notranslate nohighlight">\(x=0\)</span> es estable. Además, si</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ea49d45-43e7-48e4-9aba-41d0a01e49f5">
-<span class="eqno">(109)<a class="headerlink" href="#equation-7ea49d45-43e7-48e4-9aba-41d0a01e49f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{V}(x) &lt;0 \text{ en } D-\{0\},
-\end{equation}\]</div>
-<p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es asintóticamente estable.</em></p>
-<p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
+<p>Un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> -energía- total (una función definida positiva) es continuamente decreciente (la derivada en el tiempo de la <span class="math notranslate nohighlight">\(E\)</span> total es definida negativa) hasta que alcanza un estado de equilibrio. En otras palabras, un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> total se va perdiendo con el paso del tiempo.</p>
+<div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 7 </span> (Teorema de estabilidad de Lyapunov)</p>
+<section class="theorem-content" id="proof-content">
+<p>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> y <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> un dominio que contiene <span class="math notranslate nohighlight">\(x=0\)</span>, entonces <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> es una función continuamente diferenciable tal que</p>
+<div class="math notranslate nohighlight">
+\[
+  V(0) = 0,
+ \]</div>
+<div class="math notranslate nohighlight">
+\[
+  V(x) &gt; 0 \text{ en } D-\{0\},
+ \]</div>
+<div class="math notranslate nohighlight">
+\[
+  \dot{V}(x) \leq 0 \text{ en } D.
+ \]</div>
+<p>Entonces, <span class="math notranslate nohighlight">\(x=0\)</span> es estable. Además, si</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{V}(x) &lt;0 \text{ en } D-\{0\},
+ \]</div>
+<p>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es asintóticamente estable.</p>
 </section>
-<section id="id3">
-<h3>Ejemplo 1.<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Considere la ecuación del péndulo sin fricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dbdc9afb-cb2b-441d-9fcb-cad8b47bfc21">
-<span class="eqno">(110)<a class="headerlink" href="#equation-dbdc9afb-cb2b-441d-9fcb-cad8b47bfc21" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \begin{aligned}
-  \dot{x}_{1} &amp;= x_{2}, \\
-  \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}).
- \end{aligned}
-\end{equation}\]</div>
+</div><p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
+<section id="funcion-candidata-de-lyapunov">
+<h4>Función candidata de Lyapunov<a class="headerlink" href="#funcion-candidata-de-lyapunov" title="Link to this heading">#</a></h4>
+<p>Es aquella función que se propone para poder realizar el análisis de estabilidad de Lyapunov. Recordemos que anteriormente trabajamos con funciones definidas positivas y cómo verificar que cumplieran con la definición mas no con funciones candidatas de Lyapunov.</p>
+<p>En términos estrictos, una función candidata de Lyapunov es una función definida positiva. Esta función definida positiva puede ser de manera local o global. En nuestro caso, consideramos que es local. Esto es</p>
+<div class="math notranslate nohighlight">
+\[
+ V(0) = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+ V(x) &gt;0 ~ \forall x \in U\backslash \{0\}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(U\)</span> denota un conjunto del espacio de estados y <span class="math notranslate nohighlight">\(\backslash \{0\}\)</span> significa <strong>excepto en el origen</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recordemos que el valor <span class="math notranslate nohighlight">\((0,0)\)</span> se refiere al origen del sistema que puede ser un punto de equilibrio. Cuando linealizamos un sistema no lineal en un punto de equilibrio que no sea el origen, entonces el origen del sistema lineal es el punto de equilibrio del sistema lineal.</p>
+</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere el siguiente sistema, y verifique si es estable o no en el sentido de Lyapunov</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{aligned}
+   \dot{x}_{1} &amp;= x_{2} - x_{1}(x_{1}^{2} + x_{2}^{2}),\\
+   \dot{x}_{2} &amp;= -x_{1} - x_{2}(x_{1}^{2} + x_{2}^{2}).
+  \end{aligned}
+ \end{split}\]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere el sistema de péndulo simple sin fricción</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{aligned}
+   \dot{x}_{1} &amp;= x_{2}, \\
+   \dot{x}_{2} &amp;= - \frac{g}{l}\sin\left(x_{1}\right),
+  \end{aligned}
+ \end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(x = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} = \begin{bmatrix} \theta \\ \dot{\theta} \end{bmatrix}\)</span>.</p>
+<div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 8 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> y <span class="math notranslate nohighlight">\(V:\mathbb{R}^{n}\rightarrow \mathbb{R}\)</span> una función continuamente diferenciable tal que</p>
+<div class="math notranslate nohighlight">
+\[
+  V(0) = 0, \quad V(x)&gt;0, \quad \forall x \neq 0,
+ \]</div>
+<div class="math notranslate nohighlight">
+\[
+  \|x\| \rightarrow \infty \Rightarrow V(x) \rightarrow \infty,
+ \]</div>
+<div class="math notranslate nohighlight">
+\[
+  \dot{V}(x)&lt;0, \forall x\neq 0,
+ \]</div>
+<p>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es <em>globalmente asintóticamente estable</em>.</p>
 </section>
-<section id="ejemplo-2">
-<h3>Ejemplo 2.<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
-<p>Considere la ecuación del péndulo con fricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e2bf2e28-fa35-4082-a6a4-802ccce0a00e">
-<span class="eqno">(111)<a class="headerlink" href="#equation-e2bf2e28-fa35-4082-a6a4-802ccce0a00e" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \begin{aligned}
-  \dot{x}_{1} &amp;= x_{2}, \\
-  \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
- \end{aligned}
-\end{equation}\]</div>
-<p><strong>Teorema 3.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> y <span class="math notranslate nohighlight">\(V:R^{n}\rightarrow R\)</span> una función continuamente diferenciable tal que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0108460-4a4d-475b-9d56-fa31fefa2aba">
-<span class="eqno">(112)<a class="headerlink" href="#equation-d0108460-4a4d-475b-9d56-fa31fefa2aba" title="Permalink to this equation">#</a></span>\[\begin{equation}
- V(0) = 0, \quad V(x)&gt;0, \quad \forall x \neq 0,
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0cf95595-aa11-4516-87a8-fd457f1eab13">
-<span class="eqno">(113)<a class="headerlink" href="#equation-0cf95595-aa11-4516-87a8-fd457f1eab13" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|x\| \rightarrow \infty \Rightarrow V(x) \rightarrow \infty,
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-d2d95e78-826d-49b2-973d-7dec546907c9">
-<span class="eqno">(114)<a class="headerlink" href="#equation-d2d95e78-826d-49b2-973d-7dec546907c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{V}(x)&lt;0, \forall x\neq 0,
-\end{equation}\]</div>
-<p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es globalmente asintóticamente estable</em>.</p>
-</section>
-<section id="ejemplo-3">
-<h3>Ejemplo 3.<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
-<p>Considere el siguiente sistema no lineal escalar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-18b804e4-83d7-49d8-995d-a344e3fa9d3c">
-<span class="eqno">(115)<a class="headerlink" href="#equation-18b804e4-83d7-49d8-995d-a344e3fa9d3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</div><p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere el siguiente sistema no lineal escalar</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
  \begin{aligned}
   \dot{x} = \frac{2}{1+x}-x.
  \end{aligned}
-\end{equation}\]</div>
-</section>
-<section id="ejemplo-4">
-<h3>Ejemplo 4.<a class="headerlink" href="#ejemplo-4" title="Link to this heading">#</a></h3>
-<p>Considere las ecuaciones que caracterizan un modelo para un péndulo colgante</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de001db8-d5af-4a35-9c22-506abcdd5e9a">
-<span class="eqno">(116)<a class="headerlink" href="#equation-de001db8-d5af-4a35-9c22-506abcdd5e9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\]</div>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere las ecuaciones que caracterizan un modelo para un péndulo colgante</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= -\sin(x_{1}), \\
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(x_{1}\)</span> denota el ángulo entre el péndulo y la vertical con <span class="math notranslate nohighlight">\(x_{1}&gt;0\)</span> corresponde a la rotación en sentido contrario a las manecillas del reloj.</p>
+</section>
 </section>
 </section>
 </section>
@@ -1048,12 +1231,13 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 1.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-cuadraticas">Formas cuadráticas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterio-de-sylvester">Criterio de Sylvester</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-candidata-de-lyapunov">Función candidata de Lyapunov</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
