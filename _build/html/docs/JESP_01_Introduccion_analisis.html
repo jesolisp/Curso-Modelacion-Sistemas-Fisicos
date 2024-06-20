@@ -1,0 +1,1422 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción al análisis de la dinámica de sistemas &#8212; Modelación de Sistemas Físicos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_01_Introduccion_analisis';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Antecedentes matemáticos" href="JESP_02_Antecedentes_mat.html" />
+    <link rel="prev" title="Contenido del curso" href="home.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/closed_loop.png" class="logo__image only-light" alt="Modelación de Sistemas Físicos - Home"/>
+    <script>document.write(`<img src="../_static/closed_loop.png" class="logo__image only-dark" alt="Modelación de Sistemas Físicos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Contenido del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción al análisis de la dinámica de sistemas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Observabilidad de sistemas dinámicos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_01_Introduccion_analisis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción al análisis de la dinámica de sistemas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducción al análisis de la dinámica de sistemas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-practicos">Ejemplos prácticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulo-simple">Péndulo simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-a-partir-de-leyes-fisicas">Modelado a partir de leyes físicas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-a-partir-del-enfoque-euler-lagrange">Modelado a partir del enfoque Euler-Lagrange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diodo-tunel">Diodo tunel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuito-r-c">Circuito R-C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-masa-resorte">Sistema masa-resorte</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modelado a partir del enfoque Euler-Lagrange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-masa-resorte-amortiguador">Sistema masa-resorte-amortiguador</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-extra">Contenido extra</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-numericos">Métodos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">Método de Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta">Método de Runge-Kutta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion-al-analisis-de-la-dinamica-de-sistemas">
+<h1>Introducción al análisis de la dinámica de sistemas<a class="headerlink" href="#introduccion-al-analisis-de-la-dinamica-de-sistemas" title="Link to this heading">#</a></h1>
+<section id="ejemplos-practicos">
+<h2>Ejemplos prácticos<a class="headerlink" href="#ejemplos-practicos" title="Link to this heading">#</a></h2>
+<section id="pendulo-simple">
+<h3>Péndulo simple<a class="headerlink" href="#pendulo-simple" title="Link to this heading">#</a></h3>
+<p>Considere el péndulo simple mostrado en la siguiente figura</p>
+<figure class="align-default" id="fig-single-pendulum">
+<a class="reference internal image-reference" href="../_images/single_pendulum.png"><img alt="../_images/single_pendulum.png" src="../_images/single_pendulum.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Diagrama de péndulo simple sin fuerza externa.</span><a class="headerlink" href="#fig-single-pendulum" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>donde <span class="math notranslate nohighlight">\(l\)</span> denota la longitud de la barra, y <span class="math notranslate nohighlight">\(m\)</span> la masa de la bola. Asuma que la barra es rígida y de masa despreciable. Suponga entonces, <span class="math notranslate nohighlight">\(\theta\)</span> como el ángulo entre la barra y el eje vertical a través del pivote. Además, el péndulo se mueve libremente sobre un plano vertical formando un círculo de radio <span class="math notranslate nohighlight">\(l\)</span>. Para obtener la ecuación que describe el movimiento del péndulo es necesario identificar las fuerzas que interactúan sobre la bola o bien, utilizar el enfoque de Euler-Lagrange.</p>
+<section id="modelado-a-partir-de-leyes-fisicas">
+<h4>Modelado a partir de leyes físicas<a class="headerlink" href="#modelado-a-partir-de-leyes-fisicas" title="Link to this heading">#</a></h4>
+<p>En un sistema mecánico de tipo rotacional, las leyes físicas que rigen el sistema están dadas por la Segunda ley de Newton, donde las fuerzas positivas están dadas hacia la derecha mientras que las negativas hacia el lado contrario. Si realizamos un diagrama de cuerpo libre para observar las fuerzas que interactúan con la masa como se muestra a continuación</p>
+<figure class="align-default" id="fig-free-body-pendulum">
+<a class="reference internal image-reference" href="../_images/free_body_pendulum.png"><img alt="../_images/free_body_pendulum.png" src="../_images/free_body_pendulum.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Diagrama de cuerpo libre de la masa en el péndulo simple.</span><a class="headerlink" href="#fig-free-body-pendulum" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Podemos observar que hay una fuerza gravitacional <span class="math notranslate nohighlight">\(mg\)</span>, donde <span class="math notranslate nohighlight">\(g\)</span> es la aceleración de la gravedad. Así mismo, existe una fuerza de tensión <span class="math notranslate nohighlight">\(\vec{T}\)</span> con componentes <span class="math notranslate nohighlight">\(T_{x}\)</span> y <span class="math notranslate nohighlight">\(T_{y}\)</span>.</p>
+<p>Podemos observar que la única fuerza que interactúa en <span class="math notranslate nohighlight">\(x\)</span> es <span class="math notranslate nohighlight">\(T_{x}\)</span>. Recordando que esta tensión tiene una fuerza negativa, por lo tanto la definimos como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-componente-x">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eqn-componente-x" title="Link to this equation">#</a></span>\[
+ -T\sin(\theta) = m \ddot{x},
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(T\)</span> denota la magnitud de la tensión y <span class="math notranslate nohighlight">\(\ddot{x}:=\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}\)</span>.</p>
+<p>Para el análisis de las fuerzas que interactúan en el eje <span class="math notranslate nohighlight">\(y\)</span>, tenemos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-componente-y">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-componente-y" title="Link to this equation">#</a></span>\[
+ -mg + T\cos(\theta) = m\ddot{y}.
+\]</div>
+<p>Observamos entonces que tenemos dos variables que ecuaciones. Por ello, vamos a relizar el siguiente despeje</p>
+<div class="math notranslate nohighlight" id="equation-eqn-componente-x-desp">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eqn-componente-x-desp" title="Link to this equation">#</a></span>\[
+ T = -\frac{m \ddot{x}}{\sin(\theta)}.
+\]</div>
+<p>Sustituyendo <a class="reference internal" href="#equation-eqn-componente-x-desp">(3)</a> en <a class="reference internal" href="#equation-eqn-componente-y">(2)</a>, tenemos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-componentes">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-componentes" title="Link to this equation">#</a></span>\[
+ -mg + \left(-\frac{m\ddot{x}}{\sin(\theta)}\right)\cos(\theta) = m \ddot{y}.
+\]</div>
+<p>Simplificamos la expresión obtenida multiplicando ambos lados de la igualdad por el término <span class="math notranslate nohighlight">\(\sin(\theta)\)</span> y resulta</p>
+<div class="math notranslate nohighlight" id="equation-eqn-componentes-simp">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-componentes-simp" title="Link to this equation">#</a></span>\[
+ -mg\sin(\theta) - m\ddot{x}\cos(\theta) = m \ddot{y}\sin(\theta).
+\]</div>
+<p>Observando el diagrama de la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, tenemos que la posición de la masa está dada por sus componentes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dentro de un plano cartesiano. Así mismo, tenemos que <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(\theta\)</span> están en un sistema de coordenadas polares. Por lo tanto, podemos utilizar la relación que hay entre estos sistemas para establecer las siguientes relaciones</p>
+<div class="math notranslate nohighlight" id="equation-eqn-ecs-polares">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-ecs-polares" title="Link to this equation">#</a></span>\[
+ x = l\sin(\theta), \quad y = -l\cos(\theta).
+\]</div>
+<p>Puesto que necesitamos la aceleración a lo largo del eje <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span>, derivamos la expresión dada en la <a class="reference internal" href="#equation-eqn-ecs-polares">(6)</a> recordando la regla de la cadena</p>
+<div class="math notranslate nohighlight" id="equation-eqn-der-ecs-polares-a">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-der-ecs-polares-a" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  \dot{x} &amp;= l\cos(\theta)\dot{\theta}, \\
+  \dot{y} &amp;= l\sin(\theta)\dot{\theta}, \\
+ \end{aligned}
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-der-ecs-polares-b">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-der-ecs-polares-b" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  \ddot{x} &amp;= l \left[\ddot{\theta}\cos(\theta) - \dot{\theta}^{2}\sin(\theta) \right],\\
+  \ddot{y} &amp;= l \left[\ddot{\theta}\sin(\theta) + \dot{\theta}^{2}\cos(\theta) \right]. \\
+ \end{aligned}
+\end{split}\]</div>
+<p>Sustituyendo <a class="reference internal" href="#equation-eqn-der-ecs-polares-a">(7)</a> y <a class="reference internal" href="#equation-eqn-der-ecs-polares-b">(8)</a> en <a class="reference internal" href="#equation-eqn-componentes-simp">(5)</a></p>
+<div class="math notranslate nohighlight" id="equation-eqn-desp-simp">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eqn-desp-simp" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  -mg\sin(\theta) - ml\ddot{\theta}\cos^{2}(\theta) + ml\dot{\theta}^{2}\sin(\theta) \cos(\theta) &amp;= ml \ddot{\theta}\sin^{2}(\theta) + ml\dot{\theta}^{2}\cos(\theta) \sin(\theta), \\
+  -mg\sin(\theta) - ml\ddot{\theta}\cos^{2}(\theta) &amp;= ml \ddot{\theta}\sin^{2}(\theta), \\
+  -mg\sin(\theta) &amp;= ml\ddot{\theta} \left[\sin^{2}(\theta) + \cos^{2}(\theta)\right], \\
+ \end{aligned}
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-pendulum-wof">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eqn-pendulum-wof" title="Link to this equation">#</a></span>\[
+ ml\ddot{\theta} = -mg\sin(\theta).
+\]</div>
+<p>Suponiendo que hay una fuerza proporcional a la velocidad de la masa con un coeficiente <span class="math notranslate nohighlight">\(k_{f}\)</span> que resiste el movimiento, el modelo de <em>péndulo simple con fuerza de fricción</em> queda dado por la siguiente ecuación</p>
+<div class="math notranslate nohighlight" id="equation-eqn-pendulum-wf">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-pendulum-wf" title="Link to this equation">#</a></span>\[
+ ml\ddot{\theta} = -mg\sin(\theta) - k_{f}l\dot{\theta}.
+\]</div>
+<p>Por lo tanto, la dinámica del péndulo simple con y sin fricción están dadas por ecuaciones diferenciales de segundo orden. Para resolver las Ecs. <a class="reference internal" href="#equation-eqn-pendulum-wof">(10)</a> <a class="reference internal" href="#equation-eqn-pendulum-wf">(11)</a> realizamos un cambio de variable y definimos como variables de estado <span class="math notranslate nohighlight">\(x_{1} = \theta\)</span> y <span class="math notranslate nohighlight">\(x_{1} = \dot{\theta}\)</span>. Por consiguiente, el sistema queda representado como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-single-pendulum-wf">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-single-pendulum-wf" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= -\frac{g}{l} \sin(x_{1}) - \frac{k_{f}}{m}x_{2}.
+ \end{aligned}
+\end{split}\]</div>
+<p>Una variante del sistema de péndulo simple se puede obtener agregando una entrada exógena <span class="math notranslate nohighlight">\(\tau\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= -\frac{g}{l} \sin(x_{1}) - \frac{k_{f}}{m}x_{2} + \frac{\tau}{ml^{2}}.
+ \end{aligned}
+\end{split}\]</div>
+</section>
+<section id="modelado-a-partir-del-enfoque-euler-lagrange">
+<h4>Modelado a partir del enfoque Euler-Lagrange<a class="headerlink" href="#modelado-a-partir-del-enfoque-euler-lagrange" title="Link to this heading">#</a></h4>
+<p>Cualquier sistema debe satisfacer las ecuaciones de Lagrange dadas por</p>
+<div class="math notranslate nohighlight" id="equation-eqn-sistema-conservativo">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-sistema-conservativo" title="Link to this equation">#</a></span>\[
+ \frac{\mathrm{d}}{\mathrm{d}t}\left[\frac{\partial \mathcal{L}}{\partial\dot{q}} \right] - \frac{\partial \mathcal{L}}{\partial q} + \frac{\partial J}{\partial \dot{q}} = 0,
+\]</div>
+<p>donde \gls{lagrangian} es el Lagrangiano del sistema y se define como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ \mathcal{L}(q,\dot{q}) = U^{*}(\dot{q})-T(q).
+\]</div>
+<p>Además</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U\)</span>, representa la coenergía total en las reservas de flujo del sistema expresada como una función de las coordenadas de esfuerzo generalizado.</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span>, la energía total en los almacenes de esfuerzo del sistema expresada como una función de las coordenadas de acumulación de esfuerzo generalizadas.</p></li>
+<li><p><span class="math notranslate nohighlight">\(J\)</span>, el co-contenido total en los disipadores del sistema expresado como una función de las coordenadas de esfuerzo generalizado.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q\)</span>, el vector de coordenadas generalizadas definida como el conjunto de coordenadas linealmente independientes que definen la configuración del sistema.</p></li>
+</ul>
+<p>Para un sistema mecánico no conservativo, las ecuaciones de Lagrange están dadas como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-sistema-no-conservativo">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-sistema-no-conservativo" title="Link to this equation">#</a></span>\[
+ \frac{\mathrm{d}}{\mathrm{d}t}\left[\frac{\partial \mathcal{L}}{\partial\dot{q}_{j}} \right] - \frac{\partial \mathcal{L}}{\partial q_{j}} + \frac{\partial J}{\partial \dot{q}_{j}} = \tau_{j}, \quad j = 1,\dots,l.
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\tau_{j}\)</span> denota las fuerzas generalizadas.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>En este contexto conservativo significa libre de disipación y entradas de fuerzas externas.</p>
+</div>
+<p>El sistema mostrado en la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, sólo posee un grado de libertad denotado como <span class="math notranslate nohighlight">\(\theta\)</span>. Entonces, definimos las siguientes coordenadas generalizadas</p>
+<div class="math notranslate nohighlight">
+\[
+ q := \theta, \quad \dot{q} := \dot{\theta}.
+\]</div>
+<p>Además, definimos como fuerza generalizada la variable <span class="math notranslate nohighlight">\(u\)</span>, \emph{i.e.}</p>
+<div class="math notranslate nohighlight">
+\[
+ \tau_{i} = 0.
+\]</div>
+<p>Ahora bien, podemos representar la Ec. <span class="xref std std-ref">eqn:ecs_polares</span> en forma vectorial como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-vector-pm">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-vector-pm" title="Link to this equation">#</a></span>\[\begin{split}
+ p_{m} = \begin{bmatrix}
+  x_{m} \\
+  y_{m}
+ \end{bmatrix} =
+ \begin{bmatrix}
+  l\sin(\theta) \\
+  -l\cos(\theta)
+ \end{bmatrix},
+\end{split}\]</div>
+<p>y el vector de velocidad <a class="reference internal" href="#equation-eqn-der-ecs-polares-a">(7)</a> como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-vector-vm">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-vector-vm" title="Link to this equation">#</a></span>\[\begin{split}
+ v_{m} = \begin{bmatrix}
+  \dot{x}_{m} \\
+  \dot{y}_{m} \\
+ \end{bmatrix} =
+ \begin{bmatrix}
+  l\cos(\theta)\dot{\theta} \\
+  l\sin(\theta)\dot{\theta} \\
+ \end{bmatrix}.
+\end{split}\]</div>
+<p>La energía co-cinética del sistema está dada por</p>
+<div class="math notranslate nohighlight" id="equation-eqn-cinetica">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-cinetica" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  U^{*} = \frac{1}{2}mv^{2} &amp;\equiv \frac{1}{2}m\|v_{m}\|^{2}\\
+  &amp;= \frac{1}{2}mv_{m}^{T}v_{m}.
+ \end{aligned}
+\end{split}\]</div>
+<p>mientras que la energía potencial del sistema por</p>
+<div class="math notranslate nohighlight" id="equation-eqn-potencial">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-potencial" title="Link to this equation">#</a></span>\[
+ T = mgh \equiv m\vec{g}^{T}p_{m},
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\vec{g} = \begin{bmatrix} 0 &amp; g \end{bmatrix}^{T}\)</span>, con <span class="math notranslate nohighlight">\(g \in \mathbb{R}^{2}\)</span>.</p>
+<p>Sustituyendo <a class="reference internal" href="#equation-eqn-vector-vm">(16)</a> en <a class="reference internal" href="#equation-eqn-cinetica">(17)</a>, tenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+   U^{*} &amp;= \frac{1}{2}m \begin{bmatrix}
+   l\cos(\theta)\dot{\theta} &amp; l\sin(\theta)\dot{\theta}
+  \end{bmatrix}
+  \begin{bmatrix}
+   l\cos(\theta)\dot{\theta} \\
+   l\sin(\theta)\dot{\theta} \\
+  \end{bmatrix} \\
+  &amp;= \frac{1}{2}m \left( l^{2}\cos^{2}(\theta)\dot{\theta}^{2} + l^{2}\sin^{2}(\theta)\dot{\theta}^{2} \right), \\
+  &amp;= \frac{1}{2} ml^{2}\dot{\theta}^{2} \left( \cos^{2}(\theta) + \sin^{2}(\theta) \right), \\
+  &amp;= \frac{1}{2} ml^{2}\dot{\theta}^{2}.
+ \end{aligned}
+\end{split}\]</div>
+<p>Ahora, sustituyendo <a class="reference internal" href="#equation-eqn-vector-pm">(15)</a> en <a class="reference internal" href="#equation-eqn-potencial">(18)</a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+  T &amp;= m \begin{bmatrix} 0 &amp; g \end{bmatrix} \begin{bmatrix}
+  l\sin(\theta) \\
+  -l\cos(\theta)
+ \end{bmatrix}, \\
+ &amp;= -mgl\cos(\theta)
+ \end{aligned}
+\end{split}\]</div>
+<p>Entonces, el Lagrangiano del sistema se define como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ \mathcal{L} = \frac{1}{2}ml^{2}\dot{\theta}^{2} + mgl\cos(\theta).
+\]</div>
+<p>Obtenemos las derivadas parciales</p>
+<div class="math notranslate nohighlight" id="equation-eqn-parcial1">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-parcial1" title="Link to this equation">#</a></span>\[
+ \frac{\partial \mathcal{L}}{\partial \dot{\theta}} = ml^{2}\dot{\theta},
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-parcial2">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-parcial2" title="Link to this equation">#</a></span>\[
+ \frac{\mathrm{d}}{\mathrm{d}t}\left[ \frac{\partial \mathcal{L}}{\partial \dot{\theta}} \right]= ml^{2}\ddot{\theta},
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-parcial3">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-parcial3" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  \frac{\partial \mathcal{L}}{\partial \theta} &amp;= \frac{\partial}{\partial \theta} \left( \frac{1}{2}ml^{2}\dot{\theta}^{2} + mgl\cos(\theta) \right), \\
+  &amp;= -mgl\sin(\theta),
+ \end{aligned}
+\end{split}\]</div>
+<p>Sustituyendo, <a class="reference internal" href="#equation-eqn-parcial1">(19)</a>-<a class="reference internal" href="#equation-eqn-parcial3">(21)</a> en <a class="reference internal" href="#equation-eqn-sistema-no-conservativo">(14)</a> y considerando que <span class="math notranslate nohighlight">\(\tau=0\)</span> tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ ml^{2}\ddot{\theta} + mgl\sin(\theta) = 0.
+\]</div>
+</section>
+</section>
+<section id="diodo-tunel">
+<h3>Diodo tunel<a class="headerlink" href="#diodo-tunel" title="Link to this heading">#</a></h3>
+<p>El circuito de diodo tunel se muestra en la siguiente figura</p>
+<figure class="align-default" id="fig-diodo-tunel">
+<a class="reference internal image-reference" href="../_images/diodo_tunel.png"><img alt="../_images/diodo_tunel.png" src="../_images/diodo_tunel.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Diodo túnel.</span><a class="headerlink" href="#fig-diodo-tunel" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>donde la relación constitutiva que caracteriza el tunel diodo está dada por <span class="math notranslate nohighlight">\(i_{R} = h(v_{R})\)</span>. Los elementos almacenadores de energía son el inductor <span class="math notranslate nohighlight">\(L\)</span> y el capacitor <span class="math notranslate nohighlight">\(C\)</span>. Asumiendo que estos elementos son lineales e invariantes en el tiempo, podemos llegar a representar este sistema a partir del siguiente modelo</p>
+<div class="math notranslate nohighlight" id="equation-eqn-diode-tunel">
+<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-diode-tunel" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  i_{C} &amp;= C \dot{v}_{C}, \\
+  v_{L} &amp;= L \frac{\mathrm{d}i_{L}}{\mathrm{d}t},
+ \end{aligned}
+\end{split}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(v\)</span> e <span class="math notranslate nohighlight">\(i\)</span> denotan el voltaje y corriente a través de un elemento. Además, el sub índice especifica el elemento.</p>
+<p>Las ecuaciones del circuito de diodo tunel se pueden representar en forma de espacio-estados si consideramos <span class="math notranslate nohighlight">\(u=E\)</span> como una entrada constante, <span class="math notranslate nohighlight">\(x_{1} = v_{C}\)</span> (tensión en el capacitor) y <span class="math notranslate nohighlight">\(x_{2} = i_{L}\)</span> (corriente en el inductor).</p>
+<p>Utilizando las <em>Leyes de Kirchhoff</em> y expresando <span class="math notranslate nohighlight">\(i_{C}\)</span> como una función de las variables de estado <span class="math notranslate nohighlight">\(x_{1}\)</span>, <span class="math notranslate nohighlight">\(x_{2}\)</span> y la entrada <span class="math notranslate nohighlight">\(u\)</span>, tenemos lo siguiente</p>
+<div class="math notranslate nohighlight">
+\[
+ i_{C} + i_{R} - i_{L} = 0,
+\]</div>
+<p>por consiguiente</p>
+<div class="math notranslate nohighlight">
+\[
+ i_{C} = -h(x_{1}) + x_{2}.
+\]</div>
+<p>Del mismo modo, expresamos <span class="math notranslate nohighlight">\(v_{L}\)</span> como una función de las variables <span class="math notranslate nohighlight">\(x_{1}\)</span>, <span class="math notranslate nohighlight">\(x_{2}\)</span>, <span class="math notranslate nohighlight">\(u\)</span> y utilizamos las <em>Leyes de Kirchhoff</em> como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ v_{C} - E + Ri_{L} + v_{L} = 0.
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(v_{L} = -x_{1} - Rx_{2} + u\)</span>.</p>
+<p>Reescribiendo las ecuaciones del sistema <span class="xref std std-ref">eqn:diode_tunel</span>, tenemos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-diode-tunel-ee">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-diode-tunel-ee" title="Link to this equation">#</a></span>\[\begin{split}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= \frac{1}{C}\left(-h(x_{1}) + x_{2} \right) ,\\
+  \dot{x}_{2} &amp;= \frac{1}{L}\left(-x_{1} - Rx_{2} + u \right),
+ \end{aligned}
+\end{split}\]</div>
+</section>
+<section id="circuito-r-c">
+<h3>Circuito R-C<a class="headerlink" href="#circuito-r-c" title="Link to this heading">#</a></h3>
+<p>La relación que establece el flujo electromagnético <span class="math notranslate nohighlight">\(\phi\)</span> y la corriente <span class="math notranslate nohighlight">\(i\)</span> que lo produce está dada por la siguiente ecuación</p>
+<div class="math notranslate nohighlight">
+\[
+ \phi = L i,
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(L\)</span> es una constante que depende de los factores geométricos y de entorno llamada inductancia.</p>
+<p>Los cambios de flujo electromagnético originan potenciales eléctricos relacionados por la <em>Ley de Faraday</em></p>
+<div class="math notranslate nohighlight">
+\[
+ u_{L} = - \dot{\phi},
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(u_{L}\)</span> denota el voltaje en las terminales de la inductancia a razón del cambio de flujo. Por consiguiente, la <em>Ley de Faraday</em> se puede expresar como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ u_{L} = - L \dot{\phi}.
+\]</div>
+<p>En elementos resistivos el voltaje <span class="math notranslate nohighlight">\(u_{R}\)</span> entre el componente y la corriente <span class="math notranslate nohighlight">\(i\)</span> que circula por él obedecen a la <em>Ley de Ohm</em> dada como siguiente</p>
+<div class="math notranslate nohighlight" id="equation-eqn-ley-ohm">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-ley-ohm" title="Link to this equation">#</a></span>\[
+ u_{R} = Ri,
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(R\)</span> es una constante que depende del componente denominado resistencia.</p>
+<p>El voltaje <span class="math notranslate nohighlight">\(u_{C}\)</span> entre las terminales de una capacitancia y la carga <span class="math notranslate nohighlight">\(q\)</span> siguen la siguiente relación</p>
+<div class="math notranslate nohighlight">
+\[
+ u_{C} = \frac{Q}{C} \equiv \frac{1}{C} \int i \mathrm{d}t,
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(C\)</span> es una constante que depende de la geometría y el entorno denominada capacitancia. Si consideramos que la corriente se define como una variación temporal de carga</p>
+<div class="math notranslate nohighlight">
+\[
+ i = \dot{Q}, \quad Q = \int i \mathrm{d}t,
+\]</div>
+<p>entonces <span class="math notranslate nohighlight">\(u_{C}\)</span> se expresa en los siguientes términos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-uc">
+<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-uc" title="Link to this equation">#</a></span>\[
+ u_{C} = \frac{1}{C} \int i\mathrm{d}t.
+\]</div>
+<p>Considere el circuito mostrado en la <a class="reference internal" href="#fig-rc"><span class="std std-numref">Fig. 4</span></a></p>
+<p>Aplicando la <em>Ley de tensiones de Kirchhoff</em>, obtenemos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-tensiones-kirchoff">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-tensiones-kirchoff" title="Link to this equation">#</a></span>\[
+ u_{R} + u_{C} = V_{in}.
+\]</div>
+<p>Sustituyendo <a class="reference internal" href="#equation-eqn-ley-ohm">(24)</a> y <a class="reference internal" href="#equation-eqn-uc">(25)</a> en <a class="reference internal" href="#equation-eqn-tensiones-kirchoff">(26)</a>, tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ Ri + \frac{1}{C} \int i \mathrm{d}t = V_{in},
+\]</div>
+<p>expresado la ecuación anterior en términos de la carga <span class="math notranslate nohighlight">\(Q\)</span>, tenemos la siguiente expresión</p>
+<div class="math notranslate nohighlight" id="equation-eqn-modelo-malla">
+<span class="eqno">(27)<a class="headerlink" href="#equation-eqn-modelo-malla" title="Link to this equation">#</a></span>\[
+ R \dot{Q} + \frac{1}{C}Q = V_{in},
+\]</div>
+<p>Aplicando la <em>Ley de corrientes de Kirchhoff</em>, obtenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ i_{R} + i_{C} = i,
+\]</div>
+<p>dado que el voltaje entre los componentes eléctricos es el mismo y lo denotamos por <span class="math notranslate nohighlight">\(u\)</span>, tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{u}{R} + C \dot{u} = i.
+\]</div>
+<p>Considerando el modelo dado en la Ec. <span class="xref std std-ref">eqn:modelo_malla</span> y tomando <span class="math notranslate nohighlight">\(V\)</span> como la carga en el capacitor dividida por la capacitancia <span class="math notranslate nohighlight">\(V := \frac{Q}{C}\)</span> y <span class="math notranslate nohighlight">\(\dot{V}:= \frac{\dot{Q}}{C}\)</span>, sustituyendo tenemos</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{aligned}
+  R\dot{V}C + \frac{1}{C}VC &amp;= V_{in}, \\
+  R\dot{V}C + V &amp;= V_{in}.
+ \end{aligned}
+\end{split}\]</div>
+<p>Entonces, el modelo del circuito RC mostrado en la <a class="reference internal" href="#fig-rc"><span class="std std-numref">Fig. 4</span></a> está dado por la siguiente ecuación</p>
+<div class="math notranslate nohighlight">
+\[
+ \dot{V} + \frac{1}{RC}V = \frac{1}{RC} V_{in}.
+\]</div>
+<figure class="align-default" id="fig-rc">
+<a class="reference internal image-reference" href="../_images/RC.png"><img alt="../_images/RC.png" src="../_images/RC.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Modelo de circuito R-C.</span><a class="headerlink" href="#fig-rc" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="sistema-masa-resorte">
+<h3>Sistema masa-resorte<a class="headerlink" href="#sistema-masa-resorte" title="Link to this heading">#</a></h3>
+<p>Considere una masa <span class="math notranslate nohighlight">\(m\)</span> que se desliza sobre una superficie horizontal y que se encuentra sujeta a una superficie vertical a través de un resorte
+con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> como se muestra en la siguiente figura.</p>
+<figure class="align-default" id="fig-mass-spring">
+<a class="reference internal image-reference" href="../_images/mass_spring.png"><img alt="../_images/mass_spring.png" src="../_images/mass_spring.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Diagrama del sistema masa-resorte.</span><a class="headerlink" href="#fig-mass-spring" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Si definimos <span class="math notranslate nohighlight">\(x\)</span> como el desplazamiento desde el punto de referencia <span class="math notranslate nohighlight">\(x_{0}\)</span>; asumimos  que la masa se desplaza sin fricción y aplicamos la Segunda ley de Newton así como la Ley de Hooke obtenemos</p>
+<div class="math notranslate nohighlight" id="equation-eqn-modelo-mr-lh-sln">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eqn-modelo-mr-lh-sln" title="Link to this equation">#</a></span>\[
+ ma +  kx = F_{x}.
+\]</div>
+<p>Dado que la aceleración <span class="math notranslate nohighlight">\(a\)</span> está definida como <span class="math notranslate nohighlight">\(\ddot{x}\)</span> y que la fuerza <span class="math notranslate nohighlight">\(F_{x}\)</span> está a nuestra disposición, sustituimos en la ecuación anterior para obtener el modelo del sistema masa-resorte como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ m\ddot{x} +  kx = 0.
+\]</div>
+<p>Para un desplazamiento largo, la fuerza restauradora (<span class="math notranslate nohighlight">\(kx\)</span>) podría depender de manera no lineal de <span class="math notranslate nohighlight">\(x\)</span>, por ejemplo, expresada por la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[
+ g(x) = k\left( 1 - a^{2}x^{2} \right)x, \quad |ax|&lt;1,
+\]</div>
+<p>representa al modelo llamado softening spring, donde un gran incremento de desplazamiento produce un incremento pequeño de fuerza.</p>
+<p>Por otro lado, si tenemos la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[
+ g(x) = k\left(1 + a^{2}y^{2} \right)x,
+\]</div>
+<p>es posible obtener el modelo llamado hardening spring donde un incremento pequeño de desplazamiento produce un gran incremento de fuerza.</p>
+<section id="id1">
+<h4>Modelado a partir del enfoque Euler-Lagrange<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>En este caso, vamos a tratar de obtener el modelo dinámico del sistema masa-resorte utilizando las ecuaciones de Euler-Lagrange. Para ello, definimos la siguiente coordenada generalizada</p>
+<div class="math notranslate nohighlight">
+\[
+ q = x, \quad \dot{q} = \dot{x}.
+\]</div>
+<p>Expresamos las energías en función de la coordenada generalizada para obtener el Lagrangiano del sistema. Donde, la energía potencial del sistema se obtiene a partir de la siguiente relación</p>
+<div class="math notranslate nohighlight" id="equation-eqn-area-triangulo">
+<span class="eqno">(29)<a class="headerlink" href="#equation-eqn-area-triangulo" title="Link to this equation">#</a></span>\[
+ A = \frac{\text{base}\cdot \text{altura}}{2},
+\]</div>
+<p>Sustituyendo la Ley de Hooke en <a class="reference internal" href="#equation-eqn-area-triangulo">(29)</a>, tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ T = \frac{qkq}{2} \equiv \frac{kq^{2}}{2},
+\]</div>
+<p>mientras que la co-energía cinética está dada como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ U^{*} = \frac{m\dot{q}^{2}}{2}.
+\]</div>
+<p>Por consiguiente, el Lagrangiano del sistema se define como sigue</p>
+<div class="math notranslate nohighlight" id="equation-eqn-lagrangiano-mr">
+<span class="eqno">(30)<a class="headerlink" href="#equation-eqn-lagrangiano-mr" title="Link to this equation">#</a></span>\[
+ \mathcal{L}(q,\dot{q}) = \frac{m\dot{q}^{2}}{2} - \frac{kq^{2}}{2}.
+\]</div>
+<p>Calculando las ecuaciones de Lagrange <a class="reference internal" href="#equation-eqn-sistema-no-conservativo">(14)</a> a partir de la ecuación <a class="reference internal" href="#equation-eqn-lagrangiano-mr">(30)</a>, obtenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\partial \mathcal{L}}{\partial \dot{q}} = m\dot{q}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-euler-lagrange-mr-a">
+<span class="eqno">(31)<a class="headerlink" href="#equation-eqn-euler-lagrange-mr-a" title="Link to this equation">#</a></span>\[
+ \frac{\mathrm{d}}{\mathrm{d}t} \left[ \frac{\partial \mathcal{L}}{\partial \dot{q}} \right]  = m\ddot{q}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-euler-lagrange-mr-b">
+<span class="eqno">(32)<a class="headerlink" href="#equation-eqn-euler-lagrange-mr-b" title="Link to this equation">#</a></span>\[
+ \frac{\partial \mathcal{L}}{\partial q} = -kq
+\]</div>
+<p>Finalmente, sustituimos las Ecs. <a class="reference internal" href="#equation-eqn-euler-lagrange-mr-a">(31)</a>, <a class="reference internal" href="#equation-eqn-euler-lagrange-mr-b">(32)</a> en la Ec. <a class="reference internal" href="#equation-eqn-sistema-no-conservativo">(14)</a></p>
+<div class="math notranslate nohighlight">
+\[
+ m\ddot{x} + kx = F_{x}.
+\]</div>
+</section>
+</section>
+<section id="sistema-masa-resorte-amortiguador">
+<h3>Sistema masa-resorte-amortiguador<a class="headerlink" href="#sistema-masa-resorte-amortiguador" title="Link to this heading">#</a></h3>
+<p>Considere el sistema masa-resorte-amortiguador mostrado en la siguiente Figura.</p>
+<figure class="align-default" id="fig-mass-spring-damp">
+<a class="reference internal image-reference" href="../_images/mass_spring_damp.png"><img alt="../_images/mass_spring_damp.png" src="../_images/mass_spring_damp.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Sistema masa-resorte-amortiguador.</span><a class="headerlink" href="#fig-mass-spring-damp" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Dicho sistema consiste en una masa <span class="math notranslate nohighlight">\(m\)</span> sujeta a un elemento de amortiguamiento con constante de viscosidad <span class="math notranslate nohighlight">\(b\)</span> y un resorte con rigidez <span class="math notranslate nohighlight">\(k\)</span>. Podemos observar que el sistema se desplaza sobre un plano horizontal a partir de una fuerza <span class="math notranslate nohighlight">\(F_{x}\)</span> aplicada.</p>
+<p>Podemos partir del modelo dado en la Ec. <a class="reference internal" href="#equation-eqn-modelo-mr-lh-sln">(28)</a> y modelando el amortiguador con la relación dada a continuación</p>
+<div class="math notranslate nohighlight">
+\[
+ F_{k} = b \dot{x},
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(b\)</span> denota el coeficiente de fricción viscosa, tenemos</p>
+<div class="math notranslate nohighlight">
+\[
+ m\ddot{x} + b\dot{x} + kx = F_{x}.
+\]</div>
+<p>De manera análoga, podemos obtener aplicar las ecuaciones de Lagrange <a class="reference internal" href="#equation-eqn-sistema-no-conservativo">(14)</a> considerando que existe una fuerza de fricción viscosa como sigue</p>
+<div class="math notranslate nohighlight">
+\[
+ m\ddot{x} + kx = F_{x} - b\dot{x}.
+\]</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contenido-extra">
+<h1>Contenido extra<a class="headerlink" href="#contenido-extra" title="Link to this heading">#</a></h1>
+<section id="indices-de-error">
+<h2>Índices de error<a class="headerlink" href="#indices-de-error" title="Link to this heading">#</a></h2>
+<section id="criterios-integrales">
+<h3>Criterios integrales<a class="headerlink" href="#criterios-integrales" title="Link to this heading">#</a></h3>
+<section id="integral-del-error-absoluto-iae">
+<h4>Integral del error absoluto (IAE)<a class="headerlink" href="#integral-del-error-absoluto-iae" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-1fa74837-7ee7-42d3-9a40-70eca7d915fc">
+<span class="eqno">(33)<a class="headerlink" href="#equation-1fa74837-7ee7-42d3-9a40-70eca7d915fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{IAE} = \int_{0}^{\infty} | e(t) |\mathrm{d} t,
+\end{equation}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-63240ed5-d712-48d7-a1e3-ba180a69fbed">
+<span class="eqno">(34)<a class="headerlink" href="#equation-63240ed5-d712-48d7-a1e3-ba180a69fbed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ e(t) = y(t) - \hat{y}(t).
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Fácil aplicación</p></li>
+<li><p>No se pueden optimizar sistemas altamente sub ni altamente sobre amortiguados</p></li>
+<li><p>Difícil de evaluar analíticamente</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">IAE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yg</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
+</pre></div>
+</div>
+</section>
+<section id="integral-del-tiempo-por-el-error-absoluto-itae">
+<h4>Integral del tiempo por el error absoluto (ITAE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-absoluto-itae" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Los errores tardíos son más castigados</p></li>
+<li><p>Buena selectividad</p></li>
+<li><p>Difícil de evaluar analíticamente</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ITAE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yg</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
+</pre></div>
+</div>
+</section>
+<section id="integral-del-error-cuadratico-ise">
+<h4>Integral del error cuadrático (ISE)<a class="headerlink" href="#integral-del-error-cuadratico-ise" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-425bfdbb-9605-4f84-953b-d9998e4a3113">
+<span class="eqno">(35)<a class="headerlink" href="#equation-425bfdbb-9605-4f84-953b-d9998e4a3113" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{ISE} = \int_{0}^{\infty} e^{2}(t)\mathrm{d}t.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Da mayor importancia a los errores grandes</p></li>
+<li><p>No es un criterio muy selectivo</p></li>
+<li><p>Respuesta rápida pero oscilatoria, estabilidad pobre</p></li>
+</ul>
+</section>
+<section id="integral-del-tiempo-por-el-error-cuadratico-itse">
+<h4>Integral del tiempo por el error cuadrático (ITSE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-cuadratico-itse" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-2feea61a-96b4-4c7d-95b6-7b2234152b78">
+<span class="eqno">(36)<a class="headerlink" href="#equation-2feea61a-96b4-4c7d-95b6-7b2234152b78" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{ITSE} = \int_{0}^{\infty} te^{2}(t)\mathrm{d}t.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Los grandes errores iniciales tienen poco peso pero los que se producen más tarde son fuertemente penados</p></li>
+<li><p>Mejor selectividad con respecto al ISE</p></li>
+</ul>
+</section>
+</section>
+<section id="criterios-estadisticos">
+<h3>Criterios estadísticos<a class="headerlink" href="#criterios-estadisticos" title="Link to this heading">#</a></h3>
+<section id="mean-square-error">
+<h4>Mean Square Error<a class="headerlink" href="#mean-square-error" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-25de8c5d-84dd-44bf-b3ec-59c468e6d850">
+<span class="eqno">(37)<a class="headerlink" href="#equation-25de8c5d-84dd-44bf-b3ec-59c468e6d850" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{MSE} = \frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>No recomendable para estudiar modelos de predicción</p></li>
+<li><p>No tiene escala original el error porque está elevado al cuadrado</p></li>
+<li><p>No se mide en unidades de los datos experimentales</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">):</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">yg</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="root-mean-square-error">
+<h4>Root Mean Square Error<a class="headerlink" href="#root-mean-square-error" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-da26a925-9c40-4f37-807f-f9ebc33eb025">
+<span class="eqno">(38)<a class="headerlink" href="#equation-da26a925-9c40-4f37-807f-f9ebc33eb025" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{RMSE} = \sqrt{\frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}}.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Sensible a valores atípicos</p></li>
+<li><p>No se ajusta a la demanda (¿qué es demanda?)</p></li>
+<li><p>Se mide en unidades de los datos experimentales</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RMSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">MSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="mean-absolute-error">
+<h4>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-664838d1-1c0c-41bb-bf1b-085fed9510c2">
+<span class="eqno">(39)<a class="headerlink" href="#equation-664838d1-1c0c-41bb-bf1b-085fed9510c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{MAE} = \frac{1}{N} \sum_{k=0}^{N} |e_{k}|.
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Mide la precisión de los datos simulados</p></li>
+<li><p>Se mide en unidades de los datos experimentales</p></li>
+<li><p>No es sensible a valores atípicos</p></li>
+<li><p>Utilizado para analizar series temporales</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MAE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">yg</span><span class="p">):</span>
+   <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">yg</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="mean-absolute-percentage-error">
+<h4>Mean Absolute Percentage Error<a class="headerlink" href="#mean-absolute-percentage-error" title="Link to this heading">#</a></h4>
+<div class="amsmath math notranslate nohighlight" id="equation-924b3d8c-5770-4237-813a-3e3780dce981">
+<span class="eqno">(40)<a class="headerlink" href="#equation-924b3d8c-5770-4237-813a-3e3780dce981" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{MAPE} = \frac{100\%}{N} \sum_{k=0}^{N} \frac{e_{k}}{y_{k}}
+\end{equation}\]</div>
+<ul class="simple">
+<li><p>Mide el error en porcentajes</p></li>
+<li><p>Indicador de desempeño</p></li>
+<li><p>Fácil interpretación</p></li>
+<li><p>Ampliamente utilizado para evaluar modelos de predicción</p></li>
+</ul>
+<p><strong>Tabla de MAPE</strong></p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(\text{MAPE}&lt;10\)</span>, entonces el modelo es altamente preciso</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(10&lt;\text{MAPE}&lt;20\)</span>, entonces el modelo es bueno</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(20&lt;\text{MAPE}&lt;50\)</span>, entonces el modelo es razonable</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(\text{MAPE}&gt;50\)</span>, entonces el modelo es impreciso</p></li>
+</ul>
+</section>
+<section id="fit">
+<h4>FIT<a class="headerlink" href="#fit" title="Link to this heading">#</a></h4>
+<p>Obtiene el porcentaje de variación de salida que es explicado por un modelo</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ad170e62-e1c8-4209-939b-7612e491e595">
+<span class="eqno">(41)<a class="headerlink" href="#equation-ad170e62-e1c8-4209-939b-7612e491e595" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \text{FIT} = 100\left(1 - \frac{\|y - \hat{y}\|}{\|y - \bar{y}\|}\right)
+\end{equation}\]</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metodos-numericos">
+<h2>Métodos numéricos<a class="headerlink" href="#metodos-numericos" title="Link to this heading">#</a></h2>
+<section id="metodo-de-euler">
+<h3>Método de Euler<a class="headerlink" href="#metodo-de-euler" title="Link to this heading">#</a></h3>
+<p>Sea <span class="math notranslate nohighlight">\(\phi(x)\)</span> la solución exacta de la ecuación diferencial</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8e06e6f3-f26b-4181-a9b0-6ec2cbca0fd9">
+<span class="eqno">(42)<a class="headerlink" href="#equation-8e06e6f3-f26b-4181-a9b0-6ec2cbca0fd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{y}(x) = f(x,y),
+\end{equation}\]</div>
+<p>con condición iniciales</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c0efcc18-5e1e-48ad-8d10-9bfe4d786193">
+<span class="eqno">(43)<a class="headerlink" href="#equation-c0efcc18-5e1e-48ad-8d10-9bfe4d786193" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y(x_{0}) = y_{0},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\phi(x)\)</span> satisface la relación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-48e665e6-afcd-4c40-af18-fbfa635bc7c3">
+<span class="eqno">(44)<a class="headerlink" href="#equation-48e665e6-afcd-4c40-af18-fbfa635bc7c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\phi}(x) = f(x,\phi(x)),\quad \phi(x_{0}) = y_{0}.
+\end{equation}\]</div>
+<p>La solución de una ecuación diferencial vía numérica es una solución aproximada del valor de la solución <span class="math notranslate nohighlight">\(\phi(x)\)</span> en un conjunto finito de puntos. Es decir, <span class="math notranslate nohighlight">\(\phi(x_{n}):y_{n}\approx \phi(x_{n})\)</span>.</p>
+<p>Es común elegir los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span> de forma equiespaciada, esto es <span class="math notranslate nohighlight">\(h = x_{n+1} - x_{n}\)</span>. En este caso, <span class="math notranslate nohighlight">\(x_{n} = x_{0} + nh\)</span> donde <span class="math notranslate nohighlight">\(h\)</span> es el tamaño del paso.</p>
+<p>Integramos la relación dada en la ecuación anterior entre <span class="math notranslate nohighlight">\(x_{0}\)</span> y <span class="math notranslate nohighlight">\(x_{1}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-64593f8d-2850-4c4d-90db-a267677c65e9">
+<span class="eqno">(45)<a class="headerlink" href="#equation-64593f8d-2850-4c4d-90db-a267677c65e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x = \int_{x_{0}}^{x_{1}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{1}) - \phi(x_{0}),
+\end{equation}\]</div>
+<p>o bien</p>
+<div class="amsmath math notranslate nohighlight" id="equation-972d7967-36a2-4fbb-ab80-830191376d6d">
+<span class="eqno">(46)<a class="headerlink" href="#equation-972d7967-36a2-4fbb-ab80-830191376d6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{1}) = \phi(x_{0}) + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x.
+\end{equation}\]</div>
+<p>Recordando que <span class="math notranslate nohighlight">\(\phi(x_{0}) = y_{0}\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7c823ac1-64bf-4f6e-b204-a3afedbae80a">
+<span class="eqno">(47)<a class="headerlink" href="#equation-7c823ac1-64bf-4f6e-b204-a3afedbae80a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{1}) = y_{0} + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x,
+\end{equation}\]</div>
+<p>podemos hallar el valor de <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> evaluando la integral anterior.</p>
+<p>El método de Euler estima esta integral mediante la regla del rectángulo</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1c2088da-0e93-4e98-9d83-7d89281fa702">
+<span class="eqno">(48)<a class="headerlink" href="#equation-1c2088da-0e93-4e98-9d83-7d89281fa702" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x \approx f(x_{0},y_{0})(x_{1}-x_{0}).
+\end{equation}\]</div>
+<p>Es decir, aproxima el área que hay bajo la curva <span class="math notranslate nohighlight">\(f(x,\phi(x))\)</span> entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{0}\)</span> por el área del rectángulo de ancho <span class="math notranslate nohighlight">\((x_{1}-x_{0})\)</span> con altura igual a la ordenada de la curva en su extremo izquierdo <span class="math notranslate nohighlight">\(f(x_{0},y_{0})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-5cc53cc5-13fd-4929-b2bd-cc0ab5aad9b5">
+<span class="eqno">(49)<a class="headerlink" href="#equation-5cc53cc5-13fd-4929-b2bd-cc0ab5aad9b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{1}) \approx \phi(x_{0}) + f(x_{0},\phi(x_{0}))h.
+\end{equation}\]</div>
+<p>Para estimar el valor de <span class="math notranslate nohighlight">\(\phi(x)\)</span> en el siguiente punto <span class="math notranslate nohighlight">\(x_{2}\)</span>, integramos entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span>, i.e.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fbf168d8-d9b2-4af8-bd5e-743cd7c6adbb">
+<span class="eqno">(50)<a class="headerlink" href="#equation-fbf168d8-d9b2-4af8-bd5e-743cd7c6adbb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \int_{x_{1}}^{x_{2}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{2}) - \phi(x_{1}) = \int_{x_{1}}^{x_{2}} f(x, \phi(x))~\mathrm{d}x.
+\end{equation}\]</div>
+<p>Aproximando la integral mediante la regla del rectángulo se tiene</p>
+<div class="amsmath math notranslate nohighlight" id="equation-77eaaeb2-a529-4bae-b32a-845444224f20">
+<span class="eqno">(51)<a class="headerlink" href="#equation-77eaaeb2-a529-4bae-b32a-845444224f20" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{2}) \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}).
+\end{equation}\]</div>
+<p>Dado que <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> es desconocido, entonces lo aproximamos por <span class="math notranslate nohighlight">\(y_{1}\)</span> como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fcd00766-c743-4933-9c47-4667c891c209">
+<span class="eqno">(52)<a class="headerlink" href="#equation-fcd00766-c743-4933-9c47-4667c891c209" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \phi(x_{2}) &amp; \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}), \\
+  \phi(x_{2}) &amp;  \approx y_{1} + f(x_{1},y_{1})(x_{2}-x_{1}),
+ \end{aligned}
+\end{equation}\]</div>
+<p>o bien</p>
+<div class="amsmath math notranslate nohighlight" id="equation-377d8b6a-e8c4-4c83-9664-3e2881e568f0">
+<span class="eqno">(53)<a class="headerlink" href="#equation-377d8b6a-e8c4-4c83-9664-3e2881e568f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{2}) \approx y_{1} + f(x_{1},y_{1})h.
+\end{equation}\]</div>
+<p>Estimando <span class="math notranslate nohighlight">\(\phi(x_{2})\)</span> por <span class="math notranslate nohighlight">\(y_{2}\)</span>, entonces cualquier estimación <span class="math notranslate nohighlight">\(y_{n+1}\)</span> de <span class="math notranslate nohighlight">\(\phi(x_{n+1})\)</span> puede hacerse por el método de Euler de acuerdo con la siguiente expresión</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bd5b085d-22d9-4908-ad5b-d2748923af12">
+<span class="eqno">(54)<a class="headerlink" href="#equation-bd5b085d-22d9-4908-ad5b-d2748923af12" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \phi(x_{n+1}) \approx y_{n+1} = y_{n} + f(x_{n},y_{n})h
+\end{equation}\]</div>
+</section>
+<section id="metodo-de-runge-kutta">
+<h3>Método de Runge-Kutta<a class="headerlink" href="#metodo-de-runge-kutta" title="Link to this heading">#</a></h3>
+<p>Sirve para buscar aproximaciones a la solución en puntos intermedios del intervalo <span class="math notranslate nohighlight">\([x_{n},x_{n+1}]\)</span> con una combinación lineal de los valores de la derivada en varias aproximaciones para obtener un valor de <span class="math notranslate nohighlight">\(y_{n+1}\)</span>.</p>
+<p>Sea la ecuación diferencial</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9953c634-8096-43ce-a48b-6d2a161841cf">
+<span class="eqno">(55)<a class="headerlink" href="#equation-9953c634-8096-43ce-a48b-6d2a161841cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{y}(x) = f(x,y), \quad y(y_{0}) = y_{0},
+\end{equation}\]</div>
+<p>y sea</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8e9af4d5-09af-4e76-8e96-44a119881d7f">
+<span class="eqno">(56)<a class="headerlink" href="#equation-8e9af4d5-09af-4e76-8e96-44a119881d7f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ x_{n} = x_{0} + nh, \quad h&gt;0.
+\end{equation}\]</div>
+<p>Para evaluar <span class="math notranslate nohighlight">\(y(x_{n+1})\)</span> conociendo el valor <span class="math notranslate nohighlight">\(y_{n}\)</span> y además <span class="math notranslate nohighlight">\(0 \leq \alpha_{1} \leq \alpha_{2} \cdots \leq \alpha_{r} \leq 1\)</span>,  de modo que <span class="math notranslate nohighlight">\(\sum_{n=1}^{r}\gamma_{n} = 1\)</span>, el método de Runge-Kutta evalúa <span class="math notranslate nohighlight">\(y_{n+1}\)</span> como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd71b40b-e70d-443d-b8ff-049e32f02562">
+<span class="eqno">(57)<a class="headerlink" href="#equation-dd71b40b-e70d-443d-b8ff-049e32f02562" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y_{n+1} = y_{n} + \sum_{n=1}^{r} \gamma_{n}k_{n},
+\end{equation}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c1b3c081-3a9b-442b-9352-0d66e8d67597">
+<span class="eqno">(58)<a class="headerlink" href="#equation-c1b3c081-3a9b-442b-9352-0d66e8d67597" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ k_{n} = h~f\left(x_{n} + \alpha_{n}h, y_{n} + \sum_{j=1}^{r}\beta_{n,j}k_{j}\right), \quad \sum_{j=1}^{r} \beta_{n,j} = \alpha_{n}.
+\end{equation}\]</div>
+<p>Los métodos de Runge-Kutta se clasifican en:</p>
+<ul class="simple">
+<li><p><strong>Explícitos.</strong> Cuando los valores de <span class="math notranslate nohighlight">\(k_{n}\)</span> pueden ser evaluados en función de <span class="math notranslate nohighlight">\(k_{1},k_{2},\dots,k_{n-1}\)</span>.</p></li>
+<li><p><strong>Implícitos.</strong> Cuando lo anterior no es posible.</p></li>
+</ul>
+<p>Además, en los métodos explícitos se satisface la siguiente restricción</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ccf11833-9fc5-4319-9e3e-2596ceb81428">
+<span class="eqno">(59)<a class="headerlink" href="#equation-ccf11833-9fc5-4319-9e3e-2596ceb81428" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \beta_{n,j} = 0, ~ \forall n \leq j.
+\end{equation}\]</div>
+<p>Mientras que para los implícitos se resuelve en cada paso un sistema de ecuaciones de la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-745f755e-b13d-4d1f-9b92-01641921f405">
+<span class="eqno">(60)<a class="headerlink" href="#equation-745f755e-b13d-4d1f-9b92-01641921f405" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  k_{1} &amp;= f\left( x_{n} + \alpha_{1}h, y_{n} + \beta_{1,1}k_{1} + \beta_{1,2}k_{2} + \cdots + \beta_{1,p}k_{p}  \right), \\
+  k_{2} &amp;= f\left( x_{n} + \alpha_{2}h, y_{n} + \beta_{2,1}k_{1} + \beta_{2,2}k_{2} + \cdots + \beta_{2,p}k_{p}  \right), \\
+  \vdots ~ &amp;= ~ \vdots \\
+  k_{p} &amp;= f\left( x_{n} + \alpha_{p}h, y_{n} + \beta_{p,1}k_{1} + \beta_{p,2}k_{2} + \cdots + \beta_{p,p}k_{p}  \right).
+ \end{aligned}
+\end{equation}\]</div>
+<p>El méto de Runge-Kutta de 4to orden es el más utilizado y evalúa la función <span class="math notranslate nohighlight">\(f(x,y)\)</span> en los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span>, <span class="math notranslate nohighlight">\(x_{n}+\frac{h}{2}\)</span> y <span class="math notranslate nohighlight">\(x_{n} + h\)</span> de la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3c3234af-48c1-401a-90cd-ce683e51a323">
+<span class="eqno">(61)<a class="headerlink" href="#equation-3c3234af-48c1-401a-90cd-ce683e51a323" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y_{n+1} = y_{n} + \alpha_{1}k_{1} + \alpha_{2}k_{2} + \alpha_{3}k_{3} + \alpha_{4}k_4,
+\end{equation}\]</div>
+<p>con</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1a3b00ff-c515-4b63-b36a-3adee48e1e32">
+<span class="eqno">(62)<a class="headerlink" href="#equation-1a3b00ff-c515-4b63-b36a-3adee48e1e32" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  k_{1} &amp;= f\left(x_{n},y_{n} \right)h, \\
+  k_{2} &amp;= f\left(x_{n} + a_{2}h,y_{n} + b_{21}k_{1} \right)h, \\
+  k_{3} &amp;= f\left(x_{n} + a_{3}h,y_{n} + b_{31}k_{1} + b_{32}k_{2} \right)h, \\
+  k_{4} &amp;= f\left(x_{n} + a_{4}h,y_{n} + b_{41}k_{1} + b_{42}k_{2} + b_{43}k_{3} \right)h.
+ \end{aligned}
+\end{equation}\]</div>
+<p>Eligiendo arbitrariamente <span class="math notranslate nohighlight">\(\alpha_{2}=\alpha_{3}=\frac{1}{3}\)</span> y hallando el resto de los coeficientes mediante un sistema algebráico de 11 ecuaciones, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eac85d85-ca6a-4e03-a52e-529f8061591f">
+<span class="eqno">(63)<a class="headerlink" href="#equation-eac85d85-ca6a-4e03-a52e-529f8061591f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \alpha_{1} &amp;= \frac{1}{6}, \\
+  \alpha_{2} &amp;= \frac{1}{3},~ \alpha_{2} = \frac{1}{2},~  b_{21} = \frac{1}{2}, \\
+  \alpha_{3} &amp;= \frac{1}{3}, ~ \alpha_{3} = \frac{1}{2}, ~ b_{31} = 0, ~ b_{32} = \frac{1}{2}, \\
+  \alpha_{4} &amp;= \frac{1}{6}, ~ \alpha_{4} = 1, ~ b_{41} = 0, ~ b_{42} = 0, ~ b_{43} = 1.
+ \end{aligned}
+\end{equation}\]</div>
+<p>Tendríamos entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-40b29917-50ba-46ac-84df-6d7c7fc10382">
+<span class="eqno">(64)<a class="headerlink" href="#equation-40b29917-50ba-46ac-84df-6d7c7fc10382" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y_{n+1} = y_{n} + \frac{1}{6}\left(k_{1} + 2k_{2} + 2k_{3} + k_{4} \right),
+\end{equation}\]</div>
+<p>con</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb0eba83-f320-47f6-a246-431528843785">
+<span class="eqno">(65)<a class="headerlink" href="#equation-eb0eba83-f320-47f6-a246-431528843785" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  k_{1} &amp;= f\left( x_{n},y_{n} \right)h, \\
+  k_{2} &amp;= f\left( x_{n} + \frac{h}{2},y_{n} + \frac{k_{1}}{2} \right)h, \\
+  k_{3} &amp;= f\left( x_{n} + \frac{h}{2},y_{n} + \frac{k_{2}}{2} \right)h, \\
+  k_{4} &amp;= f\left( x_{n} + h,y_{n} + k_{3}\right)h.
+ \end{aligned}
+\end{equation}\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="home.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Contenido del curso</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JESP_02_Antecedentes_mat.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Antecedentes matemáticos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introducción al análisis de la dinámica de sistemas</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-practicos">Ejemplos prácticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pendulo-simple">Péndulo simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-a-partir-de-leyes-fisicas">Modelado a partir de leyes físicas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-a-partir-del-enfoque-euler-lagrange">Modelado a partir del enfoque Euler-Lagrange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diodo-tunel">Diodo tunel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#circuito-r-c">Circuito R-C</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-masa-resorte">Sistema masa-resorte</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modelado a partir del enfoque Euler-Lagrange</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-masa-resorte-amortiguador">Sistema masa-resorte-amortiguador</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contenido-extra">Contenido extra</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-de-error">Índices de error</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-integrales">Criterios integrales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-absoluto-iae">Integral del error absoluto (IAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-absoluto-itae">Integral del tiempo por el error absoluto (ITAE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-error-cuadratico-ise">Integral del error cuadrático (ISE)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-del-tiempo-por-el-error-cuadratico-itse">Integral del tiempo por el error cuadrático (ITSE)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-estadisticos">Criterios estadísticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-square-error">Mean Square Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#root-mean-square-error">Root Mean Square Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-error">Mean Absolute Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-absolute-percentage-error">Mean Absolute Percentage Error</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fit">FIT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-numericos">Métodos numéricos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-euler">Método de Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-runge-kutta">Método de Runge-Kutta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jesús Emmanuel Solís Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

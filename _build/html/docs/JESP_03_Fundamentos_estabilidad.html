@@ -1,0 +1,1116 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fundamentos del análisis de estabilidad en el sentido de Lyapunov &#8212; Modelación de Sistemas Físicos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_03_Fundamentos_estabilidad';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Controlabilidad de sistemas dinámicos" href="JESP_04_Controlabilidad_sistemas.html" />
+    <link rel="prev" title="Antecedentes matemáticos" href="JESP_02_Antecedentes_mat.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/closed_loop.png" class="logo__image only-light" alt="Modelación de Sistemas Físicos - Home"/>
+    <script>document.write(`<img src="../_static/closed_loop.png" class="logo__image only-dark" alt="Modelación de Sistemas Físicos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Contenido del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Observabilidad de sistemas dinámicos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_03_Fundamentos_estabilidad.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fundamentos del análisis de estabilidad en el sentido de Lyapunov</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#localizacion-de-los-puntos-de-equilibrio">Localización de los puntos de equilibrio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">Linealización de sistemas en torno a un punto de equilibrio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-circuito-de-diodo-tunel">Ejemplo 1. Circuito de diodo tunel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-pendulo-simple">Ejemplo 2. Péndulo simple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">Análisis de la estabilidad de sistemas dinámicos linealizados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1. Circuito de diodo tunel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2. Péndulo simple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 1.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-del-analisis-de-estabilidad-en-el-sentido-de-lyapunov">
+<h1>Fundamentos del análisis de estabilidad en el sentido de Lyapunov<a class="headerlink" href="#fundamentos-del-analisis-de-estabilidad-en-el-sentido-de-lyapunov" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<ul>
+    <li><strong>Autor:</strong> Jesús Emmanuel Solís Pérez </li>
+    <li><strong>Contacto:</strong> <a href="mailto:jsolisp@unam.mx">jsolisp@unam.mx</a>
+</ul>
+<hr class="docutils" />
+<p>Considere un sistema autónomo representado por la siguiente ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bef9de65-a176-4b7e-9113-1b34edd7472a">
+<span class="eqno">(102)<a class="headerlink" href="#equation-bef9de65-a176-4b7e-9113-1b34edd7472a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:sys_aut}
+ \dot{x} = f(x),
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(f:D\leftarrow R^{n}\)</span> es un mapa local de Lipschitz de un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> en <span class="math notranslate nohighlight">\(R^{n}\)</span>.</p>
+<p>Para poder estudiar la estabilidad del sistema \eqref{eqn:sys_aut}, es necesario obtener <span class="math notranslate nohighlight">\(\bar{x}\in D\)</span> que denota el punto de equilibrio</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd052f23-0042-48a8-9885-7d8ac21e6b93">
+<span class="eqno">(103)<a class="headerlink" href="#equation-dd052f23-0042-48a8-9885-7d8ac21e6b93" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ f(\bar{x}) = 0.
+\end{equation}\]</div>
+<section id="localizacion-de-los-puntos-de-equilibrio">
+<h2>Localización de los puntos de equilibrio<a class="headerlink" href="#localizacion-de-los-puntos-de-equilibrio" title="Link to this heading">#</a></h2>
+<p><strong>Definición 1.</strong> <em>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> es</em></p>
+<ul class="simple">
+<li><p><em>estable si, para cada <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta = \delta(\varepsilon)&gt;0\)</span> tal que</em></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-dc74cb66-a569-451a-8ba0-3e33b8cb1dea">
+<span class="eqno">(104)<a class="headerlink" href="#equation-dc74cb66-a569-451a-8ba0-3e33b8cb1dea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \|x(0)\| &lt; \delta \Rightarrow \|x(t)\| &lt; \varepsilon, \quad \forall t\geq 0
+\end{equation}\]</div>
+<ul class="simple">
+<li><p><em>inestable si no es estable</em></p></li>
+<li><p><em>asintóticamente estable si este es estable y <span class="math notranslate nohighlight">\(\delta\)</span> se escoge tal que</em></p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight" id="equation-9fbd1557-e1de-4592-b038-748a4d1a5f0b">
+<span class="eqno">(105)<a class="headerlink" href="#equation-9fbd1557-e1de-4592-b038-748a4d1a5f0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \|x(0)\| &lt; \delta \Rightarrow \lim \limits_{t\rightarrow \infty} x(t) = 0.
+\end{equation}\]</div>
+<section id="ejemplo-1">
+<h3>Ejemplo 1.<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
+<p>Considere las ecuaciones del péndulo simple y obtenga sus puntos de equilibrio</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7a584148-bc07-4517-9dcf-7740ef38405d">
+<span class="eqno">(106)<a class="headerlink" href="#equation-7a584148-bc07-4517-9dcf-7740ef38405d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
+ \end{aligned}
+\end{equation}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">
+<h2>Linealización de sistemas en torno a un punto de equilibrio<a class="headerlink" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio" title="Link to this heading">#</a></h2>
+<p>Un sistema lineal invariante en el tiempo (LTI) de la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e25bd36-e317-4c9e-ac57-e5a54716a037">
+<span class="eqno">(107)<a class="headerlink" href="#equation-1e25bd36-e317-4c9e-ac57-e5a54716a037" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:LTI}
+ \dot{x} = Ax,
+\end{equation}\]</div>
+<p>tiene un punto de equilibrio en el origen. Este punto de equilibrio está aislado si y sólo si <span class="math notranslate nohighlight">\(\text{det}(A)\neq0\)</span>. Si <span class="math notranslate nohighlight">\(\text{det}(A)=0\)</span>, la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene un espacio nulo no trivial.</p>
+<p>Las propiedades de estabilidad del origen pueden ser caracterizadas por las ubicaciones de los eigenvalores de la matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>Recordemos que la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> dada una condición inicial <span class="math notranslate nohighlight">\(x(0)\)</span> está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c9164f69-48e9-4a5a-85a2-6d5bf86b3197">
+<span class="eqno">(108)<a class="headerlink" href="#equation-c9164f69-48e9-4a5a-85a2-6d5bf86b3197" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ x(t) = \exp(At)x(0).
+\end{equation}\]</div>
+<p>Además, para cualquier matriz <span class="math notranslate nohighlight">\(A\)</span> existe una matriz <span class="math notranslate nohighlight">\(P\)</span> no singular que transforma <span class="math notranslate nohighlight">\(A\)</span> en su forma de Jordan, <em>i.e.</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-10937bcb-c9ed-4e12-b0f7-2f643690462b">
+<span class="eqno">(109)<a class="headerlink" href="#equation-10937bcb-c9ed-4e12-b0f7-2f643690462b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ P^{-1}AP = J = \text{block} \text{diag}\left[J_{1}, J_{2},\dots, J_{r} \right],
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(J_{i}\)</span> es el bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de A.</p>
+<p>La forma generalizada del bloque de Jordan, considerando un orden <span class="math notranslate nohighlight">\(m\)</span>, tiene la forma siguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-21ab7c2b-aada-472a-84ff-a1209f834077">
+<span class="eqno">(110)<a class="headerlink" href="#equation-21ab7c2b-aada-472a-84ff-a1209f834077" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ J_{i} = \begin{bmatrix}
+  \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0 \\
+  0 &amp; \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+  \vdots &amp; &amp; \ddots &amp; &amp; &amp; \vdots \\
+  \vdots &amp; &amp; &amp; \ddots &amp; &amp; 0 \\
+  \vdots &amp; &amp; &amp; &amp; \ddots &amp; 1 \\
+  0 &amp; \cdots &amp; \cdots &amp; \cdots &amp; 0 &amp; \lambda_{i}
+ \end{bmatrix}_{m\times m},
+\end{equation}\]</div>
+<p>por consiguiente</p>
+<div class="amsmath math notranslate nohighlight" id="equation-405d891e-a24e-4f74-b58f-ce5443ff20c1">
+<span class="eqno">(111)<a class="headerlink" href="#equation-405d891e-a24e-4f74-b58f-ce5443ff20c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \exp(At) = P \exp(Jt)P^{-1} = \sum_{i=1}^{r} \sum_{k=1}^{m_{i}} t^{k-1} \exp(\lambda_{i}t) R_{ik},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(m_{i}\)</span> es el orden del bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span>.</p>
+<p><strong>Teorema 1</strong>. <em>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span> es estable si y sólo si todos los eigenvalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})\leq 0\)</span> y cada eigenvalor con <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})= 0\)</span> tiene un bloque de Jordan asociado de uno. El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es (globalmente) asintóticamente estable sí y sólo sí todos los eigencalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})&lt; 0\)</span></em>.</p>
+<p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
+<section id="linealizacion">
+<h3>Linealización<a class="headerlink" href="#linealizacion" title="Link to this heading">#</a></h3>
+<p>Suponga que las funciones <span class="math notranslate nohighlight">\(f_{1}\)</span> y <span class="math notranslate nohighlight">\(f_{2}\)</span> del sistema autónomo de segundo orden</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2674b3eb-8179-4c27-bc89-4a38b1897a0b">
+<span class="eqno">(112)<a class="headerlink" href="#equation-2674b3eb-8179-4c27-bc89-4a38b1897a0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:second_order_aut}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= f_{1}(x_{1},x_{2}), \\
+  \dot{x}_{2} &amp;= f_{2}(x_{1},x_{2}), \\
+ \end{aligned}
+\end{equation}\]</div>
+<p>son continuamente diferenciables y que además <span class="math notranslate nohighlight">\(p=(p_{1},p_{2})\)</span> es un punto de equilibrio, el sistema \eqref{eqn:second_order_aut} se puede expandir mediante serie de Taylor en torno a <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-71972a63-8c46-480e-b4d0-0673bd9699d5">
+<span class="eqno">(113)<a class="headerlink" href="#equation-71972a63-8c46-480e-b4d0-0673bd9699d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= f_{1}(p_{1},p_{2}) + a_{11}(x_{1}-p_{1}) + a_{12}(x_{2}-p_{2}) + \text{H.O.T}, \\
+  \dot{x}_{2} &amp;= f_{2}(p_{1},p_{2}) + a_{21}(x_{1}-p_{1}) + a_{22}(x_{2}-p_{2}) + \text{H.O.T},
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-60229556-5cbd-4fa1-8bd4-cf0149951aa6">
+<span class="eqno">(114)<a class="headerlink" href="#equation-60229556-5cbd-4fa1-8bd4-cf0149951aa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  a_{11} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{12} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \\
+  a_{21} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{22} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, 
+ \end{aligned}
+\end{equation}\]</div>
+<p>y H.O.T. denota los términos de orden superior de la expansión de Taylor, es decir <span class="math notranslate nohighlight">\((x_{1}-p_{1})^{2},(x_{2}-p_{2})^{2},(x_{1}-p_{1})\times (x_{2}-p_{2})\)</span>, y así sucesivamente.</p>
+<p>Dado que <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> denota el punto de equilibrio, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a505167-20eb-4e6e-a166-781860b9b1e0">
+<span class="eqno">(115)<a class="headerlink" href="#equation-0a505167-20eb-4e6e-a166-781860b9b1e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ f_{1}(p_{1},p_{2}) = f_{2}(p_{1},p_{2}) = 0.
+\end{equation}\]</div>
+<p>Puesto que consideramos trayectorias cercanas a este punto, definimos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b64d975c-7bc3-4372-87f3-a57698ae9ae8">
+<span class="eqno">(116)<a class="headerlink" href="#equation-b64d975c-7bc3-4372-87f3-a57698ae9ae8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y_{1} = x_{1} - p_{1}, \quad y_{2} = x_{2} - p_{2}.
+\end{equation}\]</div>
+<p>Por consiguiente, las ecuaciones de estado quedan de la siguiente forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e25b109f-7acd-4991-9edc-58e86417cafe">
+<span class="eqno">(117)<a class="headerlink" href="#equation-e25b109f-7acd-4991-9edc-58e86417cafe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2} + \text{H.O.T}, \\
+  \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2} + \text{H.O.T}.
+ \end{aligned}
+\end{equation}\]</div>
+<p>Si consideramos una vecindad cercana al punto de equilibrio, entonces podemos decir que los términos H.O.T son despreciables y por consiguiente, realizamos una aproximación de la ecuación de estado no lineal por la ecuación de estado lineal como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b138277c-f949-44e7-b210-94067d9d4f3f">
+<span class="eqno">(118)<a class="headerlink" href="#equation-b138277c-f949-44e7-b210-94067d9d4f3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2},\\
+  \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2}. \\
+ \end{aligned}
+\end{equation}\]</div>
+<p>Reescribiendo lo anterior en una forma vectorial, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c0d39c12-3e36-4d71-84b5-27b47f5d429a">
+<span class="eqno">(119)<a class="headerlink" href="#equation-c0d39c12-3e36-4d71-84b5-27b47f5d429a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{y} = Ay,
+\end{equation}\]</div>
+<p>donde</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e14eae92-7797-4b46-a2b7-d061738a4826">
+<span class="eqno">(120)<a class="headerlink" href="#equation-e14eae92-7797-4b46-a2b7-d061738a4826" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ A = \begin{bmatrix}
+  a_{11} &amp; a_{12} \\
+  a_{21} &amp; a_{22}  
+ \end{bmatrix} =
+ \left.
+  \begin{bmatrix}
+   \frac{\partial f_{1}}{\partial x_{1}} &amp; \frac{\partial f_{1}}{\partial x_{2}} \\
+   \frac{\partial f_{2}}{\partial x_{1}} &amp; \frac{\partial f_{2}}{\partial x_{2}}
+  \end{bmatrix} \right|_{x=p} =
+  \left.
+   \frac{\partial f}{\partial x}
+  \right|_{x=p}
+\end{equation}\]</div>
+<p><strong>Observación.</strong> La matrix <span class="math notranslate nohighlight">\([\partial f/\partial x]\)</span> es llamada la matriz Jacobiana de <span class="math notranslate nohighlight">\(f(x)\)</span> mientras que <span class="math notranslate nohighlight">\(A\)</span> es la matriz Jacobiana evaluada en el punto de equilibrio <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<section id="ejemplo-1-circuito-de-diodo-tunel">
+<h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#ejemplo-1-circuito-de-diodo-tunel" title="Link to this heading">#</a></h4>
+<p>Considere el circuito de diodo tunel que se muestra a continuación</p>
+<p><img alt="Diodo tunel" src="figures/diodo_tunel.png" /></p>
+<p>donde los elementos de almacenamiento de energía son el capacitor <span class="math notranslate nohighlight">\(C\)</span> y el inductor <span class="math notranslate nohighlight">\(L\)</span> mientras que el diodo tunel es representado por la relación <span class="math notranslate nohighlight">\(i_{R} = h(v_{R})\)</span>. Asumiendo que los elementos del circuito son lineales e invariantes en el tiempo, el circuito de diodo tunel se puede representar matemáticamente como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-07a803f5-5be6-4eaa-9673-bbdb1b4c1c36">
+<span class="eqno">(121)<a class="headerlink" href="#equation-07a803f5-5be6-4eaa-9673-bbdb1b4c1c36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  i_{C} &amp;= C \frac{\mathrm{d}v_{C}}{\mathrm{d}t}, \\
+  v_{L} &amp;= L \frac{\mathrm{d}i_{L}}{\mathrm{d}t}, \\
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(v\)</span> representan la corriente y el voltaje a través de los elementos, respectivamente.</p>
+<p>Considere que los parámetros del modelo son <span class="math notranslate nohighlight">\(u=1.2V\)</span>, <span class="math notranslate nohighlight">\(R=1.5k\Omega = 1.5\times 10^{3}\Omega\)</span>, <span class="math notranslate nohighlight">\(C=2pF = 2\times 10^{-12}F\)</span>, <span class="math notranslate nohighlight">\(L=5\mu H = 5\times 10^{-6}H\)</span>. Además, suponga que <span class="math notranslate nohighlight">\(h(\cdot)\)</span> está dada por</p>
+<div class="amsmath math notranslate nohighlight" id="equation-de5c7dba-f52d-4d54-94d4-ef272a96b224">
+<span class="eqno">(122)<a class="headerlink" href="#equation-de5c7dba-f52d-4d54-94d4-ef272a96b224" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ h(x_{1}) = 17.76x_{1} - 103.79x_{1}^{2} + 229.62x_{1}^{3} - 226.31x_{1}^{4} + 83.72x_{1}^{5}.
+\end{equation}\]</div>
+<ol class="arabic simple">
+<li><p>Utilice la Ley de corriente y voltaje de Kirchhoff para reescribir las ecuaciones anteriores.</p></li>
+<li><p>Encuentre los puntos de equilibrio.</p></li>
+<li><p>Linealice el sistema.</p></li>
+<li><p>Evalúe la matriz Jacobiana en los puntos de equilibrio.</p></li>
+</ol>
+</section>
+<section id="ejemplo-2-pendulo-simple">
+<h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#ejemplo-2-pendulo-simple" title="Link to this heading">#</a></h4>
+<p>Considere el péndulo simple mostrado en la siguiente</p>
+<p><img alt="Single pendulum" src="figures/single_pendulum.png" /></p>
+<p>donde <span class="math notranslate nohighlight">\(l\)</span> denota la longitud de la varilla, y <span class="math notranslate nohighlight">\(m\)</span> la masa de la bola.</p>
+<p>Cuya representación en espacio de estados está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d472ca5e-c0ae-4c79-b124-2e8de6b543c9">
+<span class="eqno">(123)<a class="headerlink" href="#equation-d472ca5e-c0ae-4c79-b124-2e8de6b543c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x_{1}} &amp;= x_{2}, \\
+  \dot{x_{2}} &amp;= -\frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
+ \end{aligned}
+\end{equation}\]</div>
+<ol class="arabic simple">
+<li><p>Encuentre los puntos de equilibrio.</p></li>
+<li><p>Linealice el sistema.</p></li>
+<li><p>Evalúe la matriz Jacobiana en los puntos de equilibrio.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">
+<h2>Análisis de la estabilidad de sistemas dinámicos linealizados<a class="headerlink" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados" title="Link to this heading">#</a></h2>
+<p>Considere un sistema LTI como se muestra en la Ec. \eqref{eqn:LTI} donde <span class="math notranslate nohighlight">\(A\)</span> es una matriz real de dimensión <span class="math notranslate nohighlight">\(2\times 2\)</span>. La solución a este sistema con una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> está dada por la siguiente ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3af26526-39e2-4066-b248-a09bc06ecebd">
+<span class="eqno">(124)<a class="headerlink" href="#equation-3af26526-39e2-4066-b248-a09bc06ecebd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ x(t) = M \exp(J_{r}t)M^{-1}x_{0},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(J_{r}\)</span> es la forma real de Jordan de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(M\)</span> es una matriz real no singular tal que <span class="math notranslate nohighlight">\(M^{-1}AM = J_{r}\)</span>. Dependiendo de los eigenvalores <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de la matriz <span class="math notranslate nohighlight">\(A\)</span>, la forma de Jordan puede tomar los siguientes casos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d4623eaa-eaab-4577-9835-18fce08e2f84">
+<span class="eqno">(125)<a class="headerlink" href="#equation-d4623eaa-eaab-4577-9835-18fce08e2f84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{bmatrix}
+  \lambda_{1} &amp; 0 \\
+  0 &amp; \lambda_{2}
+ \end{bmatrix}, \quad
+ \begin{bmatrix}
+  \lambda &amp; k \\
+  0 &amp; \lambda
+ \end{bmatrix}, \quad
+ \begin{bmatrix}
+  \alpha &amp; -\beta \\
+  \beta &amp; \alpha
+ \end{bmatrix},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(k\)</span> puede tomar el valor de <span class="math notranslate nohighlight">\(0\)</span> o <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<section id="caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">
+<h3>Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.<a class="headerlink" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0" title="Link to this heading">#</a></h3>
+<p>El sistema tiene dos eigenvectores reales <span class="math notranslate nohighlight">\(v_{1}\)</span> y <span class="math notranslate nohighlight">\(v_{2}\)</span> asociados con <span class="math notranslate nohighlight">\(\lambda_{1}\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\)</span>, respectivamente. Donde el sistema es transformado en dos ecuaciones diferenciales de primer orden después de un cambio de coordenadas <span class="math notranslate nohighlight">\(z=M^{-1}x\)</span>, <em>i.e.</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-ed3657f2-bb47-4554-a53b-7d4656998e3c">
+<span class="eqno">(126)<a class="headerlink" href="#equation-ed3657f2-bb47-4554-a53b-7d4656998e3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z}_{1} &amp;= \lambda_{1}z_{1},\\
+  \dot{z}_{2} &amp;= \lambda_{2}z_{2},
+ \end{aligned}
+\end{equation}\]</div>
+<p>cuya solución está dada como sigue, para las condiciones iniciales <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-86822cbe-4f66-4d7b-b857-1fb605c7be4a">
+<span class="eqno">(127)<a class="headerlink" href="#equation-86822cbe-4f66-4d7b-b857-1fb605c7be4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ z_{1}(t) = z_{10}e^{\lambda_{1}t}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
+\end{equation}\]</div>
+<p>Cuando <span class="math notranslate nohighlight">\(\lambda_{2}&lt;\lambda_{1}&lt;0\)</span>, el retrato fase tiene la forma de la Figura 1.15(a), donde <span class="math notranslate nohighlight">\(x=0\)</span> es llamado <em>nodo estable</em>. Por otro lado, si <span class="math notranslate nohighlight">\(\lambda_{2}&gt;\lambda_{1}&gt;0\)</span>, <span class="math notranslate nohighlight">\(x=0\)</span>, el retrato fase se muestra en la Figura 1.15(b) y se le conoce como <em>nodo inestable</em>.</p>
+<p><img alt="Nodo estable e inestable" src="figures/nodo_estable_inestable.png" /></p>
+<p>Si el sistema tiene eigenvalores con signos opuestos, esto es <span class="math notranslate nohighlight">\(\lambda_{2} &lt; 0 \lambda_{1}\)</span>, decimos que <span class="math notranslate nohighlight">\(\lambda_{2}\)</span> es un eigenvalor estable y <span class="math notranslate nohighlight">\(\lambda_{1}\)</span> inestable. Por consiguiente, el retrato fase que corresponde a esta trayectoria se muestra en la Figura 1.16(a).</p>
+<p><img alt="Punto silla" src="figures/punto_silla.png" /></p>
+</section>
+<section id="caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">
+<h3>Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span><a class="headerlink" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta" title="Link to this heading">#</a></h3>
+<p>El sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de la transformación de coordenadas <span class="math notranslate nohighlight">\(z = M^{-1}x\)</span> tiene la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-194804da-6a54-4abe-995d-b94ff65c6aa6">
+<span class="eqno">(128)<a class="headerlink" href="#equation-194804da-6a54-4abe-995d-b94ff65c6aa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z}_{1} &amp;= \alpha z_{1} - \beta z_{2}, \\
+  \dot{z}_{2} &amp;= \beta z_{1} + \alpha z_{2}.
+ \end{aligned}
+\end{equation}\]</div>
+<p>Puesto que la solución a este sistema es oscilatoria, se puede expresar en coordenadas polares como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3909a939-279b-4a79-b82b-c0b58ab5c3ea">
+<span class="eqno">(129)<a class="headerlink" href="#equation-3909a939-279b-4a79-b82b-c0b58ab5c3ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ r = \sqrt{z_{1}^{2} + z_{2}^{2}}, \quad \theta = \tan^{-1}\left( \frac{z_{2}}{z_{1}} \right),
+\end{equation}\]</div>
+<p>teniendo dos ecuaciones diferenciales de primer orden desacopladas</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4caa6e11-fecb-4b8e-b979-fea279d5a105">
+<span class="eqno">(130)<a class="headerlink" href="#equation-4caa6e11-fecb-4b8e-b979-fea279d5a105" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{r} &amp;= \alpha r, \\
+  \dot{\theta} = \beta.
+ \end{aligned}
+\end{equation}\]</div>
+<p>La solución de este sistema, para una condición inicial <span class="math notranslate nohighlight">\((r_{0},\theta_{0})\)</span> es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-593f0ed5-1c61-4d03-ba10-c3f0823d621a">
+<span class="eqno">(131)<a class="headerlink" href="#equation-593f0ed5-1c61-4d03-ba10-c3f0823d621a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ r(t) = r_{0}r^{\alpha t}, \quad \theta(t) = \theta_{0} + \beta_{t}.
+\end{equation}\]</div>
+<p>Dependiendo del valor de <span class="math notranslate nohighlight">\(\alpha\)</span>, el retrato fase puede tomar alguna de las siguientes formas</p>
+<p><img alt="Focos" src="figures/focos.png" /></p>
+<p><strong>Observación.</strong> El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es un <em>foco estable</em> si <span class="math notranslate nohighlight">\(\alpha&lt;0\)</span>, <em>foco inestable</em> si <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span> y <em>centro</em> si <span class="math notranslate nohighlight">\(\alpha=0\)</span> como se muestra a continuación</p>
+<p><img alt="Focos" src="figures/focos_2.png" /></p>
+</section>
+<section id="caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">
+<h3>Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span><a class="headerlink" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0" title="Link to this heading">#</a></h3>
+<p>Para este caso, el sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de un cambio de coordenadas toma la siguiente forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ac39bd49-72dc-4e00-b305-0b3579867b7e">
+<span class="eqno">(132)<a class="headerlink" href="#equation-ac39bd49-72dc-4e00-b305-0b3579867b7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z}_{1} &amp;= \lambda z_{1} + kz_{2}, \\
+  \dot{z}_{2} &amp;= \lambda z_{2},
+ \end{aligned}
+\end{equation}\]</div>
+<p>cuya solución, con c.i. <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span> está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-498ed747-5f50-42aa-ad2b-f09e1c02705b">
+<span class="eqno">(133)<a class="headerlink" href="#equation-498ed747-5f50-42aa-ad2b-f09e1c02705b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ z_{1}(t) = e^{\lambda t} \left( z_{10} + kz_{20}t \right), \quad z_{2}(t) = e^{\lambda t}z_{20}.
+\end{equation}\]</div>
+<p>Los retrato fase para este caso, considerando <span class="math notranslate nohighlight">\(k=0\)</span> y <span class="math notranslate nohighlight">\(k=1\)</span> se muestran en la siguiente figura</p>
+<p><img alt="Eigenvalores multiples" src="figures/case3_a.png" /></p>
+<p>Aquí, el punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> se le conoce como <em>nodo estable</em> si <span class="math notranslate nohighlight">\(\lambda &lt; 0\)</span> y nodo inestable si <span class="math notranslate nohighlight">\(\lambda &gt;0\)</span>. Las trayectorias se muestran en la siguiente representación</p>
+<p><img alt="Nodo estable e inestable" src="figures/case3_b.png" /></p>
+</section>
+<section id="caso-4-uno-o-ambos-autovalores-son-cero">
+<h3>Caso 4. Uno o ambos autovalores son cero<a class="headerlink" href="#caso-4-uno-o-ambos-autovalores-son-cero" title="Link to this heading">#</a></h3>
+<p>Cuando <span class="math notranslate nohighlight">\(\lambda_{1}=0\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\neq 0\)</span>, el sistema después de una transformación de coordenadas tiene la siguiente representación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5b29862c-5db5-49fc-80ce-5c3c93b1e270">
+<span class="eqno">(134)<a class="headerlink" href="#equation-5b29862c-5db5-49fc-80ce-5c3c93b1e270" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z}_{1} &amp;= 0, \\
+  \dot{z}_{2} &amp;= \lambda_{2} z_{2},
+ \end{aligned}
+\end{equation}\]</div>
+<p>cuya solución es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6940c5fd-b17d-4374-8bd2-f3a51dde7874">
+<span class="eqno">(135)<a class="headerlink" href="#equation-6940c5fd-b17d-4374-8bd2-f3a51dde7874" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ z_{1}(t) = z_{10}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
+\end{equation}\]</div>
+<p>Cuano ambos eigenvalores se encuentran en el origen y se aplica una transformación del coordenadas al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span>, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-59b40480-379e-4f5f-b192-7b1ed1030bb1">
+<span class="eqno">(136)<a class="headerlink" href="#equation-59b40480-379e-4f5f-b192-7b1ed1030bb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z}_{1} &amp;= z_{2}, \\
+  \dot{z}_{2} &amp;= 0,
+ \end{aligned}
+\end{equation}\]</div>
+<p>cuya solución está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f2b2f8b-6db3-42be-9a0f-1f5a91578841">
+<span class="eqno">(137)<a class="headerlink" href="#equation-9f2b2f8b-6db3-42be-9a0f-1f5a91578841" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ z_{1}(t) = z_{10} + z_{20}t, \quad z_{2}(t) = z_{20}.
+\end{equation}\]</div>
+<p>Las trayectorias que forman el retrato fase para estos casos en particular se muestran en la siguientes figuras</p>
+<p><img alt="Eigenvalore cero" src="figures/case4_a.png" /></p>
+<p><img alt="Eigenvalores en el origen" src="figures/case4_b.png" /></p>
+<section id="id1">
+<h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Clasifique los puntos de equilibrio y determine la estabilidad del sistema.</p>
+</section>
+<section id="id2">
+<h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Clasifique los puntos de equilibrio y determine la estabilidad del sistema.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">
+<h2>Análisis de estabilidad por el método directo de Lyapunov<a class="headerlink" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov" title="Link to this heading">#</a></h2>
+<p>Aleksandr Mikhailovich Lyapunov en 1892 presentó dos métodos para determinar la estabilidad de sistemas dinámicos representados en ecuaciones diferenciales ordinarias (ODEs).</p>
+<p>El primer método utiliza la forma explícita de la solución de las ODEs para realizar el análisis de estabilidad mientras que el segundo método determina la estabilidad del sistema sin resolver las ecuaciones de estado.</p>
+<p>Sea <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> una función continuamente diferenciable definida en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> que contiene el origen, entonces la derivada de <span class="math notranslate nohighlight">\(V\)</span> sobre la trayectoria del sistema autónomo <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span>, denotada por <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-90afde46-7053-41d2-9b5b-17fcbd9a3ab1">
+<span class="eqno">(138)<a class="headerlink" href="#equation-90afde46-7053-41d2-9b5b-17fcbd9a3ab1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{V}(x) &amp;= \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}} \dot{x}_{i} = \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}}f_{i}(x), \\
+  &amp;= \begin{bmatrix}
+   \frac{\partial V}{\partial x_{1}}, &amp; \frac{\partial V}{\partial x_{2}}, &amp; \dots, &amp; \frac{\partial V}{\partial x_{n}}
+  \end{bmatrix}
+  \begin{bmatrix}
+   f_{1}(x) \\
+   f_{2}(x) \\
+   \vdots \\
+   f_{n}(x)
+  \end{bmatrix} = 
+  \frac{\partial V}{\partial x}f(x).
+ \end{aligned}
+\end{equation}\]</div>
+<p>Normalmente las funciones utilizadas son funciónes reales de variable vectorial. También es posible utilizar funciones integrales pero nos vamos a centrar en las primeras.</p>
+<p><strong>Definición 1.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida positiva</em> si <span class="math notranslate nohighlight">\(V(x)&gt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
+<p><strong>Ejemplos</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + 2x_{2}^{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + \frac{2x_{2}^{2}}{1+x_{2}^{2}}\)</span></p></li>
+</ul>
+<p>Si reemplazamos cualquier valor de <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span> entonces la función es positiva excepto en el origen.</p>
+<p><strong>Definición 2.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida negativa</em> si <span class="math notranslate nohighlight">\(V(x)&lt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V(x) = - x_{1}^{2} - \left(3x_{1}+2x_{2}\right)^{2}\)</span></p></li>
+</ul>
+<p><strong>Definición 3.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida positiva</em> si <span class="math notranslate nohighlight">\(V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V(x) = \left(x_{1} + x_{2} \right)^{2}\)</span>.</p></li>
+</ul>
+<p><strong>Definición 4.</strong> Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida negativa</em> si <span class="math notranslate nohighlight">\(-V(x)\)</span> es semidefinida positiva, <em>i.e.</em> <span class="math notranslate nohighlight">\(-V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span></p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V(x) = -\left(x_{1} + x_{2}\right)^{2}\)</span></p></li>
+</ul>
+<p><strong>Observación.</strong> <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> es diferente para cada sistema y además, si <span class="math notranslate nohighlight">\(\Phi(t;x)\)</span> es la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> con valor inicial <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(t=0\)</span>, entonces</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1925e1fe-beff-4c15-8728-5a4f21dd3fe0">
+<span class="eqno">(139)<a class="headerlink" href="#equation-1925e1fe-beff-4c15-8728-5a4f21dd3fe0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{V}(x) = \frac{\mathrm{d}}{\mathrm{d}t}V\left.\left(\Phi(t;x)\right)\right|_{t=0}.
+\end{equation}\]</div>
+<section id="principio-del-teorema-de-estabilidad-de-lyapunov">
+<h3>Principio del Teorema de Estabilidad de Lyapunov<a class="headerlink" href="#principio-del-teorema-de-estabilidad-de-lyapunov" title="Link to this heading">#</a></h3>
+<p>Un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> -energía- total (una función definida positiva) es continuamente decreciente (la derivada en el tiempo de la <span class="math notranslate nohighlight">\(E\)</span> total es definida negativa) hasta que alcanza un estado de equilibrio.</p>
+<p>En otras palabras, un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> total se va perdiendo con el paso del tiempo.</p>
+<p><strong>Teorema 2.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> y <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> un dominio que contiene <span class="math notranslate nohighlight">\(x=0\)</span>, entonces <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> es una función continuamente diferenciable tal que</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-35809af3-8854-4670-a0ad-e520f81307c3">
+<span class="eqno">(140)<a class="headerlink" href="#equation-35809af3-8854-4670-a0ad-e520f81307c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V(0) = 0,
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-8fdffdf8-2b6c-4f03-9a17-16dca59e206e">
+<span class="eqno">(141)<a class="headerlink" href="#equation-8fdffdf8-2b6c-4f03-9a17-16dca59e206e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V(x) &gt; 0 \text{ en } D-\{0\},
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-4a1f9504-2ddf-49a1-9199-be257e6bf520">
+<span class="eqno">(142)<a class="headerlink" href="#equation-4a1f9504-2ddf-49a1-9199-be257e6bf520" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{V}(x) \leq 0 \text{ en } D.
+\end{equation}\]</div>
+<p><em>Entonces, <span class="math notranslate nohighlight">\(x=0\)</span> es estable. Además, si</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-d260ffde-774f-4cb0-860a-1fd561e1c0f5">
+<span class="eqno">(143)<a class="headerlink" href="#equation-d260ffde-774f-4cb0-860a-1fd561e1c0f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{V}(x) &lt;0 \text{ en } D-\{0\},
+\end{equation}\]</div>
+<p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es asintóticamente estable.</em></p>
+<p>La demostración de este teorema se puede consultar en Khalil (2002).</p>
+</section>
+<section id="id3">
+<h3>Ejemplo 1.<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Considere la ecuación del péndulo sin fricción</p>
+<div class="amsmath math notranslate nohighlight" id="equation-29f72ced-0fbd-4746-bc97-8a705870b86b">
+<span class="eqno">(144)<a class="headerlink" href="#equation-29f72ced-0fbd-4746-bc97-8a705870b86b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}).
+ \end{aligned}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-2">
+<h3>Ejemplo 2.<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
+<p>Considere la ecuación del péndulo con fricción</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2c8aad09-3ba4-4f45-891b-acf1cc08d508">
+<span class="eqno">(145)<a class="headerlink" href="#equation-2c8aad09-3ba4-4f45-891b-acf1cc08d508" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
+ \end{aligned}
+\end{equation}\]</div>
+<p><strong>Teorema 3.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> y <span class="math notranslate nohighlight">\(V:R^{n}\rightarrow R\)</span> una función continuamente diferenciable tal que</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-6e1178ae-53fe-480e-b212-8138179d1a0a">
+<span class="eqno">(146)<a class="headerlink" href="#equation-6e1178ae-53fe-480e-b212-8138179d1a0a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V(0) = 0, \quad V(x)&gt;0, \quad \forall x \neq 0,
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-d6ff4281-6828-4c51-84ff-239f59ad742a">
+<span class="eqno">(147)<a class="headerlink" href="#equation-d6ff4281-6828-4c51-84ff-239f59ad742a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \|x\| \rightarrow \infty \Rightarrow V(x) \rightarrow \infty,
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-656958ad-bc0e-49aa-b515-7d2c5b0d72c6">
+<span class="eqno">(148)<a class="headerlink" href="#equation-656958ad-bc0e-49aa-b515-7d2c5b0d72c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{V}(x)&lt;0, \forall x\neq 0,
+\end{equation}\]</div>
+<p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es globalmente asintóticamente estable</em>.</p>
+</section>
+<section id="ejemplo-3">
+<h3>Ejemplo 3.<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
+<p>Considere el siguiente sistema no lineal escalar</p>
+<div class="amsmath math notranslate nohighlight" id="equation-037da648-fa48-42c5-a0e1-41866929f105">
+<span class="eqno">(149)<a class="headerlink" href="#equation-037da648-fa48-42c5-a0e1-41866929f105" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} = \frac{2}{1+x}-x.
+ \end{aligned}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-4">
+<h3>Ejemplo 4.<a class="headerlink" href="#ejemplo-4" title="Link to this heading">#</a></h3>
+<p>Considere las ecuaciones que caracterizan un modelo para un péndulo colgante</p>
+<div class="amsmath math notranslate nohighlight" id="equation-835e115c-380f-453a-a6ab-0b522c4927db">
+<span class="eqno">(150)<a class="headerlink" href="#equation-835e115c-380f-453a-a6ab-0b522c4927db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x}_{1} &amp;= x_{2}, \\
+  \dot{x}_{2} &amp;= -\sin(x_{1}), \\
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(x_{1}\)</span> denota el ángulo entre el péndulo y la vertical con <span class="math notranslate nohighlight">\(x_{1}&gt;0\)</span> corresponde a la rotación en sentido contrario a las manecillas del reloj.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="referencias">
+<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Khalil, H. K. (2002). Nonlinear systems third edition. Patience Hall, 115.</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="JESP_02_Antecedentes_mat.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Antecedentes matemáticos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JESP_04_Controlabilidad_sistemas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Controlabilidad de sistemas dinámicos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#localizacion-de-los-puntos-de-equilibrio">Localización de los puntos de equilibrio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">Linealización de sistemas en torno a un punto de equilibrio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-circuito-de-diodo-tunel">Ejemplo 1. Circuito de diodo tunel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-pendulo-simple">Ejemplo 2. Péndulo simple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">Análisis de la estabilidad de sistemas dinámicos linealizados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1. Circuito de diodo tunel</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2. Péndulo simple</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-del-teorema-de-estabilidad-de-lyapunov">Principio del Teorema de Estabilidad de Lyapunov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 1.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jesús Emmanuel Solís Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

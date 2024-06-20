@@ -1,0 +1,1129 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Controlabilidad de sistemas dinámicos &#8212; Modelación de Sistemas Físicos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_04_Controlabilidad_sistemas';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Observabilidad de sistemas dinámicos" href="JESP_05_Observabilidad_sistemas.html" />
+    <link rel="prev" title="Fundamentos del análisis de estabilidad en el sentido de Lyapunov" href="JESP_03_Fundamentos_estabilidad.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/closed_loop.png" class="logo__image only-light" alt="Modelación de Sistemas Físicos - Home"/>
+    <script>document.write(`<img src="../_static/closed_loop.png" class="logo__image only-dark" alt="Modelación de Sistemas Físicos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Contenido del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Controlabilidad de sistemas dinámicos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Observabilidad de sistemas dinámicos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_04_Controlabilidad_sistemas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Controlabilidad de sistemas dinámicos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Controlabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-controlabilidad">Concepto de controlabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-controlabilidad">Formas canónicas de controlabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilizacion-por-retroalimentacion-de-estado">Estabilización por retroalimentación de estado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimiento-para-la-asignacion-de-eigenvalores">Procedimiento para la asignación de eigenvalores</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="controlabilidad-de-sistemas-dinamicos">
+<h1>Controlabilidad de sistemas dinámicos<a class="headerlink" href="#controlabilidad-de-sistemas-dinamicos" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<ul>
+    <li><strong>Autor:</strong> Jesús Emmanuel Solís Pérez </li>
+    <li><strong>Contacto:</strong> <a href="mailto:jsolisp@unam.mx">jsolisp@unam.mx</a>
+</ul>
+<hr class="docutils" />
+<section id="concepto-de-controlabilidad">
+<h2>Concepto de controlabilidad<a class="headerlink" href="#concepto-de-controlabilidad" title="Link to this heading">#</a></h2>
+<p>Considere un sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bdd76d04-607d-49bf-bfce-df146456569a">
+<span class="eqno">(151)<a class="headerlink" href="#equation-bdd76d04-607d-49bf-bfce-df146456569a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:ree}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx + Du,
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> son matrices de dimensión <span class="math notranslate nohighlight">\(n\times n\)</span>, <span class="math notranslate nohighlight">\(n\times 1\)</span>, y <span class="math notranslate nohighlight">\(1\times n\)</span>, respectivamente. Además, <span class="math notranslate nohighlight">\(D\)</span> es escalar.</p>
+<p><strong>Definición 1.</strong> <em>El sistema \eqref{eqn:ree} es <strong>controlable</strong> si cualquier estado se puede transferir a cualquier otro estado en un tiempo finito aplicando una entrada.</em></p>
+<p><strong>Teorema 1.</strong> <em>Para cada <span class="math notranslate nohighlight">\(y\)</span>, existe una solución <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(Ax=y\)</span> si y sólo si <span class="math notranslate nohighlight">\(A\)</span> es de rango completo.</em></p>
+<p>Recordemos que la solución al sistema \eqref{eqn:ree} dado una entrada <span class="math notranslate nohighlight">\(u(t)\)</span> y una c.i. <span class="math notranslate nohighlight">\(x(0)\)</span> está dado como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f3447c43-1c53-4a02-9ecb-874d2f9dd1de">
+<span class="eqno">(152)<a class="headerlink" href="#equation-f3447c43-1c53-4a02-9ecb-874d2f9dd1de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:solution}
+ x(t) = \underbrace{e^{At}x(0)}_{\text{Zero-Input Response}} + \underbrace{e^{At}\int_{0}^{t} e^{-A\tau}Bu(\tau)\mathrm{d}\tau}_{\text{Zero-State Response}},
+\end{equation}\]</div>
+<p>y</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e715d6e5-5804-42f9-984a-d5a1049b37af">
+<span class="eqno">(153)<a class="headerlink" href="#equation-e715d6e5-5804-42f9-984a-d5a1049b37af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y(t) = ce^{At}x(0) + ce^{At}\int_{0}^{t}e^{-A\tau}Bu(\tau)\mathrm{d}\tau + Du(t).
+\end{equation}\]</div>
+<p>Reescribiendo \eqref{eqn:solution}, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d0377da-f4bf-465e-958e-42201bf98122">
+<span class="eqno">(154)<a class="headerlink" href="#equation-2d0377da-f4bf-465e-958e-42201bf98122" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  x(t) - e^{At}x(0) &amp;= \int_{0}^{t} \left[ I + A(t-\tau) + A^{2}\frac{(t-\tau)^{2}}{2} + \cdots \right] Bu(\tau)\mathrm{d}\tau, \\
+  &amp;= B \int_{0}^{t}u(\tau)\mathrm{d}\tau + AB \int_{0}^{t}(t - \tau)u(\tau)\mathrm{d}\tau \\
+  &amp;+ A^{2}B \int_{0}^{t} \frac{1}{2}(t-\tau)^{2}u(\tau)\mathrm{d}\tau + \cdots, \\
+  &amp;= \begin{bmatrix} B &amp; AB &amp; A^{2}B \cdots \end{bmatrix}
+  \begin{bmatrix}
+   \int_{0}^{t}u(\tau)\mathrm{d}\tau \\
+   \int_{0}^{t}(t-\tau)u(\tau)\mathrm{d}\tau \\
+   \int_{0}^{t}\frac{1}{2}(t-\tau)^{2}u(\tau)\mathrm{d}\tau \\
+   \vdots
+  \end{bmatrix}
+ \end{aligned}
+\end{equation}\]</div>
+<p>Utilizando el <strong>Teorema 1</strong>, tenemos que para cualquier <span class="math notranslate nohighlight">\(x(0)\)</span> y <span class="math notranslate nohighlight">\(x(t)\)</span>, una solución <span class="math notranslate nohighlight">\(u(t)\)</span> existe si y sólo si la matriz</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1230cff7-9be9-468c-a547-d581b88d7554">
+<span class="eqno">(155)<a class="headerlink" href="#equation-1230cff7-9be9-468c-a547-d581b88d7554" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:nocontrollability}
+ \begin{bmatrix}
+  B &amp; AB &amp; A^{2}B &amp; \cdots &amp; A^{n-1}B &amp; \cdots
+ \end{bmatrix}
+\end{equation}\]</div>
+<p>tiene rango <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Utilizando el teorema de Cayley-Hamilton, la matriz \eqref{eqn:nocontrollability} tiene rango <span class="math notranslate nohighlight">\(n\)</span> si y sólo si la matriz <span class="math notranslate nohighlight">\(n\times n\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-48c4bc08-25b7-4eae-abe3-aa5ee483ba90">
+<span class="eqno">(156)<a class="headerlink" href="#equation-48c4bc08-25b7-4eae-abe3-aa5ee483ba90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:controllability}
+ U = \begin{bmatrix}
+  B &amp; AB &amp; A^{2}B &amp; \cdots &amp; A^{n-1}B
+ \end{bmatrix}
+\end{equation}\]</div>
+<p>tiene rango <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>En resumen, el sistema \eqref{eqn:ree} es controlable si la matriz \eqref{eqn:controllability} tiene rango <span class="math notranslate nohighlight">\(n\)</span>, o bien, <span class="math notranslate nohighlight">\(\text{det}\{U\} \neq 0\)</span>.</p>
+<p><strong>Observación.</strong> La matriz \eqref{eqn:controllability} es llamada <strong>matriz de controlabilidad</strong>.</p>
+<section id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
+<p>Considere la siguiente función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-79518dca-c928-4afd-b619-77e671bf579f">
+<span class="eqno">(157)<a class="headerlink" href="#equation-79518dca-c928-4afd-b619-77e671bf579f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{N(s)}{D(s)} = \frac{2s-1}{s^{2}-1.5s-1} = \frac{2s-1}{(s-2)\left(s+\frac{1}{2}\right)}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-2">
+<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
+<p>Considere la siguiente función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-14fb42d4-8c72-4bf7-8940-e249524d0956">
+<span class="eqno">(158)<a class="headerlink" href="#equation-14fb42d4-8c72-4bf7-8940-e249524d0956" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{N(s)}{D(s)} = \frac{2s+1}{s^{2}-1.5s-1} = \frac{2s+1}{(s-2)\left(s+\frac{1}{2}\right)}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-3">
+<h3>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
+<p>Considere el sistema de equilibrio que se muestra en la siguiente Figura.</p>
+<p><img alt="Sistema de equilibrio" src="figures/Cart_pendulum.png" /></p>
+<p>En este ejemplo, el centro de masa se equilibra por encima de un punto de pivote. Un ejemplo de ello se puede ver en la película “Guardia de supermercado”.</p>
+<p><img alt="Paul Blart" src="figures/guardia_supermercado.jpg" /></p>
+<p>El modelo no lineal para el sistema de equilibrio se muestra a continuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-60644a1f-9486-4339-845a-f442991d6859">
+<span class="eqno">(159)<a class="headerlink" href="#equation-60644a1f-9486-4339-845a-f442991d6859" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  (M + m)\ddot{p} - ml \cos(\theta)\ddot{\theta} &amp;= -c\dot{p} - ml \sin(\theta)\dot{\theta}^{2} + F, \\
+  (J + ml^{2})\ddot{\theta} - ml\cos(\theta)\ddot{p} &amp;= -\gamma \dot{\theta} + mgl\sin(\theta),
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(M\)</span> es la masa de la base, <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(J\)</span> la masa y el momento de inercia del sistema a ser balanceado. Además, <span class="math notranslate nohighlight">\(l\)</span> denota la distancia de la base al centro de masa del cuerpo balanceado, <span class="math notranslate nohighlight">\(c\)</span> y <span class="math notranslate nohighlight">\(\gamma\)</span> son los coeficientes de fricción viscosa así como <span class="math notranslate nohighlight">\(g\)</span> representa la aceleración debido a la gravedad.</p>
+<p>La dinámica del sistema en espacio de estado se puede obtener considerando como variables de estado<span class="math notranslate nohighlight">\(x = (p,\theta,\dot{p},\dot{\theta})\)</span>, la entrada como <span class="math notranslate nohighlight">\(u=F\)</span> y salida como <span class="math notranslate nohighlight">\(y=(p,\theta)\)</span>.</p>
+<p>Si definimos la masa total y la inercia total como sigue, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64a02437-9b3a-4c63-9e7c-c8db415437c0">
+<span class="eqno">(160)<a class="headerlink" href="#equation-64a02437-9b3a-4c63-9e7c-c8db415437c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ M_{t} = M + m, \quad J_{t} = J + ml^{2}.
+\end{equation}\]</div>
+<p>Por consiguiente, podemos representar las ecuaciones de movimiento como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f24e42d7-4341-4fdd-a48c-2afc7ea89d7d">
+<span class="eqno">(161)<a class="headerlink" href="#equation-f24e42d7-4341-4fdd-a48c-2afc7ea89d7d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{bmatrix}
+  \dot{p} \\
+  \dot{\theta} \\
+  \ddot{p} \\
+  \ddot{\theta}
+ \end{bmatrix} = 
+ \begin{bmatrix}
+  \dot{p} \\
+  \dot{\theta} \\
+  \frac{-mls_{\theta}\dot{\theta}^{2} + mg(ml^{2}/J_{t})s_{\theta}c_{\theta} - c\dot{p} - \gamma l m c_{\theta}\dot{\theta} + u}{M_{t} - m(ml^{2}/J_{t})c_{\theta}^{2}}\\
+  \frac{-ml^{2}s_{\theta}c_{\theta}\dot{\theta}^{2} + M_{t}gls_{\theta} - cl c_{\theta} \dot{p} - \gamma(M_{t}/m)\dot{\theta} + lc_{\theta}u}{J_{t}(M_{t}/m) - m(lc_{\theta})^{2}}
+ \end{bmatrix},
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-dfd2ccee-5d99-4005-9ba2-776cd7ed4eaf">
+<span class="eqno">(162)<a class="headerlink" href="#equation-dfd2ccee-5d99-4005-9ba2-776cd7ed4eaf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y = \begin{bmatrix}
+  p \\
+  \theta
+ \end{bmatrix},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c_{\theta} = \cos(\theta)\)</span> y <span class="math notranslate nohighlight">\(s_{\theta} = \sin(\theta)\)</span>.</p>
+<p>En ocaciones, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> puede ser cercano a <span class="math notranslate nohighlight">\(0\)</span>. Por consiguiente, podemos hacer las siguientes suposiciones: <span class="math notranslate nohighlight">\(\sin(\theta) \approx \theta\)</span> y <span class="math notranslate nohighlight">\(\cos(\theta) \approx 1\)</span>. Además, si <span class="math notranslate nohighlight">\(\dot{\theta}\)</span> es pequeño, entonces se puede menospreciar los términos cuadráticos y superiores en <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>.</p>
+<p>Reescribiendo el sistema a partir de estas suposiciones, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-296e87d0-5c04-4d41-82fb-202914aa1724">
+<span class="eqno">(163)<a class="headerlink" href="#equation-296e87d0-5c04-4d41-82fb-202914aa1724" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{bmatrix}
+  \dot{p} \\
+  \dot{\theta} \\
+  \ddot{p} \\
+  \ddot{\theta}
+ \end{bmatrix} = 
+ \begin{bmatrix}
+  0 &amp; 0 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 \\
+  0 &amp; m^{2}l^{2}g/\mu &amp; -cJ_{t}/\mu &amp; -\gamma J_{t}lm/\mu \\ 
+  0 &amp; M_{t}mgl/\mu &amp; -clm/\mu &amp; -\gamma M_{t}/\mu
+ \end{bmatrix}
+ \begin{bmatrix}
+  p \\
+  \theta \\
+  \dot{p} \\
+  \dot{\theta}
+ \end{bmatrix} +
+ \begin{bmatrix}
+  0 \\
+  0 \\
+  J_{t}/\mu \\
+  lm/\mu
+ \end{bmatrix}u,
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e61722f1-7e67-4264-a7b2-b8510f1d3e53">
+<span class="eqno">(164)<a class="headerlink" href="#equation-e61722f1-7e67-4264-a7b2-b8510f1d3e53" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ y = 
+ \begin{bmatrix}
+  1 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0
+ \end{bmatrix}x,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\mu = M_{t}J_{t} - m^{2}l^{2}\)</span>.</p>
+<p>Encuentre los puntos de equilibrio del sistema y linealice alrededor de uno de ellos. Además, considere <span class="math notranslate nohighlight">\(c = \gamma = 0\)</span>.</p>
+</section>
+<section id="ejemplo-4">
+<h3>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Link to this heading">#</a></h3>
+<p>El péndulo invertido es una variación del sistema mostrado en el ejemplo anterior. La diferencia radica en que la base <span class="math notranslate nohighlight">\(p\)</span> no necesita estar controlada y lo único que se desea es estabilizar la horientación vertical de la barra. Este sistema se puede apreciar en la siguiente Figura.</p>
+<p><img alt="Péndulo invertido" src="figures/inverted_pendulum.png" /></p>
+<p>El sistema de ecuaciones que describe la dinámica del péndulo simple está dado como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d47639f4-8892-43e9-b03c-98a84d49650e">
+<span class="eqno">(165)<a class="headerlink" href="#equation-d47639f4-8892-43e9-b03c-98a84d49650e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{bmatrix}
+  \dot{\theta} \\
+  \ddot{\theta}
+ \end{bmatrix} = 
+ \begin{bmatrix}
+  \dot{\theta} \\
+  \frac{mgl}{J_{t}}\sin(\theta) - \frac{\gamma}{J_{t}}\dot{\theta} + \frac{l}{J_{t}}\cos(\theta)u
+ \end{bmatrix}, \quad
+ y = \theta,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\gamma\)</span> es el coeficiente de fricción rotacional, <span class="math notranslate nohighlight">\(J_{t} = J + ml^{2}\)</span> y <span class="math notranslate nohighlight">\(u\)</span> es la fuerza aplicada a la base.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="formas-canonicas-de-controlabilidad">
+<h2>Formas canónicas de controlabilidad<a class="headerlink" href="#formas-canonicas-de-controlabilidad" title="Link to this heading">#</a></h2>
+<p>Considere el caso general representado en función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-630e0dbd-2efe-4e83-8c54-02ca6995370f">
+<span class="eqno">(166)<a class="headerlink" href="#equation-630e0dbd-2efe-4e83-8c54-02ca6995370f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{N(s)}{D(s)} = \frac{b_{1}s^{3} + b_{2}s^{2} + b_{3}s + b_{4}}{s^{4} + a_{1}s^{3} + a_{2}s^{2} + a_{3}s + a_{4}}.
+\end{equation}\]</div>
+<p>La forma de realización controlable del sistema anterior es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e9c8fb5c-4b4b-45ee-b22c-12604384bcc6">
+<span class="eqno">(167)<a class="headerlink" href="#equation-e9c8fb5c-4b4b-45ee-b22c-12604384bcc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= \begin{bmatrix}
+   -a_{1} &amp; -a_{2} &amp; -a_{3} &amp; -a_{4} \\
+   1 &amp; 0 &amp; 0 &amp; 0 \\
+   0 &amp; 1 &amp; 0 &amp; 0 \\
+   0 &amp; 0 &amp; 1 &amp; 0 \\
+  \end{bmatrix} x + 
+  \begin{bmatrix}
+   1 \\
+   0 \\
+   0 \\
+   0
+  \end{bmatrix}u, \\
+  y &amp;= \begin{bmatrix} b_{1} &amp; b_{2} &amp; b_{3} &amp; b_{4} \end{bmatrix}x,
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde la matriz de controlabilidad puede ser obtenida como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1764b05b-9af5-497e-8988-aa4b4ef34dd5">
+<span class="eqno">(168)<a class="headerlink" href="#equation-1764b05b-9af5-497e-8988-aa4b4ef34dd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:U}
+ U = \begin{bmatrix}
+  1 &amp; -a_{1} &amp; e_{2} &amp; e_{3} \\
+  0 &amp; 1 &amp; -a_{1} &amp; e_{2} \\
+  0 &amp; 0 &amp; 1 &amp; -a_{1} \\
+  0 &amp; 0 &amp; 0 &amp; 1
+ \end{bmatrix},
+\end{equation}\]</div>
+<p>con <span class="math notranslate nohighlight">\(e_{2} := -a_{2} + a_{1}^{2}\)</span> y <span class="math notranslate nohighlight">\(e_{3} := -a_{3} + 2a_{1}a_{2}-a_{1}^{3}\)</span>.</p>
+<p><strong>Observación.</strong> La matriz \eqref{eqn:U} es una matriz triangular cuyo determinante siempre es 1. Por consiguiente, siempre es controlable y es la razón por la que se llama <em>forma controlable</em>.</p>
+</section>
+<hr class="docutils" />
+<section id="estabilizacion-por-retroalimentacion-de-estado">
+<h2>Estabilización por retroalimentación de estado<a class="headerlink" href="#estabilizacion-por-retroalimentacion-de-estado" title="Link to this heading">#</a></h2>
+<p>Supongamos que se desea controlar un sistema en representación de espacio de estados lineal. Por simplicidad consideramos que tiene una sola entrada y que la ley de control de retroalimentación parte de la idea de que el sistema en lazo cerrado tiene eigenvalores deseados.</p>
+<p>Para ello, considere el siguiente sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-343c41da-47e6-4d4c-93e4-f96c1382cf96">
+<span class="eqno">(169)<a class="headerlink" href="#equation-343c41da-47e6-4d4c-93e4-f96c1382cf96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:ree_2}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx + Du,
+ \end{aligned}
+\end{equation}\]</div>
+<p>con función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0bffad11-22d4-4d96-9f30-39ca0b7b80fd">
+<span class="eqno">(170)<a class="headerlink" href="#equation-0bffad11-22d4-4d96-9f30-39ca0b7b80fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = C(sI - A)^{-1}B.
+\end{equation}\]</div>
+<p>El objetivo es llevar la salida <span class="math notranslate nohighlight">\(y\)</span> al valor de referencia <span class="math notranslate nohighlight">\(r\)</span> a partir de la medición de los estados <span class="math notranslate nohighlight">\(x\)</span>. Para ello, consideramos que la ley de control invariante en el tiempo definida como <span class="math notranslate nohighlight">\(u\)</span> es una función del estado y la referencia como se muestra a continuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-04634cef-710b-4e11-ad7c-d82450f41584">
+<span class="eqno">(171)<a class="headerlink" href="#equation-04634cef-710b-4e11-ad7c-d82450f41584" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:u_ctrl}
+ u = r - Kx,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(K = \begin{bmatrix} k_{1} &amp; k_{2} &amp; \cdots &amp; k_{n} \end{bmatrix}\)</span> es un vector real de dimensión <span class="math notranslate nohighlight">\(1\times n\)</span>.</p>
+<p>La ecuación \eqref{eqn:u_ctrl} es conocida como \myindex{retroalimentación de estado de ganancia constante} o simplemente \myindex{retroalimentación de estado} \citep{aastrom2021feedback}.</p>
+<p>Sustituyendo \eqref{eqn:u_ctrl} en \eqref{eqn:ree_2}, tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a36dc5f5-b789-4523-a77e-f455128d53bf">
+<span class="eqno">(172)<a class="headerlink" href="#equation-a36dc5f5-b789-4523-a77e-f455128d53bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= Ax - BKx + Br, \\ &amp;= (A-BK)x + Br, \\
+  y &amp;= Cx,
+ \end{aligned}
+\end{equation}\]</div>
+<p>con función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-87690ad7-e31f-4b05-ab59-424385d167a6">
+<span class="eqno">(173)<a class="headerlink" href="#equation-87690ad7-e31f-4b05-ab59-424385d167a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G_{o}(s) = C(sI - A + Bk)^{-1}B,
+\end{equation}\]</div>
+<p>con polinomio caracteristico</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e43adac6-0eb5-4a12-afd2-1a00901063a6">
+<span class="eqno">(174)<a class="headerlink" href="#equation-e43adac6-0eb5-4a12-afd2-1a00901063a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:pol_car_cl}
+ p(s) = s^{n} + a_{1}s^{n-1}+\cdots+a_{n-1}s + a_{n}.
+\end{equation}\]</div>
+<p>El cálculo de la ganancia de retroalimentación <span class="math notranslate nohighlight">\(K\)</span> para que el sistema de lazo cerrado con polinomio \eqref{eqn:pol_car_cl} se conoce como \myindex{asignación de eigenvalores} o \myindex{localización de polos}.</p>
+<p>Por otro lado, si consideramos el esquema de control mostrado en la \cref{fig:state_feedback}, tenemos la siguiente ley de control</p>
+<div class="amsmath math notranslate nohighlight" id="equation-41f8a402-c235-491e-bab1-8e625fafea6e">
+<span class="eqno">(175)<a class="headerlink" href="#equation-41f8a402-c235-491e-bab1-8e625fafea6e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ u = -Kx + k_{r}r,
+\end{equation}\]</div>
+<p>donde el sistema en lazo cerrado se expresa como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-50417b1f-59f4-4031-83e3-f20a64ea1ab4">
+<span class="eqno">(176)<a class="headerlink" href="#equation-50417b1f-59f4-4031-83e3-f20a64ea1ab4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= (A-BK)x + Bk_{r}r, \\
+  y &amp;= Cx.
+ \end{aligned}
+\end{equation}\]</div>
+<p><strong>Observación.</strong> Si <span class="math notranslate nohighlight">\((A,B)\)</span> es controlable, entonces los eigenvalores de <span class="math notranslate nohighlight">\((A-Bk)\)</span> pueden ser asignados arbitrariamente escogiendo una ganancia de retroalimentación real <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<section id="procedimiento-para-la-asignacion-de-eigenvalores">
+<h3>Procedimiento para la asignación de eigenvalores<a class="headerlink" href="#procedimiento-para-la-asignacion-de-eigenvalores" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Calcule el polinomio característico de <span class="math notranslate nohighlight">\(A:\Delta (\lambda) = \text{det}(\lambda I-A)\)</span>.</p></li>
+<li><p>Calcule el polinomio característico deseado</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-2b651102-6a94-4f63-92fd-0525f645770f">
+<span class="eqno">(177)<a class="headerlink" href="#equation-2b651102-6a94-4f63-92fd-0525f645770f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \begin{aligned}
+   \bar{\Delta}(\lambda) &amp;= (\lambda-\lambda_{1})(\lambda-\lambda_{2})(\lambda-\lambda_{3})\cdots (\lambda-\lambda_{n}), \\
+   &amp;= \lambda^{n} + \bar{a}_{1}\lambda^{n-1} + \bar{a}_{2}\lambda^{n-2} + \dots + \bar{a}_{n}.
+  \end{aligned}
+ \end{equation}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Calcule la ganancia de retroalimentación para la ecuación equivalente en la forma controlable</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-a1e270ca-fa12-4d99-8fa3-c9fefabff125">
+<span class="eqno">(178)<a class="headerlink" href="#equation-a1e270ca-fa12-4d99-8fa3-c9fefabff125" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \bar{k} = \begin{bmatrix} \bar{a}_{1}-a_{1} &amp; \bar{a}_{2}-a_{2} &amp; \cdots &amp; \bar{a}_{n}-a_{n} \end{bmatrix}.
+ \end{equation}\]</div>
+<ol class="arabic simple" start="4">
+<li><p>Calcule la transformación equivalente</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-489b0bd2-8d5a-4208-a48e-1ac21206de6f">
+<span class="eqno">(179)<a class="headerlink" href="#equation-489b0bd2-8d5a-4208-a48e-1ac21206de6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  S:=P^{-1} = \begin{bmatrix} B &amp; AB &amp; A^{2}B &amp; A^{3}B \end{bmatrix}
+  \begin{bmatrix}
+   1 &amp; a_{1} &amp; a_{2} &amp; \dots &amp; a_{n-1} \\
+   0 &amp; 1 &amp; a_{1} &amp; \dots &amp; a_{n-2} \\
+   0 &amp; 0 &amp; 1 &amp; \dots &amp; a_{n-3} \\
+   \vdots &amp; \vdots &amp; \vdots &amp; \dots &amp; \vdots \\
+   0 &amp; 0 &amp; 0 &amp; \dots &amp; 1
+  \end{bmatrix}.
+ \end{equation}\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Calcule la ganancia de retroalimentación <span class="math notranslate nohighlight">\(k=\bar{k}P = \bar{k}S^{-1}\)</span>.</p></li>
+</ol>
+<p><strong>Observación.</strong> Existen otras formas para obtener la ganancia de retroalimentación <span class="math notranslate nohighlight">\(k\)</span>, una de ellas es la <em>fórmula de Ackerman</em> dada por la siguiente ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-46536917-e384-4cf9-8c4d-88921b3b7489">
+<span class="eqno">(180)<a class="headerlink" href="#equation-46536917-e384-4cf9-8c4d-88921b3b7489" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  k &amp;= \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \end{bmatrix} \begin{bmatrix} B &amp; AB &amp; A^{2}B &amp; \cdots &amp; A^{n}B \end{bmatrix}^{-1}\bar{\Delta}(A),
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\bar{\Delta}(s)\)</span> es el polinomio característico de <span class="math notranslate nohighlight">\((A-Bk))\)</span>, por lo tanto <span class="math notranslate nohighlight">\(\bar{\Delta}(A) \neq 0\)</span>.</p>
+<section id="id1">
+<h4>Ejemplo 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Considere el siguiente sistema en representación de espacio de estados</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d312d580-7343-430b-a9d6-0d8545235af0">
+<span class="eqno">(181)<a class="headerlink" href="#equation-d312d580-7343-430b-a9d6-0d8545235af0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= \begin{bmatrix}
+   \dot{x}_{1} \\
+   \dot{x}_{2}
+  \end{bmatrix} = 
+  \begin{bmatrix}
+   0 &amp; 1 \\
+   0 &amp; -1
+  \end{bmatrix}x + 
+  \begin{bmatrix}
+   0 \\
+   10
+  \end{bmatrix}u, \\
+  y &amp;= \begin{bmatrix} 1 &amp; 0 \end{bmatrix}x
+ \end{aligned}
+\end{equation}\]</div>
+<p>cuya función de transferencia es</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9c44ee35-2c22-456b-9574-d47484aee1ec">
+<span class="eqno">(182)<a class="headerlink" href="#equation-9c44ee35-2c22-456b-9574-d47484aee1ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{10}{s^{2} + s}.
+\end{equation}\]</div>
+<p>Encuentre la ganancia de retroalimentación <span class="math notranslate nohighlight">\(k\)</span> en <span class="math notranslate nohighlight">\(u=r-kx\)</span> tal que la ecuación resultante tenga sus eigenvalores en <span class="math notranslate nohighlight">\(-2\pm j2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ctrl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ctrl</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;control&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#System matrices</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sys</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}
+\left(\begin{array}{rllrll|rll}
+0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;-1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;10\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+\hline
+1\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}&amp;0\phantom{.}&amp;\hspace{-1em}&amp;\hspace{-1em}\phantom{\cdot}\\
+\end{array}\right)
+\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Controllabilty matrix step by step</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="nd">@B</span><span class="p">))</span> <span class="c1"># np.concatenate((B, A@B), axis=1)</span>
+<span class="n">U</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  0,  10],
+       [ 10, -10]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Controllabilty matrix</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ctrb</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">U</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  0.,  10.],
+       [ 10., -10.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Place closed loop eigenvalues</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">])</span>
+<span class="n">K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.8, 0.3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pole placement using Ackermann method</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span><span class="p">])</span>
+<span class="n">K</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.8, 0.3]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h4>Ejemplo 2<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Considere el problema de regular la población de un ecosistema mediante la modulación del suministro de alimentos. Para ello considere el modelo depredador-presa cuya dinámica está dada por las siguientes ecuaciones</p>
+<div class="amsmath math notranslate nohighlight" id="equation-14a0c400-f5fd-4643-ae99-5881561d6680">
+<span class="eqno">(183)<a class="headerlink" href="#equation-14a0c400-f5fd-4643-ae99-5881561d6680" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:predator_prey_sys}
+ \begin{aligned}
+  \dot{H} &amp;= (r + u)H\left(1 - \frac{H}{k} \right) - \frac{aHL}{c+H}, \quad H\geq 0, \\
+  \dot{L} &amp;= b \frac{aHL}{c + H}  - dL, \quad L \geq 0.
+ \end{aligned}
+\end{equation}\]</div>
+<p>En este sistema, <span class="math notranslate nohighlight">\(r\)</span> denota la tasa de crecimiento de las liebres, <span class="math notranslate nohighlight">\(k\)</span> la población máxima, <span class="math notranslate nohighlight">\(a\)</span> el término que describe la disminución de las liebres en función de la población, <span class="math notranslate nohighlight">\(c\)</span> representa la tasa de consumo de presas, <span class="math notranslate nohighlight">\(b\)</span> el coeficiente de crecimiento de los linces y finalmente <span class="math notranslate nohighlight">\(d\)</span> la tasa de mortalidad de los linces.</p>
+<p>Analice el sistema en lazo abierto con <span class="math notranslate nohighlight">\(a=3.2\)</span>, <span class="math notranslate nohighlight">\(b=0.6\)</span>, <span class="math notranslate nohighlight">\(c=50\)</span>, <span class="math notranslate nohighlight">\(d=0.56\)</span>, <span class="math notranslate nohighlight">\(k=125\)</span>, <span class="math notranslate nohighlight">\(r = 1.6\)</span>.</p>
+</section>
+<section id="id3">
+<h4>Ejemplo 3<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Considere un vehículo de dos ruedas como se muestra en la siguiente Figura</p>
+<p>Un modelo que describe cómo la velocidad del vehículo depende del ángulo de dirección <span class="math notranslate nohighlight">\(\delta\)</span>. Además, <span class="math notranslate nohighlight">\(v\)</span>, representa la velocidad en el centro de la masa, <span class="math notranslate nohighlight">\(a\)</span> la distancia de la rueda trasera, y <span class="math notranslate nohighlight">\(b\)</span> la base de la rueda.</p>
+<p>Sean <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> las coordenadas del centro de masa, <span class="math notranslate nohighlight">\(\theta\)</span> en ángulo de rumbo y <span class="math notranslate nohighlight">\(\alpha\)</span> el ángulo entre el vector de velocidad <span class="math notranslate nohighlight">\(v\)</span> y la línea central del vehículo, entonces la relación entre <span class="math notranslate nohighlight">\(\alpha\)</span> y el ángulo de dirección <span class="math notranslate nohighlight">\(\delta\)</span> está dada como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9d88b5d2-6334-4499-a9ce-6b649e1ae659">
+<span class="eqno">(184)<a class="headerlink" href="#equation-9d88b5d2-6334-4499-a9ce-6b649e1ae659" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \alpha(\delta) = \text{arctan}\left( \frac{a\tan(\delta)}{b} \right),
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(a := r_{a}\tan(\alpha)\)</span>, <span class="math notranslate nohighlight">\(b:= r_{a} \tan(\delta)\)</span>.</p>
+<p>Asuma que las ruedas no patinan y que la velocidad de las ruedas traseras es <span class="math notranslate nohighlight">\(v_{0}\)</span>, entonces la velocidad del vehículo en su centro de masa es <span class="math notranslate nohighlight">\(v=v_{0}/\cos(\alpha)\)</span>. Por consiguiente, el movimiento de este punto está dado como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8c05dfa7-bac1-4953-b290-8c419596c60d">
+<span class="eqno">(185)<a class="headerlink" href="#equation-8c05dfa7-bac1-4953-b290-8c419596c60d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:vehiculo}
+ \begin{aligned}
+  \dot{x} &amp;= v\cos(\alpha + \theta) = v_{0} \frac{\cos(\alpha + \theta)}{\cos(\alpha)}, \\
+  \dot{y} &amp;= v\sin(\alpha + \theta) = v_{0} \frac{\sin(\alpha + \theta)}{\cos(\alpha)}.
+ \end{aligned}
+\end{equation}\]</div>
+<p>El ángulo <span class="math notranslate nohighlight">\(\theta\)</span>, afectado por el ángulo de dirección está dado por la siguiente relación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ef5c0802-57be-4251-a634-6138f34930bd">
+<span class="eqno">(186)<a class="headerlink" href="#equation-ef5c0802-57be-4251-a634-6138f34930bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\theta} = \frac{v_{0}}{r_{a}} = \frac{v_{0}}{b}\tan(\delta).
+\end{equation}\]</div>
+<p>Asuma que <span class="math notranslate nohighlight">\(\delta = 0\)</span> y <span class="math notranslate nohighlight">\(\dot{\theta} = 0\)</span> para encontrar el punto de equilibrio del sistema y proceda a linealizar \eqref{eqn:vehiculo}.</p>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="referencias">
+<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Chen, C. T. (1995). <em>Analog and digital control system design: transfer-function, state-space, and algebraic methods</em>. Oxford University Press, Inc..</p></li>
+<li><p>Åström, K. J., &amp; Murray, R. M. (2021). <em>Feedback systems: an introduction for scientists and engineers</em>. Princeton university press.</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="JESP_03_Fundamentos_estabilidad.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JESP_05_Observabilidad_sistemas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Observabilidad de sistemas dinámicos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Controlabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-controlabilidad">Concepto de controlabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-4">Ejemplo 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-controlabilidad">Formas canónicas de controlabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilizacion-por-retroalimentacion-de-estado">Estabilización por retroalimentación de estado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimiento-para-la-asignacion-de-eigenvalores">Procedimiento para la asignación de eigenvalores</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Ejemplo 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jesús Emmanuel Solís Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

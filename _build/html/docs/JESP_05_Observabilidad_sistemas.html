@@ -1,0 +1,990 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Observabilidad de sistemas dinámicos &#8212; Modelación de Sistemas Físicos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_05_Observabilidad_sistemas';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Controlabilidad de sistemas dinámicos" href="JESP_04_Controlabilidad_sistemas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/closed_loop.png" class="logo__image only-light" alt="Modelación de Sistemas Físicos - Home"/>
+    <script>document.write(`<img src="../_static/closed_loop.png" class="logo__image only-dark" alt="Modelación de Sistemas Físicos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Contenido del curso
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Observabilidad de sistemas dinámicos</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_05_Observabilidad_sistemas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Observabilidad de sistemas dinámicos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Observabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-observabilidad">Concepto de observabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-observabilidad">Formas canónicas de observabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-estados">Estimación de estados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-observador-via-asignacion-de-eigenvalores">Diseño de observador via asignación de eigenvalores</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-ganancia-del-observador">Cálculo de la ganancia del observador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-dualidad">Teorema de Dualidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condiciones-necesarias">Condiciones necesarias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov">Procedimiento para obtener la ganancia del observador via Lyapunov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-utilizando-estimadores-de-estado">Control utilizando estimadores de estado</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="observabilidad-de-sistemas-dinamicos">
+<h1>Observabilidad de sistemas dinámicos<a class="headerlink" href="#observabilidad-de-sistemas-dinamicos" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<ul>
+    <li><strong>Autor:</strong> Jesús Emmanuel Solís Pérez </li>
+    <li><strong>Contacto:</strong> <a href="mailto:jsolisp@unam.mx">jsolisp@unam.mx</a>
+</ul>
+<hr class="docutils" />
+<section id="concepto-de-observabilidad">
+<h2>Concepto de observabilidad<a class="headerlink" href="#concepto-de-observabilidad" title="Link to this heading">#</a></h2>
+<p>Considere un sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-69d65f8c-e16f-4337-b62c-d5b8341d22ea">
+<span class="eqno">(187)<a class="headerlink" href="#equation-69d65f8c-e16f-4337-b62c-d5b8341d22ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:ree}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx + Du,
+ \end{aligned}
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> son matrices de dimensión <span class="math notranslate nohighlight">\(n\times n\)</span>, <span class="math notranslate nohighlight">\(n\times 1\)</span>, y <span class="math notranslate nohighlight">\(1\times n\)</span>, respectivamente. Además, <span class="math notranslate nohighlight">\(D\)</span> es escalar.</p>
+<p>Supongamos que queremos estimar el estado de un sistema dinámico a partir de sus entradas y salidas. Para ello, considere que tenemos sólo una señal medida <span class="math notranslate nohighlight">\(y\)</span> que pueda ser afectada por ruido <span class="math notranslate nohighlight">\(n\)</span>. Aquí, denotamos <span class="math notranslate nohighlight">\(\hat{x}\)</span> como el estado estimado dado por el observador.</p>
+<p><strong>Definición 1.</strong> <em>Un sistema LTI es <strong>observable</strong> si es posible determinar el estado de un sistema <span class="math notranslate nohighlight">\(x(t)\)</span> a través de las mediciones de <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(u(t)\)</span> sobre el intervalo <span class="math notranslate nohighlight">\([0,t]\)</span>, para cualquier <span class="math notranslate nohighlight">\(t&gt;0\)</span>.</em></p>
+<p>Definimos la matriz <span class="math notranslate nohighlight">\(n\times n\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-4b6f2671-77a2-41a1-af39-63dba5c9fe4f">
+<span class="eqno">(188)<a class="headerlink" href="#equation-4b6f2671-77a2-41a1-af39-63dba5c9fe4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V = \begin{bmatrix}
+  C \\
+  CA \\
+  \vdots \\
+  CA^{n-1}
+ \end{bmatrix},
+\end{equation}\]</div>
+<p>entonces el sistema \eqref{eqn:ree} es observable si y sólo si la matriz <span class="math notranslate nohighlight">\(V\)</span> tiene rango <span class="math notranslate nohighlight">\(n\)</span> o bien, <span class="math notranslate nohighlight">\(\text{det}\{V\} \neq 0\)</span>.</p>
+<p><strong>Observación.</strong> Controlabilidad es una propiedad de <span class="math notranslate nohighlight">\((A,B)\)</span> mientras que observabilidad es una propiedad de <span class="math notranslate nohighlight">\((A,C)\)</span>.</p>
+<section id="ejemplo-1">
+<h3>Ejemplo 1<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
+<p>Considere la siguiente función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-deecc476-11a1-4896-ad5b-923363d732a6">
+<span class="eqno">(189)<a class="headerlink" href="#equation-deecc476-11a1-4896-ad5b-923363d732a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{N(s)}{D(s)} = \frac{2s-1}{s^{2}-1.5s-1} = \frac{2s-1}{(s-2)\left(s+\frac{1}{2}\right)}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-2">
+<h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
+<p>Considere la siguiente función de transferencia</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ea1cc960-075a-416a-b7d4-b9ac70474a15">
+<span class="eqno">(190)<a class="headerlink" href="#equation-ea1cc960-075a-416a-b7d4-b9ac70474a15" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ G(s) = \frac{N(s)}{D(s)} = \frac{2s+1}{s^{2}-1.5s-1} = \frac{2s+1}{(s-2)\left(s+\frac{1}{2}\right)}
+\end{equation}\]</div>
+</section>
+<section id="ejemplo-3">
+<h3>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
+<p>Considere un modelo de dos compartimientos como se muestra en la siguiente Figura.</p>
+<p><img alt="Modelo compartimental" src="figures/compartment_model.png" /></p>
+<p>Asuma que la concentración del primer compartimiento puede ser medido y que el sistema está descrito por el siguiente sistema lineal</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e5dd76a9-9bbc-45cb-b388-d351d6ceb272">
+<span class="eqno">(191)<a class="headerlink" href="#equation-e5dd76a9-9bbc-45cb-b388-d351d6ceb272" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{c} &amp;= \begin{bmatrix}
+   -k_{0}-k_{1} &amp; k_{1} \\
+   k_{2} &amp; -k_{2}
+  \end{bmatrix}c + 
+  \begin{bmatrix}
+   b_{0} \\
+   0
+  \end{bmatrix}u, \\
+  y &amp;= \begin{bmatrix}
+   1 &amp; 0
+  \end{bmatrix}x
+ \end{aligned}
+\end{equation}\]</div>
+<p>El primer compartimiento corresponde a la concentración de fármaco en el plasma sanguíneo mientras que el segundo representa la concentración del fármaco en el tejido donde es activo.</p>
+<p>Determine si el sistema es observable.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="formas-canonicas-de-observabilidad">
+<h2>Formas canónicas de observabilidad<a class="headerlink" href="#formas-canonicas-de-observabilidad" title="Link to this heading">#</a></h2>
+<p>Un sistema SISO, está en la forma canónica observable si sus dinámicas están dadas como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-132b0c49-ff5a-4e03-a026-790031792527">
+<span class="eqno">(192)<a class="headerlink" href="#equation-132b0c49-ff5a-4e03-a026-790031792527" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{z} &amp;= 
+  \begin{bmatrix}
+   -a_{1} &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+   -a_{2} &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+   \vdots &amp;  &amp;  &amp; \ddots &amp;  \\
+   -a_{n-1} &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \\
+   -a_{n} &amp; 0 &amp; 0 &amp; \cdots &amp; 0
+  \end{bmatrix}z +
+  \begin{bmatrix}
+   b_{1} \\
+   b_{2} \\
+   \vdots \\
+   b_{n-1} \\
+   b_{n}
+  \end{bmatrix}u, \\
+  y &amp;=
+  \begin{bmatrix}
+   1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0
+  \end{bmatrix}z
+ \end{aligned}.
+\end{equation}\]</div>
+<p>Si la entrada <span class="math notranslate nohighlight">\(u\)</span> y la salida <span class="math notranslate nohighlight">\(y\)</span> están disponibles, entonces el estado <span class="math notranslate nohighlight">\(z_{1}\)</span> puede ser estimado.</p>
+</section>
+<hr class="docutils" />
+<section id="estimacion-de-estados">
+<h2>Estimación de estados<a class="headerlink" href="#estimacion-de-estados" title="Link to this heading">#</a></h2>
+<p>Considere el siguiente sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5f70c1b5-e72b-4b28-954a-6295cb037a2d">
+<span class="eqno">(193)<a class="headerlink" href="#equation-5f70c1b5-e72b-4b28-954a-6295cb037a2d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:ree_2}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx,
+ \end{aligned}
+\end{equation}\]</div>
+<p>Una estimación de los estados del sistema se puede obtener simulando las ecuaciones \eqref{eqn:ree_2} dada una entrada adecuada. Por lo tanto, el estimador de estados está dado por la siguiente expresión</p>
+<div class="amsmath math notranslate nohighlight" id="equation-91b250b0-09c1-4bc8-8e53-8a2d8e347695">
+<span class="eqno">(194)<a class="headerlink" href="#equation-91b250b0-09c1-4bc8-8e53-8a2d8e347695" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\hat{x}} = A\hat{x} + Bu.
+\end{equation}\]</div>
+<p>Para determinar las propiedades de esta estimación, es necesario definir el error de estimación <span class="math notranslate nohighlight">\(\tilde{x} := x - \hat{x}\)</span>, de modo que el sistema se reescribe como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d40e238f-890c-4adb-ba38-145b4c8f4445">
+<span class="eqno">(195)<a class="headerlink" href="#equation-d40e238f-890c-4adb-ba38-145b4c8f4445" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\tilde{x}} = A \tilde{x}.
+\end{equation}\]</div>
+<p><strong>Observación.</strong> Si todos los eigenvalores de la matriz <span class="math notranslate nohighlight">\(A\)</span> se encuentran en el semi plano izquierdo, entonces el error <span class="math notranslate nohighlight">\(\tilde{x}\rightarrow 0\)</span>.</p>
+<p>Considere el siguiente observador</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3311f52-80ac-42c0-bb42-4141cbbca972">
+<span class="eqno">(196)<a class="headerlink" href="#equation-c3311f52-80ac-42c0-bb42-4141cbbca972" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \label{eqn:observer}
+ \dot{\hat{x}} = A\hat{x} + Bu + L(y-C\hat{x}).
+\end{equation}\]</div>
+<p>Podemos observar que la retroalimentación de la salida se logra agregando el término <span class="math notranslate nohighlight">\(L(y-C\hat{x})\)</span> la cual es proporcional a la diferencia entre la salida observada y la salida estimada por el sistema \eqref{eqn:observer}. Por lo tanto</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d20e4e6-4d52-4ac2-b83a-4d310a925685">
+<span class="eqno">(197)<a class="headerlink" href="#equation-2d20e4e6-4d52-4ac2-b83a-4d310a925685" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\hat{x}} = (A - LC)\hat{x}.
+\end{equation}\]</div>
+<p>Si la matriz <span class="math notranslate nohighlight">\(L\)</span> se escoge de manera que la matriz <span class="math notranslate nohighlight">\(A-LC\)</span> tiene eigenvalores con parte real negativa, entonces el error <span class="math notranslate nohighlight">\(\tilde{x}\rightarrow 0\)</span>.</p>
+<p><strong>Observación.</strong> La tasa de convergencia está determinada por una adecuada selección de los eigenvalores.</p>
+<section id="diseno-de-observador-via-asignacion-de-eigenvalores">
+<h3>Diseño de observador via asignación de eigenvalores<a class="headerlink" href="#diseno-de-observador-via-asignacion-de-eigenvalores" title="Link to this heading">#</a></h3>
+<p><strong>Teorema 1.</strong> <em>Considere el siguiente sistema SISO</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-44a6298d-0d68-4c88-a196-07e4c7e95e64">
+<span class="eqno">(198)<a class="headerlink" href="#equation-44a6298d-0d68-4c88-a196-07e4c7e95e64" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx.
+ \end{aligned}
+\end{equation}\]</div>
+<p><em>Sea <span class="math notranslate nohighlight">\(\lambda(s) = s^{n} + a_{1}s^{n-1} + \cdots + a_{n-1}s + a_{n}\)</span> el polinomio característico para <span class="math notranslate nohighlight">\(A\)</span>. Si el sistema es observable, entonces el sistema dinámico</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-3cac21c2-540e-4f25-8b8b-02e2196f04f2">
+<span class="eqno">(199)<a class="headerlink" href="#equation-3cac21c2-540e-4f25-8b8b-02e2196f04f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x}),
+\end{equation}\]</div>
+<p><em>es un observador para el sistema, con <span class="math notranslate nohighlight">\(L\)</span> elegida como sigue</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-844686a2-775e-4a56-a035-0dc7998c2fa4">
+<span class="eqno">(200)<a class="headerlink" href="#equation-844686a2-775e-4a56-a035-0dc7998c2fa4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ L = V^{-1}\tilde{V} \begin{bmatrix}
+  p_{1} - a_{1} \\
+  p_{2} - a_{2} \\
+  \vdots \\
+  p_{n} - a_{n} \\
+ \end{bmatrix},
+\end{equation}\]</div>
+<p><em>donde las matrices <span class="math notranslate nohighlight">\(V\)</span> y <span class="math notranslate nohighlight">\(\tilde{V}\)</span> están dadas por</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-a7b24673-ba7b-4882-a775-81e20a53f104">
+<span class="eqno">(201)<a class="headerlink" href="#equation-a7b24673-ba7b-4882-a775-81e20a53f104" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V = 
+ \begin{bmatrix}
+  C \\
+  CA \\
+  \vdots \\
+  CA^{n-1}
+ \end{bmatrix}, \quad 
+ \tilde{V} =
+ \begin{bmatrix}
+  1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+  a_{1} &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \\
+  a_{2} &amp; a_{1} &amp; 1 &amp; \cdots &amp; 0 &amp; 0 \\
+  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+  a_{n-2} &amp; a_{n-3} &amp; a_{n-4} &amp; \cdots &amp; 1 &amp; 0 \\
+  a_{n-1} &amp; a_{n-2} &amp; a_{n-3} &amp; \cdots &amp; a_{1} &amp; 1 \\
+ \end{bmatrix}.
+\end{equation}\]</div>
+<p>*El error del observador <span class="math notranslate nohighlight">\(\tilde{x} = x - \hat{x}\)</span> está dado por una ecuación diferencial que tiene como polinomio característico</p>
+<div class="amsmath math notranslate nohighlight" id="equation-836921b6-64eb-4e81-b8b6-87303d8ab17e">
+<span class="eqno">(202)<a class="headerlink" href="#equation-836921b6-64eb-4e81-b8b6-87303d8ab17e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ p(s) = s^{n} + p_{1}s^{n-1} + \cdots + p_{n}.
+\end{equation}\]</div>
+<section id="id1">
+<h4>Ejemplo 1<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Considere un modelo de dos compartimientos como se muestra en la siguiente Figura.</p>
+<p><img alt="Modelo compartimental" src="figures/compartment_model.png" /></p>
+<div class="amsmath math notranslate nohighlight" id="equation-688b9b45-f57e-4645-8033-116a1c3de4f4">
+<span class="eqno">(203)<a class="headerlink" href="#equation-688b9b45-f57e-4645-8033-116a1c3de4f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{c} &amp;= \begin{bmatrix}
+   -k_{0}-k_{1} &amp; k_{1} \\
+   k_{2} &amp; -k_{2}
+  \end{bmatrix}c + 
+  \begin{bmatrix}
+   b_{0} \\
+   0
+  \end{bmatrix}u, \\
+  y &amp;= \begin{bmatrix}
+   1 &amp; 0
+  \end{bmatrix}x
+ \end{aligned}
+\end{equation}\]</div>
+</section>
+</section>
+<section id="calculo-de-la-ganancia-del-observador">
+<h3>Cálculo de la ganancia del observador<a class="headerlink" href="#calculo-de-la-ganancia-del-observador" title="Link to this heading">#</a></h3>
+<p>Considere el siguiente modelo lineal que representa la dirección de un vehículo, considerando la desviación de trayectoria lateral <span class="math notranslate nohighlight">\(y\)</span> con el ángulo de dirección <span class="math notranslate nohighlight">\(u\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-78a28eb7-68a4-4425-9e7b-6a70a86975f8">
+<span class="eqno">(204)<a class="headerlink" href="#equation-78a28eb7-68a4-4425-9e7b-6a70a86975f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= \begin{bmatrix}
+   0 &amp; 1 \\
+   0 &amp; 0
+  \end{bmatrix}x + 
+  \begin{bmatrix}
+   \gamma \\
+   1
+  \end{bmatrix}u, \\
+  y &amp;= \begin{bmatrix}
+   1 &amp; 0 
+  \end{bmatrix}x
+ \end{aligned}.
+\end{equation}\]</div>
+<p>Recuerde que el estado <span class="math notranslate nohighlight">\(x_{1}\)</span> representa la desviación de la trayectoria lateral y <span class="math notranslate nohighlight">\(x_{2}\)</span>  la velocidad de giro.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="teorema-de-dualidad">
+<h2>Teorema de Dualidad<a class="headerlink" href="#teorema-de-dualidad" title="Link to this heading">#</a></h2>
+<p>Sea el sistema <span class="math notranslate nohighlight">\(\Sigma_{1}\)</span> representado por las siguientes ecuaciones</p>
+<div class="amsmath math notranslate nohighlight" id="equation-44aeec8e-df92-4a5a-b854-cad35bdddfea">
+<span class="eqno">(205)<a class="headerlink" href="#equation-44aeec8e-df92-4a5a-b854-cad35bdddfea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \Sigma_{1} := \left\{
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx,
+ \end{aligned}
+ \right.
+\end{equation}\]</div>
+<p>y el sistema dual <span class="math notranslate nohighlight">\(\Sigma_{2}\)</span> definido como</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e31ec377-0e1f-4c0a-972b-f0e4e9b275fd">
+<span class="eqno">(206)<a class="headerlink" href="#equation-e31ec377-0e1f-4c0a-972b-f0e4e9b275fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \Sigma_{2} := \left\{
+ \begin{aligned}
+  \dot{z} &amp;= A^{*}z + C^{*}v, \\
+  n &amp;= B^{*}z,
+ \end{aligned}
+ \right.
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(z\)</span> es el vector de estado, <span class="math notranslate nohighlight">\(v\)</span> el vector de control, <span class="math notranslate nohighlight">\(n\)</span> el vector de salida y <span class="math notranslate nohighlight">\({}^{*}\)</span> denota la transpuesta conjugada.</p>
+<p>El teorema de dualidad menciona que el sistema <span class="math notranslate nohighlight">\(\Sigma_{1}\)</span> es completamente controlable (observable) si y sólo si el sistema <span class="math notranslate nohighlight">\(\Sigma_{2}\)</span> es completamente observable (controlable).</p>
+<section id="condiciones-necesarias">
+<h3>Condiciones necesarias<a class="headerlink" href="#condiciones-necesarias" title="Link to this heading">#</a></h3>
+<p>Para el sistema <span class="math notranslate nohighlight">\(\Sigma_{1}\)</span></p>
+<ol class="arabic simple">
+<li><p>Condición de controlabilidad</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-e02057f6-15b9-4dfd-af25-667372c4aaf3">
+<span class="eqno">(207)<a class="headerlink" href="#equation-e02057f6-15b9-4dfd-af25-667372c4aaf3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \text{rank}\left\{
+   \begin{bmatrix}
+    B &amp; AB &amp; \cdots &amp; A^{n-1}B
+   \end{bmatrix}
+  \right\} = n
+ \end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Condición de observabilidad</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-3fcee86f-a28e-4977-8fca-e68d6be6eafa">
+<span class="eqno">(208)<a class="headerlink" href="#equation-3fcee86f-a28e-4977-8fca-e68d6be6eafa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \text{rank}\left\{
+   \begin{bmatrix}
+    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
+   \end{bmatrix}
+  \right\} = n
+ \end{equation}\]</div>
+<p>Para el sistema <span class="math notranslate nohighlight">\(\Sigma_{2}\)</span></p>
+<ol class="arabic simple">
+<li><p>Condición de controlabilidad</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-b194ea9b-c7a4-4748-96ce-b5f1e9f808a6">
+<span class="eqno">(209)<a class="headerlink" href="#equation-b194ea9b-c7a4-4748-96ce-b5f1e9f808a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \text{rank}\left\{
+   \begin{bmatrix}
+    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
+   \end{bmatrix}
+  \right\} = n
+ \end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Condición de observabilidad</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-b6ace347-2c2f-433e-aa8c-4daacb52680a">
+<span class="eqno">(210)<a class="headerlink" href="#equation-b6ace347-2c2f-433e-aa8c-4daacb52680a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \text{rank}\left\{
+   \begin{bmatrix}
+    B &amp; AB &amp; \cdots &amp; A^{n-1}B
+   \end{bmatrix}
+  \right\} = n
+ \end{equation}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov">
+<h2>Procedimiento para obtener la ganancia del observador via Lyapunov<a class="headerlink" href="#procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov" title="Link to this heading">#</a></h2>
+<p>La ganancia <span class="math notranslate nohighlight">\(L\)</span> del observador de estados \eqref{eqn:observer}, se pude obtener a partir de la siguiente expresión (Coronel-Escamilla et al., 2017)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7ec21347-0249-487c-8326-d4549b315741">
+<span class="eqno">(211)<a class="headerlink" href="#equation-7ec21347-0249-487c-8326-d4549b315741" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ K = S^{-1}C^{T},
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(S\)</span> es la solución única de la ecuación algebráica de Lyapunov</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1052db0a-8f22-4f70-9709-7c84972ef7df">
+<span class="eqno">(212)<a class="headerlink" href="#equation-1052db0a-8f22-4f70-9709-7c84972ef7df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ -\lambda S - A^{T}S - SA + C^{T}C = 0,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\lambda\)</span> denota el parámetro para sintonizar la convergencia del observador \eqref{eqn:observer}.</p>
+</section>
+<hr class="docutils" />
+<section id="control-utilizando-estimadores-de-estado">
+<h2>Control utilizando estimadores de estado<a class="headerlink" href="#control-utilizando-estimadores-de-estado" title="Link to this heading">#</a></h2>
+<p>Considere un sistema en representación de espacio de estados de la forma</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5f3f631d-2053-4192-9b79-6035e7cba1ac">
+<span class="eqno">(213)<a class="headerlink" href="#equation-5f3f631d-2053-4192-9b79-6035e7cba1ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{aligned}
+  \dot{x} &amp;= Ax + Bu, \\
+  y &amp;= Cx.
+ \end{aligned}
+\end{equation}\]</div>
+<p>Este sistema sólo tiene una salida disponible y es necesario diseñar un control por retroalimentación. Para ello, asumimos que el sistema es controlable así como observable y que además, <span class="math notranslate nohighlight">\(u\)</span> e <span class="math notranslate nohighlight">\(y\)</span> son escalares.</p>
+<p>Considerando la siguiente ley de control (retroalimentación), tenemos</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cd00d508-e01d-462f-ba72-b453792d1394">
+<span class="eqno">(214)<a class="headerlink" href="#equation-cd00d508-e01d-462f-ba72-b453792d1394" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ u = -Kx + k_{r}r.
+\end{equation}\]</div>
+<p>Bajo la suposición de que todos los estados son medibles, proponemos el diseño de un observador para estimar el estado <span class="math notranslate nohighlight">\(\hat{x}\)</span> a partir de las entradas y las salidas.</p>
+<p>Si todos los estados no están disponibles o bien, no son medibles, entonces proponemos la siguiente ley de control</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b144193-edde-41de-a156-4007dc146956">
+<span class="eqno">(215)<a class="headerlink" href="#equation-9b144193-edde-41de-a156-4007dc146956" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ u = -K\hat{x}+k_{r}r,
+\end{equation}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\hat{x}\)</span> es la salida del observador de estados</p>
+<div class="amsmath math notranslate nohighlight" id="equation-22a7b84f-2650-4c5a-8de3-bfc8dd02443c">
+<span class="eqno">(216)<a class="headerlink" href="#equation-22a7b84f-2650-4c5a-8de3-bfc8dd02443c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x}).
+\end{equation}\]</div>
+<p>Para analizar el sistema en lazo cerrado, definimos la siguiente variable</p>
+<div class="amsmath math notranslate nohighlight" id="equation-66426633-b8ec-4df6-9e69-9909a44f0b33">
+<span class="eqno">(217)<a class="headerlink" href="#equation-66426633-b8ec-4df6-9e69-9909a44f0b33" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \tilde{x}:=x-\hat{x},
+\end{equation}\]</div>
+<p>y la reemplazamos en la variable de estado <span class="math notranslate nohighlight">\(\hat{x}\)</span>. Con esto obtenemos la siguiente expresión</p>
+<div class="amsmath math notranslate nohighlight" id="equation-710c4bc6-5de3-46db-a2ff-eb2cdc4395f6">
+<span class="eqno">(218)<a class="headerlink" href="#equation-710c4bc6-5de3-46db-a2ff-eb2cdc4395f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \dot{x} = (A-BK)x + BK\tilde{x}+Bk_{r}r,
+\end{equation}\]</div>
+<p>o en representación de espacio de estados como sigue</p>
+<div class="amsmath math notranslate nohighlight" id="equation-122ad5eb-31b8-4916-9999-33593ac08229">
+<span class="eqno">(219)<a class="headerlink" href="#equation-122ad5eb-31b8-4916-9999-33593ac08229" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \begin{bmatrix}
+  \dot{x} \\
+  \dot{\tilde{x}}
+ \end{bmatrix} = 
+ \begin{bmatrix}
+  A - BK &amp; BK \\
+  0 &amp; A-LC
+ \end{bmatrix}
+ \begin{bmatrix}
+  x \\
+  \tilde{x}
+ \end{bmatrix} + 
+ \begin{bmatrix}
+  Bk_{r} \\
+  0
+ \end{bmatrix}r.
+\end{equation}\]</div>
+<p>Por consiguiente, el polinomio característico del sistema está dado por la siguiente ecuación</p>
+<div class="amsmath math notranslate nohighlight" id="equation-22da8904-6626-4398-9fe9-918c5e12370d">
+<span class="eqno">(220)<a class="headerlink" href="#equation-22da8904-6626-4398-9fe9-918c5e12370d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ \lambda(s) = \text{det}(sI - A + BK)\text{det}(sI - A + LC)
+\end{equation}\]</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="referencias">
+<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Coronel-Escamilla, A., Gómez-Aguilar, J. F., Torres, L., Valtierra-Rodriguez, M., &amp; Escobar-Jiménez, R. F. (2017). Design of a state observer to approximate signals by using the concept of fractional variable-order derivative. <em>Digital Signal Processing</em>, 69, 127-139.</p></li>
+<li><p>Chen, C. T. (1995). <em>Analog and digital control system design: transfer-function, state-space, and algebraic methods</em>. Oxford University Press, Inc..</p></li>
+<li><p>Åström, K. J., &amp; Murray, R. M. (2021). <em>Feedback systems: an introduction for scientists and engineers</em>. Princeton university press.</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="JESP_04_Controlabilidad_sistemas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Controlabilidad de sistemas dinámicos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Observabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-observabilidad">Concepto de observabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1">Ejemplo 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2">Ejemplo 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-3">Ejemplo 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-observabilidad">Formas canónicas de observabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimacion-de-estados">Estimación de estados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-observador-via-asignacion-de-eigenvalores">Diseño de observador via asignación de eigenvalores</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-ganancia-del-observador">Cálculo de la ganancia del observador</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-de-dualidad">Teorema de Dualidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condiciones-necesarias">Condiciones necesarias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov">Procedimiento para obtener la ganancia del observador via Lyapunov</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-utilizando-estimadores-de-estado">Control utilizando estimadores de estado</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Jesús Emmanuel Solís Pérez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
