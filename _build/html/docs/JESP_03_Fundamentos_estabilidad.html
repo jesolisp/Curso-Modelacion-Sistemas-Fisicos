@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -473,15 +474,15 @@ document.write(`
 </ul>
 <hr class="docutils" />
 <p>Considere un sistema autónomo representado por la siguiente ecuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bef9de65-a176-4b7e-9113-1b34edd7472a">
-<span class="eqno">(102)<a class="headerlink" href="#equation-bef9de65-a176-4b7e-9113-1b34edd7472a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2560f99-b219-4af6-b75f-2f7c6ab8b647">
+<span class="eqno">(68)<a class="headerlink" href="#equation-d2560f99-b219-4af6-b75f-2f7c6ab8b647" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:sys_aut}
  \dot{x} = f(x),
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(f:D\leftarrow R^{n}\)</span> es un mapa local de Lipschitz de un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> en <span class="math notranslate nohighlight">\(R^{n}\)</span>.</p>
 <p>Para poder estudiar la estabilidad del sistema \eqref{eqn:sys_aut}, es necesario obtener <span class="math notranslate nohighlight">\(\bar{x}\in D\)</span> que denota el punto de equilibrio</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd052f23-0042-48a8-9885-7d8ac21e6b93">
-<span class="eqno">(103)<a class="headerlink" href="#equation-dd052f23-0042-48a8-9885-7d8ac21e6b93" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c3c75d3f-8ce8-497f-b519-b81cbc621612">
+<span class="eqno">(69)<a class="headerlink" href="#equation-c3c75d3f-8ce8-497f-b519-b81cbc621612" title="Permalink to this equation">#</a></span>\[\begin{equation}
  f(\bar{x}) = 0.
 \end{equation}\]</div>
 <section id="localizacion-de-los-puntos-de-equilibrio">
@@ -490,23 +491,23 @@ document.write(`
 <ul class="simple">
 <li><p><em>estable si, para cada <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta = \delta(\varepsilon)&gt;0\)</span> tal que</em></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-dc74cb66-a569-451a-8ba0-3e33b8cb1dea">
-<span class="eqno">(104)<a class="headerlink" href="#equation-dc74cb66-a569-451a-8ba0-3e33b8cb1dea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91645910-2583-4670-b102-8cd2043734d6">
+<span class="eqno">(70)<a class="headerlink" href="#equation-91645910-2583-4670-b102-8cd2043734d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \|x(0)\| &lt; \delta \Rightarrow \|x(t)\| &lt; \varepsilon, \quad \forall t\geq 0
 \end{equation}\]</div>
 <ul class="simple">
 <li><p><em>inestable si no es estable</em></p></li>
 <li><p><em>asintóticamente estable si este es estable y <span class="math notranslate nohighlight">\(\delta\)</span> se escoge tal que</em></p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-9fbd1557-e1de-4592-b038-748a4d1a5f0b">
-<span class="eqno">(105)<a class="headerlink" href="#equation-9fbd1557-e1de-4592-b038-748a4d1a5f0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8dce3a97-879c-48e4-8c1e-3d692ee09b06">
+<span class="eqno">(71)<a class="headerlink" href="#equation-8dce3a97-879c-48e4-8c1e-3d692ee09b06" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \|x(0)\| &lt; \delta \Rightarrow \lim \limits_{t\rightarrow \infty} x(t) = 0.
 \end{equation}\]</div>
 <section id="ejemplo-1">
 <h3>Ejemplo 1.<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
 <p>Considere las ecuaciones del péndulo simple y obtenga sus puntos de equilibrio</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a584148-bc07-4517-9dcf-7740ef38405d">
-<span class="eqno">(106)<a class="headerlink" href="#equation-7a584148-bc07-4517-9dcf-7740ef38405d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2fd3acb6-c6f8-47e4-a5bf-9cb0e004e0f0">
+<span class="eqno">(72)<a class="headerlink" href="#equation-2fd3acb6-c6f8-47e4-a5bf-9cb0e004e0f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
@@ -518,27 +519,27 @@ document.write(`
 <section id="linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">
 <h2>Linealización de sistemas en torno a un punto de equilibrio<a class="headerlink" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio" title="Link to this heading">#</a></h2>
 <p>Un sistema lineal invariante en el tiempo (LTI) de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e25bd36-e317-4c9e-ac57-e5a54716a037">
-<span class="eqno">(107)<a class="headerlink" href="#equation-1e25bd36-e317-4c9e-ac57-e5a54716a037" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a09508f-ba21-4383-b12a-a2d82007b971">
+<span class="eqno">(73)<a class="headerlink" href="#equation-4a09508f-ba21-4383-b12a-a2d82007b971" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:LTI}
  \dot{x} = Ax,
 \end{equation}\]</div>
 <p>tiene un punto de equilibrio en el origen. Este punto de equilibrio está aislado si y sólo si <span class="math notranslate nohighlight">\(\text{det}(A)\neq0\)</span>. Si <span class="math notranslate nohighlight">\(\text{det}(A)=0\)</span>, la matriz <span class="math notranslate nohighlight">\(A\)</span> tiene un espacio nulo no trivial.</p>
 <p>Las propiedades de estabilidad del origen pueden ser caracterizadas por las ubicaciones de los eigenvalores de la matriz <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <p>Recordemos que la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> dada una condición inicial <span class="math notranslate nohighlight">\(x(0)\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9164f69-48e9-4a5a-85a2-6d5bf86b3197">
-<span class="eqno">(108)<a class="headerlink" href="#equation-c9164f69-48e9-4a5a-85a2-6d5bf86b3197" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-982a9509-6767-4b42-83dc-5e451ce84a66">
+<span class="eqno">(74)<a class="headerlink" href="#equation-982a9509-6767-4b42-83dc-5e451ce84a66" title="Permalink to this equation">#</a></span>\[\begin{equation}
  x(t) = \exp(At)x(0).
 \end{equation}\]</div>
 <p>Además, para cualquier matriz <span class="math notranslate nohighlight">\(A\)</span> existe una matriz <span class="math notranslate nohighlight">\(P\)</span> no singular que transforma <span class="math notranslate nohighlight">\(A\)</span> en su forma de Jordan, <em>i.e.</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-10937bcb-c9ed-4e12-b0f7-2f643690462b">
-<span class="eqno">(109)<a class="headerlink" href="#equation-10937bcb-c9ed-4e12-b0f7-2f643690462b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ed33f08-c55d-4cae-a0ff-26e86de0370b">
+<span class="eqno">(75)<a class="headerlink" href="#equation-2ed33f08-c55d-4cae-a0ff-26e86de0370b" title="Permalink to this equation">#</a></span>\[\begin{equation}
  P^{-1}AP = J = \text{block} \text{diag}\left[J_{1}, J_{2},\dots, J_{r} \right],
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(J_{i}\)</span> es el bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de A.</p>
 <p>La forma generalizada del bloque de Jordan, considerando un orden <span class="math notranslate nohighlight">\(m\)</span>, tiene la forma siguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-21ab7c2b-aada-472a-84ff-a1209f834077">
-<span class="eqno">(110)<a class="headerlink" href="#equation-21ab7c2b-aada-472a-84ff-a1209f834077" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf5b7fcf-2f3c-4be8-8aee-8162e95b378b">
+<span class="eqno">(76)<a class="headerlink" href="#equation-cf5b7fcf-2f3c-4be8-8aee-8162e95b378b" title="Permalink to this equation">#</a></span>\[\begin{equation}
  J_{i} = \begin{bmatrix}
   \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0 \\
   0 &amp; \lambda_{i} &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
@@ -549,8 +550,8 @@ document.write(`
  \end{bmatrix}_{m\times m},
 \end{equation}\]</div>
 <p>por consiguiente</p>
-<div class="amsmath math notranslate nohighlight" id="equation-405d891e-a24e-4f74-b58f-ce5443ff20c1">
-<span class="eqno">(111)<a class="headerlink" href="#equation-405d891e-a24e-4f74-b58f-ce5443ff20c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f9e70f0-5f96-4622-9825-f7a851eac8a9">
+<span class="eqno">(77)<a class="headerlink" href="#equation-5f9e70f0-5f96-4622-9825-f7a851eac8a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \exp(At) = P \exp(Jt)P^{-1} = \sum_{i=1}^{r} \sum_{k=1}^{m_{i}} t^{k-1} \exp(\lambda_{i}t) R_{ik},
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(m_{i}\)</span> es el orden del bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span>.</p>
@@ -559,8 +560,8 @@ document.write(`
 <section id="linealizacion">
 <h3>Linealización<a class="headerlink" href="#linealizacion" title="Link to this heading">#</a></h3>
 <p>Suponga que las funciones <span class="math notranslate nohighlight">\(f_{1}\)</span> y <span class="math notranslate nohighlight">\(f_{2}\)</span> del sistema autónomo de segundo orden</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2674b3eb-8179-4c27-bc89-4a38b1897a0b">
-<span class="eqno">(112)<a class="headerlink" href="#equation-2674b3eb-8179-4c27-bc89-4a38b1897a0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1bfb936d-1458-4a7f-aa18-ad7afe37b154">
+<span class="eqno">(78)<a class="headerlink" href="#equation-1bfb936d-1458-4a7f-aa18-ad7afe37b154" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \label{eqn:second_order_aut}
  \begin{aligned}
   \dot{x}_{1} &amp;= f_{1}(x_{1},x_{2}), \\
@@ -568,16 +569,16 @@ document.write(`
  \end{aligned}
 \end{equation}\]</div>
 <p>son continuamente diferenciables y que además <span class="math notranslate nohighlight">\(p=(p_{1},p_{2})\)</span> es un punto de equilibrio, el sistema \eqref{eqn:second_order_aut} se puede expandir mediante serie de Taylor en torno a <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71972a63-8c46-480e-b4d0-0673bd9699d5">
-<span class="eqno">(113)<a class="headerlink" href="#equation-71972a63-8c46-480e-b4d0-0673bd9699d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cd5d2b02-179e-416d-803a-cf416f9c55b4">
+<span class="eqno">(79)<a class="headerlink" href="#equation-cd5d2b02-179e-416d-803a-cf416f9c55b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x}_{1} &amp;= f_{1}(p_{1},p_{2}) + a_{11}(x_{1}-p_{1}) + a_{12}(x_{2}-p_{2}) + \text{H.O.T}, \\
   \dot{x}_{2} &amp;= f_{2}(p_{1},p_{2}) + a_{21}(x_{1}-p_{1}) + a_{22}(x_{2}-p_{2}) + \text{H.O.T},
  \end{aligned}
 \end{equation}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-60229556-5cbd-4fa1-8bd4-cf0149951aa6">
-<span class="eqno">(114)<a class="headerlink" href="#equation-60229556-5cbd-4fa1-8bd4-cf0149951aa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3baddb32-de29-4985-b995-0b1da7063535">
+<span class="eqno">(80)<a class="headerlink" href="#equation-3baddb32-de29-4985-b995-0b1da7063535" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   a_{11} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{12} = \left. \frac{\partial f_{1}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \\
   a_{21} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{1}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, \quad a_{22} = \left. \frac{\partial f_{2}(x_{1},x_{2})}{\partial x_{2}} \right|_{x_{1}=p_{1},x_{2}=p_{2}}, 
@@ -585,39 +586,39 @@ document.write(`
 \end{equation}\]</div>
 <p>y H.O.T. denota los términos de orden superior de la expansión de Taylor, es decir <span class="math notranslate nohighlight">\((x_{1}-p_{1})^{2},(x_{2}-p_{2})^{2},(x_{1}-p_{1})\times (x_{2}-p_{2})\)</span>, y así sucesivamente.</p>
 <p>Dado que <span class="math notranslate nohighlight">\((p_{1},p_{2})\)</span> denota el punto de equilibrio, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a505167-20eb-4e6e-a166-781860b9b1e0">
-<span class="eqno">(115)<a class="headerlink" href="#equation-0a505167-20eb-4e6e-a166-781860b9b1e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-267f6d53-c7b4-40c6-8a10-bf1d01e80a18">
+<span class="eqno">(81)<a class="headerlink" href="#equation-267f6d53-c7b4-40c6-8a10-bf1d01e80a18" title="Permalink to this equation">#</a></span>\[\begin{equation}
  f_{1}(p_{1},p_{2}) = f_{2}(p_{1},p_{2}) = 0.
 \end{equation}\]</div>
 <p>Puesto que consideramos trayectorias cercanas a este punto, definimos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b64d975c-7bc3-4372-87f3-a57698ae9ae8">
-<span class="eqno">(116)<a class="headerlink" href="#equation-b64d975c-7bc3-4372-87f3-a57698ae9ae8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fdea656b-1166-4696-b833-8b9bf3296f84">
+<span class="eqno">(82)<a class="headerlink" href="#equation-fdea656b-1166-4696-b833-8b9bf3296f84" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y_{1} = x_{1} - p_{1}, \quad y_{2} = x_{2} - p_{2}.
 \end{equation}\]</div>
 <p>Por consiguiente, las ecuaciones de estado quedan de la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e25b109f-7acd-4991-9edc-58e86417cafe">
-<span class="eqno">(117)<a class="headerlink" href="#equation-e25b109f-7acd-4991-9edc-58e86417cafe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8518fee8-1535-46b6-9f45-35f2fe723789">
+<span class="eqno">(83)<a class="headerlink" href="#equation-8518fee8-1535-46b6-9f45-35f2fe723789" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2} + \text{H.O.T}, \\
   \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2} + \text{H.O.T}.
  \end{aligned}
 \end{equation}\]</div>
 <p>Si consideramos una vecindad cercana al punto de equilibrio, entonces podemos decir que los términos H.O.T son despreciables y por consiguiente, realizamos una aproximación de la ecuación de estado no lineal por la ecuación de estado lineal como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b138277c-f949-44e7-b210-94067d9d4f3f">
-<span class="eqno">(118)<a class="headerlink" href="#equation-b138277c-f949-44e7-b210-94067d9d4f3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21917c31-ea26-4ae7-8aae-630489ad03a2">
+<span class="eqno">(84)<a class="headerlink" href="#equation-21917c31-ea26-4ae7-8aae-630489ad03a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{y}_{1} &amp;= \dot{x}_{1} = a_{11}y_{1} + a_{12}y_{2},\\
   \dot{y}_{2} &amp;= \dot{x}_{2} = a_{21}y_{1} + a_{22}y_{2}. \\
  \end{aligned}
 \end{equation}\]</div>
 <p>Reescribiendo lo anterior en una forma vectorial, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0d39c12-3e36-4d71-84b5-27b47f5d429a">
-<span class="eqno">(119)<a class="headerlink" href="#equation-c0d39c12-3e36-4d71-84b5-27b47f5d429a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d18c59f3-693e-47be-b9e0-7a29836c4ea3">
+<span class="eqno">(85)<a class="headerlink" href="#equation-d18c59f3-693e-47be-b9e0-7a29836c4ea3" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{y} = Ay,
 \end{equation}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e14eae92-7797-4b46-a2b7-d061738a4826">
-<span class="eqno">(120)<a class="headerlink" href="#equation-e14eae92-7797-4b46-a2b7-d061738a4826" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4da74f03-45e5-4870-81be-10baef8fe7e8">
+<span class="eqno">(86)<a class="headerlink" href="#equation-4da74f03-45e5-4870-81be-10baef8fe7e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
  A = \begin{bmatrix}
   a_{11} &amp; a_{12} \\
   a_{21} &amp; a_{22}  
@@ -637,8 +638,8 @@ document.write(`
 <p>Considere el circuito de diodo tunel que se muestra a continuación</p>
 <p><img alt="Diodo tunel" src="figures/diodo_tunel.png" /></p>
 <p>donde los elementos de almacenamiento de energía son el capacitor <span class="math notranslate nohighlight">\(C\)</span> y el inductor <span class="math notranslate nohighlight">\(L\)</span> mientras que el diodo tunel es representado por la relación <span class="math notranslate nohighlight">\(i_{R} = h(v_{R})\)</span>. Asumiendo que los elementos del circuito son lineales e invariantes en el tiempo, el circuito de diodo tunel se puede representar matemáticamente como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07a803f5-5be6-4eaa-9673-bbdb1b4c1c36">
-<span class="eqno">(121)<a class="headerlink" href="#equation-07a803f5-5be6-4eaa-9673-bbdb1b4c1c36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca2fe169-9a3b-42b9-b47e-6c2342c15472">
+<span class="eqno">(87)<a class="headerlink" href="#equation-ca2fe169-9a3b-42b9-b47e-6c2342c15472" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   i_{C} &amp;= C \frac{\mathrm{d}v_{C}}{\mathrm{d}t}, \\
   v_{L} &amp;= L \frac{\mathrm{d}i_{L}}{\mathrm{d}t}, \\
@@ -646,8 +647,8 @@ document.write(`
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(v\)</span> representan la corriente y el voltaje a través de los elementos, respectivamente.</p>
 <p>Considere que los parámetros del modelo son <span class="math notranslate nohighlight">\(u=1.2V\)</span>, <span class="math notranslate nohighlight">\(R=1.5k\Omega = 1.5\times 10^{3}\Omega\)</span>, <span class="math notranslate nohighlight">\(C=2pF = 2\times 10^{-12}F\)</span>, <span class="math notranslate nohighlight">\(L=5\mu H = 5\times 10^{-6}H\)</span>. Además, suponga que <span class="math notranslate nohighlight">\(h(\cdot)\)</span> está dada por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de5c7dba-f52d-4d54-94d4-ef272a96b224">
-<span class="eqno">(122)<a class="headerlink" href="#equation-de5c7dba-f52d-4d54-94d4-ef272a96b224" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-747a014e-b59c-4367-9f4e-ebf37684a87b">
+<span class="eqno">(88)<a class="headerlink" href="#equation-747a014e-b59c-4367-9f4e-ebf37684a87b" title="Permalink to this equation">#</a></span>\[\begin{equation}
  h(x_{1}) = 17.76x_{1} - 103.79x_{1}^{2} + 229.62x_{1}^{3} - 226.31x_{1}^{4} + 83.72x_{1}^{5}.
 \end{equation}\]</div>
 <ol class="arabic simple">
@@ -663,8 +664,8 @@ document.write(`
 <p><img alt="Single pendulum" src="figures/single_pendulum.png" /></p>
 <p>donde <span class="math notranslate nohighlight">\(l\)</span> denota la longitud de la varilla, y <span class="math notranslate nohighlight">\(m\)</span> la masa de la bola.</p>
 <p>Cuya representación en espacio de estados está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d472ca5e-c0ae-4c79-b124-2e8de6b543c9">
-<span class="eqno">(123)<a class="headerlink" href="#equation-d472ca5e-c0ae-4c79-b124-2e8de6b543c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6900971b-216c-45ce-b5b4-f3e76537449a">
+<span class="eqno">(89)<a class="headerlink" href="#equation-6900971b-216c-45ce-b5b4-f3e76537449a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x_{1}} &amp;= x_{2}, \\
   \dot{x_{2}} &amp;= -\frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
@@ -682,13 +683,13 @@ document.write(`
 <section id="analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">
 <h2>Análisis de la estabilidad de sistemas dinámicos linealizados<a class="headerlink" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados" title="Link to this heading">#</a></h2>
 <p>Considere un sistema LTI como se muestra en la Ec. \eqref{eqn:LTI} donde <span class="math notranslate nohighlight">\(A\)</span> es una matriz real de dimensión <span class="math notranslate nohighlight">\(2\times 2\)</span>. La solución a este sistema con una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> está dada por la siguiente ecuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3af26526-39e2-4066-b248-a09bc06ecebd">
-<span class="eqno">(124)<a class="headerlink" href="#equation-3af26526-39e2-4066-b248-a09bc06ecebd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2fff938-faca-4da2-b3a4-63b88f18fd5e">
+<span class="eqno">(90)<a class="headerlink" href="#equation-d2fff938-faca-4da2-b3a4-63b88f18fd5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  x(t) = M \exp(J_{r}t)M^{-1}x_{0},
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(J_{r}\)</span> es la forma real de Jordan de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(M\)</span> es una matriz real no singular tal que <span class="math notranslate nohighlight">\(M^{-1}AM = J_{r}\)</span>. Dependiendo de los eigenvalores <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> de la matriz <span class="math notranslate nohighlight">\(A\)</span>, la forma de Jordan puede tomar los siguientes casos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4623eaa-eaab-4577-9835-18fce08e2f84">
-<span class="eqno">(125)<a class="headerlink" href="#equation-d4623eaa-eaab-4577-9835-18fce08e2f84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-29502254-8c74-4971-b041-1a929fb5589c">
+<span class="eqno">(91)<a class="headerlink" href="#equation-29502254-8c74-4971-b041-1a929fb5589c" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{bmatrix}
   \lambda_{1} &amp; 0 \\
   0 &amp; \lambda_{2}
@@ -706,16 +707,16 @@ document.write(`
 <section id="caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">
 <h3>Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.<a class="headerlink" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0" title="Link to this heading">#</a></h3>
 <p>El sistema tiene dos eigenvectores reales <span class="math notranslate nohighlight">\(v_{1}\)</span> y <span class="math notranslate nohighlight">\(v_{2}\)</span> asociados con <span class="math notranslate nohighlight">\(\lambda_{1}\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\)</span>, respectivamente. Donde el sistema es transformado en dos ecuaciones diferenciales de primer orden después de un cambio de coordenadas <span class="math notranslate nohighlight">\(z=M^{-1}x\)</span>, <em>i.e.</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed3657f2-bb47-4554-a53b-7d4656998e3c">
-<span class="eqno">(126)<a class="headerlink" href="#equation-ed3657f2-bb47-4554-a53b-7d4656998e3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7197fc01-dcef-4c8b-9822-1e69e34d5ef7">
+<span class="eqno">(92)<a class="headerlink" href="#equation-7197fc01-dcef-4c8b-9822-1e69e34d5ef7" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z}_{1} &amp;= \lambda_{1}z_{1},\\
   \dot{z}_{2} &amp;= \lambda_{2}z_{2},
  \end{aligned}
 \end{equation}\]</div>
 <p>cuya solución está dada como sigue, para las condiciones iniciales <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-86822cbe-4f66-4d7b-b857-1fb605c7be4a">
-<span class="eqno">(127)<a class="headerlink" href="#equation-86822cbe-4f66-4d7b-b857-1fb605c7be4a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f2c6a077-f6a3-440e-b092-b185fd5b0311">
+<span class="eqno">(93)<a class="headerlink" href="#equation-f2c6a077-f6a3-440e-b092-b185fd5b0311" title="Permalink to this equation">#</a></span>\[\begin{equation}
  z_{1}(t) = z_{10}e^{\lambda_{1}t}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
 \end{equation}\]</div>
 <p>Cuando <span class="math notranslate nohighlight">\(\lambda_{2}&lt;\lambda_{1}&lt;0\)</span>, el retrato fase tiene la forma de la Figura 1.15(a), donde <span class="math notranslate nohighlight">\(x=0\)</span> es llamado <em>nodo estable</em>. Por otro lado, si <span class="math notranslate nohighlight">\(\lambda_{2}&gt;\lambda_{1}&gt;0\)</span>, <span class="math notranslate nohighlight">\(x=0\)</span>, el retrato fase se muestra en la Figura 1.15(b) y se le conoce como <em>nodo inestable</em>.</p>
@@ -726,29 +727,29 @@ document.write(`
 <section id="caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">
 <h3>Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span><a class="headerlink" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta" title="Link to this heading">#</a></h3>
 <p>El sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de la transformación de coordenadas <span class="math notranslate nohighlight">\(z = M^{-1}x\)</span> tiene la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-194804da-6a54-4abe-995d-b94ff65c6aa6">
-<span class="eqno">(128)<a class="headerlink" href="#equation-194804da-6a54-4abe-995d-b94ff65c6aa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9c8ef53a-01ab-4dff-bf25-188f8929ed14">
+<span class="eqno">(94)<a class="headerlink" href="#equation-9c8ef53a-01ab-4dff-bf25-188f8929ed14" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z}_{1} &amp;= \alpha z_{1} - \beta z_{2}, \\
   \dot{z}_{2} &amp;= \beta z_{1} + \alpha z_{2}.
  \end{aligned}
 \end{equation}\]</div>
 <p>Puesto que la solución a este sistema es oscilatoria, se puede expresar en coordenadas polares como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3909a939-279b-4a79-b82b-c0b58ab5c3ea">
-<span class="eqno">(129)<a class="headerlink" href="#equation-3909a939-279b-4a79-b82b-c0b58ab5c3ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a26510ba-f245-4f69-b80c-ddb6b2266b68">
+<span class="eqno">(95)<a class="headerlink" href="#equation-a26510ba-f245-4f69-b80c-ddb6b2266b68" title="Permalink to this equation">#</a></span>\[\begin{equation}
  r = \sqrt{z_{1}^{2} + z_{2}^{2}}, \quad \theta = \tan^{-1}\left( \frac{z_{2}}{z_{1}} \right),
 \end{equation}\]</div>
 <p>teniendo dos ecuaciones diferenciales de primer orden desacopladas</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4caa6e11-fecb-4b8e-b979-fea279d5a105">
-<span class="eqno">(130)<a class="headerlink" href="#equation-4caa6e11-fecb-4b8e-b979-fea279d5a105" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0adb3cd9-95d5-4fa3-8d86-89d44d102e6f">
+<span class="eqno">(96)<a class="headerlink" href="#equation-0adb3cd9-95d5-4fa3-8d86-89d44d102e6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{r} &amp;= \alpha r, \\
   \dot{\theta} = \beta.
  \end{aligned}
 \end{equation}\]</div>
 <p>La solución de este sistema, para una condición inicial <span class="math notranslate nohighlight">\((r_{0},\theta_{0})\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-593f0ed5-1c61-4d03-ba10-c3f0823d621a">
-<span class="eqno">(131)<a class="headerlink" href="#equation-593f0ed5-1c61-4d03-ba10-c3f0823d621a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-12f036e0-6163-4a8b-96ef-d40017d21c54">
+<span class="eqno">(97)<a class="headerlink" href="#equation-12f036e0-6163-4a8b-96ef-d40017d21c54" title="Permalink to this equation">#</a></span>\[\begin{equation}
  r(t) = r_{0}r^{\alpha t}, \quad \theta(t) = \theta_{0} + \beta_{t}.
 \end{equation}\]</div>
 <p>Dependiendo del valor de <span class="math notranslate nohighlight">\(\alpha\)</span>, el retrato fase puede tomar alguna de las siguientes formas</p>
@@ -759,16 +760,16 @@ document.write(`
 <section id="caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">
 <h3>Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span><a class="headerlink" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0" title="Link to this heading">#</a></h3>
 <p>Para este caso, el sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span> después de un cambio de coordenadas toma la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac39bd49-72dc-4e00-b305-0b3579867b7e">
-<span class="eqno">(132)<a class="headerlink" href="#equation-ac39bd49-72dc-4e00-b305-0b3579867b7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-32e2bd98-1575-4999-97ca-129196d013f8">
+<span class="eqno">(98)<a class="headerlink" href="#equation-32e2bd98-1575-4999-97ca-129196d013f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z}_{1} &amp;= \lambda z_{1} + kz_{2}, \\
   \dot{z}_{2} &amp;= \lambda z_{2},
  \end{aligned}
 \end{equation}\]</div>
 <p>cuya solución, con c.i. <span class="math notranslate nohighlight">\((z_{10},z_{20})\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-498ed747-5f50-42aa-ad2b-f09e1c02705b">
-<span class="eqno">(133)<a class="headerlink" href="#equation-498ed747-5f50-42aa-ad2b-f09e1c02705b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14cc8111-329d-453c-aa4f-9a7dcf914c77">
+<span class="eqno">(99)<a class="headerlink" href="#equation-14cc8111-329d-453c-aa4f-9a7dcf914c77" title="Permalink to this equation">#</a></span>\[\begin{equation}
  z_{1}(t) = e^{\lambda t} \left( z_{10} + kz_{20}t \right), \quad z_{2}(t) = e^{\lambda t}z_{20}.
 \end{equation}\]</div>
 <p>Los retrato fase para este caso, considerando <span class="math notranslate nohighlight">\(k=0\)</span> y <span class="math notranslate nohighlight">\(k=1\)</span> se muestran en la siguiente figura</p>
@@ -779,29 +780,29 @@ document.write(`
 <section id="caso-4-uno-o-ambos-autovalores-son-cero">
 <h3>Caso 4. Uno o ambos autovalores son cero<a class="headerlink" href="#caso-4-uno-o-ambos-autovalores-son-cero" title="Link to this heading">#</a></h3>
 <p>Cuando <span class="math notranslate nohighlight">\(\lambda_{1}=0\)</span> y <span class="math notranslate nohighlight">\(\lambda_{2}\neq 0\)</span>, el sistema después de una transformación de coordenadas tiene la siguiente representación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b29862c-5db5-49fc-80ce-5c3c93b1e270">
-<span class="eqno">(134)<a class="headerlink" href="#equation-5b29862c-5db5-49fc-80ce-5c3c93b1e270" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0dff522e-49f3-4c9b-b814-bcfdf93c76e0">
+<span class="eqno">(100)<a class="headerlink" href="#equation-0dff522e-49f3-4c9b-b814-bcfdf93c76e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z}_{1} &amp;= 0, \\
   \dot{z}_{2} &amp;= \lambda_{2} z_{2},
  \end{aligned}
 \end{equation}\]</div>
 <p>cuya solución es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6940c5fd-b17d-4374-8bd2-f3a51dde7874">
-<span class="eqno">(135)<a class="headerlink" href="#equation-6940c5fd-b17d-4374-8bd2-f3a51dde7874" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eceb329b-ed05-480b-a2e7-306a34065596">
+<span class="eqno">(101)<a class="headerlink" href="#equation-eceb329b-ed05-480b-a2e7-306a34065596" title="Permalink to this equation">#</a></span>\[\begin{equation}
  z_{1}(t) = z_{10}, \quad z_{2}(t) = z_{20}e^{\lambda_{2}t}.
 \end{equation}\]</div>
 <p>Cuano ambos eigenvalores se encuentran en el origen y se aplica una transformación del coordenadas al sistema <span class="math notranslate nohighlight">\(\dot{x}=Ax\)</span>, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59b40480-379e-4f5f-b192-7b1ed1030bb1">
-<span class="eqno">(136)<a class="headerlink" href="#equation-59b40480-379e-4f5f-b192-7b1ed1030bb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb474292-39a9-48c1-a53a-cfcf105bf4f4">
+<span class="eqno">(102)<a class="headerlink" href="#equation-eb474292-39a9-48c1-a53a-cfcf105bf4f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{z}_{1} &amp;= z_{2}, \\
   \dot{z}_{2} &amp;= 0,
  \end{aligned}
 \end{equation}\]</div>
 <p>cuya solución está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f2b2f8b-6db3-42be-9a0f-1f5a91578841">
-<span class="eqno">(137)<a class="headerlink" href="#equation-9f2b2f8b-6db3-42be-9a0f-1f5a91578841" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1a814371-feea-4acf-afaa-b886faab58f8">
+<span class="eqno">(103)<a class="headerlink" href="#equation-1a814371-feea-4acf-afaa-b886faab58f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
  z_{1}(t) = z_{10} + z_{20}t, \quad z_{2}(t) = z_{20}.
 \end{equation}\]</div>
 <p>Las trayectorias que forman el retrato fase para estos casos en particular se muestran en la siguientes figuras</p>
@@ -823,8 +824,8 @@ document.write(`
 <p>Aleksandr Mikhailovich Lyapunov en 1892 presentó dos métodos para determinar la estabilidad de sistemas dinámicos representados en ecuaciones diferenciales ordinarias (ODEs).</p>
 <p>El primer método utiliza la forma explícita de la solución de las ODEs para realizar el análisis de estabilidad mientras que el segundo método determina la estabilidad del sistema sin resolver las ecuaciones de estado.</p>
 <p>Sea <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> una función continuamente diferenciable definida en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> que contiene el origen, entonces la derivada de <span class="math notranslate nohighlight">\(V\)</span> sobre la trayectoria del sistema autónomo <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span>, denotada por <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> está dada como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90afde46-7053-41d2-9b5b-17fcbd9a3ab1">
-<span class="eqno">(138)<a class="headerlink" href="#equation-90afde46-7053-41d2-9b5b-17fcbd9a3ab1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e66ca9de-b6ec-409a-aaff-440bcda6d1c9">
+<span class="eqno">(104)<a class="headerlink" href="#equation-e66ca9de-b6ec-409a-aaff-440bcda6d1c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{V}(x) &amp;= \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}} \dot{x}_{i} = \sum_{i=1}^{n} \frac{\partial V}{\partial x_{i}}f_{i}(x), \\
   &amp;= \begin{bmatrix}
@@ -863,8 +864,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(V(x) = -\left(x_{1} + x_{2}\right)^{2}\)</span></p></li>
 </ul>
 <p><strong>Observación.</strong> <span class="math notranslate nohighlight">\(\dot{V}(x)\)</span> es diferente para cada sistema y además, si <span class="math notranslate nohighlight">\(\Phi(t;x)\)</span> es la solución al sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> con valor inicial <span class="math notranslate nohighlight">\(x\)</span> en <span class="math notranslate nohighlight">\(t=0\)</span>, entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1925e1fe-beff-4c15-8728-5a4f21dd3fe0">
-<span class="eqno">(139)<a class="headerlink" href="#equation-1925e1fe-beff-4c15-8728-5a4f21dd3fe0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9903a301-5ba0-480d-81d8-16e981a70fc6">
+<span class="eqno">(105)<a class="headerlink" href="#equation-9903a301-5ba0-480d-81d8-16e981a70fc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{V}(x) = \frac{\mathrm{d}}{\mathrm{d}t}V\left.\left(\Phi(t;x)\right)\right|_{t=0}.
 \end{equation}\]</div>
 <section id="principio-del-teorema-de-estabilidad-de-lyapunov">
@@ -872,21 +873,21 @@ document.write(`
 <p>Un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> -energía- total (una función definida positiva) es continuamente decreciente (la derivada en el tiempo de la <span class="math notranslate nohighlight">\(E\)</span> total es definida negativa) hasta que alcanza un estado de equilibrio.</p>
 <p>En otras palabras, un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> total se va perdiendo con el paso del tiempo.</p>
 <p><strong>Teorema 2.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> y <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> un dominio que contiene <span class="math notranslate nohighlight">\(x=0\)</span>, entonces <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> es una función continuamente diferenciable tal que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-35809af3-8854-4670-a0ad-e520f81307c3">
-<span class="eqno">(140)<a class="headerlink" href="#equation-35809af3-8854-4670-a0ad-e520f81307c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-59855a82-741d-426d-abf8-aae2e29fa6eb">
+<span class="eqno">(106)<a class="headerlink" href="#equation-59855a82-741d-426d-abf8-aae2e29fa6eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
  V(0) = 0,
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-8fdffdf8-2b6c-4f03-9a17-16dca59e206e">
-<span class="eqno">(141)<a class="headerlink" href="#equation-8fdffdf8-2b6c-4f03-9a17-16dca59e206e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7d1f67b4-688a-4e3b-acd1-77209ec60c71">
+<span class="eqno">(107)<a class="headerlink" href="#equation-7d1f67b4-688a-4e3b-acd1-77209ec60c71" title="Permalink to this equation">#</a></span>\[\begin{equation}
  V(x) &gt; 0 \text{ en } D-\{0\},
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-4a1f9504-2ddf-49a1-9199-be257e6bf520">
-<span class="eqno">(142)<a class="headerlink" href="#equation-4a1f9504-2ddf-49a1-9199-be257e6bf520" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d3dbf3d8-d1f6-410a-9f05-f92164f2015d">
+<span class="eqno">(108)<a class="headerlink" href="#equation-d3dbf3d8-d1f6-410a-9f05-f92164f2015d" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{V}(x) \leq 0 \text{ en } D.
 \end{equation}\]</div>
 <p><em>Entonces, <span class="math notranslate nohighlight">\(x=0\)</span> es estable. Además, si</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d260ffde-774f-4cb0-860a-1fd561e1c0f5">
-<span class="eqno">(143)<a class="headerlink" href="#equation-d260ffde-774f-4cb0-860a-1fd561e1c0f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ea49d45-43e7-48e4-9aba-41d0a01e49f5">
+<span class="eqno">(109)<a class="headerlink" href="#equation-7ea49d45-43e7-48e4-9aba-41d0a01e49f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{V}(x) &lt;0 \text{ en } D-\{0\},
 \end{equation}\]</div>
 <p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es asintóticamente estable.</em></p>
@@ -895,8 +896,8 @@ document.write(`
 <section id="id3">
 <h3>Ejemplo 1.<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Considere la ecuación del péndulo sin fricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29f72ced-0fbd-4746-bc97-8a705870b86b">
-<span class="eqno">(144)<a class="headerlink" href="#equation-29f72ced-0fbd-4746-bc97-8a705870b86b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbdc9afb-cb2b-441d-9fcb-cad8b47bfc21">
+<span class="eqno">(110)<a class="headerlink" href="#equation-dbdc9afb-cb2b-441d-9fcb-cad8b47bfc21" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}).
@@ -906,24 +907,24 @@ document.write(`
 <section id="ejemplo-2">
 <h3>Ejemplo 2.<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
 <p>Considere la ecuación del péndulo con fricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2c8aad09-3ba4-4f45-891b-acf1cc08d508">
-<span class="eqno">(145)<a class="headerlink" href="#equation-2c8aad09-3ba4-4f45-891b-acf1cc08d508" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2bf2e28-fa35-4082-a6a4-802ccce0a00e">
+<span class="eqno">(111)<a class="headerlink" href="#equation-e2bf2e28-fa35-4082-a6a4-802ccce0a00e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= - \frac{g}{l}\sin(x_{1}) - \frac{k}{m}x_{2}.
  \end{aligned}
 \end{equation}\]</div>
 <p><strong>Teorema 3.</strong> <em>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> y <span class="math notranslate nohighlight">\(V:R^{n}\rightarrow R\)</span> una función continuamente diferenciable tal que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-6e1178ae-53fe-480e-b212-8138179d1a0a">
-<span class="eqno">(146)<a class="headerlink" href="#equation-6e1178ae-53fe-480e-b212-8138179d1a0a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0108460-4a4d-475b-9d56-fa31fefa2aba">
+<span class="eqno">(112)<a class="headerlink" href="#equation-d0108460-4a4d-475b-9d56-fa31fefa2aba" title="Permalink to this equation">#</a></span>\[\begin{equation}
  V(0) = 0, \quad V(x)&gt;0, \quad \forall x \neq 0,
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-d6ff4281-6828-4c51-84ff-239f59ad742a">
-<span class="eqno">(147)<a class="headerlink" href="#equation-d6ff4281-6828-4c51-84ff-239f59ad742a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0cf95595-aa11-4516-87a8-fd457f1eab13">
+<span class="eqno">(113)<a class="headerlink" href="#equation-0cf95595-aa11-4516-87a8-fd457f1eab13" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \|x\| \rightarrow \infty \Rightarrow V(x) \rightarrow \infty,
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-656958ad-bc0e-49aa-b515-7d2c5b0d72c6">
-<span class="eqno">(148)<a class="headerlink" href="#equation-656958ad-bc0e-49aa-b515-7d2c5b0d72c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2d95e78-826d-49b2-973d-7dec546907c9">
+<span class="eqno">(114)<a class="headerlink" href="#equation-d2d95e78-826d-49b2-973d-7dec546907c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{V}(x)&lt;0, \forall x\neq 0,
 \end{equation}\]</div>
 <p><em>entonces <span class="math notranslate nohighlight">\(x=0\)</span> es globalmente asintóticamente estable</em>.</p>
@@ -931,8 +932,8 @@ document.write(`
 <section id="ejemplo-3">
 <h3>Ejemplo 3.<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
 <p>Considere el siguiente sistema no lineal escalar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-037da648-fa48-42c5-a0e1-41866929f105">
-<span class="eqno">(149)<a class="headerlink" href="#equation-037da648-fa48-42c5-a0e1-41866929f105" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-18b804e4-83d7-49d8-995d-a344e3fa9d3c">
+<span class="eqno">(115)<a class="headerlink" href="#equation-18b804e4-83d7-49d8-995d-a344e3fa9d3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x} = \frac{2}{1+x}-x.
  \end{aligned}
@@ -941,8 +942,8 @@ document.write(`
 <section id="ejemplo-4">
 <h3>Ejemplo 4.<a class="headerlink" href="#ejemplo-4" title="Link to this heading">#</a></h3>
 <p>Considere las ecuaciones que caracterizan un modelo para un péndulo colgante</p>
-<div class="amsmath math notranslate nohighlight" id="equation-835e115c-380f-453a-a6ab-0b522c4927db">
-<span class="eqno">(150)<a class="headerlink" href="#equation-835e115c-380f-453a-a6ab-0b522c4927db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de001db8-d5af-4a35-9c22-506abcdd5e9a">
+<span class="eqno">(116)<a class="headerlink" href="#equation-de001db8-d5af-4a35-9c22-506abcdd5e9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \dot{x}_{1} &amp;= x_{2}, \\
   \dot{x}_{2} &amp;= -\sin(x_{1}), \\

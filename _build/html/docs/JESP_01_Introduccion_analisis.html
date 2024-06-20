@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -844,7 +845,7 @@ document.write(`
 <p>Considere una masa <span class="math notranslate nohighlight">\(m\)</span> que se desliza sobre una superficie horizontal y que se encuentra sujeta a una superficie vertical a través de un resorte
 con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> como se muestra en la siguiente figura.</p>
 <figure class="align-default" id="fig-mass-spring">
-<a class="reference internal image-reference" href="../_images/mass_spring.png"><img alt="../_images/mass_spring.png" src="../_images/mass_spring.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/mass_spring.png"><img alt="../_images/mass_spring.png" src="../_images/mass_spring.png" style="height: 250px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 5 </span><span class="caption-text">Diagrama del sistema masa-resorte.</span><a class="headerlink" href="#fig-mass-spring" title="Link to this image">#</a></p>
 </figcaption>
@@ -922,7 +923,7 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <h3>Sistema masa-resorte-amortiguador<a class="headerlink" href="#sistema-masa-resorte-amortiguador" title="Link to this heading">#</a></h3>
 <p>Considere el sistema masa-resorte-amortiguador mostrado en la siguiente Figura.</p>
 <figure class="align-default" id="fig-mass-spring-damp">
-<a class="reference internal image-reference" href="../_images/mass_spring_damp.png"><img alt="../_images/mass_spring_damp.png" src="../_images/mass_spring_damp.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/mass_spring_damp.png"><img alt="../_images/mass_spring_damp.png" src="../_images/mass_spring_damp.png" style="height: 250px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Sistema masa-resorte-amortiguador.</span><a class="headerlink" href="#fig-mass-spring-damp" title="Link to this image">#</a></p>
 </figcaption>
@@ -955,13 +956,13 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <h3>Criterios integrales<a class="headerlink" href="#criterios-integrales" title="Link to this heading">#</a></h3>
 <section id="integral-del-error-absoluto-iae">
 <h4>Integral del error absoluto (IAE)<a class="headerlink" href="#integral-del-error-absoluto-iae" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-1fa74837-7ee7-42d3-9a40-70eca7d915fc">
-<span class="eqno">(33)<a class="headerlink" href="#equation-1fa74837-7ee7-42d3-9a40-70eca7d915fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f02b1224-c8b5-4c4f-a5ab-50a22b8c83fa">
+<span class="eqno">(33)<a class="headerlink" href="#equation-f02b1224-c8b5-4c4f-a5ab-50a22b8c83fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{IAE} = \int_{0}^{\infty} | e(t) |\mathrm{d} t,
 \end{equation}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-63240ed5-d712-48d7-a1e3-ba180a69fbed">
-<span class="eqno">(34)<a class="headerlink" href="#equation-63240ed5-d712-48d7-a1e3-ba180a69fbed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1780b5e-15df-47fd-ba4c-2adf26da0014">
+<span class="eqno">(34)<a class="headerlink" href="#equation-a1780b5e-15df-47fd-ba4c-2adf26da0014" title="Permalink to this equation">#</a></span>\[\begin{equation}
  e(t) = y(t) - \hat{y}(t).
 \end{equation}\]</div>
 <ul class="simple">
@@ -988,8 +989,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 <section id="integral-del-error-cuadratico-ise">
 <h4>Integral del error cuadrático (ISE)<a class="headerlink" href="#integral-del-error-cuadratico-ise" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-425bfdbb-9605-4f84-953b-d9998e4a3113">
-<span class="eqno">(35)<a class="headerlink" href="#equation-425bfdbb-9605-4f84-953b-d9998e4a3113" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-851fe9d2-e999-4f34-b9fe-f90ea96194dc">
+<span class="eqno">(35)<a class="headerlink" href="#equation-851fe9d2-e999-4f34-b9fe-f90ea96194dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{ISE} = \int_{0}^{\infty} e^{2}(t)\mathrm{d}t.
 \end{equation}\]</div>
 <ul class="simple">
@@ -1000,8 +1001,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 <section id="integral-del-tiempo-por-el-error-cuadratico-itse">
 <h4>Integral del tiempo por el error cuadrático (ITSE)<a class="headerlink" href="#integral-del-tiempo-por-el-error-cuadratico-itse" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-2feea61a-96b4-4c7d-95b6-7b2234152b78">
-<span class="eqno">(36)<a class="headerlink" href="#equation-2feea61a-96b4-4c7d-95b6-7b2234152b78" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c37da80a-fc01-4c72-84b5-2ff2e781b29e">
+<span class="eqno">(36)<a class="headerlink" href="#equation-c37da80a-fc01-4c72-84b5-2ff2e781b29e" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{ITSE} = \int_{0}^{\infty} te^{2}(t)\mathrm{d}t.
 \end{equation}\]</div>
 <ul class="simple">
@@ -1014,8 +1015,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <h3>Criterios estadísticos<a class="headerlink" href="#criterios-estadisticos" title="Link to this heading">#</a></h3>
 <section id="mean-square-error">
 <h4>Mean Square Error<a class="headerlink" href="#mean-square-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-25de8c5d-84dd-44bf-b3ec-59c468e6d850">
-<span class="eqno">(37)<a class="headerlink" href="#equation-25de8c5d-84dd-44bf-b3ec-59c468e6d850" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a935a6b8-7f31-489d-9cf1-a17423e81eda">
+<span class="eqno">(37)<a class="headerlink" href="#equation-a935a6b8-7f31-489d-9cf1-a17423e81eda" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{MSE} = \frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}.
 \end{equation}\]</div>
 <ul class="simple">
@@ -1031,8 +1032,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 <section id="root-mean-square-error">
 <h4>Root Mean Square Error<a class="headerlink" href="#root-mean-square-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-da26a925-9c40-4f37-807f-f9ebc33eb025">
-<span class="eqno">(38)<a class="headerlink" href="#equation-da26a925-9c40-4f37-807f-f9ebc33eb025" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f61ab02e-9047-40bc-a930-364fc99b325c">
+<span class="eqno">(38)<a class="headerlink" href="#equation-f61ab02e-9047-40bc-a930-364fc99b325c" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{RMSE} = \sqrt{\frac{1}{N} \sum_{k=0}^{N} e_{k}^{2}}.
 \end{equation}\]</div>
 <ul class="simple">
@@ -1047,8 +1048,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 <section id="mean-absolute-error">
 <h4>Mean Absolute Error<a class="headerlink" href="#mean-absolute-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-664838d1-1c0c-41bb-bf1b-085fed9510c2">
-<span class="eqno">(39)<a class="headerlink" href="#equation-664838d1-1c0c-41bb-bf1b-085fed9510c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a876402-e759-4fae-bf7f-7c72b62921c2">
+<span class="eqno">(39)<a class="headerlink" href="#equation-3a876402-e759-4fae-bf7f-7c72b62921c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{MAE} = \frac{1}{N} \sum_{k=0}^{N} |e_{k}|.
 \end{equation}\]</div>
 <ul class="simple">
@@ -1064,8 +1065,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 </section>
 <section id="mean-absolute-percentage-error">
 <h4>Mean Absolute Percentage Error<a class="headerlink" href="#mean-absolute-percentage-error" title="Link to this heading">#</a></h4>
-<div class="amsmath math notranslate nohighlight" id="equation-924b3d8c-5770-4237-813a-3e3780dce981">
-<span class="eqno">(40)<a class="headerlink" href="#equation-924b3d8c-5770-4237-813a-3e3780dce981" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-777a07ea-4d41-4c5e-8c64-90c65a5093ff">
+<span class="eqno">(40)<a class="headerlink" href="#equation-777a07ea-4d41-4c5e-8c64-90c65a5093ff" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{MAPE} = \frac{100\%}{N} \sum_{k=0}^{N} \frac{e_{k}}{y_{k}}
 \end{equation}\]</div>
 <ul class="simple">
@@ -1085,8 +1086,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <section id="fit">
 <h4>FIT<a class="headerlink" href="#fit" title="Link to this heading">#</a></h4>
 <p>Obtiene el porcentaje de variación de salida que es explicado por un modelo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad170e62-e1c8-4209-939b-7612e491e595">
-<span class="eqno">(41)<a class="headerlink" href="#equation-ad170e62-e1c8-4209-939b-7612e491e595" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c4824669-7bc1-4e6a-80b1-93cba89dd442">
+<span class="eqno">(41)<a class="headerlink" href="#equation-c4824669-7bc1-4e6a-80b1-93cba89dd442" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \text{FIT} = 100\left(1 - \frac{\|y - \hat{y}\|}{\|y - \bar{y}\|}\right)
 \end{equation}\]</div>
 </section>
@@ -1098,74 +1099,74 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <section id="metodo-de-euler">
 <h3>Método de Euler<a class="headerlink" href="#metodo-de-euler" title="Link to this heading">#</a></h3>
 <p>Sea <span class="math notranslate nohighlight">\(\phi(x)\)</span> la solución exacta de la ecuación diferencial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e06e6f3-f26b-4181-a9b0-6ec2cbca0fd9">
-<span class="eqno">(42)<a class="headerlink" href="#equation-8e06e6f3-f26b-4181-a9b0-6ec2cbca0fd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-977c98db-1117-4cf3-bf75-f67bafe8875d">
+<span class="eqno">(42)<a class="headerlink" href="#equation-977c98db-1117-4cf3-bf75-f67bafe8875d" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{y}(x) = f(x,y),
 \end{equation}\]</div>
 <p>con condición iniciales</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0efcc18-5e1e-48ad-8d10-9bfe4d786193">
-<span class="eqno">(43)<a class="headerlink" href="#equation-c0efcc18-5e1e-48ad-8d10-9bfe4d786193" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8034d5a7-5ed7-4570-bdce-3eb168f1c3f9">
+<span class="eqno">(43)<a class="headerlink" href="#equation-8034d5a7-5ed7-4570-bdce-3eb168f1c3f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y(x_{0}) = y_{0},
 \end{equation}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\phi(x)\)</span> satisface la relación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48e665e6-afcd-4c40-af18-fbfa635bc7c3">
-<span class="eqno">(44)<a class="headerlink" href="#equation-48e665e6-afcd-4c40-af18-fbfa635bc7c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-019a77ed-587a-416b-a2f6-b77455eae914">
+<span class="eqno">(44)<a class="headerlink" href="#equation-019a77ed-587a-416b-a2f6-b77455eae914" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{\phi}(x) = f(x,\phi(x)),\quad \phi(x_{0}) = y_{0}.
 \end{equation}\]</div>
 <p>La solución de una ecuación diferencial vía numérica es una solución aproximada del valor de la solución <span class="math notranslate nohighlight">\(\phi(x)\)</span> en un conjunto finito de puntos. Es decir, <span class="math notranslate nohighlight">\(\phi(x_{n}):y_{n}\approx \phi(x_{n})\)</span>.</p>
 <p>Es común elegir los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span> de forma equiespaciada, esto es <span class="math notranslate nohighlight">\(h = x_{n+1} - x_{n}\)</span>. En este caso, <span class="math notranslate nohighlight">\(x_{n} = x_{0} + nh\)</span> donde <span class="math notranslate nohighlight">\(h\)</span> es el tamaño del paso.</p>
 <p>Integramos la relación dada en la ecuación anterior entre <span class="math notranslate nohighlight">\(x_{0}\)</span> y <span class="math notranslate nohighlight">\(x_{1}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-64593f8d-2850-4c4d-90db-a267677c65e9">
-<span class="eqno">(45)<a class="headerlink" href="#equation-64593f8d-2850-4c4d-90db-a267677c65e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3c88b242-ae69-44c9-afc6-23def8f47924">
+<span class="eqno">(45)<a class="headerlink" href="#equation-3c88b242-ae69-44c9-afc6-23def8f47924" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x = \int_{x_{0}}^{x_{1}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{1}) - \phi(x_{0}),
 \end{equation}\]</div>
 <p>o bien</p>
-<div class="amsmath math notranslate nohighlight" id="equation-972d7967-36a2-4fbb-ab80-830191376d6d">
-<span class="eqno">(46)<a class="headerlink" href="#equation-972d7967-36a2-4fbb-ab80-830191376d6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb69f632-2503-4f93-83c7-712aa3cd02cb">
+<span class="eqno">(46)<a class="headerlink" href="#equation-fb69f632-2503-4f93-83c7-712aa3cd02cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{1}) = \phi(x_{0}) + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~ \mathrm{d}x.
 \end{equation}\]</div>
 <p>Recordando que <span class="math notranslate nohighlight">\(\phi(x_{0}) = y_{0}\)</span>, entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c823ac1-64bf-4f6e-b204-a3afedbae80a">
-<span class="eqno">(47)<a class="headerlink" href="#equation-7c823ac1-64bf-4f6e-b204-a3afedbae80a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0f2e383c-7ab9-435b-bbee-d5117778724b">
+<span class="eqno">(47)<a class="headerlink" href="#equation-0f2e383c-7ab9-435b-bbee-d5117778724b" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{1}) = y_{0} + \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x,
 \end{equation}\]</div>
 <p>podemos hallar el valor de <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> evaluando la integral anterior.</p>
 <p>El método de Euler estima esta integral mediante la regla del rectángulo</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c2088da-0e93-4e98-9d83-7d89281fa702">
-<span class="eqno">(48)<a class="headerlink" href="#equation-1c2088da-0e93-4e98-9d83-7d89281fa702" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb28d8b6-255e-4047-b190-d12151c27135">
+<span class="eqno">(48)<a class="headerlink" href="#equation-cb28d8b6-255e-4047-b190-d12151c27135" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \int_{x_{0}}^{x_{1}} f(x,\phi(x))~\mathrm{d}x \approx f(x_{0},y_{0})(x_{1}-x_{0}).
 \end{equation}\]</div>
 <p>Es decir, aproxima el área que hay bajo la curva <span class="math notranslate nohighlight">\(f(x,\phi(x))\)</span> entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{0}\)</span> por el área del rectángulo de ancho <span class="math notranslate nohighlight">\((x_{1}-x_{0})\)</span> con altura igual a la ordenada de la curva en su extremo izquierdo <span class="math notranslate nohighlight">\(f(x_{0},y_{0})\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cc53cc5-13fd-4929-b2bd-cc0ab5aad9b5">
-<span class="eqno">(49)<a class="headerlink" href="#equation-5cc53cc5-13fd-4929-b2bd-cc0ab5aad9b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa0fc7d6-506a-4bbb-9d8f-79e60fc5f152">
+<span class="eqno">(49)<a class="headerlink" href="#equation-aa0fc7d6-506a-4bbb-9d8f-79e60fc5f152" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{1}) \approx \phi(x_{0}) + f(x_{0},\phi(x_{0}))h.
 \end{equation}\]</div>
 <p>Para estimar el valor de <span class="math notranslate nohighlight">\(\phi(x)\)</span> en el siguiente punto <span class="math notranslate nohighlight">\(x_{2}\)</span>, integramos entre <span class="math notranslate nohighlight">\(x_{1}\)</span> y <span class="math notranslate nohighlight">\(x_{2}\)</span>, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fbf168d8-d9b2-4af8-bd5e-743cd7c6adbb">
-<span class="eqno">(50)<a class="headerlink" href="#equation-fbf168d8-d9b2-4af8-bd5e-743cd7c6adbb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6f127a51-5d95-4946-9dbd-01e739ce0f99">
+<span class="eqno">(50)<a class="headerlink" href="#equation-6f127a51-5d95-4946-9dbd-01e739ce0f99" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \int_{x_{1}}^{x_{2}} \dot{\phi}(x)~\mathrm{d}x = \phi(x_{2}) - \phi(x_{1}) = \int_{x_{1}}^{x_{2}} f(x, \phi(x))~\mathrm{d}x.
 \end{equation}\]</div>
 <p>Aproximando la integral mediante la regla del rectángulo se tiene</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77eaaeb2-a529-4bae-b32a-845444224f20">
-<span class="eqno">(51)<a class="headerlink" href="#equation-77eaaeb2-a529-4bae-b32a-845444224f20" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d881eae9-3fba-4003-b83c-36f03f98db21">
+<span class="eqno">(51)<a class="headerlink" href="#equation-d881eae9-3fba-4003-b83c-36f03f98db21" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{2}) \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}).
 \end{equation}\]</div>
 <p>Dado que <span class="math notranslate nohighlight">\(\phi(x_{1})\)</span> es desconocido, entonces lo aproximamos por <span class="math notranslate nohighlight">\(y_{1}\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fcd00766-c743-4933-9c47-4667c891c209">
-<span class="eqno">(52)<a class="headerlink" href="#equation-fcd00766-c743-4933-9c47-4667c891c209" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d66cbb5a-87ae-45c5-ad60-b2896d338129">
+<span class="eqno">(52)<a class="headerlink" href="#equation-d66cbb5a-87ae-45c5-ad60-b2896d338129" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \phi(x_{2}) &amp; \approx \phi(x_{1}) + f(x_{1},\phi(x_{1}))(x_{2}-x_{1}), \\
   \phi(x_{2}) &amp;  \approx y_{1} + f(x_{1},y_{1})(x_{2}-x_{1}),
  \end{aligned}
 \end{equation}\]</div>
 <p>o bien</p>
-<div class="amsmath math notranslate nohighlight" id="equation-377d8b6a-e8c4-4c83-9664-3e2881e568f0">
-<span class="eqno">(53)<a class="headerlink" href="#equation-377d8b6a-e8c4-4c83-9664-3e2881e568f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37ef2384-fb8c-4671-8237-14628ef19eaa">
+<span class="eqno">(53)<a class="headerlink" href="#equation-37ef2384-fb8c-4671-8237-14628ef19eaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{2}) \approx y_{1} + f(x_{1},y_{1})h.
 \end{equation}\]</div>
 <p>Estimando <span class="math notranslate nohighlight">\(\phi(x_{2})\)</span> por <span class="math notranslate nohighlight">\(y_{2}\)</span>, entonces cualquier estimación <span class="math notranslate nohighlight">\(y_{n+1}\)</span> de <span class="math notranslate nohighlight">\(\phi(x_{n+1})\)</span> puede hacerse por el método de Euler de acuerdo con la siguiente expresión</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd5b085d-22d9-4908-ad5b-d2748923af12">
-<span class="eqno">(54)<a class="headerlink" href="#equation-bd5b085d-22d9-4908-ad5b-d2748923af12" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b4bb0df-53dc-4084-9e25-4dbd6a01f385">
+<span class="eqno">(54)<a class="headerlink" href="#equation-6b4bb0df-53dc-4084-9e25-4dbd6a01f385" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \phi(x_{n+1}) \approx y_{n+1} = y_{n} + f(x_{n},y_{n})h
 \end{equation}\]</div>
 </section>
@@ -1173,23 +1174,23 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <h3>Método de Runge-Kutta<a class="headerlink" href="#metodo-de-runge-kutta" title="Link to this heading">#</a></h3>
 <p>Sirve para buscar aproximaciones a la solución en puntos intermedios del intervalo <span class="math notranslate nohighlight">\([x_{n},x_{n+1}]\)</span> con una combinación lineal de los valores de la derivada en varias aproximaciones para obtener un valor de <span class="math notranslate nohighlight">\(y_{n+1}\)</span>.</p>
 <p>Sea la ecuación diferencial</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9953c634-8096-43ce-a48b-6d2a161841cf">
-<span class="eqno">(55)<a class="headerlink" href="#equation-9953c634-8096-43ce-a48b-6d2a161841cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff880401-d1f4-4d28-b98e-4b86a7693774">
+<span class="eqno">(55)<a class="headerlink" href="#equation-ff880401-d1f4-4d28-b98e-4b86a7693774" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \dot{y}(x) = f(x,y), \quad y(y_{0}) = y_{0},
 \end{equation}\]</div>
 <p>y sea</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e9af4d5-09af-4e76-8e96-44a119881d7f">
-<span class="eqno">(56)<a class="headerlink" href="#equation-8e9af4d5-09af-4e76-8e96-44a119881d7f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-916db5c8-c5d2-4656-a9b3-bc74927e4957">
+<span class="eqno">(56)<a class="headerlink" href="#equation-916db5c8-c5d2-4656-a9b3-bc74927e4957" title="Permalink to this equation">#</a></span>\[\begin{equation}
  x_{n} = x_{0} + nh, \quad h&gt;0.
 \end{equation}\]</div>
 <p>Para evaluar <span class="math notranslate nohighlight">\(y(x_{n+1})\)</span> conociendo el valor <span class="math notranslate nohighlight">\(y_{n}\)</span> y además <span class="math notranslate nohighlight">\(0 \leq \alpha_{1} \leq \alpha_{2} \cdots \leq \alpha_{r} \leq 1\)</span>,  de modo que <span class="math notranslate nohighlight">\(\sum_{n=1}^{r}\gamma_{n} = 1\)</span>, el método de Runge-Kutta evalúa <span class="math notranslate nohighlight">\(y_{n+1}\)</span> como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd71b40b-e70d-443d-b8ff-049e32f02562">
-<span class="eqno">(57)<a class="headerlink" href="#equation-dd71b40b-e70d-443d-b8ff-049e32f02562" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9987e535-b72e-449d-84ae-60a1eaae7d44">
+<span class="eqno">(57)<a class="headerlink" href="#equation-9987e535-b72e-449d-84ae-60a1eaae7d44" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y_{n+1} = y_{n} + \sum_{n=1}^{r} \gamma_{n}k_{n},
 \end{equation}\]</div>
 <p>donde</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1b3c081-3a9b-442b-9352-0d66e8d67597">
-<span class="eqno">(58)<a class="headerlink" href="#equation-c1b3c081-3a9b-442b-9352-0d66e8d67597" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ffc485bb-3f33-45cb-ba1d-e5eed4f24266">
+<span class="eqno">(58)<a class="headerlink" href="#equation-ffc485bb-3f33-45cb-ba1d-e5eed4f24266" title="Permalink to this equation">#</a></span>\[\begin{equation}
  k_{n} = h~f\left(x_{n} + \alpha_{n}h, y_{n} + \sum_{j=1}^{r}\beta_{n,j}k_{j}\right), \quad \sum_{j=1}^{r} \beta_{n,j} = \alpha_{n}.
 \end{equation}\]</div>
 <p>Los métodos de Runge-Kutta se clasifican en:</p>
@@ -1198,13 +1199,13 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
 <li><p><strong>Implícitos.</strong> Cuando lo anterior no es posible.</p></li>
 </ul>
 <p>Además, en los métodos explícitos se satisface la siguiente restricción</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ccf11833-9fc5-4319-9e3e-2596ceb81428">
-<span class="eqno">(59)<a class="headerlink" href="#equation-ccf11833-9fc5-4319-9e3e-2596ceb81428" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67c2c96c-2fd4-484f-9a5e-b3045cb757d5">
+<span class="eqno">(59)<a class="headerlink" href="#equation-67c2c96c-2fd4-484f-9a5e-b3045cb757d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \beta_{n,j} = 0, ~ \forall n \leq j.
 \end{equation}\]</div>
 <p>Mientras que para los implícitos se resuelve en cada paso un sistema de ecuaciones de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-745f755e-b13d-4d1f-9b92-01641921f405">
-<span class="eqno">(60)<a class="headerlink" href="#equation-745f755e-b13d-4d1f-9b92-01641921f405" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-782be33c-45f4-4acd-9a82-53f5081b9eb5">
+<span class="eqno">(60)<a class="headerlink" href="#equation-782be33c-45f4-4acd-9a82-53f5081b9eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   k_{1} &amp;= f\left( x_{n} + \alpha_{1}h, y_{n} + \beta_{1,1}k_{1} + \beta_{1,2}k_{2} + \cdots + \beta_{1,p}k_{p}  \right), \\
   k_{2} &amp;= f\left( x_{n} + \alpha_{2}h, y_{n} + \beta_{2,1}k_{1} + \beta_{2,2}k_{2} + \cdots + \beta_{2,p}k_{p}  \right), \\
@@ -1213,13 +1214,13 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
  \end{aligned}
 \end{equation}\]</div>
 <p>El méto de Runge-Kutta de 4to orden es el más utilizado y evalúa la función <span class="math notranslate nohighlight">\(f(x,y)\)</span> en los puntos <span class="math notranslate nohighlight">\(x_{n}\)</span>, <span class="math notranslate nohighlight">\(x_{n}+\frac{h}{2}\)</span> y <span class="math notranslate nohighlight">\(x_{n} + h\)</span> de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c3234af-48c1-401a-90cd-ce683e51a323">
-<span class="eqno">(61)<a class="headerlink" href="#equation-3c3234af-48c1-401a-90cd-ce683e51a323" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e157adff-3f3c-470f-adef-95cec3a45b2f">
+<span class="eqno">(61)<a class="headerlink" href="#equation-e157adff-3f3c-470f-adef-95cec3a45b2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y_{n+1} = y_{n} + \alpha_{1}k_{1} + \alpha_{2}k_{2} + \alpha_{3}k_{3} + \alpha_{4}k_4,
 \end{equation}\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a3b00ff-c515-4b63-b36a-3adee48e1e32">
-<span class="eqno">(62)<a class="headerlink" href="#equation-1a3b00ff-c515-4b63-b36a-3adee48e1e32" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d0781e5-f6c8-43c9-922d-eb55f5e08400">
+<span class="eqno">(62)<a class="headerlink" href="#equation-8d0781e5-f6c8-43c9-922d-eb55f5e08400" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   k_{1} &amp;= f\left(x_{n},y_{n} \right)h, \\
   k_{2} &amp;= f\left(x_{n} + a_{2}h,y_{n} + b_{21}k_{1} \right)h, \\
@@ -1228,8 +1229,8 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
  \end{aligned}
 \end{equation}\]</div>
 <p>Eligiendo arbitrariamente <span class="math notranslate nohighlight">\(\alpha_{2}=\alpha_{3}=\frac{1}{3}\)</span> y hallando el resto de los coeficientes mediante un sistema algebráico de 11 ecuaciones, tenemos</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eac85d85-ca6a-4e03-a52e-529f8061591f">
-<span class="eqno">(63)<a class="headerlink" href="#equation-eac85d85-ca6a-4e03-a52e-529f8061591f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0f8aa6c-8146-4977-821d-e85f9111a486">
+<span class="eqno">(63)<a class="headerlink" href="#equation-b0f8aa6c-8146-4977-821d-e85f9111a486" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   \alpha_{1} &amp;= \frac{1}{6}, \\
   \alpha_{2} &amp;= \frac{1}{3},~ \alpha_{2} = \frac{1}{2},~  b_{21} = \frac{1}{2}, \\
@@ -1238,13 +1239,13 @@ con constante de fuerza <span class="math notranslate nohighlight">\(k\)</span> 
  \end{aligned}
 \end{equation}\]</div>
 <p>Tendríamos entonces</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40b29917-50ba-46ac-84df-6d7c7fc10382">
-<span class="eqno">(64)<a class="headerlink" href="#equation-40b29917-50ba-46ac-84df-6d7c7fc10382" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b55f31f1-a642-41c9-a22a-a5859c750d85">
+<span class="eqno">(64)<a class="headerlink" href="#equation-b55f31f1-a642-41c9-a22a-a5859c750d85" title="Permalink to this equation">#</a></span>\[\begin{equation}
  y_{n+1} = y_{n} + \frac{1}{6}\left(k_{1} + 2k_{2} + 2k_{3} + k_{4} \right),
 \end{equation}\]</div>
 <p>con</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb0eba83-f320-47f6-a246-431528843785">
-<span class="eqno">(65)<a class="headerlink" href="#equation-eb0eba83-f320-47f6-a246-431528843785" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ae260c8-bcee-4763-ab11-470beded4dff">
+<span class="eqno">(65)<a class="headerlink" href="#equation-7ae260c8-bcee-4763-ab11-470beded4dff" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{aligned}
   k_{1} &amp;= f\left( x_{n},y_{n} \right)h, \\
   k_{2} &amp;= f\left( x_{n} + \frac{h}{2},y_{n} + \frac{k_{1}}{2} \right)h, \\

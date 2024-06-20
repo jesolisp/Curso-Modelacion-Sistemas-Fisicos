@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -454,43 +455,36 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="antecedentes-matematicos">
 <h1>Antecedentes matemáticos<a class="headerlink" href="#antecedentes-matematicos" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<ul>
-    <li><strong>Autor:</strong> Jesús Emmanuel Solís Pérez </li>
-    <li><strong>Contacto:</strong> <a href="mailto:jsolisp@unam.mx">jsolisp@unam.mx</a>
-</ul>
-<hr class="docutils" />
 <section id="ecuaciones-diferenciales-no-lineales">
 <h2>Ecuaciones diferenciales no lineales<a class="headerlink" href="#ecuaciones-diferenciales-no-lineales" title="Link to this heading">#</a></h2>
 <p>Un sistema dinámico puede ser modelado por un número finito de ecuaciones diferenciales ordinarias de primer orden acopladas como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f4870c7-0621-4ac2-a2d0-668b4c28fa73">
-<span class="eqno">(66)<a class="headerlink" href="#equation-4f4870c7-0621-4ac2-a2d0-668b4c28fa73" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \begin{aligned}
   \dot{x}_{1} &amp;= f_{1}(t,x_{1},\dots,x_{n},u_{1},\dots,u_{p}), \\
   \dot{x}_{2} &amp;= f_{2}(t,x_{1},\dots,x_{n},u_{1},\dots,u_{p}), \\
   \vdots &amp;= \vdots \\
   \dot{x}_{n} &amp;= f_{n}(t,x_{1},\dots,x_{n},u_{1},\dots,u_{p}), \\
  \end{aligned}
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(\dot{x}_{i}\)</span> denota la derivada de <span class="math notranslate nohighlight">\(x_{i}\)</span> con respecto al tiempo <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(u_{1}\)</span>, <span class="math notranslate nohighlight">\(u_{2}\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(u_{p}\)</span> las variables de entrada o señales de control. Recordemos que las variables <span class="math notranslate nohighlight">\(x_{1}\)</span>, <span class="math notranslate nohighlight">\(x_{2}\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>, <span class="math notranslate nohighlight">\(x_{n}\)</span> son las variables de estado.</p>
 <p>Utilizando una notación vectorial, podemos representar el sistema anterior de la siguiente forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f435d96-5ddd-4a8c-8bd2-616b541892d2">
-<span class="eqno">(67)<a class="headerlink" href="#equation-8f435d96-5ddd-4a8c-8bd2-616b541892d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = f(t,x,u).
-\end{equation}\]</div>
+\]</div>
 <p>El vector de mediciones se representa como</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9ba50c9-a42a-4ea1-bb2a-837601ce3c1b">
-<span class="eqno">(68)<a class="headerlink" href="#equation-c9ba50c9-a42a-4ea1-bb2a-837601ce3c1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  y = h(t,x,u),
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(h\)</span> son mapeos (posiblemente no lineales) de sus argumentos a vectores de la dimensión apropiada.</p>
 <p>A partir de la notación anterior, podemos modelar un sistema físico como se muestra a continuación</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57271b9c-8dfe-4801-8754-99eafa78fe39">
-<span class="eqno">(69)<a class="headerlink" href="#equation-57271b9c-8dfe-4801-8754-99eafa78fe39" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \label{eqn:model_phys}
+<div class="math notranslate nohighlight" id="equation-eqn-model-phys">
+<span class="eqno">(66)<a class="headerlink" href="#equation-eqn-model-phys" title="Link to this equation">#</a></span>\[
  \dot{x} = f(t,x).
-\end{equation}\]</div>
-<p>Si el sistema dado en Ec. \eqref{eqn:model_phys} contiene funciones independientes de <span class="math notranslate nohighlight">\(t\)</span> se dice que el sistema es autónomo de lo contrario, se dice que es no autónomo.</p>
+\]</div>
+<p>Si el sistema dado en Ec. <a class="reference internal" href="#equation-eqn-model-phys">(66)</a> contiene funciones independientes de <span class="math notranslate nohighlight">\(t\)</span> se dice que el sistema es autónomo de lo contrario, se dice que es no autónomo.</p>
 </section>
 <hr class="docutils" />
 <section id="analisis-de-la-existencia-unicidad-y-continuidad-de-soluciones">
@@ -498,7 +492,10 @@ document.write(`
 <section id="espacio-euclideano">
 <h3>Espacio Euclideano<a class="headerlink" href="#espacio-euclideano" title="Link to this heading">#</a></h3>
 <p>Dado un conjunto de todos los vectores <span class="math notranslate nohighlight">\(n\)</span>-dimensionales <span class="math notranslate nohighlight">\(x=(x_{1},\dots,x_{n})\)</span> donde <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span> son números reales, define el espacio Euclidiano <span class="math notranslate nohighlight">\(n\)</span>-dimensional denotado por <span class="math notranslate nohighlight">\(R^{n}\)</span>. El espacio Euclideano unidimensional consiste de todos los números reales y es denotado por <span class="math notranslate nohighlight">\(R\)</span>.</p>
-<p><strong>Observación.</strong> Los vectores en <span class="math notranslate nohighlight">\(R^{n}\)</span> se pueden sumar, multiplicar, multiplicar por un escalar y su producto interno, dados dos vectores <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es <span class="math notranslate nohighlight">\(x^{T}y = \sum_{i=1}^{n} x_{i}y_{i}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los vectores en <span class="math notranslate nohighlight">\(R^{n}\)</span> se pueden sumar, multiplicar, multiplicar por un escalar y su producto interno, dados dos vectores <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es <span class="math notranslate nohighlight">\(x^{T}y = \sum_{i=1}^{n} x_{i}y_{i}\)</span>.</p>
+</div>
 <section id="norma-vectorial-y-matricial">
 <h4>Norma vectorial y matricial<a class="headerlink" href="#norma-vectorial-y-matricial" title="Link to this heading">#</a></h4>
 <p>La norma <span class="math notranslate nohighlight">\(\|x\|\)</span> de un vector <span class="math notranslate nohighlight">\(x\)</span> es una función de valor real que tiene las siguientes propiedades:</p>
@@ -508,122 +505,127 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\|\alpha x\| = |\alpha|\|x\| \forall \alpha \in R, x\in R^{n}\)</span>.</p></li>
 </ul>
 <p>La norma <span class="math notranslate nohighlight">\(p\)</span> está definida como sigue</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bbddd60-55f0-4b8f-9dce-f1aca3790475">
-<span class="eqno">(70)<a class="headerlink" href="#equation-2bbddd60-55f0-4b8f-9dce-f1aca3790475" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \|x\|_{p} = \left( |x_{1}|^{p} + \cdots + |x_{n}|^{p} \right)^{1/p}, \quad 1 \leq p &lt; \infty, 
-\end{equation}\]</div>
+\]</div>
 <p>y</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4806260e-663a-417e-a164-4a61f8b07f2f">
-<span class="eqno">(71)<a class="headerlink" href="#equation-4806260e-663a-417e-a164-4a61f8b07f2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \|x \|_{\infty} = \underset{i}{\max}|x_{i}|.
-\end{equation}\]</div>
+\]</div>
 <p>Las tres normas más utilizadas son <span class="math notranslate nohighlight">\(\|x \|_{1}\)</span>, <span class="math notranslate nohighlight">\(\|x \|_{\infty}\)</span> y la norma Euclideana</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8c740b2-05e0-4da0-92ae-345164d88cfe">
-<span class="eqno">(72)<a class="headerlink" href="#equation-b8c740b2-05e0-4da0-92ae-345164d88cfe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \|x\|_{2} = \left( |x_{1}|^{2} + \cdots + |x_{n}|^{2} \right)^{1/2} = \left( x^{T}x \right)^{1/2}
-\end{equation}\]</div>
+\]</div>
 </section>
 </section>
 <section id="funciones-continuas">
 <h3>Funciones continuas<a class="headerlink" href="#funciones-continuas" title="Link to this heading">#</a></h3>
 <p>Una función <span class="math notranslate nohighlight">\(f\)</span> que mapea un conjunto <span class="math notranslate nohighlight">\(S_{1}\)</span> a un conjunto <span class="math notranslate nohighlight">\(S_{2}\)</span> se denota como <span class="math notranslate nohighlight">\(f:S_{1}\rightarrow S_{2}\)</span>. Una función <span class="math notranslate nohighlight">\(f:R^{n} \rightarrow R^{m}\)</span> se dice <em>continua</em> e un punto <span class="math notranslate nohighlight">\(x\)</span> si <span class="math notranslate nohighlight">\(f(x_{k}) \rightarrow f(x)\)</span> cuando <span class="math notranslate nohighlight">\(x_{k} \rightarrow x\)</span>. Equivalentemente, <span class="math notranslate nohighlight">\(f\)</span> es continua en <span class="math notranslate nohighlight">\(x\)</span> si, dado <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53ce0645-b241-4d0e-b81b-58e9f8071814">
-<span class="eqno">(73)<a class="headerlink" href="#equation-53ce0645-b241-4d0e-b81b-58e9f8071814" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \| x - y \| &lt; \delta \Rightarrow \| f(x) - f(y) \| &lt; \varepsilon.
-\end{equation}\]</div>
+\]</div>
 <p>Una función <span class="math notranslate nohighlight">\(f\)</span> es continua sobre un conjunto <span class="math notranslate nohighlight">\(S\)</span> si esta es continua en cada punto de <span class="math notranslate nohighlight">\(S\)</span>, y es <em>uniformemente continua</em> sobre S si, dado <span class="math notranslate nohighlight">\(\varepsilon &gt;0\)</span> hay <span class="math notranslate nohighlight">\(\delta &gt;0\)</span> (dependiente únicamente sobre <span class="math notranslate nohighlight">\(\varepsilon\)</span>) tal que la desigualdad se mantiene para todo <span class="math notranslate nohighlight">\(x,y\in S\)</span>.</p>
-<p><strong>Observación.</strong> Continuidad uniforme está definida sobre un conjunto mientras que continuidad está definida sobre un punto.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Continuidad uniforme está definida sobre un conjunto mientras que continuidad está definida sobre un punto.</p>
+</div>
 </section>
 <section id="funciones-diferenciables">
 <h3>Funciones diferenciables<a class="headerlink" href="#funciones-diferenciables" title="Link to this heading">#</a></h3>
 <p>Una función <span class="math notranslate nohighlight">\(f:R\rightarrow R\)</span> es <em>diferenciable</em> en <span class="math notranslate nohighlight">\(x\)</span> si el límite</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7e84c03-ce27-413e-a1a4-7e5ad286908e">
-<span class="eqno">(74)<a class="headerlink" href="#equation-f7e84c03-ce27-413e-a1a4-7e5ad286908e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{f}(x) = \lim \limits_{h\rightarrow 0} \frac{f(x+h) - f(x)}{h},
-\end{equation}\]</div>
+\]</div>
 <p>existe. El límite <span class="math notranslate nohighlight">\(\dot{f}(x)\)</span> es llamado la derivada de <span class="math notranslate nohighlight">\(f\)</span> en <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Una función <span class="math notranslate nohighlight">\(f:R^{n} \rightarrow R^{m}\)</span> es <em>continuamente diferenciable</em> en un punto <span class="math notranslate nohighlight">\(x_{0}\)</span> si las derivadas parciales <span class="math notranslate nohighlight">\(\partial f_{i} / \partial x_{j}\)</span> existen y son continuas en <span class="math notranslate nohighlight">\(x_{0}\)</span> para <span class="math notranslate nohighlight">\(1\leq i \leq m\)</span>, <span class="math notranslate nohighlight">\(1\leq j \leq n\)</span>.</p>
 <p>Una función <span class="math notranslate nohighlight">\(f\)</span> es continuamente diferenciable sobre un conjunto <span class="math notranslate nohighlight">\(S\)</span> si esta es continuamente diferenciable en cada punto de <span class="math notranslate nohighlight">\(S\)</span>. Para una función continuamente diferenciable <span class="math notranslate nohighlight">\(f:R^{n}\rightarrow R\)</span>, el vector fila <span class="math notranslate nohighlight">\(\partial f / \partial x\)</span> está definido por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-05c812a3-379c-4174-b715-7907ccafbfb7">
-<span class="eqno">(75)<a class="headerlink" href="#equation-05c812a3-379c-4174-b715-7907ccafbfb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \frac{\partial f}{\partial x} = \left[\frac{\partial f}{\partial x_{1}},\dots,\frac{\partial f}{\partial x_{n}} \right].
-\end{equation}\]</div>
+\]</div>
 <p>El <em>vector gradiente</em>, denotado por <span class="math notranslate nohighlight">\(\nabla f(x)\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cd39609-2786-400f-9715-339e9744ac1a">
-<span class="eqno">(76)<a class="headerlink" href="#equation-9cd39609-2786-400f-9715-339e9744ac1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \nabla f(x) = \left[ \frac{\partial f}{\partial x} \right]^{T}.
-\end{equation}\]</div>
+\]</div>
 <p>La <em>matriz Jacobiana</em> <span class="math notranslate nohighlight">\(\left[\partial f/\partial x \right]\)</span> es una matriz <span class="math notranslate nohighlight">\(m\times n\)</span> cuyo elemento en la <span class="math notranslate nohighlight">\(i\)</span>-ésima fila y la <span class="math notranslate nohighlight">\(j\)</span>-ésima columna es <span class="math notranslate nohighlight">\(\partial f_{i}/\partial x_{j}\)</span> para una función continuamente diferenciable <span class="math notranslate nohighlight">\(f:R^{n} \rightarrow R^{m}\)</span>.</p>
 </section>
 <section id="teorema-del-valor-medio">
 <h3>Teorema del valor medio<a class="headerlink" href="#teorema-del-valor-medio" title="Link to this heading">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> son dos puntos distintos en <span class="math notranslate nohighlight">\(R^{n}\)</span>, entonces el <em>segmento de recta</em> <span class="math notranslate nohighlight">\(L(x,y)\)</span> que une <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> es</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8312c89-8d9f-47a8-9b49-3d73dad943e7">
-<span class="eqno">(77)<a class="headerlink" href="#equation-a8312c89-8d9f-47a8-9b49-3d73dad943e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  L(x,y) = \left\{ z | z = \theta x + (1 - \theta)y, 0 &lt; \theta &lt; 1 \right\}.
-\end{equation}\]</div>
+\]</div>
 <p>Asuma que <span class="math notranslate nohighlight">\(f:R^{n} \rightarrow R\)</span> es continuamente diferenciable en cada punto <span class="math notranslate nohighlight">\(x\)</span> de un conjunto abierto <span class="math notranslate nohighlight">\(S \subset R^{n}\)</span>. Sea <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dos puntos de <span class="math notranslate nohighlight">\(S\)</span> tal que el segmento de recta <span class="math notranslate nohighlight">\(L(x,y)\subset S\)</span>, entonces existe un punto <span class="math notranslate nohighlight">\(z\)</span> de <span class="math notranslate nohighlight">\(L(x,y)\)</span> tal que</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53252dd1-e54d-495d-8a68-f6cf26ac1d3c">
-<span class="eqno">(78)<a class="headerlink" href="#equation-53252dd1-e54d-495d-8a68-f6cf26ac1d3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  f(y) - f(x) = \left. \frac{\partial f}{\partial x} \right|_{x=z} (y-x).
-\end{equation}\]</div>
+\]</div>
 </section>
 </section>
 <section id="existencia-y-unicidad">
 <h2>Existencia y unicidad<a class="headerlink" href="#existencia-y-unicidad" title="Link to this heading">#</a></h2>
 <p>Una ecuación diferencial de la forma</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39663d5f-5255-4573-9a0d-e0fc70f35dd6">
-<span class="eqno">(79)<a class="headerlink" href="#equation-39663d5f-5255-4573-9a0d-e0fc70f35dd6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
-\end{equation}\]</div>
+\]</div>
 <p>podría tener varias soluciones. Por ejemplo, si consideramos la siguiente función</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15f93bef-8528-4b59-8295-5a61aab958cb">
-<span class="eqno">(80)<a class="headerlink" href="#equation-15f93bef-8528-4b59-8295-5a61aab958cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \label{eqn:ex1_ode}
+<div class="math notranslate nohighlight" id="equation-eqn-ex1-ode">
+<span class="eqno">(67)<a class="headerlink" href="#equation-eqn-ex1-ode" title="Link to this equation">#</a></span>\[
  \dot{x} = x^{1/3}, \quad x(0) = 0,
-\end{equation}\]</div>
-<p>si resolvemos la Ec. \eqref{eqn:ex1_ode}, utilizando Laplace por ejemplo, obtenemos que la siguiente solución</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec94e614-5975-485b-b64f-a462c57426ec">
-<span class="eqno">(81)<a class="headerlink" href="#equation-ec94e614-5975-485b-b64f-a462c57426ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\]</div>
+<p>si resolvemos la Ec. <a class="reference internal" href="#equation-eqn-ex1-ode">(67)</a>, utilizando Laplace por ejemplo, obtenemos que la siguiente solución</p>
+<div class="math notranslate nohighlight">
+\[
  x(t) = \left( \frac{2t}{3} \right)^{3/2}.
-\end{equation}\]</div>
+\]</div>
 <p>Podemos observar que esta solución no es única debido a que <span class="math notranslate nohighlight">\(x(t) \equiv 0\)</span> es otra solución.</p>
-<p><strong>Teorema 1. (Existencia local y unicidad)</strong></p>
-<p><em>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continuo a pedazos en <span class="math notranslate nohighlight">\(t\)</span> y que satisface la condición de Lipschitz</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-89e9577c-6c64-4f55-bd32-a07d3b388c23">
-<span class="eqno">(82)<a class="headerlink" href="#equation-89e9577c-6c64-4f55-bd32-a07d3b388c23" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Existencia local y unicidad)</p>
+<section class="theorem-content" id="proof-content">
+<p>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continuo a pedazos en <span class="math notranslate nohighlight">\(t\)</span> y que satisface la condición de Lipschitz</p>
+<div class="math notranslate nohighlight">
+\[
  \| f(t,x) - f(t,y) \| \leq L\|x-y \|,
-\end{equation}\]</div>
+\]</div>
 <p><span class="math notranslate nohighlight">\(\forall x,y \in B = \{x\in R^{n} | \|x-x_{0}\|\leq r\}\)</span>, <span class="math notranslate nohighlight">\(\forall t\in[t_{0},t_{1}]\)</span>. <em>Entonces, existe algún <span class="math notranslate nohighlight">\(\delta &gt;0\)</span> tal que la ecuación de estado</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-17dd3083-8598-4b45-b865-0c80e1526166">
-<span class="eqno">(83)<a class="headerlink" href="#equation-17dd3083-8598-4b45-b865-0c80e1526166" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = f(t,x), \quad \text{con } x(t_{0}) = x_{0},
-\end{equation}\]</div>
-<p><em>tiene una solución única sobre <span class="math notranslate nohighlight">\([t_{0},t_{0}+\delta]\)</span>.</em></p>
-<section id="ejemplo-1">
+\]</div>
+<p>tiene una solución única sobre <span class="math notranslate nohighlight">\([t_{0},t_{0}+\delta]\)</span>.</p>
+</section>
+</div><section id="ejemplo-1">
 <h3>Ejemplo 1.<a class="headerlink" href="#ejemplo-1" title="Link to this heading">#</a></h3>
 <p>Considere la siguiente función</p>
-<div class="amsmath math notranslate nohighlight" id="equation-efeb5cdd-a4a1-45a9-9d62-b33bae025334">
-<span class="eqno">(84)<a class="headerlink" href="#equation-efeb5cdd-a4a1-45a9-9d62-b33bae025334" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  f(x) = \begin{bmatrix}
   -x_{1} + x_{1}x_{2} \\
   x_{2} - x_{1}x_{2}
  \end{bmatrix}.
-\end{equation}\]</div>
+\end{split}\]</div>
 </section>
 <section id="ejemplo-2">
 <h3>Ejemplo 2<a class="headerlink" href="#ejemplo-2" title="Link to this heading">#</a></h3>
 <p>Considere la siguiente función</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e84dcfb-69e8-423b-add1-e1bb143f11d7">
-<span class="eqno">(85)<a class="headerlink" href="#equation-1e84dcfb-69e8-423b-add1-e1bb143f11d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  f(x) = \begin{bmatrix}
   x_{2} \\
   -\text{sat}(x_{1} + x_{2})
  \end{bmatrix},
-\end{equation}\]</div>
+\end{split}\]</div>
 <p>donde la función de saturación está definida por</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8698a06f-1a12-46bd-9ddf-74c360ae53f0">
-<span class="eqno">(86)<a class="headerlink" href="#equation-8698a06f-1a12-46bd-9ddf-74c360ae53f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[\begin{split}
  \text{sat}(y) = \left\{
   \begin{matrix}
    -1, &amp; \text{para } y&lt;-1, \\
@@ -631,101 +633,125 @@ document.write(`
    1, &amp; \text{para } y&gt;1
   \end{matrix}
  \right.
-\end{equation}\]</div>
+\end{split}\]</div>
 </section>
 <section id="ejemplo-3">
 <h3>Ejemplo 3<a class="headerlink" href="#ejemplo-3" title="Link to this heading">#</a></h3>
 <p>Considere el siguiente sistema escalar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9273df4-8303-42f0-9224-8cf653c99217">
-<span class="eqno">(87)<a class="headerlink" href="#equation-f9273df4-8303-42f0-9224-8cf653c99217" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = -x^{2}, \quad x(0) = -1.
-\end{equation}\]</div>
-<p><strong>Lema 1.</strong> (Khalil, 2002) <em>Sea <span class="math notranslate nohighlight">\(f:[a,b]\times D \rightarrow R^{m}\)</span> continua para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Suponga que <span class="math notranslate nohighlight">\(\left[\partial f/\partial x \right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>. Si, para un subconjunto convexo <span class="math notranslate nohighlight">\(W\subset D\)</span>, hay una constante <span class="math notranslate nohighlight">\(L\geq0\)</span> tal que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-8432301c-a1cf-4229-b945-6e29edffce3a">
-<span class="eqno">(88)<a class="headerlink" href="#equation-8432301c-a1cf-4229-b945-6e29edffce3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \left\| \frac{\partial f}{\partial x}(t,x) \right\| \leq L,
-\end{equation}\]</div>
-<p><em>sobre <span class="math notranslate nohighlight">\([a,b]\times W\)</span>, entonces</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-486115b3-0b28-48a0-8a03-efba52e5c41f">
-<span class="eqno">(89)<a class="headerlink" href="#equation-486115b3-0b28-48a0-8a03-efba52e5c41f" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \left\| f(t,x) - f(t,y) \right\| \leq L\left\| x - y \right\|,
-\end{equation}\]</div>
-<p><em>para todo <span class="math notranslate nohighlight">\(t\in[a,b],x\in W\)</span> e <span class="math notranslate nohighlight">\(y\in W\)</span></em>.</p>
-<p><strong>Lema 2.</strong> (Khalil, 2002)  <em>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>.</em></p>
-<p><strong>Lema 3.</strong> (Khalil, 2002)  <em>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es globalmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span> si y sólo si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> es uniformemente acotado sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>.</em></p>
-<p><strong>Teorema 2. (Existencia global y unicidad)</strong> (Khalil, 2002)  <em>Suponga que <span class="math notranslate nohighlight">\(f(t,x)\)</span> es continua definida a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y satisface</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa69c188-68fa-49cb-aed4-334566ccf7f5">
-<span class="eqno">(90)<a class="headerlink" href="#equation-fa69c188-68fa-49cb-aed4-334566ccf7f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \begin{aligned}
-  \|f(t,x) - f(t,y) \| &amp;\leq L\|x-y\|, \\
-  \|f(t,x_{0})\| &amp;\leq h,
- \end{aligned}
-\end{equation}\]</div>
-<p><span class="math notranslate nohighlight">\(\forall x,y\in R^{n}\)</span>, <span class="math notranslate nohighlight">\(\forall t \in [t_{0},t_{1}]\)</span>. <em>Entonces, la ecuación de estado</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-402aa071-5d21-43e6-89d2-a077c22ae145">
-<span class="eqno">(91)<a class="headerlink" href="#equation-402aa071-5d21-43e6-89d2-a077c22ae145" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
-\end{equation}\]</div>
-<p><em>tiene una solución única sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\)</span>.</em></p>
+\]</div>
+<div class="proof lemma admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>(Khalil, 2002) Sea <span class="math notranslate nohighlight">\(f:[a,b]\times D \rightarrow R^{m}\)</span> continua para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Suponga que <span class="math notranslate nohighlight">\(\left[\partial f/\partial x \right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>. Si, para un subconjunto convexo <span class="math notranslate nohighlight">\(W\subset D\)</span>, hay una constante <span class="math notranslate nohighlight">\(L\geq0\)</span> tal que</p>
+<div class="math notranslate nohighlight">
+\[ \left\| \frac{\partial f}{\partial x}(t,x) \right\| \leq L,\]</div>
+<p>sobre <span class="math notranslate nohighlight">\([a,b]\times W\)</span>, entonces</p>
+<div class="math notranslate nohighlight">
+\[  \left\| f(t,x) - f(t,y) \right\| \leq L\left\| x - y \right\|,\]</div>
+<p>para todo <span class="math notranslate nohighlight">\(t\in[a,b],x\in W\)</span> e <span class="math notranslate nohighlight">\(y\in W\)</span>.</p>
 </section>
+</div><div class="proof lemma admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Lemma 2 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>(Khalil, 2002)  Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>.</p>
+</section>
+</div><div class="proof lemma admonition" id="lemma-3">
+<p class="admonition-title"><span class="caption-number">Lemma 3 </span></p>
+<section class="lemma-content" id="proof-content">
+<p>(Khalil, 2002)  Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es globalmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span> si y sólo si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> es uniformemente acotado sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>.</p>
+</section>
+</div><div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existencia global y unicidad)</p>
+<section class="theorem-content" id="proof-content">
+<p>(Khalil, 2002) Suponga que <span class="math notranslate nohighlight">\(f(t,x)\)</span> es continua definida a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y satisface</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{aligned}
+   \|f(t,x) - f(t,y) \| &amp;\leq L\|x-y\|, \\
+   \|f(t,x_{0})\| &amp;\leq h,
+  \end{aligned}
+ \end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\forall x,y\in R^{n}\)</span>, <span class="math notranslate nohighlight">\(\forall t \in [t_{0},t_{1}]\)</span>. <em>Entonces, la ecuación de estado</em></p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
+ \]</div>
+<p>tiene una solución única sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\)</span>.</p>
+</section>
+</div></section>
 <section id="ejemplo-4">
 <h3>Ejemplo 4<a class="headerlink" href="#ejemplo-4" title="Link to this heading">#</a></h3>
 <p>Considere el siguiente sistema lineal</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12854c0e-da27-4e98-bce6-4181c052c00c">
-<span class="eqno">(92)<a class="headerlink" href="#equation-12854c0e-da27-4e98-bce6-4181c052c00c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = A(t)x + g(t) = f(t,x),
-\end{equation}\]</div>
+\]</div>
 <p>donde <span class="math notranslate nohighlight">\(A(\cdot)\)</span> y <span class="math notranslate nohighlight">\(g(\cdot)\)</span> son funciones continuas definidas a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span>.</p>
 </section>
 <section id="ejemplo-5">
 <h3>Ejemplo 5<a class="headerlink" href="#ejemplo-5" title="Link to this heading">#</a></h3>
 <p>Considere el siguiente sistema escalar</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5164b182-1720-490a-b07a-f97f550d2325">
-<span class="eqno">(93)<a class="headerlink" href="#equation-5164b182-1720-490a-b07a-f97f550d2325" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
  \dot{x} = -x^{3} = f(x).
-\end{equation}\]</div>
-<p><strong>Teorema 3.</strong> (Khalil, 2002)  <em>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a trozos sobre <span class="math notranslate nohighlight">\(t\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span> y toda <span class="math notranslate nohighlight">\(x\)</span> en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Sea <span class="math notranslate nohighlight">\(W\)</span> un subconjunto compacto de <span class="math notranslate nohighlight">\(D,x_{0}\in W\)</span>, suponiendo que cada solución de</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ea82d95-89a6-4323-b503-c7cce96d67f1">
-<span class="eqno">(94)<a class="headerlink" href="#equation-8ea82d95-89a6-4323-b503-c7cce96d67f1" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
-\end{equation}\]</div>
-<p><em>yace enteramente en <span class="math notranslate nohighlight">\(W\)</span>. Entonces, hay una solución única que está definida para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span>.</em></p>
-<p><strong>Teorema 4.</strong> (Khalil, 2002) <em>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times W\)</span> con una constante Lipschitz <span class="math notranslate nohighlight">\(L\)</span>, donde <span class="math notranslate nohighlight">\(W\subset R^{n}\)</span> es un conjunton conectado. Sea <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(z(t)\)</span> soluciones de</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-df0b16b6-5598-432b-8d62-fecb6e8b7708">
-<span class="eqno">(95)<a class="headerlink" href="#equation-df0b16b6-5598-432b-8d62-fecb6e8b7708" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{y} = f(t,y), \quad y(t_{0}) = y_{0},
-\end{equation}\]</div>
-<p><em>y</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f763456-d716-4b3c-9752-5680f26e6bd6">
-<span class="eqno">(96)<a class="headerlink" href="#equation-2f763456-d716-4b3c-9752-5680f26e6bd6" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \dot{z} = f(t,z) + g(t,z), \quad z(t_{0}) = z_{0},
-\end{equation}\]</div>
-<p><em>tal que <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(z(t)\in W\)</span> para todo <span class="math notranslate nohighlight">\(t\in[t_{0},t_{1}]\)</span>. Suponga que</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef7e71c4-112b-4595-9aa0-c769ded40f89">
-<span class="eqno">(97)<a class="headerlink" href="#equation-ef7e71c4-112b-4595-9aa0-c769ded40f89" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|g(t,x)\| \leq \mu,\quad \forall (t,x)\in [t_{0},t_{1}]\times W,
-\end{equation}\]</div>
-<p><em>para algún <span class="math notranslate nohighlight">\(\mu &gt;0\)</span>, y</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-884219c9-ce57-4544-9519-3829cb4c45f8">
-<span class="eqno">(98)<a class="headerlink" href="#equation-884219c9-ce57-4544-9519-3829cb4c45f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|y_{0}-z_{0}\| \leq \gamma,
-\end{equation}\]</div>
-<p><em>entonces</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8afb17f-7c3f-4831-a490-816e7cad33d2">
-<span class="eqno">(99)<a class="headerlink" href="#equation-d8afb17f-7c3f-4831-a490-816e7cad33d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|y(t) -z(t)\| \leq \gamma \exp\left[ L(t-t_{0}) \right] + \frac{\mu}{L}\left\{ \exp\left[ L(t-t_{0}) \right] - 1 \right\}, \quad \forall t\in [t_{0},t_{1}].
-\end{equation}\]</div>
-<p><strong>Teorema 5.</strong> (Khalil, 2002) <em>Sea <span class="math notranslate nohighlight">\(f(t,x,\lambda)\)</span> continua en <span class="math notranslate nohighlight">\((t,x,\lambda)\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> (uniformemente en <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span>) sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times D \times \left\{ \|\lambda - \lambda_{0} \leq c\right\}\)</span> donde <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> es un conjunto abierto conectado. Sea <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> una solución de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda_{0})\)</span> con <span class="math notranslate nohighlight">\(y(t_{0},\lambda_{0})=y_{0}\in D\)</span>. Suponga que <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> está definida y pertenece a <span class="math notranslate nohighlight">\(D\)</span> para todo <span class="math notranslate nohighlight">\(t\in [t_{0},t_{1}]\)</span>. Entonces, dado <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta&gt;0\)</span>, tal que si</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-93bd73d2-d3b7-4c93-a72b-f4b8145597b2">
-<span class="eqno">(100)<a class="headerlink" href="#equation-93bd73d2-d3b7-4c93-a72b-f4b8145597b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|z_{0}-y_{0}\| &lt; \delta, \quad \|\lambda-\lambda_{0}\| &lt;\delta,
-\end{equation}\]</div>
-<p><em>entonces hay una solución única <span class="math notranslate nohighlight">\(z(t,\lambda)\)</span> de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda)\)</span> definida sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\)</span>, con <span class="math notranslate nohighlight">\(z(t_{0},\lambda)=z_{0}\)</span> y <span class="math notranslate nohighlight">\(z(t,\lambda)\)</span> satisface</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-687ce520-d594-4bf4-a360-e798348b5064">
-<span class="eqno">(101)<a class="headerlink" href="#equation-687ce520-d594-4bf4-a360-e798348b5064" title="Permalink to this equation">#</a></span>\[\begin{equation}
- \|z(t,\lambda) - y(t,\lambda_{0})\| &lt; \varepsilon, \quad \forall t \in [t_{0}, t_{1}].
-\end{equation}\]</div>
+\]</div>
+<div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>(Khalil, 2002)  Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a trozos sobre <span class="math notranslate nohighlight">\(t\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span> y toda <span class="math notranslate nohighlight">\(x\)</span> en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Sea <span class="math notranslate nohighlight">\(W\)</span> un subconjunto compacto de <span class="math notranslate nohighlight">\(D,x_{0}\in W\)</span>, suponiendo que cada solución de</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
+ \]</div>
+<p>yace enteramente en <span class="math notranslate nohighlight">\(W\)</span>. Entonces, hay una solución única que está definida para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span>.</p>
 </section>
+</div><div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>(Khalil, 2002) Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times W\)</span> con una constante Lipschitz <span class="math notranslate nohighlight">\(L\)</span>, donde <span class="math notranslate nohighlight">\(W\subset R^{n}\)</span> es un conjunton conectado. Sea <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(z(t)\)</span> soluciones de</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{y} = f(t,y), \quad y(t_{0}) = y_{0},
+ \]</div>
+<p>y</p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{z} = f(t,z) + g(t,z), \quad z(t_{0}) = z_{0},
+ \]</div>
+<p>tal que <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(z(t)\in W\)</span> para todo <span class="math notranslate nohighlight">\(t\in[t_{0},t_{1}]\)</span>. Suponga que</p>
+<div class="math notranslate nohighlight">
+\[
+  \|g(t,x)\| \leq \mu,\quad \forall (t,x)\in [t_{0},t_{1}]\times W,
+ \]</div>
+<p>para algún <span class="math notranslate nohighlight">\(\mu &gt;0\)</span>, y</p>
+<div class="math notranslate nohighlight">
+\[
+  \|y_{0}-z_{0}\| \leq \gamma,
+ \]</div>
+<p>entonces</p>
+<div class="math notranslate nohighlight">
+\[
+  \|y(t) -z(t)\| \leq \gamma \exp\left[ L(t-t_{0}) \right] + \frac{\mu}{L}\left\{ \exp\left[ L(t-t_{0}) \right] - 1 \right\}, \quad \forall t\in [t_{0},t_{1}].
+ \]</div>
+</section>
+</div><div class="proof theorem admonition" id="theorem-7">
+<p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>(Khalil, 2002) Sea <span class="math notranslate nohighlight">\(f(t,x,\lambda)\)</span> continua en <span class="math notranslate nohighlight">\((t,x,\lambda)\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> (uniformemente en <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span>) sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times D \times \left\{ \|\lambda - \lambda_{0} \leq c\right\}\)</span> donde <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> es un conjunto abierto conectado. Sea <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> una solución de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda_{0})\)</span> con <span class="math notranslate nohighlight">\(y(t_{0},\lambda_{0})=y_{0}\in D\)</span>. Suponga que <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> está definida y pertenece a <span class="math notranslate nohighlight">\(D\)</span> para todo <span class="math notranslate nohighlight">\(t\in [t_{0},t_{1}]\)</span>. Entonces, dado <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta&gt;0\)</span>, tal que si</p>
+<div class="math notranslate nohighlight">
+\[
+  \|z_{0}-y_{0}\| &lt; \delta, \quad \|\lambda-\lambda_{0}\| &lt;\delta,
+ \]</div>
+<p>entonces hay una solución única <span class="math notranslate nohighlight">\(z(t,\lambda)\)</span> de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda)\)</span> definida sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\)</span>, con <span class="math notranslate nohighlight">\(z(t_{0},\lambda)=z_{0}\)</span> y <span class="math notranslate nohighlight">\(z(t,\lambda)\)</span> satisface</p>
+<div class="math notranslate nohighlight">
+\[
+  \|z(t,\lambda) - y(t,\lambda_{0})\| &lt; \varepsilon, \quad \forall t \in [t_{0}, t_{1}].
+ \]</div>
+</section>
+</div></section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="referencias">
