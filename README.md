@@ -1,3 +1,3 @@
-# jupyter-book-template
+# Modelación de Sistemas Físicos
 
-This repository hosts the tutorial and template code for building a basic Jupyter Book website.
+En este repositorio se encuentran las notas del curso de Modelación de Sistemas Físicos.

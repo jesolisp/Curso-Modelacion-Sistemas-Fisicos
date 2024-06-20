@@ -3,7 +3,7 @@
 
 title: Modelación de Sistemas Físicos # Change this to your book title.
 author: Dr. Jesús Emmanuel Solís Pérez # Change this to your name (or your team/organization name).
-logo: docs/images/Tux.png
+logo: docs/images/closed_loop.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
