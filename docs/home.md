@@ -28,7 +28,7 @@
 | **Unidad** | **Tema** | **Contenido** | **Material** |
 |:---:|:---:|:---|:---:|
 | I | Introducción al análisis de la dinámica de sistemas | <li>Ejemplos prácticos.</li> | <ol><li>[Código (Live Script)](JESP_01_Introduccion_analisis.ipynb)</li> </ol> |
-| II | Antecedentes matemáticos | <li> Ecuaciones diferenciales no lineales. </li> <li> Análisis de la existencia, unicidad y continuidad de soluciones. </li> | <ol><li>[Código (Live Script)](JESP_02_Antecedentes_mat.ipynb)</li> <li>[PDF](pdf/.ipynb)</li> </ol> |
+| II | Antecedentes matemáticos | <li> Ecuaciones diferenciales no lineales. </li> <li> Análisis de la existencia, unicidad y continuidad de soluciones. </li> | <ol><li>[Código (Live Script)](JESP_02_Antecedentes_mat.ipynb)</li> </ol> |
 | III | Fundamentos del análisi de estabilidad en el sentido de Lyapunov | <li> Localización de los puntos de equilibrio. </li> <li> Estabilidad de los puntos de equilibrio. </li> <li> Linealización de sistemas en torno a un punto de equilibrio. </li> <li> Análisis de la estabilidad de sistemas dinámicos linealizados. </li> <li> Análisis de estabilidad por el método directo de Lyapunov. </li> | <ol><li>[Código (Live Script)](JESP_03_Fundamentos_estabilidad.ipynb)</li> </ol> |
 | IV | Controlabilidad de sistemas dinámicos | <li> Concepto de controlabilidad. </li> <li> Condiciones para la controlabilidad. </li> <li> Formas canónicas de controlabilidad. </li> | <ol><li>[Código (Live Script)](JESP_04_Controlabilidad_sistemas.ipynb)</li> </ol> |
 | V | Observabilidad de sistemas dinámicos | <li> Concepto de observabilidad. </li> <li> Teorema de dualidad. </li> <li> Fromas irreductibles de un sistema dinámico. </li> | <ol><li>[Código (Live Script)](JESP_05_Observabilidad_sistemas.ipynb)</li> </ol> |
