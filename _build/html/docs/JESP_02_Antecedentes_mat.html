@@ -62,6 +62,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_02_Antecedentes_mat';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_02_Antecedentes_mat.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Fundamentos del análisis de estabilidad en el sentido de Lyapunov" href="JESP_03_Fundamentos_estabilidad.html" />
@@ -104,8 +105,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -173,14 +174,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Contenido del curso
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
@@ -189,11 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -248,7 +242,25 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_02_Antecedentes_mat.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_02_Antecedentes_mat.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_02_Antecedentes_mat.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,6 +302,23 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_02_Antecedentes_mat.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -582,7 +611,7 @@ document.write(`
  x(t) = \left( \frac{2t}{3} \right)^{3/2}.
 \]</div>
 <p>Podemos observar que esta solución no es única debido a que <span class="math notranslate nohighlight">\(x(t) \equiv 0\)</span> es otra solución.</p>
-<div class="proof theorem admonition" id="theorem-0">
+<div class="proof theorem admonition" id="existencia-unicidad">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Existencia local y unicidad)</p>
 <section class="theorem-content" id="proof-content">
 <p>Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continuo a pedazos en <span class="math notranslate nohighlight">\(t\)</span> y que satisface la condición de Lipschitz</p>
@@ -638,10 +667,10 @@ document.write(`
 \[
  \dot{x} = -x^{2}, \quad x(0) = -1.
 \]</div>
-<div class="proof lemma admonition" id="lemma-1">
+<div class="proof lemma admonition" id="lemma1">
 <p class="admonition-title"><span class="caption-number">Lemma 1 </span></p>
 <section class="lemma-content" id="proof-content">
-<p> Sea <span class="math notranslate nohighlight">\(f:[a,b]\times D \rightarrow R^{m}\)</span> continua para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Suponga que <span class="math notranslate nohighlight">\(\left[\partial f/\partial x \right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>. Si, para un subconjunto convexo <span class="math notranslate nohighlight">\(W\subset D\)</span>, hay una constante <span class="math notranslate nohighlight">\(L\geq0\)</span> tal que</p>
+<p><span id="id1">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Sea <span class="math notranslate nohighlight">\(f:[a,b]\times D \rightarrow R^{m}\)</span> continua para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Suponga que <span class="math notranslate nohighlight">\(\left[\partial f/\partial x \right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>. Si, para un subconjunto convexo <span class="math notranslate nohighlight">\(W\subset D\)</span>, hay una constante <span class="math notranslate nohighlight">\(L\geq0\)</span> tal que</p>
 <div class="math notranslate nohighlight">
 \[ \left\| \frac{\partial f}{\partial x}(t,x) \right\| \leq L,\]</div>
 <p>sobre <span class="math notranslate nohighlight">\([a,b]\times W\)</span>, entonces</p>
@@ -649,20 +678,20 @@ document.write(`
 \[  \left\| f(t,x) - f(t,y) \right\| \leq L\left\| x - y \right\|,\]</div>
 <p>para todo <span class="math notranslate nohighlight">\(t\in[a,b],x\in W\)</span> e <span class="math notranslate nohighlight">\(y\in W\)</span>.</p>
 </section>
-</div><div class="proof lemma admonition" id="lemma-2">
+</div><div class="proof lemma admonition" id="lemma2">
 <p class="admonition-title"><span class="caption-number">Lemma 2 </span></p>
 <section class="lemma-content" id="proof-content">
-<p> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>.</p>
+<p><span id="id2">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, para algún dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times D\)</span>.</p>
 </section>
-</div><div class="proof lemma admonition" id="lemma-3">
+</div><div class="proof lemma admonition" id="lemma3">
 <p class="admonition-title"><span class="caption-number">Lemma 3 </span></p>
 <section class="lemma-content" id="proof-content">
-<p> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es globalmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span> si y sólo si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> es uniformemente acotado sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>.</p>
+<p><span id="id3">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>. Si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> existe y es continua sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>, entonces <span class="math notranslate nohighlight">\(f\)</span> es globalmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span> si y sólo si <span class="math notranslate nohighlight">\(\left[\partial f/\partial x\right]\)</span> es uniformemente acotado sobre <span class="math notranslate nohighlight">\([a,b]\times R^{n}\)</span>.</p>
 </section>
-</div><div class="proof theorem admonition" id="theorem-4">
+</div><div class="proof theorem admonition" id="existencia-global">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existencia global y unicidad)</p>
 <section class="theorem-content" id="proof-content">
-<p> Suponga que <span class="math notranslate nohighlight">\(f(t,x)\)</span> es continua definida a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y satisface</p>
+<p><span id="id4">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Suponga que <span class="math notranslate nohighlight">\(f(t,x)\)</span> es continua definida a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y satisface</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
   \begin{aligned}
@@ -694,20 +723,20 @@ document.write(`
 \[
  \dot{x} = -x^{3} = f(x).
 \]</div>
-<div class="proof theorem admonition" id="theorem-5">
+<div class="proof theorem admonition" id="solucion-unica">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
 <section class="theorem-content" id="proof-content">
-<p>  Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a trozos sobre <span class="math notranslate nohighlight">\(t\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span> y toda <span class="math notranslate nohighlight">\(x\)</span> en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Sea <span class="math notranslate nohighlight">\(W\)</span> un subconjunto compacto de <span class="math notranslate nohighlight">\(D,x_{0}\in W\)</span>, suponiendo que cada solución de</p>
+<p><span id="id5">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span>  Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a trozos sobre <span class="math notranslate nohighlight">\(t\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span> y toda <span class="math notranslate nohighlight">\(x\)</span> en un dominio <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span>. Sea <span class="math notranslate nohighlight">\(W\)</span> un subconjunto compacto de <span class="math notranslate nohighlight">\(D,x_{0}\in W\)</span>, suponiendo que cada solución de</p>
 <div class="math notranslate nohighlight">
 \[
   \dot{x} = f(t,x), \quad x(t_{0}) = x_{0},
  \]</div>
 <p>yace enteramente en <span class="math notranslate nohighlight">\(W\)</span>. Entonces, hay una solución única que está definida para todo <span class="math notranslate nohighlight">\(t\geq t_{0}\)</span>.</p>
 </section>
-</div><div class="proof theorem admonition" id="theorem-6">
+</div><div class="proof theorem admonition" id="conjunto-conectado">
 <p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
 <section class="theorem-content" id="proof-content">
-<p> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times W\)</span> con una constante Lipschitz <span class="math notranslate nohighlight">\(L\)</span>, donde <span class="math notranslate nohighlight">\(W\subset R^{n}\)</span> es un conjunton conectado. Sea <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(z(t)\)</span> soluciones de</p>
+<p><span id="id6">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Sea <span class="math notranslate nohighlight">\(f(t,x)\)</span> continua a pedazos sobre <span class="math notranslate nohighlight">\(t\)</span> y Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times W\)</span> con una constante Lipschitz <span class="math notranslate nohighlight">\(L\)</span>, donde <span class="math notranslate nohighlight">\(W\subset R^{n}\)</span> es un conjunton conectado. Sea <span class="math notranslate nohighlight">\(y(t)\)</span> y <span class="math notranslate nohighlight">\(z(t)\)</span> soluciones de</p>
 <div class="math notranslate nohighlight">
 \[
   \dot{y} = f(t,y), \quad y(t_{0}) = y_{0},
@@ -733,10 +762,10 @@ document.write(`
   \|y(t) -z(t)\| \leq \gamma \exp\left[ L(t-t_{0}) \right] + \frac{\mu}{L}\left\{ \exp\left[ L(t-t_{0}) \right] - 1 \right\}, \quad \forall t\in [t_{0},t_{1}].
  \]</div>
 </section>
-</div><div class="proof theorem admonition" id="theorem-7">
+</div><div class="proof theorem admonition" id="solucion-unica-definida">
 <p class="admonition-title"><span class="caption-number">Theorem 5 </span></p>
 <section class="theorem-content" id="proof-content">
-<p> Sea <span class="math notranslate nohighlight">\(f(t,x,\lambda)\)</span> continua en <span class="math notranslate nohighlight">\((t,x,\lambda)\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> (uniformemente en <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span>) sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times D \times \left\{ \|\lambda - \lambda_{0} \leq c\right\}\)</span> donde <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> es un conjunto abierto conectado. Sea <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> una solución de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda_{0})\)</span> con <span class="math notranslate nohighlight">\(y(t_{0},\lambda_{0})=y_{0}\in D\)</span>. Suponga que <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> está definida y pertenece a <span class="math notranslate nohighlight">\(D\)</span> para todo <span class="math notranslate nohighlight">\(t\in [t_{0},t_{1}]\)</span>. Entonces, dado <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta&gt;0\)</span>, tal que si</p>
+<p><span id="id7">[<a class="reference internal" href="references.html#id7" title="H.K. Khalil. Nonlinear Systems. Macmillan Publishing Company, 1992. ISBN 9780023635410. URL: https://books.google.com.mx/books?id=RVHvAAAAMAAJ.">Khalil, 1992</a>]</span> Sea <span class="math notranslate nohighlight">\(f(t,x,\lambda)\)</span> continua en <span class="math notranslate nohighlight">\((t,x,\lambda)\)</span> y localmente Lipschitz en <span class="math notranslate nohighlight">\(x\)</span> (uniformemente en <span class="math notranslate nohighlight">\(t\)</span> y <span class="math notranslate nohighlight">\(\lambda\)</span>) sobre <span class="math notranslate nohighlight">\([t_{0},t_{1}]\times D \times \left\{ \|\lambda - \lambda_{0} \leq c\right\}\)</span> donde <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> es un conjunto abierto conectado. Sea <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> una solución de <span class="math notranslate nohighlight">\(\dot{x}=f(t,x,\lambda_{0})\)</span> con <span class="math notranslate nohighlight">\(y(t_{0},\lambda_{0})=y_{0}\in D\)</span>. Suponga que <span class="math notranslate nohighlight">\(y(t,\lambda_{0})\)</span> está definida y pertenece a <span class="math notranslate nohighlight">\(D\)</span> para todo <span class="math notranslate nohighlight">\(t\in [t_{0},t_{1}]\)</span>. Entonces, dado <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span>, hay un <span class="math notranslate nohighlight">\(\delta&gt;0\)</span>, tal que si</p>
 <div class="math notranslate nohighlight">
 \[
   \|z_{0}-y_{0}\| &lt; \delta, \quad \|\lambda-\lambda_{0}\| &lt;\delta,

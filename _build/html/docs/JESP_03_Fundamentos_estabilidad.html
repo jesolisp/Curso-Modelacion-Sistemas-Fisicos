@@ -62,6 +62,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_03_Fundamentos_estabilidad';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_03_Fundamentos_estabilidad.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Controlabilidad de sistemas dinámicos" href="JESP_04_Controlabilidad_sistemas.html" />
@@ -104,8 +105,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -173,14 +174,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Contenido del curso
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
@@ -189,11 +182,12 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -248,7 +242,25 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,6 +302,23 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_03_Fundamentos_estabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -475,7 +504,7 @@ document.write(`
 \]</div>
 <section id="localizacion-de-los-puntos-de-equilibrio">
 <h2>Localización de los puntos de equilibrio<a class="headerlink" href="#localizacion-de-los-puntos-de-equilibrio" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="definition-0">
+<div class="proof definition admonition" id="punto-equilibrio">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
 <section class="definition-content" id="proof-content">
 <p>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> es</p>
@@ -544,7 +573,7 @@ document.write(`
  \exp(At) = P \exp(Jt)P^{-1} = \sum_{i=1}^{r} \sum_{k=1}^{m_{i}} t^{k-1} \exp(\lambda_{i}t) R_{ik},
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(m_{i}\)</span> es el orden del bloque de Jordan asociado con el eigenvalor <span class="math notranslate nohighlight">\(\lambda_{i}\)</span>.</p>
-<div class="proof theorem admonition" id="theorem-1">
+<div class="proof theorem admonition" id="globalmente-asintoticamente">
 <p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> de <span class="math notranslate nohighlight">\(\dot{x} = Ax\)</span> es estable si y sólo si todos los eigenvalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})\leq 0\)</span> y cada eigenvalor con <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})= 0\)</span> tiene un bloque de Jordan asociado de uno. El punto de equilibrio <span class="math notranslate nohighlight">\(x=0\)</span> es (globalmente) asintóticamente estable sí y sólo sí todos los eigencalores de <span class="math notranslate nohighlight">\(A\)</span> satisfacen <span class="math notranslate nohighlight">\(\text{Re}(\lambda_{i})&lt; 0\)</span>.</p>
@@ -632,10 +661,10 @@ document.write(`
 <ul class="simple">
 <li><p>Considere el circuito de diodo tunel que se muestra a continuación</p></li>
 </ul>
-<figure class="align-default" id="fig-diodo-tunel">
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/diodo_tunel.png"><img alt="../_images/diodo_tunel.png" src="../_images/diodo_tunel.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Diodo túnel.</span><a class="headerlink" href="#fig-diodo-tunel" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Diodo túnel.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>donde los elementos de almacenamiento de energía son el capacitor <span class="math notranslate nohighlight">\(C\)</span> y el inductor <span class="math notranslate nohighlight">\(L\)</span> mientras que el diodo tunel es representado por la relación <span class="math notranslate nohighlight">\(i_{R} = h(v_{R})\)</span>. Asumiendo que los elementos del circuito son lineales e invariantes en el tiempo, el circuito de diodo tunel se puede representar matemáticamente como sigue</p>
@@ -662,10 +691,10 @@ document.write(`
 <ul class="simple">
 <li><p>Considere el péndulo simple mostrado en la siguiente</p></li>
 </ul>
-<figure class="align-default" id="fig-single-pendulum">
+<figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/single_pendulum.png"><img alt="../_images/single_pendulum.png" src="../_images/single_pendulum.png" style="height: 300px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Diagrama de péndulo simple sin fuerza externa.</span><a class="headerlink" href="#fig-single-pendulum" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Diagrama de péndulo simple sin fuerza externa.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>donde <span class="math notranslate nohighlight">\(l\)</span> denota la longitud de la varilla, y <span class="math notranslate nohighlight">\(m\)</span> la masa de la bola.</p>
@@ -849,7 +878,7 @@ document.write(`
  \end{aligned}
 \end{split}\]</div>
 <p>Normalmente las funciones utilizadas son funciónes reales de variable vectorial. También es posible utilizar funciones integrales pero nos vamos a centrar en las primeras.</p>
-<div class="proof definition admonition" id="definition-2">
+<div class="proof definition admonition" id="definida-positiva">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida positiva</em> si <span class="math notranslate nohighlight">\(V(x)&gt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
@@ -859,7 +888,7 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + 2x_{2}^{2}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(V(x) = x_{1}^{2} + \frac{2x_{2}^{2}}{1+x_{2}^{2}}\)</span></p></li>
 </ul>
-<div class="proof definition admonition" id="definition-3">
+<div class="proof definition admonition" id="definida-negativa">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>definida negativa</em> si <span class="math notranslate nohighlight">\(V(x)&lt;0 ~ \forall x\neq 0\)</span> y <span class="math notranslate nohighlight">\(V(0)=0\)</span>.</p>
@@ -868,7 +897,7 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = - x_{1}^{2} - \left(3x_{1}+2x_{2}\right)^{2}\)</span></p></li>
 </ul>
-<div class="proof definition admonition" id="definition-4">
+<div class="proof definition admonition" id="semidefinida-positiva">
 <p class="admonition-title"><span class="caption-number">Definition 4 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida positiva</em> si <span class="math notranslate nohighlight">\(V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
@@ -877,7 +906,7 @@ document.write(`
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(V(x) = \left(x_{1} + x_{2} \right)^{2}\)</span>.</p></li>
 </ul>
-<div class="proof definition admonition" id="definition-5">
+<div class="proof definition admonition" id="semidefinida-negativa">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Una función <span class="math notranslate nohighlight">\(V\)</span> es <em>semidefinida negativa</em> si <span class="math notranslate nohighlight">\(-V(x)\)</span> es semidefinida positiva, <em>i.e.</em> <span class="math notranslate nohighlight">\(-V(x)\geq0 ~ \forall x\)</span> y <span class="math notranslate nohighlight">\(V(x)=0\)</span>.</p>
@@ -1022,7 +1051,7 @@ document.write(`
 <section id="principio-del-teorema-de-estabilidad-de-lyapunov">
 <h3>Principio del Teorema de Estabilidad de Lyapunov<a class="headerlink" href="#principio-del-teorema-de-estabilidad-de-lyapunov" title="Link to this heading">#</a></h3>
 <p>Un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> -energía- total (una función definida positiva) es continuamente decreciente (la derivada en el tiempo de la <span class="math notranslate nohighlight">\(E\)</span> total es definida negativa) hasta que alcanza un estado de equilibrio. En otras palabras, un sistema es estable si su <span class="math notranslate nohighlight">\(E\)</span> total se va perdiendo con el paso del tiempo.</p>
-<div class="proof theorem admonition" id="theorem-6">
+<div class="proof theorem admonition" id="estabilidad-Lyapunov">
 <p class="admonition-title"><span class="caption-number">Theorem 7 </span> (Teorema de estabilidad de Lyapunov)</p>
 <section class="theorem-content" id="proof-content">
 <p>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x}=f(x)\)</span> y <span class="math notranslate nohighlight">\(D\subset R^{n}\)</span> un dominio que contiene <span class="math notranslate nohighlight">\(x=0\)</span>, entonces <span class="math notranslate nohighlight">\(V:D\rightarrow R\)</span> es una función continuamente diferenciable tal que</p>
@@ -1086,7 +1115,7 @@ document.write(`
   \end{aligned}
  \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(x = \begin{bmatrix} x_{1} \\ x_{2} \end{bmatrix} = \begin{bmatrix} \theta \\ \dot{\theta} \end{bmatrix}\)</span>.</p>
-<div class="proof theorem admonition" id="theorem-7">
+<div class="proof theorem admonition" id="globalmente-asint-estable">
 <p class="admonition-title"><span class="caption-number">Theorem 8 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Sea <span class="math notranslate nohighlight">\(x=0\)</span> un punto de equilibrio para el sistema <span class="math notranslate nohighlight">\(\dot{x} = f(x)\)</span> y <span class="math notranslate nohighlight">\(V:\mathbb{R}^{n}\rightarrow \mathbb{R}\)</span> una función continuamente diferenciable tal que</p>

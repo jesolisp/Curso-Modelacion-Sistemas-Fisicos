@@ -62,6 +62,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_04_Controlabilidad_sistemas';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_04_Controlabilidad_sistemas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Concepto de observabilidad" href="JESP_05_Observabilidad_sistemas.html" />
@@ -104,8 +105,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -173,14 +174,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Contenido del curso
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
@@ -189,11 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Controlabilidad de sistemas dinámicos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -248,7 +242,25 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,6 +302,23 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_04_Controlabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -420,7 +449,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Controlabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-controlabilidad">Concepto de controlabilidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-controlabilidad">Formas canónicas de controlabilidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilizacion-por-retroalimentacion-de-estado">Estabilización por retroalimentación de estado</a><ul class="nav section-nav flex-column">
@@ -432,10 +460,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -459,7 +483,7 @@ document.write(`
  \end{aligned}
 \end{split}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span> son matrices de dimensión <span class="math notranslate nohighlight">\(n\times n\)</span>, <span class="math notranslate nohighlight">\(n\times 1\)</span>, y <span class="math notranslate nohighlight">\(1\times n\)</span>, respectivamente. Además, <span class="math notranslate nohighlight">\(D\)</span> es escalar.</p>
-<div class="proof definition admonition" id="definition-0">
+<div class="proof definition admonition" id="controlable">
 <p class="admonition-title"><span class="caption-number">Definition 6 </span></p>
 <section class="definition-content" id="proof-content">
 <p>El sistema <a class="reference internal" href="#equation-eqn-ree">(40)</a> es <strong>controlable</strong> si cualquier estado se puede transferir a cualquier otro estado en un tiempo finito aplicando una entrada.</p>
@@ -724,7 +748,7 @@ document.write(`
  u = r - Kx,
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(K = \begin{bmatrix} k_{1} &amp; k_{2} &amp; \cdots &amp; k_{n} \end{bmatrix}\)</span> es un vector real de dimensión <span class="math notranslate nohighlight">\(1\times n\)</span>.</p>
-<p>La ecuación <a class="reference internal" href="#equation-eqn-u-ctrl">(46)</a> es conocida como <em>retroalimentación de estado de ganancia constante</em> o simplemente <em>retroalimentación de estado</em> \citep{aastrom2021feedback}.</p>
+<p>La ecuación <a class="reference internal" href="#equation-eqn-u-ctrl">(46)</a> es conocida como <em>retroalimentación de estado de ganancia constante</em> o simplemente <em>retroalimentación de estado</em> <span id="id1">[<a class="reference internal" href="references.html#id9" title="Karl Johan Åström and Richard M Murray. Feedback systems: an introduction for scientists and engineers. Princeton university press, 2021.">Åström and Murray, 2021</a>]</span>.</p>
 <p>Sustituyendo <a class="reference internal" href="#equation-eqn-u-ctrl">(46)</a> en <a class="reference internal" href="#equation-eqn-ree-2">(45)</a>, tenemos</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1034,13 +1058,6 @@ document.write(`
 </section>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="referencias">
-<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Chen, C. T. (1995). <em>Analog and digital control system design: transfer-function, state-space, and algebraic methods</em>. Oxford University Press, Inc..</p></li>
-<li><p>Åström, K. J., &amp; Murray, R. M. (2021). <em>Feedback systems: an introduction for scientists and engineers</em>. Princeton university press.</p></li>
-</ul>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1106,7 +1123,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Controlabilidad de sistemas dinámicos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepto-de-controlabilidad">Concepto de controlabilidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formas-canonicas-de-controlabilidad">Formas canónicas de controlabilidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estabilizacion-por-retroalimentacion-de-estado">Estabilización por retroalimentación de estado</a><ul class="nav section-nav flex-column">
@@ -1118,10 +1134,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

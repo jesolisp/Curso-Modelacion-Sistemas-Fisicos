@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contenido del curso &#8212; Modelación de Sistemas Físicos</title>
+    <title>Identificación de sistemas dinámicos &#8212; Modelación de Sistemas Físicos</title>
   
   
   
@@ -58,14 +58,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/home';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_06_Identificacion_sistemas';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/home.html" />
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_06_Identificacion_sistemas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introducción al análisis de la dinámica de sistemas" href="JESP_01_Introduccion_analisis.html" />
+    <link rel="next" title="Referencias" href="references.html" />
+    <link rel="prev" title="Concepto de observabilidad" href="JESP_05_Observabilidad_sistemas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,8 +127,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -146,7 +143,7 @@
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="home.html">
   
   
   
@@ -175,7 +172,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
@@ -187,7 +184,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Identificación de sistemas dinámicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
@@ -235,6 +232,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_06_Identificacion_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_06_Identificacion_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -260,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/home.md" target="_blank"
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_06_Identificacion_sistemas.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -277,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/home.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/issues/new?title=Issue%20on%20page%20%2Fdocs/JESP_06_Identificacion_sistemas.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/docs/home.md" target="_blank"
+      <li><a href="../_sources/docs/JESP_06_Identificacion_sistemas.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +363,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -391,7 +437,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Contenido del curso</h1>
+    <h1>Identificación de sistemas dinámicos</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,13 +447,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-academico">Información del académico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisitos">Prerequisitos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requerido-y-herramientas">Software requerido y herramientas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temario">Temario</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#para-presentar-examen">Para presentar examen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-conducta">Código de conducta</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libros-de-apoyo">Libros de apoyo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-del-problema-de-identificacion">Objetivo del problema de identificación.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-sistemas-dinamicos-en-forma-lineal-con-respecto-a-los-parametros">Representación de sistemas dinámicos en forma lineal con respecto a los parámetros.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-estimacion-de-parametros">Métodos de estimación de parámetros.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-experimentos-para-la-identificacion-parametrica">Diseño de experimentos para la identificación paramétrica.</a></li>
 </ul>
             </nav>
         </div>
@@ -419,97 +462,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="contenido-del-curso">
-<h1>Contenido del curso<a class="headerlink" href="#contenido-del-curso" title="Link to this heading">#</a></h1>
-<section id="informacion-del-academico">
-<h2>Información del académico<a class="headerlink" href="#informacion-del-academico" title="Link to this heading">#</a></h2>
-<ul>
-  <li> <b> Profesor: </b> Dr. Jesús Emmanuel Solís Pérez </li>
-  <li> <b> Correo: </b> jsolisp@unam.mx </li>
-  <li> <a href="https://jesolisp.github.io"> Página personal del profesor </a> </li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="identificacion-de-sistemas-dinamicos">
+<h1>Identificación de sistemas dinámicos<a class="headerlink" href="#identificacion-de-sistemas-dinamicos" title="Link to this heading">#</a></h1>
+<section id="objetivo-del-problema-de-identificacion">
+<h2>Objetivo del problema de identificación.<a class="headerlink" href="#objetivo-del-problema-de-identificacion" title="Link to this heading">#</a></h2>
 </section>
-<section id="prerequisitos">
-<h2>Prerequisitos<a class="headerlink" href="#prerequisitos" title="Link to this heading">#</a></h2>
-<ol>
- <li> Dinámica de Sistemas Físicos </li>
-</ol>
+<section id="representacion-de-sistemas-dinamicos-en-forma-lineal-con-respecto-a-los-parametros">
+<h2>Representación de sistemas dinámicos en forma lineal con respecto a los parámetros.<a class="headerlink" href="#representacion-de-sistemas-dinamicos-en-forma-lineal-con-respecto-a-los-parametros" title="Link to this heading">#</a></h2>
 </section>
-<section id="software-requerido-y-herramientas">
-<h2>Software requerido y herramientas<a class="headerlink" href="#software-requerido-y-herramientas" title="Link to this heading">#</a></h2>
-<ol>
- <li> Python & Jupyter Notebook. </li>
- <li> Sistema operativo: Windows 10, Linux, o macOS. </li>
- <li> Web Browser: Google Chrome, Opera o Firefox. </li>
- <li> Markdown para escribir documentación. </li>
- <li> Sistema de control de versiones. </li>
-</ol>
+<section id="metodos-de-estimacion-de-parametros">
+<h2>Métodos de estimación de parámetros.<a class="headerlink" href="#metodos-de-estimacion-de-parametros" title="Link to this heading">#</a></h2>
 </section>
-<section id="temario">
-<h2>Temario<a class="headerlink" href="#temario" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Unidad</strong></p></th>
-<th class="head text-center"><p><strong>Tema</strong></p></th>
-<th class="head text-left"><p><strong>Contenido</strong></p></th>
-<th class="head text-center"><p><strong>Material</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p>I</p></td>
-<td class="text-center"><p>Introducción al análisis de la dinámica de sistemas</p></td>
-<td class="text-left"><p><li>Ejemplos prácticos.</li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_01_Introduccion_analisis.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p>II</p></td>
-<td class="text-center"><p>Antecedentes matemáticos</p></td>
-<td class="text-left"><p><li> Ecuaciones diferenciales no lineales. </li> <li> Análisis de la existencia, unicidad y continuidad de soluciones. </li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_02_Antecedentes_mat.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p>III</p></td>
-<td class="text-center"><p>Fundamentos del análisi de estabilidad en el sentido de Lyapunov</p></td>
-<td class="text-left"><p><li> Localización de los puntos de equilibrio. </li> <li> Estabilidad de los puntos de equilibrio. </li> <li> Linealización de sistemas en torno a un punto de equilibrio. </li> <li> Análisis de la estabilidad de sistemas dinámicos linealizados. </li> <li> Análisis de estabilidad por el método directo de Lyapunov. </li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p>IV</p></td>
-<td class="text-center"><p>Controlabilidad de sistemas dinámicos</p></td>
-<td class="text-left"><p><li> Concepto de controlabilidad. </li> <li> Condiciones para la controlabilidad. </li> <li> Formas canónicas de controlabilidad. </li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p>V</p></td>
-<td class="text-center"><p>Observabilidad de sistemas dinámicos</p></td>
-<td class="text-left"><p><li> Concepto de observabilidad. </li> <li> Teorema de dualidad. </li> <li> Fromas irreductibles de un sistema dinámico. </li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p>VI</p></td>
-<td class="text-center"><p>Identificación de sistemas dinámicos</p></td>
-<td class="text-left"><p><li> Objetivo del problema de identificación. </li> <li> Representación de sistemas dinámicos en forma lineal con respecto a los parámetros. </li> <li> Métodos de estimación de parámetros. </li> <li> Diseño de experimentos para la identificación paramétrica. </li></p></td>
-<td class="text-center"><p><ol><li><a class="reference internal" href="JESP_06_Identificacion_sistemas.html"><span class="std std-doc">Código (Live Script)</span></a></li> </ol></p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="diseno-de-experimentos-para-la-identificacion-parametrica">
+<h2>Diseño de experimentos para la identificación paramétrica.<a class="headerlink" href="#diseno-de-experimentos-para-la-identificacion-parametrica" title="Link to this heading">#</a></h2>
 </section>
-<section id="para-presentar-examen">
-<h2>Para presentar examen<a class="headerlink" href="#para-presentar-examen" title="Link to this heading">#</a></h2>
-<p>Tendrán derecho a presentar exámenes parciales aquellos estudiantes que hayan cubierto por lo menos el 80% de asistencia.</p>
-</section>
-<section id="codigo-de-conducta">
-<h2>Código de conducta<a class="headerlink" href="#codigo-de-conducta" title="Link to this heading">#</a></h2>
-<p>La conducta del profesorado y alumnado del curso será acorde con los principios y valores especificados en el Código de Ética de la Universidad Nacional Autónoma de México aprobado el 1 de julio del 2015 por el Consejo Universitario, en especial en lo referente a la integridad y honestidad académica. “La integridad y la honestidad académica implican: Citar las fuentes de ideas, textos, imágenes, gráficos u obras artı́sticas que se empleen en el trabajo universitario, y no sustraer o tomar la información generada por otros o por sı́ mismo sin señalar la cita correspondiente u obtener su consentimiento y acuerdo. No falsificar, alterar, manipular, fabricar, inventar o fingir la autenticidad de datos, resultados, imágenes o información en los trabajos académicos, proyectos de investigación, exámenes, ensayos, informes, reportes, tesis, audiencias, procedimientos de orden disciplinario o en cualquier documento inherente a la vida académica universitaria” (Gaceta UNAM, 30 de julio 2015).</p>
-</section>
-<section id="libros-de-apoyo">
-<h2>Libros de apoyo<a class="headerlink" href="#libros-de-apoyo" title="Link to this heading">#</a></h2>
-<ol>
- <li> Nise, N. S. (2020). Control systems engineering. John Wiley & Sons. </li>
- <li> Khalil, H. K. (2002). Nonlinear systems third edition. Patience Hall, 115. </li>
- <li> Slotine, J. J. E., & Li, W. (1991). Applied nonlinear control (Vol. 199, No. 1, p. 705). Englewood Cliffs, NJ: Prentice hall. </li>
- <li> Johansson, R. (1993). System modeling and identification. Prentice-hall. </li>
-</ol>
-<p>(Última modificación: 19 de junio de 2022)</p>
-</section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -542,12 +508,21 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="JESP_05_Observabilidad_sistemas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concepto de observabilidad</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="JESP_01_Introduccion_analisis.html"
+       href="references.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introducción al análisis de la dinámica de sistemas</p>
+        <p class="prev-next-title">Referencias</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -567,13 +542,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-del-academico">Información del académico</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisitos">Prerequisitos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#software-requerido-y-herramientas">Software requerido y herramientas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temario">Temario</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#para-presentar-examen">Para presentar examen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-de-conducta">Código de conducta</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libros-de-apoyo">Libros de apoyo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-del-problema-de-identificacion">Objetivo del problema de identificación.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-de-sistemas-dinamicos-en-forma-lineal-con-respecto-a-los-parametros">Representación de sistemas dinámicos en forma lineal con respecto a los parámetros.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-estimacion-de-parametros">Métodos de estimación de parámetros.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-experimentos-para-la-identificacion-parametrica">Diseño de experimentos para la identificación paramétrica.</a></li>
 </ul>
   </nav></div>
 

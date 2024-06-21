@@ -62,6 +62,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_01_Introduccion_analisis';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_01_Introduccion_analisis.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Antecedentes matemáticos" href="JESP_02_Antecedentes_mat.html" />
@@ -104,8 +105,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -173,14 +174,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Contenido del curso
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción al análisis de la dinámica de sistemas</a></li>
 
@@ -189,11 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -248,7 +242,25 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -290,6 +302,23 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_01_Introduccion_analisis.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -523,7 +552,7 @@ document.write(`
 <span class="eqno">(5)<a class="headerlink" href="#equation-eqn-componentes-simp" title="Link to this equation">#</a></span>\[
  -mg\sin(\theta) - m\ddot{x}\cos(\theta) = m \ddot{y}\sin(\theta).
 \]</div>
-<p>Observando el diagrama de la <a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html#fig-single-pendulum"><span class="std std-numref">Fig. 8</span></a>, tenemos que la posición de la masa está dada por sus componentes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dentro de un plano cartesiano. Así mismo, tenemos que <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(\theta\)</span> están en un sistema de coordenadas polares. Por lo tanto, podemos utilizar la relación que hay entre estos sistemas para establecer las siguientes relaciones</p>
+<p>Observando el diagrama de la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, tenemos que la posición de la masa está dada por sus componentes <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> dentro de un plano cartesiano. Así mismo, tenemos que <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(\theta\)</span> están en un sistema de coordenadas polares. Por lo tanto, podemos utilizar la relación que hay entre estos sistemas para establecer las siguientes relaciones</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ecs-polares">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eqn-ecs-polares" title="Link to this equation">#</a></span>\[
  x = l\sin(\theta), \quad y = -l\cos(\theta).
@@ -607,7 +636,7 @@ document.write(`
 <p class="admonition-title">Hint</p>
 <p>En este contexto conservativo significa libre de disipación y entradas de fuerzas externas.</p>
 </div>
-<p>El sistema mostrado en la <a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html#fig-single-pendulum"><span class="std std-numref">Fig. 8</span></a>, sólo posee un grado de libertad denotado como <span class="math notranslate nohighlight">\(\theta\)</span>. Entonces, definimos las siguientes coordenadas generalizadas</p>
+<p>El sistema mostrado en la <a class="reference internal" href="#fig-single-pendulum"><span class="std std-numref">Fig. 1</span></a>, sólo posee un grado de libertad denotado como <span class="math notranslate nohighlight">\(\theta\)</span>. Entonces, definimos las siguientes coordenadas generalizadas</p>
 <div class="math notranslate nohighlight">
 \[
  q := \theta, \quad \dot{q} := \dot{\theta}.

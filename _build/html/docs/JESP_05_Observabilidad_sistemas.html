@@ -62,8 +62,10 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/JESP_05_Observabilidad_sistemas';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://jesolisp.github.io/Curso-Modelacion-Sistemas-Fisicos/docs/JESP_05_Observabilidad_sistemas.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Identificación de sistemas dinámicos" href="JESP_06_Identificacion_sistemas.html" />
     <link rel="prev" title="Controlabilidad de sistemas dinámicos" href="JESP_04_Controlabilidad_sistemas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -103,8 +105,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -172,14 +174,6 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="home.html">
-                    Contenido del curso
-                </a>
-            </li>
-        </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
@@ -188,11 +182,12 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Concepto de observabilidad</a></li>
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Referencias</a></li>
 </ul>
 
     </div>
@@ -247,7 +242,25 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/main/docs/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jesolisp/Curso-Modelacion-Sistemas-Fisicos/master?urlpath=tree/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jesolisp/Curso-Modelacion-Sistemas-Fisicos/blob/master/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,6 +302,23 @@
   <i class="fab fa-github"></i>
   </span>
 <span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jesolisp/Curso-Modelacion-Sistemas-Fisicos/edit/main/docs/JESP_05_Observabilidad_sistemas.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
 </a>
 </li>
       
@@ -468,7 +498,7 @@ document.write(`
 </figcaption>
 </figure>
 <p>Para ello, considere que tenemos sólo una señal medida <span class="math notranslate nohighlight">\(y\)</span> que pueda ser afectada por ruido <span class="math notranslate nohighlight">\(n\)</span>. Aquí, denotamos <span class="math notranslate nohighlight">\(\hat{x}\)</span> como el estado estimado dado por el observador.</p>
-<div class="proof definition admonition" id="definition-0">
+<div class="proof definition admonition" id="LTI-observable">
 <p class="admonition-title"><span class="caption-number">Definition 7 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Un sistema <em>LTI</em> es <em>observable</em> si es posible determinar el estado de un sistema <span class="math notranslate nohighlight">\(x\)</span> a través de las mediciones de <span class="math notranslate nohighlight">\(y\)</span> y <span class="math notranslate nohighlight">\(u\)</span> sobre el intervalo <span class="math notranslate nohighlight">\([0,t]\)</span>, para cualquier <span class="math notranslate nohighlight">\(t&gt;0\)</span>.</p>
@@ -605,7 +635,7 @@ document.write(`
 </div>
 <section id="diseno-de-observador-via-asignacion-de-eigenvalores">
 <h3>Diseño de observador via asignación de eigenvalores<a class="headerlink" href="#diseno-de-observador-via-asignacion-de-eigenvalores" title="Link to this heading">#</a></h3>
-<div class="proof theorem admonition" id="theorem-1">
+<div class="proof theorem admonition" id="asignacion-eigenvalores">
 <p class="admonition-title"><span class="caption-number">Theorem 10 </span></p>
 <section class="theorem-content" id="proof-content">
 <p>Considere el siguiente sistema SISO</p>
@@ -765,8 +795,8 @@ document.write(`
 <li><p>Condición de controlabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9f7c53e-d44e-4084-a3e5-d50f81be3285">
-<span class="eqno">(58)<a class="headerlink" href="#equation-a9f7c53e-d44e-4084-a3e5-d50f81be3285" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-cf4433bb-7190-4a9b-a01f-cc9279c63b19">
+<span class="eqno">(58)<a class="headerlink" href="#equation-cf4433bb-7190-4a9b-a01f-cc9279c63b19" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    B &amp; AB &amp; \cdots &amp; A^{n-1}B
   \end{bmatrix}\]</div>
 </li>
@@ -778,8 +808,8 @@ $$</p>
 $$
 \text{rank}\left{</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-00767fcb-3036-47c6-8bce-6484d9d4722a">
-<span class="eqno">(59)<a class="headerlink" href="#equation-00767fcb-3036-47c6-8bce-6484d9d4722a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-7c222a2c-3a41-4837-94e8-1194f869900e">
+<span class="eqno">(59)<a class="headerlink" href="#equation-7c222a2c-3a41-4837-94e8-1194f869900e" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
   \end{bmatrix}\]</div>
 <p>\right} = n.
@@ -789,8 +819,8 @@ $$</p>
 <li><p>Condición de controlabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-188ae7c3-cac8-438b-9008-ba33bc4d4e75">
-<span class="eqno">(60)<a class="headerlink" href="#equation-188ae7c3-cac8-438b-9008-ba33bc4d4e75" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-46e87d9e-1231-4365-9e3a-b9a13283c5ea">
+<span class="eqno">(60)<a class="headerlink" href="#equation-46e87d9e-1231-4365-9e3a-b9a13283c5ea" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
   \end{bmatrix}\]</div>
 </li>
@@ -801,8 +831,8 @@ $$</p>
 <li><p>Condición de observabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-943787a3-5040-4d43-8a7d-461617cd30d3">
-<span class="eqno">(61)<a class="headerlink" href="#equation-943787a3-5040-4d43-8a7d-461617cd30d3" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-4284ca32-1bd4-47aa-8531-36528dd9d364">
+<span class="eqno">(61)<a class="headerlink" href="#equation-4284ca32-1bd4-47aa-8531-36528dd9d364" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    B &amp; AB &amp; \cdots &amp; A^{n-1}B
   \end{bmatrix}\]</div>
 </li>
@@ -813,7 +843,7 @@ $$</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov">
 <h1>Procedimiento para obtener la ganancia del observador via Lyapunov<a class="headerlink" href="#procedimiento-para-obtener-la-ganancia-del-observador-via-lyapunov" title="Link to this heading">#</a></h1>
-<p>La ganancia <span class="math notranslate nohighlight">\(L\)</span> del observador de estados \eqref{eqn:observer}, se pude obtener a partir de la siguiente expresión \citep{coronel2017design}</p>
+<p>La ganancia <span class="math notranslate nohighlight">\(L\)</span> del observador de estados \eqref{eqn:observer}, se pude obtener a partir de la siguiente expresión <span id="id1">[<a class="reference internal" href="references.html#id11" title="Antonio Coronel-Escamilla, José Francisco Gómez-Aguilar, L Torres, Martin Valtierra-Rodriguez, and Ricardo Fabricio Escobar-Jiménez. Design of a state observer to approximate signals by using the concept of fractional variable-order derivative. Digital Signal Processing, 69:127–139, 2017.">Coronel-Escamilla <em>et al.</em>, 2017</a>]</span></p>
 <div class="math notranslate nohighlight">
 \[
  L = S^{-1}C^{T},
@@ -964,6 +994,15 @@ $$</p>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Controlabilidad de sistemas dinámicos</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="JESP_06_Identificacion_sistemas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Identificación de sistemas dinámicos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

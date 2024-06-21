@@ -10,3 +10,5 @@ chapters:
 - file: docs/JESP_03_Fundamentos_estabilidad
 - file: docs/JESP_04_Controlabilidad_sistemas
 - file: docs/JESP_05_Observabilidad_sistemas
+- file: docs/JESP_06_Identificacion_sistemas
+- file: docs/references
