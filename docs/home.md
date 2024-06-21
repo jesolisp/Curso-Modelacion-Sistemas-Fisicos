@@ -18,7 +18,7 @@
 <ol>
  <li> Python & Jupyter Notebook. </li>
  <li> Sistema operativo: Windows 10, Linux, o macOS. </li>
- <li> Web Browser: Google Chrome, Opera o Firefox. </li>
+ <li> Navegador: Google Chrome, Opera o Firefox. </li>
  <li> Markdown para escribir documentación. </li>
  <li> Sistema de control de versiones. </li>
 </ol>
