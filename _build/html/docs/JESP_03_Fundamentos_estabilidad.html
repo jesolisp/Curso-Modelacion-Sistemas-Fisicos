@@ -190,7 +190,9 @@
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Observabilidad de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
+
+
 
 </ul>
 
@@ -424,22 +426,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">Linealización de sistemas en torno a un punto de equilibrio</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-circuito-de-diodo-tunel">Ejemplo 1. Circuito de diodo tunel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-pendulo-simple">Ejemplo 2. Péndulo simple</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">Análisis de la estabilidad de sistemas dinámicos linealizados</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1. Circuito de diodo tunel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2. Péndulo simple</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a></li>
@@ -634,9 +628,10 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>La matrix <span class="math notranslate nohighlight">\([\partial f/\partial x]\)</span> es llamada la matriz Jacobiana de <span class="math notranslate nohighlight">\(f(x)\)</span> mientras que <span class="math notranslate nohighlight">\(A\)</span> es la matriz Jacobiana evaluada en el punto de equilibrio <span class="math notranslate nohighlight">\(p\)</span>.</p>
 </div>
-<section id="ejemplo-1-circuito-de-diodo-tunel">
-<h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#ejemplo-1-circuito-de-diodo-tunel" title="Link to this heading">#</a></h4>
-<p>Considere el circuito de diodo tunel que se muestra a continuación</p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere el circuito de diodo tunel que se muestra a continuación</p></li>
+</ul>
 <figure class="align-default" id="fig-diodo-tunel">
 <a class="reference internal image-reference" href="../_images/diodo_tunel.png"><img alt="../_images/diodo_tunel.png" src="../_images/diodo_tunel.png" style="height: 300px;" /></a>
 <figcaption>
@@ -663,10 +658,10 @@ document.write(`
 <li><p>Linealice el sistema.</p></li>
 <li><p>Evalúe la matriz Jacobiana en los puntos de equilibrio.</p></li>
 </ol>
-</section>
-<section id="ejemplo-2-pendulo-simple">
-<h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#ejemplo-2-pendulo-simple" title="Link to this heading">#</a></h4>
-<p>Considere el péndulo simple mostrado en la siguiente</p>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Considere el péndulo simple mostrado en la siguiente</p></li>
+</ul>
 <figure class="align-default" id="fig-single-pendulum">
 <a class="reference internal image-reference" href="../_images/single_pendulum.png"><img alt="../_images/single_pendulum.png" src="../_images/single_pendulum.png" style="height: 300px;" /></a>
 <figcaption>
@@ -687,7 +682,6 @@ document.write(`
 <li><p>Linealice el sistema.</p></li>
 <li><p>Evalúe la matriz Jacobiana en los puntos de equilibrio.</p></li>
 </ol>
-</section>
 </section>
 </section>
 <hr class="docutils" />
@@ -822,14 +816,14 @@ document.write(`
 <p>Las trayectorias que forman el retrato fase para estos casos en particular se muestran en la siguientes figuras</p>
 <p><img alt="Eigenvalore cero" src="../_images/case4_a.png" /></p>
 <p><img alt="Eigenvalores en el origen" src="../_images/case4_b.png" /></p>
-<section id="id1">
-<h4>Ejemplo 1. Circuito de diodo tunel<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
-<p>Clasifique los puntos de equilibrio del circuito de diodo tunel <a class="reference internal" href="#equation-eqn-diodo-tunel">(38)</a> y determine su estabilidad.</p>
-</section>
-<section id="id2">
-<h4>Ejemplo 2. Péndulo simple<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
-<p>Clasifique los puntos de equilibrio del sistema de péndulo simple <a class="reference internal" href="#equation-eqn-single-pendulum">(39)</a> y determine su estabilidad.</p>
-</section>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Clasifique los puntos de equilibrio del circuito de diodo tunel <a class="reference internal" href="#equation-eqn-diodo-tunel">(38)</a> y determine su estabilidad.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<ul class="simple">
+<li><p>Clasifique los puntos de equilibrio del sistema de péndulo simple <a class="reference internal" href="#equation-eqn-single-pendulum">(39)</a> y determine su estabilidad.</p></li>
+</ul>
 </section>
 </section>
 <hr class="docutils" />
@@ -1213,22 +1207,14 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion-de-sistemas-en-torno-a-un-punto-de-equilibrio">Linealización de sistemas en torno a un punto de equilibrio</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-1-circuito-de-diodo-tunel">Ejemplo 1. Circuito de diodo tunel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-2-pendulo-simple">Ejemplo 2. Péndulo simple</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealizacion">Linealización</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-estabilidad-de-sistemas-dinamicos-linealizados">Análisis de la estabilidad de sistemas dinámicos linealizados</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-ambos-eigenvalores-son-reales-lambda-1-neq-lambda-2-neq-0">Caso 1. Ambos eigenvalores son reales: <span class="math notranslate nohighlight">\(\lambda_{1} \neq \lambda_{2} \neq 0\)</span>.</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-eigenvalores-complejos-lambda-1-2-alpha-pm-j-beta">Caso 2. Eigenvalores complejos: <span class="math notranslate nohighlight">\(\lambda_{1,2} = \alpha \pm j\beta\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-3-eigenvalores-multiples-diferentes-de-cero-lambda-1-lambda-2-lambda-neq-0">Caso 3. Eigenvalores múltiples diferentes de cero: <span class="math notranslate nohighlight">\(\lambda_{1}=\lambda_{2} = \lambda \neq 0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejemplo 1. Circuito de diodo tunel</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ejemplo 2. Péndulo simple</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-4-uno-o-ambos-autovalores-son-cero">Caso 4. Uno o ambos autovalores son cero</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-estabilidad-por-el-metodo-directo-de-lyapunov">Análisis de estabilidad por el método directo de Lyapunov</a></li>
