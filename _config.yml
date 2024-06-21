@@ -1,9 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Modelación de Sistemas Físicos # Change this to your book title.
-author: Dr. Jesús Emmanuel Solís Pérez # Change this to your name (or your team/organization name).
-logo: docs/images/closed_loop.png
+title: Modelación de Sistemas Físicos # The title of the book. Will be placed in the left navbar.
+author: Dr. Jesús Emmanuel Solís Pérez # The author of the book
+copyright: "2024" # Copyright year to be placed in the footer
+logo: docs/images/closed_loop.png # A path to the book logo
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -51,3 +52,7 @@ parse:
     - amsmath
     - dollarmath
     - html_image
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - docs/references.bib
