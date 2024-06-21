@@ -178,12 +178,9 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Controlabilidad de sistemas dinámicos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="JESP_05_Observabilidad_sistemas.html">Concepto de observabilidad</a></li>
-
 
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
@@ -614,8 +611,8 @@ document.write(`
 <p>donde <span class="math notranslate nohighlight">\(c_{\theta} = \cos(\theta)\)</span> y <span class="math notranslate nohighlight">\(s_{\theta} = \sin(\theta)\)</span>.</p>
 <p>En ocaciones, el ángulo <span class="math notranslate nohighlight">\(\theta\)</span> puede ser cercano a <span class="math notranslate nohighlight">\(0\)</span>. Por consiguiente, podemos hacer las siguientes suposiciones: <span class="math notranslate nohighlight">\(\sin(\theta) \approx \theta\)</span> y <span class="math notranslate nohighlight">\(\cos(\theta) \approx 1\)</span>. Además, si <span class="math notranslate nohighlight">\(\dot{\theta}\)</span> es pequeño, entonces se puede menospreciar los términos cuadráticos y superiores en <span class="math notranslate nohighlight">\(\dot{\theta}\)</span>.</p>
 <p>Reescribiendo el sistema a partir de estas suposiciones, tenemos</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eqn-cart-pendulum-system">
+<span class="eqno">(44)<a class="headerlink" href="#equation-eqn-cart-pendulum-system" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{bmatrix}
   \dot{p} \\
   \dot{\theta} \\
@@ -704,7 +701,7 @@ document.write(`
 \end{split}\]</div>
 <p>donde la matriz de controlabilidad puede ser obtenida como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-u">
-<span class="eqno">(44)<a class="headerlink" href="#equation-eqn-u" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(45)<a class="headerlink" href="#equation-eqn-u" title="Link to this equation">#</a></span>\[\begin{split}
  U = \begin{bmatrix}
   1 &amp; -a_{1} &amp; e_{2} &amp; e_{3} \\
   0 &amp; 1 &amp; -a_{1} &amp; e_{2} \\
@@ -715,7 +712,7 @@ document.write(`
 <p>con <span class="math notranslate nohighlight">\(e_{2} := -a_{2} + a_{1}^{2}\)</span> y <span class="math notranslate nohighlight">\(e_{3} := -a_{3} + 2a_{1}a_{2}-a_{1}^{3}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>La matriz <a class="reference internal" href="#equation-eqn-u">(44)</a> es una matriz triangular cuyo determinante siempre es 1. Por consiguiente, siempre es controlable y es la razón por la que se llama <em>forma controlable</em>.</p>
+<p>La matriz <a class="reference internal" href="#equation-eqn-u">(45)</a> es una matriz triangular cuyo determinante siempre es 1. Por consiguiente, siempre es controlable y es la razón por la que se llama <em>forma controlable</em>.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -731,7 +728,7 @@ document.write(`
 </figure>
 <p>Entonces, considere el siguiente sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ree-2">
-<span class="eqno">(45)<a class="headerlink" href="#equation-eqn-ree-2" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(46)<a class="headerlink" href="#equation-eqn-ree-2" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
   y &amp;= Cx + Du,
@@ -744,12 +741,12 @@ document.write(`
 \]</div>
 <p>El objetivo es llevar la salida <span class="math notranslate nohighlight">\(y\)</span> al valor de referencia <span class="math notranslate nohighlight">\(r\)</span> a partir de la medición de los estados <span class="math notranslate nohighlight">\(x\)</span>. Para ello, consideramos que la ley de control invariante en el tiempo definida como <span class="math notranslate nohighlight">\(u\)</span> es una función del estado y la referencia como se muestra a continuación</p>
 <div class="math notranslate nohighlight" id="equation-eqn-u-ctrl">
-<span class="eqno">(46)<a class="headerlink" href="#equation-eqn-u-ctrl" title="Link to this equation">#</a></span>\[
+<span class="eqno">(47)<a class="headerlink" href="#equation-eqn-u-ctrl" title="Link to this equation">#</a></span>\[
  u = r - Kx,
 \]</div>
 <p>donde <span class="math notranslate nohighlight">\(K = \begin{bmatrix} k_{1} &amp; k_{2} &amp; \cdots &amp; k_{n} \end{bmatrix}\)</span> es un vector real de dimensión <span class="math notranslate nohighlight">\(1\times n\)</span>.</p>
-<p>La ecuación <a class="reference internal" href="#equation-eqn-u-ctrl">(46)</a> es conocida como <em>retroalimentación de estado de ganancia constante</em> o simplemente <em>retroalimentación de estado</em> <span id="id1">[<a class="reference internal" href="references.html#id9" title="Karl Johan Åström and Richard M Murray. Feedback systems: an introduction for scientists and engineers. Princeton university press, 2021.">Åström and Murray, 2021</a>]</span>.</p>
-<p>Sustituyendo <a class="reference internal" href="#equation-eqn-u-ctrl">(46)</a> en <a class="reference internal" href="#equation-eqn-ree-2">(45)</a>, tenemos</p>
+<p>La ecuación <a class="reference internal" href="#equation-eqn-u-ctrl">(47)</a> es conocida como <em>retroalimentación de estado de ganancia constante</em> o simplemente <em>retroalimentación de estado</em> <span id="id1">[<a class="reference internal" href="references.html#id9" title="Karl Johan Åström and Richard M Murray. Feedback systems: an introduction for scientists and engineers. Princeton university press, 2021.">Åström and Murray, 2021</a>]</span>.</p>
+<p>Sustituyendo <a class="reference internal" href="#equation-eqn-u-ctrl">(47)</a> en <a class="reference internal" href="#equation-eqn-ree-2">(46)</a>, tenemos</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
  \begin{aligned}
@@ -764,10 +761,10 @@ document.write(`
 \]</div>
 <p>con polinomio caracteristico</p>
 <div class="math notranslate nohighlight" id="equation-eqn-pol-car-cl">
-<span class="eqno">(47)<a class="headerlink" href="#equation-eqn-pol-car-cl" title="Link to this equation">#</a></span>\[
+<span class="eqno">(48)<a class="headerlink" href="#equation-eqn-pol-car-cl" title="Link to this equation">#</a></span>\[
  p(s) = s^{n} + a_{1}s^{n-1}+\cdots+a_{n-1}s + a_{n}.
 \]</div>
-<p>El cálculo de la ganancia de retroalimentación <span class="math notranslate nohighlight">\(K\)</span> para que el sistema de lazo cerrado con polinomio <a class="reference internal" href="#equation-eqn-pol-car-cl">(47)</a> se conoce como <em>asignación de eigenvalores</em> o <em>localización de polos</em>.</p>
+<p>El cálculo de la ganancia de retroalimentación <span class="math notranslate nohighlight">\(K\)</span> para que el sistema de lazo cerrado con polinomio <a class="reference internal" href="#equation-eqn-pol-car-cl">(48)</a> se conoce como <em>asignación de eigenvalores</em> o <em>localización de polos</em>.</p>
 <p>Por otro lado, si consideramos el esquema de control mostrado en la <a class="reference internal" href="#fig-state-feedback"><span class="std std-numref">Fig. 12</span></a>, tenemos la siguiente ley de control</p>
 <div class="math notranslate nohighlight">
 \[
@@ -880,7 +877,7 @@ document.write(`
 <li><p>Considere el problema de regular la población de un ecosistema mediante la modulación del suministro de alimentos. Para ello considere el modelo depredador-presa cuya dinámica está dada por las siguientes ecuaciones</p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eqn-predator-prey-sys">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eqn-predator-prey-sys" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(49)<a class="headerlink" href="#equation-eqn-predator-prey-sys" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{H} &amp;= (r + u)H\left(1 - \frac{H}{k} \right) - \frac{aHL}{c+H}, \quad H\geq 0, \\
   \dot{L} &amp;= b \frac{aHL}{c + H}  - dL, \quad L \geq 0.
@@ -889,10 +886,10 @@ document.write(`
 <p>En este sistema, <span class="math notranslate nohighlight">\(r\)</span> denota la tasa de crecimiento de las liebres, <span class="math notranslate nohighlight">\(k\)</span> la población máxima, <span class="math notranslate nohighlight">\(a\)</span> el término que describe la disminución de las liebres en función de la población, <span class="math notranslate nohighlight">\(c\)</span> representa la tasa de consumo de presas, <span class="math notranslate nohighlight">\(b\)</span> el coeficiente de crecimiento de los linces y finalmente <span class="math notranslate nohighlight">\(d\)</span> la tasa de mortalidad de los linces.</p>
 <p><strong>Ejemplo</strong></p>
 <ul class="simple">
-<li><p>Considere el problema del carro-péndulo dado por la Ec. <code class="xref eq docutils literal notranslate"><span class="pre">eqn:cart_pendulum_system</span></code></p></li>
+<li><p>Considere el problema del carro-péndulo dado por la Ec. <a class="reference internal" href="#equation-eqn-cart-pendulum-system">(44)</a></p></li>
 </ul>
 <div class="math notranslate nohighlight" id="equation-eqn-cart-pendulum-system-2">
-<span class="eqno">(49)<a class="headerlink" href="#equation-eqn-cart-pendulum-system-2" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(50)<a class="headerlink" href="#equation-eqn-cart-pendulum-system-2" title="Link to this equation">#</a></span>\[\begin{split}
  A =
  \begin{bmatrix}
   0 &amp; 0 &amp; 1 &amp; 0 \\
@@ -968,7 +965,7 @@ document.write(`
 <p>donde <span class="math notranslate nohighlight">\(a := r_{a}\tan(\alpha)\)</span>, <span class="math notranslate nohighlight">\(b:= r_{a} \tan(\delta)\)</span>.</p>
 <p>Asuma que las ruedas no patinan y que la velocidad de las ruedas traseras es <span class="math notranslate nohighlight">\(v_{0}\)</span>, entonces la velocidad del vehículo en su centro de masa es <span class="math notranslate nohighlight">\(v=v_{0}/\cos(\alpha)\)</span>. Por consiguiente, el movimiento de este punto está dado como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-vehiculo">
-<span class="eqno">(50)<a class="headerlink" href="#equation-eqn-vehiculo" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(51)<a class="headerlink" href="#equation-eqn-vehiculo" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x} &amp;= v\cos(\alpha + \theta) = v_{0} \frac{\cos(\alpha + \theta)}{\cos(\alpha)}, \\
   \dot{y} &amp;= v\sin(\alpha + \theta) = v_{0} \frac{\sin(\alpha + \theta)}{\cos(\alpha)}.
@@ -979,7 +976,7 @@ document.write(`
 \[
  \dot{\theta} = \frac{v_{0}}{r_{a}} = \frac{v_{0}}{b}\tan(\delta).
 \]</div>
-<p>Asuma que <span class="math notranslate nohighlight">\(\delta = 0\)</span> y <span class="math notranslate nohighlight">\(\dot{\theta} = 0\)</span> para encontrar el punto de equilibrio del sistema y proceda a linealizar <a class="reference internal" href="#equation-eqn-vehiculo">(50)</a>.</p>
+<p>Asuma que <span class="math notranslate nohighlight">\(\delta = 0\)</span> y <span class="math notranslate nohighlight">\(\dot{\theta} = 0\)</span> para encontrar el punto de equilibrio del sistema y proceda a linealizar <a class="reference internal" href="#equation-eqn-vehiculo">(51)</a>.</p>
 </section>
 </section>
 <section id="respuesta-de-estado-estacionario">
@@ -994,7 +991,7 @@ document.write(`
 \end{split}\]</div>
 <p>donde su solución se puede obtener a partir de la ecuación de convolución</p>
 <div class="math notranslate nohighlight" id="equation-eqn-conv-eq">
-<span class="eqno">(51)<a class="headerlink" href="#equation-eqn-conv-eq" title="Link to this equation">#</a></span>\[
+<span class="eqno">(52)<a class="headerlink" href="#equation-eqn-conv-eq" title="Link to this equation">#</a></span>\[
  y(t) = Ce^{At}x_{0} + \int_{0}^{t}Ce^{A(t-\tau)}Bu(\tau) \mathrm{d}\tau.
 \]</div>
 <p>Como se puede observar, la respuesta del sistema depende de una condición inicial <span class="math notranslate nohighlight">\(x_{0}\)</span> y una entrada <span class="math notranslate nohighlight">\(u\)</span>. Además, es posible observar que en esta expresión existen dos componentes: la <em>respuesta transitoria</em> y la <em>respuesta de estado estable</em>. La primera ocurre cuando se aplica una entrada y se observa  un desajuste entre la condición inicial y la solución de estado estable. La segunda refleja el comportamiento del sistema bajo las entradas dadas. En la <a class="reference internal" href="#fig-step-response"><span class="std std-numref">Fig. 14</span></a> podemos ver estos dos componentes en respuesta ante una entrada de tipo escalón unitario.</p>
@@ -1004,7 +1001,7 @@ document.write(`
 </div>
 <p>Un <em>escalón unitario</em>, <em>entrada escalón</em> o <em>escalón de Heaviside</em> es una función definida a pedazos como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-step-fcn">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eqn-step-fcn" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(53)<a class="headerlink" href="#equation-eqn-step-fcn" title="Link to this equation">#</a></span>\[\begin{split}
  u(t) = \left\{
   \begin{matrix}
    0, &amp; t = 0, \\
@@ -1012,7 +1009,7 @@ document.write(`
   \end{matrix}
  \right.
 \end{split}\]</div>
-<p>Definimos entonces como <em>respuesta escalonada</em> a la salida <span class="math notranslate nohighlight">\(y(t)\)</span> a partir de una condición inicial en el punto de equilibrio del sistema y una entrada <span class="math notranslate nohighlight">\(u(t)\)</span> de la forma <a class="reference internal" href="#equation-eqn-step-fcn">(52)</a>.</p>
+<p>Definimos entonces como <em>respuesta escalonada</em> a la salida <span class="math notranslate nohighlight">\(y(t)\)</span> a partir de una condición inicial en el punto de equilibrio del sistema y una entrada <span class="math notranslate nohighlight">\(u(t)\)</span> de la forma <a class="reference internal" href="#equation-eqn-step-fcn">(53)</a>.</p>
 <figure class="align-default" id="fig-step-response">
 <a class="reference internal image-reference" href="../_images/step_response.png"><img alt="../_images/step_response.png" src="../_images/step_response.png" style="height: 300px;" /></a>
 <figcaption>

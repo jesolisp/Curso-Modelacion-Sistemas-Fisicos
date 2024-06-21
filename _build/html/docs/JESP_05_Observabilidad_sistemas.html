@@ -178,12 +178,9 @@
 <li class="toctree-l1"><a class="reference internal" href="JESP_01_Introduccion_analisis.html">Introducción al análisis de la dinámica de sistemas</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_02_Antecedentes_mat.html">Antecedentes matemáticos</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_03_Fundamentos_estabilidad.html">Fundamentos del análisis de estabilidad en el sentido de Lyapunov</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="JESP_04_Controlabilidad_sistemas.html">Controlabilidad de sistemas dinámicos</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Concepto de observabilidad</a></li>
-
 
 
 <li class="toctree-l1"><a class="reference internal" href="JESP_06_Identificacion_sistemas.html">Identificación de sistemas dinámicos</a></li>
@@ -466,7 +463,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-utilizando-estimadores-de-estado">Control utilizando estimadores de estado</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
 
             </nav>
@@ -483,7 +479,7 @@ document.write(`
 <h1>Concepto de observabilidad<a class="headerlink" href="#concepto-de-observabilidad" title="Link to this heading">#</a></h1>
 <p>Considere un sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado como sigue</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ree-ch5">
-<span class="eqno">(53)<a class="headerlink" href="#equation-eqn-ree-ch5" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(54)<a class="headerlink" href="#equation-eqn-ree-ch5" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
   y &amp;= Cx + Du,
@@ -512,7 +508,7 @@ document.write(`
    CA^{n-1}
   \end{bmatrix},
  \end{split}\]</div>
-<p>entonces el sistema <a class="reference internal" href="#equation-eqn-ree-ch5">(53)</a> es observable si y sólo si la matriz <span class="math notranslate nohighlight">\(V\)</span> tiene rango <span class="math notranslate nohighlight">\(n\)</span> o bien, <span class="math notranslate nohighlight">\(\text{det}\{V\} \neq 0\)</span>.</p>
+<p>entonces el sistema <a class="reference internal" href="#equation-eqn-ree-ch5">(54)</a> es observable si y sólo si la matriz <span class="math notranslate nohighlight">\(V\)</span> tiene rango <span class="math notranslate nohighlight">\(n\)</span> o bien, <span class="math notranslate nohighlight">\(\text{det}\{V\} \neq 0\)</span>.</p>
 </section>
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -598,13 +594,13 @@ document.write(`
 <h2>Estimación de estados<a class="headerlink" href="#estimacion-de-estados" title="Link to this heading">#</a></h2>
 <p>Considere el siguiente sistema <span class="math notranslate nohighlight">\(n\)</span>-dimensional en representación de espacio-estado</p>
 <div class="math notranslate nohighlight" id="equation-eqn-ree-2-ch5">
-<span class="eqno">(54)<a class="headerlink" href="#equation-eqn-ree-2-ch5" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(55)<a class="headerlink" href="#equation-eqn-ree-2-ch5" title="Link to this equation">#</a></span>\[\begin{split}
  \begin{aligned}
   \dot{x} &amp;= Ax + Bu, \\
   y &amp;= Cx.
  \end{aligned}
 \end{split}\]</div>
-<p>Una estimación de los estados del sistema se puede obtener simulando las ecuaciones <a class="reference internal" href="#equation-eqn-ree-2-ch5">(54)</a> dada una entrada adecuada. Por lo tanto, el estimador de estados está dado por la siguiente expresión</p>
+<p>Una estimación de los estados del sistema se puede obtener simulando las ecuaciones <a class="reference internal" href="#equation-eqn-ree-2-ch5">(55)</a> dada una entrada adecuada. Por lo tanto, el estimador de estados está dado por la siguiente expresión</p>
 <div class="math notranslate nohighlight">
 \[
  \dot{\hat{x}} = A\hat{x} + Bu.
@@ -620,10 +616,10 @@ document.write(`
 </div>
 <p>Considere el siguiente observador</p>
 <div class="math notranslate nohighlight" id="equation-eqn-observer">
-<span class="eqno">(55)<a class="headerlink" href="#equation-eqn-observer" title="Link to this equation">#</a></span>\[
+<span class="eqno">(56)<a class="headerlink" href="#equation-eqn-observer" title="Link to this equation">#</a></span>\[
  \dot{\hat{x}} = A\hat{x} + Bu + L(y-C\hat{x}).
 \]</div>
-<p>Podemos observar que la retroalimentación de la salida se logra agregando el término <span class="math notranslate nohighlight">\(L(y-C\hat{x})\)</span> la cual es proporcional a la diferencia entre la salida observada y la salida estimada por el sistema <a class="reference internal" href="#equation-eqn-observer">(55)</a>. Por lo tanto</p>
+<p>Podemos observar que la retroalimentación de la salida se logra agregando el término <span class="math notranslate nohighlight">\(L(y-C\hat{x})\)</span> la cual es proporcional a la diferencia entre la salida observada y la salida estimada por el sistema <a class="reference internal" href="#equation-eqn-observer">(56)</a>. Por lo tanto</p>
 <div class="math notranslate nohighlight">
 \[
  \dot{\hat{x}} = (A - LC)\hat{x}.
@@ -640,7 +636,7 @@ document.write(`
 <section class="theorem-content" id="proof-content">
 <p>Considere el siguiente sistema SISO</p>
 <div class="math notranslate nohighlight" id="equation-eqn-siso-lti">
-<span class="eqno">(56)<a class="headerlink" href="#equation-eqn-siso-lti" title="Link to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(57)<a class="headerlink" href="#equation-eqn-siso-lti" title="Link to this equation">#</a></span>\[\begin{split}
   \begin{aligned}
    \dot{x} &amp;= Ax + Bu, \\
    y &amp;= Cx.
@@ -648,7 +644,7 @@ document.write(`
   \end{split}\]</div>
 <p>Sea <span class="math notranslate nohighlight">\(\lambda_{A}(s) = s^{n} + a_{1}s^{n-1} + \cdots + a_{n-1}s + a_{n}\)</span> el polinomio característico para <span class="math notranslate nohighlight">\(A\)</span>. Si el sistema es observable, entonces el sistema dinámico</p>
 <div class="math notranslate nohighlight" id="equation-eqn-observer-states-of">
-<span class="eqno">(57)<a class="headerlink" href="#equation-eqn-observer-states-of" title="Link to this equation">#</a></span>\[
+<span class="eqno">(58)<a class="headerlink" href="#equation-eqn-observer-states-of" title="Link to this equation">#</a></span>\[
   \dot{\hat{x}} = A\hat{x} + Bu + L(y - C\hat{x}),
   \]</div>
 <p>es un observador para el sistema, con <span class="math notranslate nohighlight">\(L\)</span> elegida como sigue</p>
@@ -687,7 +683,7 @@ document.write(`
   p(s) = s^{n} + p_{1}s^{n-1} + \cdots + p_{n}.
   \]</div>
 </section>
-</div><p>El sistema dado en la Ec. <a class="reference internal" href="#equation-eqn-observer-states-of">(57)</a> es llamado <em>observador</em> de estados del sistema <a class="reference internal" href="#equation-eqn-siso-lti">(56)</a> y su diagrama a bloques se muestra en la <a class="reference internal" href="#fig-observer-block-diagram"><span class="std std-numref">Fig. 17</span></a>.</p>
+</div><p>El sistema dado en la Ec. <a class="reference internal" href="#equation-eqn-observer-states-of">(58)</a> es llamado <em>observador</em> de estados del sistema <a class="reference internal" href="#equation-eqn-siso-lti">(57)</a> y su diagrama a bloques se muestra en la <a class="reference internal" href="#fig-observer-block-diagram"><span class="std std-numref">Fig. 17</span></a>.</p>
 <figure class="align-default" id="fig-observer-block-diagram">
 <a class="reference internal image-reference" href="../_images/observer_block_diagram.png"><img alt="../_images/observer_block_diagram.png" src="../_images/observer_block_diagram.png" style="height: 500px;" /></a>
 <figcaption>
@@ -795,8 +791,8 @@ document.write(`
 <li><p>Condición de controlabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf4433bb-7190-4a9b-a01f-cc9279c63b19">
-<span class="eqno">(58)<a class="headerlink" href="#equation-cf4433bb-7190-4a9b-a01f-cc9279c63b19" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-08ee7483-9aba-4a2a-a071-8c07fe699101">
+<span class="eqno">(59)<a class="headerlink" href="#equation-08ee7483-9aba-4a2a-a071-8c07fe699101" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    B &amp; AB &amp; \cdots &amp; A^{n-1}B
   \end{bmatrix}\]</div>
 </li>
@@ -808,8 +804,8 @@ $$</p>
 $$
 \text{rank}\left{</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-7c222a2c-3a41-4837-94e8-1194f869900e">
-<span class="eqno">(59)<a class="headerlink" href="#equation-7c222a2c-3a41-4837-94e8-1194f869900e" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-91d3748e-c575-4c0e-8256-c471fbe5b117">
+<span class="eqno">(60)<a class="headerlink" href="#equation-91d3748e-c575-4c0e-8256-c471fbe5b117" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
   \end{bmatrix}\]</div>
 <p>\right} = n.
@@ -819,8 +815,8 @@ $$</p>
 <li><p>Condición de controlabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46e87d9e-1231-4365-9e3a-b9a13283c5ea">
-<span class="eqno">(60)<a class="headerlink" href="#equation-46e87d9e-1231-4365-9e3a-b9a13283c5ea" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-1904871f-1441-43fd-9b51-bc7e9db080ff">
+<span class="eqno">(61)<a class="headerlink" href="#equation-1904871f-1441-43fd-9b51-bc7e9db080ff" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    C^{*} &amp; A^{*}C^{*} &amp; \cdots &amp; (A^{*})^{n-1}C^{*}
   \end{bmatrix}\]</div>
 </li>
@@ -831,8 +827,8 @@ $$</p>
 <li><p>Condición de observabilidad
 $$
 \text{rank}\left{</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4284ca32-1bd4-47aa-8531-36528dd9d364">
-<span class="eqno">(61)<a class="headerlink" href="#equation-4284ca32-1bd4-47aa-8531-36528dd9d364" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-caa25c35-4b76-442d-ab50-792ad72f88e5">
+<span class="eqno">(62)<a class="headerlink" href="#equation-caa25c35-4b76-442d-ab50-792ad72f88e5" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
    B &amp; AB &amp; \cdots &amp; A^{n-1}B
   \end{bmatrix}\]</div>
 </li>
@@ -850,11 +846,11 @@ $$</p>
  \]</div>
 <p>donde <span class="math notranslate nohighlight">\(S\)</span> es la solución única de la <em>ecuación algebráica de Lyapunov</em></p>
 <div class="math notranslate nohighlight" id="equation-eqn-lyapunov-alg">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eqn-lyapunov-alg" title="Link to this equation">#</a></span>\[
+<span class="eqno">(63)<a class="headerlink" href="#equation-eqn-lyapunov-alg" title="Link to this equation">#</a></span>\[
  -\lambda S - A^{T}S - SA + C^{T}C = 0,
  \]</div>
-<p>donde <span class="math notranslate nohighlight">\(\lambda\)</span> denota el parámetro para sintonizar la convergencia del observador <a class="reference internal" href="#equation-eqn-observer">(55)</a>.</p>
-<p>El siguiente fragmento de código permite encontrar la solución a la Ec. <a class="reference internal" href="#equation-eqn-lyapunov-alg">(62)</a></p>
+<p>donde <span class="math notranslate nohighlight">\(\lambda\)</span> denota el parámetro para sintonizar la convergencia del observador <a class="reference internal" href="#equation-eqn-observer">(56)</a>.</p>
+<p>El siguiente fragmento de código permite encontrar la solución a la Ec. <a class="reference internal" href="#equation-eqn-lyapunov-alg">(63)</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lyapunov</span><span class="p">(</span><span class="n">lamb</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
     <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
 
@@ -947,14 +943,6 @@ $$</p>
 </figure>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="referencias">
-<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Coronel-Escamilla, A., Gómez-Aguilar, J. F., Torres, L., Valtierra-Rodriguez, M., &amp; Escobar-Jiménez, R. F. (2017). Design of a state observer to approximate signals by using the concept of fractional variable-order derivative. <em>Digital Signal Processing</em>, 69, 127-139.</p></li>
-<li><p>Chen, C. T. (1995). <em>Analog and digital control system design: transfer-function, state-space, and algebraic methods</em>. Oxford University Press, Inc..</p></li>
-<li><p>Åström, K. J., &amp; Murray, R. M. (2021). <em>Feedback systems: an introduction for scientists and engineers</em>. Princeton university press.</p></li>
-</ul>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1037,7 +1025,6 @@ $$</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-utilizando-estimadores-de-estado">Control utilizando estimadores de estado</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
 
   </nav></div>
