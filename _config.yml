@@ -5,11 +5,23 @@ title: Modelación de Sistemas Físicos # The title of the book. Will be placed 
 author: Dr. Jesús Emmanuel Solís Pérez # The author of the book
 copyright: "2024" # Copyright year to be placed in the footer
 logo: docs/images/closed_loop.png # A path to the book logo
+# Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
+# Auto-exclude files not in the toc
+only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: "off" # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  cache: "" # A path to the jupyter cache that will be used to store execution artifacts. Defaults to `_build/.jupyter_cache/`
+  exclude_patterns: [] # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
+  timeout: 100 # The maximum time (in seconds) each notebook cell is allowed to run.
+  run_in_temp:
+    false # If `True`, then a temporary directory will be created and used as the command working directory (cwd),
+    # otherwise the notebook's parent directory will be the cwd.
+  allow_errors: false # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
+  stderr_output: show # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -44,6 +56,11 @@ sphinx:
       # This is for plotly to work
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    bibtex_reference_style: author_year
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - docs/references.bib
 
 parse:
   myst_enable_extensions:
@@ -52,7 +69,3 @@ parse:
     - amsmath
     - dollarmath
     - html_image
-
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - docs/references.bib
