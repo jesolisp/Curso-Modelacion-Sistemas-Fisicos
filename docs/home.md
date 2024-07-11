@@ -50,4 +50,4 @@ La conducta del profesorado y alumnado del curso será acorde con los principios
 </ol>
 
 
-(Última modificación: 19 de junio de 2022)
+(Última modificación: 10 de julio de 2024)
