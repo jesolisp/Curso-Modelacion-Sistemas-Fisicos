@@ -75,9 +75,9 @@ sphinx:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Define the name of the latex output file for PDF builds
-# latex:
-#   latex_documents:
-#     targetname: book.tex
+ latex:
+   latex_documents:
+     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
