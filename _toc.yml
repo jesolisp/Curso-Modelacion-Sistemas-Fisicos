@@ -13,4 +13,8 @@ chapters:
 - file: docs/JESP_06_Identificacion_sistemas
      sections:
         - file: docs/codes/JESP_01_Regresion_lineal
+        - file: docs/codes/JESP_02_Regresion_polinomial
+        - file: docs/codes/JESP_03_Regresion_no_lineal
+        - file: docs/codes/JESP_04_Redes_Neuronales_Artificiales
+        - file: docs/codes/JESP_05_Modelo_NARMAX
 - file: docs/references
